@@ -337,7 +337,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//Yantriks.module///BusinessProcess/RTAMFeed/JMSMaxSessions</name>
-			<value>1</value>
+			<value>2</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
