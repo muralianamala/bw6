@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no"
+    name="StarterProcesses.RTAMFeedService" suppressJoinFailure="yes"
+    targetNamespace="http://xmlns.example.com/20200420134923"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:info="http://www.tibco.com/bw/process/info"
+    xmlns:ns="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns0="http://www.tibco.com/namespaces/tnt/plugins/receiver+71231a7e-033f-46fb-aa05-537362ac683d+KafkaReceiverMessageOutput"
+    xmlns:ns1="http://www.tibco.com/namespaces/tnt/plugins/jms+c758f76c-390f-4ede-a367-8fed158eaab2+input"
+    xmlns:ns10="http://tns.tibco.com/bw/palette/internal/activityerror+001cbd14-36fa-421a-aca8-89c9c7d4c953"
+    xmlns:ns11="http://www.example.com/namespaces/tns/1587843285059"
+    xmlns:ns2="http://www.tibco.com/namespaces/tnt/plugins/jms"
+    xmlns:ns3="http://tns.tibco.com/bw/palette/internal/activityerror+bw.jms.send"
+    xmlns:ns4="activity.jsonParser.input+940696e4-d12a-40b0-a084-5661f136104e+ActivityInputType"
+    xmlns:ns5="http://tns.tibco.com/bw/palette/internal/activityerror+bw.restjson.JsonParser"
+    xmlns:ns6="http://www.example.org/RTAM-Kafka-Schema"
+    xmlns:ns7="http://www.example.org/Message"
+    xmlns:ns8="http://www.urbanoutfitters.com/leaf/auditclient"
+    xmlns:ns9="http://www.urbanoutfitters.com/leaf/exceptionclient"
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+    xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:Types>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/EngineTypes"
+            xmlns:tns="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="OptionalErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="FaultDetail">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ActivityName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ProcessContext">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ApplicationName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="EngineName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessInstanceId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="CustomJobId" type="xs:string"/>
+                    <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="TrackingInfo" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="anydata">
+                <xs:sequence>
+                    <xs:any namespace="##any" processContents="lax"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="OptionalErrorReport" type="tns:OptionalErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="FaultDetail" type="tns:FaultDetail"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ProcessContext" type="tns:ProcessContext"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="CorrelationValue" type="xs:string"/>
+        </xs:schema>
+        <schema attributeFormDefault="unqualified"
+            elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityException" type="tns:ActivityExceptionType"/>
+            <complexType name="ActivityTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/receiver+71231a7e-033f-46fb-aa05-537362ac683d+KafkaReceiverMessageOutput"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/receiver+71231a7e-033f-46fb-aa05-537362ac683d+KafkaReceiverMessageOutput">
+            <complexType name="KafkaReceiverMessageOutput">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="1" name="topic" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="partition" type="long"/>
+                    <element maxOccurs="1" minOccurs="1" name="offset" type="long"/>
+                    <element maxOccurs="1" minOccurs="0" name="key" type="string"/>
+                    <element maxOccurs="1" minOccurs="1" name="message" type="string"/>
+                    <element maxOccurs="1" minOccurs="0" name="headers">
+                        <complexType>
+                            <sequence>
+                                <element maxOccurs="2147483647"
+                                    minOccurs="0" name="header">
+                                    <complexType>
+                                    <sequence>
+                                    <element maxOccurs="1"
+                                    minOccurs="1" name="key" type="string"/>
+                                    <element maxOccurs="1"
+                                    minOccurs="1"
+                                    name="value" type="base64Binary"/>
+                                    </sequence>
+                                    </complexType>
+                                </element>
+                            </sequence>
+                        </complexType>
+                    </element>
+                </sequence>
+            </complexType>
+            <element name="KafkaReceiverMessageOutput" type="tns:KafkaReceiverMessageOutput"/>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/activityerror+001cbd14-36fa-421a-aca8-89c9c7d4c953"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://www.urbanoutfitters.com/leaf/exceptionclient" xmlns:tns="http://tns.tibco.com/bw/palette/internal/activityerror+001cbd14-36fa-421a-aca8-89c9c7d4c953">
+            <import namespace="http://www.urbanoutfitters.com/leaf/exceptionclient"/>
+            <element name="ActivityErrorData" type="tns:ActivityErrorDataType"/>
+            <complexType name="ActivityErrorDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:ErrorReport"/>
+                </choice>
+            </complexType>
+        </schema>
+    </tibex:Types>
+    <tibex:ProcessInfo callable="false" createdBy="MGaddipati"
+        createdOn="Mon Apr 20 13:49:23 IST 2020" description=""
+        extraErrorVars="true" modifiers="public"
+        productVersion="6.6.0 HF1 V55 2020-01-17" scalable="true"
+        singleton="true" stateless="false" type="IT"/>
+    <tibex:ProcessInterface context="" input="" output=""/>
+    <tibex:ProcessTemplateConfigurations/>
+    <notation:Diagram measurementUnit="Pixel" type="BWProcess"
+        xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
+        xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <children type="2001">
+            <children type="5001">
+                <element href="//0/@process"/>
+            </children>
+            <children type="3001">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3002">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3003">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3004">
+                <children type="4018">
+                    <children type="3018">
+                        <children type="4020">
+                            <children type="3020">
+                                <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint x="-26"
+                                    xsi:type="notation:Bounds" y="190"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint x="524"
+                                    xsi:type="notation:Bounds" y="184"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint x="296"
+                                    xsi:type="notation:Bounds" y="184"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint x="126"
+                                    xsi:type="notation:Bounds" y="37"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint x="126"
+                                    xsi:type="notation:Bounds" y="184"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    <layoutConstraint height="407"
+                                    width="721" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                                <element href="//0/@process/@activity"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity"/>
+                            <layoutConstraint height="372" width="724" xsi:type="notation:Bounds"/>
+                        </children>
+                        <children type="4022">
+                            <children type="3022">
+                                <children type="4029">
+                                    <children type="3031">
+                                    <children type="4033">
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint
+                                    height="34" width="34"
+                                    xsi:type="notation:Bounds" y="68"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3032">
+                                    <children type="4005">
+                                    <children type="3007">
+                                    <eAnnotations source="Pixel"/>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    x="271"
+                                    xsi:type="notation:Bounds" y="-13"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint
+                                    x="38"
+                                    xsi:type="notation:Bounds" y="70"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint
+                                    x="279"
+                                    xsi:type="notation:Bounds" y="70"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity"/>
+                                    <layoutConstraint
+                                    height="168" width="623" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles restoreHeight="178"
+                                    restoreWidth="674" xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint height="178"
+                                    width="674" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity/@faultHandlers"/>
+                            <layoutConstraint height="200" width="684"
+                                x="22" xsi:type="notation:Bounds" y="407"/>
+                        </children>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <element href="//0/@process/@activity"/>
+                    </children>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@activity"/>
+                    <layoutConstraint height="608" width="724" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <element href="//0/@process"/>
+            <layoutConstraint height="660" width="1066" xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:DiagramStyle"/>
+        <element href="//0"/>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, -1, -211, 12]$[212, -12, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
+            <targetAnchor id="(0.07317073170731707,0.7066666666666667)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, 1, -160, 0]$[161, 0, -24, -1]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.2"/>
+            <bendpoints
+                points="[25, 0, -91, -151]$[116, 0, 0, -151]$[116, 127, 0, -24]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, -11, -139, 65]$[140, -65, -24, 11]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.3"/>
+            <bendpoints points="[25, 6, -140, 0]$[141, 0, -24, -6]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-27" xsi:type="notation:Location" y="-52"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.4"/>
+            <bendpoints points="[-15, -24, 74, 121]$[-74, -120, 15, 25]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+    </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://www.urbanoutfitters.com/leaf/exceptionclient" prefix="ns0"/>
+        <tibex:namespaceItem
+            namespace="activity.jsonParser.input+940696e4-d12a-40b0-a084-5661f136104e+ActivityInputType" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/namespaces/tnt/plugins/jms+c758f76c-390f-4ede-a367-8fed158eaab2+input" prefix="tns1"/>
+        <tibex:namespaceItem namespace="http://www.example.org/Message" prefix="ns"/>
+        <tibex:namespaceItem
+            namespace="http://www.urbanoutfitters.com/co/common" prefix="ns1"/>
+        <tibex:namespaceItem
+            namespace="http://www.w3.org/2001/XMLSchema" prefix="xsd"/>
+        <tibex:namespaceItem
+            namespace="http://www.urbanoutfitters.com/dailyinv/dailyinv" prefix="ns2"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+    </tibex:NamespaceRegistry>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/Message"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.urbanoutfitters.com/leaf/auditclient"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.urbanoutfitters.com/leaf/exceptionclient"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.com/namespaces/tns/1587843285059"/>
+    <bpws:variables>
+        <bpws:variable element="ns:ProcessContext"
+            name="_processContext" sca-bpel:internal="true"/>
+        <bpws:variable element="ns0:KafkaReceiverMessageOutput"
+            name="RTAM-FeedReceiveMessage" sca-bpel:internal="true"/>
+        <bpws:variable name="KafkaProperty" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://ns.tibco.com/bw/sharedresource/kafka}KafkaConnection" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>Connections.Kafka</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable name="jmsConnection" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/jms}JMSConnectionFactory" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>Connections.TIBCOEMS</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable element="ns7:Message"
+            name="CallRTAMFeedImpl-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns8:AuditEventLogSchema"
+            name="Audit-KafkaRecieveMsg-input" sca-bpel:internal="true"/>
+        <bpws:variable name="FaultName" sca-bpel:internal="true" type="xsd:string"/>
+        <bpws:variable element="ns:FaultDetail" name="FaultDetails" sca-bpel:internal="true"/>
+        <bpws:variable element="ns9:ExceptionCollection"
+            name="LogException-input" sca-bpel:internal="true"/>
+        <bpws:variable name="AuditEnabled" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            tibex:propertySource="/BusinessProcess/RTAMFeed/AuditEnabled" type="xsd:string"/>
+        <bpws:variable element="ns9:ErrorReport" name="CallRTAMFeedImpl" sca-bpel:internal="true"/>
+        <bpws:variable element="ns10:ActivityErrorData"
+            name="_error_CallRTAMFeedImpl" sca-bpel:internal="true"/>
+        <bpws:variable element="ns:ErrorReport" name="_error" sca-bpel:internal="true"/>
+        <bpws:variable name="RTAM" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            tibex:propertySource="/KafkaTopics/RTAM" type="xsd:string"/>
+        <bpws:variable name="RTAM-GroupID" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            tibex:propertySource="/KafkaTopics/RTAM-GroupID" type="xsd:string"/>
+        <bpws:variable element="ns11:AuditContext"
+            name="SetAuditContext-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns11:AuditContext"
+            name="SetAuditContext" sca-bpel:internal="true"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bw/process/info"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca/200912"/>
+        <bpws:extension mustUnderstand="no" namespace="http://ns.tibco.com/bw/property"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:scope name="scope">
+        <bpws:faultHandlers>
+            <bpws:catchAll tibex:faultDetailsVar="FaultDetails"
+                tibex:faultNameVar="FaultName" tibex:xpdlId="935443b9-d602-41d9-bfd1-1594053e407c">
+                <bpws:scope name="scope1">
+                    <bpws:flow name="flow1">
+                        <bpws:links>
+                            <bpws:link
+                                name="AddExceptionToConfirm1_otherwise"
+                                tibex:label="otherwise" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                            <bpws:link
+                                name="LogExceptionToEmpty_Brokererror"
+                                tibex:label="Broker error" tibex:linkType="SUCCESSWITHCONDITION"/>
+                        </bpws:links>
+                        <bpws:extensionActivity>
+                            <tibex:activityExtension
+                                name="Confirm-Error"
+                                tibex:xpdlId="b02661ee-bf6e-44dc-9abe-cdbf5f5b3deb" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                <bpws:targets>
+                                    <bpws:target linkName="AddExceptionToConfirm1_otherwise"/>
+                                </bpws:targets>
+                                <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.confirm"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Confirm"/>
+                                    <value
+                                    confirmEvent="RTAM-FeedReceiveMessage" xsi:type="generalactivities:Confirm"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                </tibex:config>
+                            </tibex:activityExtension>
+                        </bpws:extensionActivity>
+                        <bpws:extensionActivity>
+                            <tibex:extActivity
+                                inputVariable="LogException-input"
+                                name="LogException"
+                                tibex:xpdlId="6e05028a-72e2-4e96-9f8b-12052a526a19"
+                                type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                <bpws:sources>
+                                    <bpws:source linkName="AddExceptionToConfirm1_otherwise">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                                    </bpws:source>
+                                    <bpws:source linkName="LogExceptionToEmpty_Brokererror">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="contains($_error/Msg,'Exception occurred while receive message from broker')" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[contains($_error/Msg,'Exception occurred while receive message from broker')]]></bpws:transitionCondition>
+                                    </bpws:source>
+                                </bpws:sources>
+                                <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns0=&quot;http://www.urbanoutfitters.com/leaf/exceptionclient&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;_processContext&quot;/>&lt;xsl:param name=&quot;_error&quot;/>&lt;xsl:param name=&quot;_error_CallRTAMFeedImpl&quot;/>&lt;xsl:param name=&quot;RTAM-FeedReceiveMessage&quot;/>&lt;xsl:template name=&quot;LogException-input&quot; match=&quot;/&quot;>&lt;ns0:ExceptionCollection>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($_error_CallRTAMFeedImpl)&quot;>&lt;ns0:Exception>&lt;ns0:ExceptionCode>&lt;xsl:value-of select=&quot;$_error_CallRTAMFeedImpl/ns0:ErrorReport/ns0:MsgCode&quot;/>&lt;/ns0:ExceptionCode>&lt;ns0:ProcessName>&lt;xsl:value-of select=&quot;'RTAMFeedservice'&quot;/>&lt;/ns0:ProcessName>&lt;ns0:Domain>&lt;xsl:value-of select=&quot;'YANTRIKS'&quot;/>&lt;/ns0:Domain>&lt;ns0:ExceptionLoggedDateTime>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/ns0:ExceptionLoggedDateTime>&lt;xsl:if test=&quot;$_error_CallRTAMFeedImpl/ns0:ErrorReport/ns0:Msg&quot;>&lt;ns0:ExceptionDetails>&lt;xsl:value-of select=&quot;$_error_CallRTAMFeedImpl/ns0:ErrorReport/ns0:Msg&quot;/>&lt;/ns0:ExceptionDetails>&lt;/xsl:if>&lt;xsl:for-each select=&quot;$_error_CallRTAMFeedImpl/ns0:ErrorReport&quot;>&lt;ns0:ErrorReport>&lt;xsl:if test=&quot;ns0:StackTrace&quot;>&lt;ns0:StackTrace>&lt;xsl:value-of select=&quot;ns0:StackTrace&quot;/>&lt;/ns0:StackTrace>&lt;/xsl:if>&lt;xsl:if test=&quot;ns0:Msg&quot;>&lt;ns0:Msg>&lt;xsl:value-of select=&quot;ns0:Msg&quot;/>&lt;/ns0:Msg>&lt;/xsl:if>&lt;xsl:if test=&quot;ns0:FullClass&quot;>&lt;ns0:FullClass>&lt;xsl:value-of select=&quot;ns0:FullClass&quot;/>&lt;/ns0:FullClass>&lt;/xsl:if>&lt;xsl:if test=&quot;ns0:Class&quot;>&lt;ns0:Class>&lt;xsl:value-of select=&quot;ns0:Class&quot;/>&lt;/ns0:Class>&lt;/xsl:if>&lt;xsl:if test=&quot;ns0:ProcessStack&quot;>&lt;ns0:ProcessStack>&lt;xsl:value-of select=&quot;ns0:ProcessStack&quot;/>&lt;/ns0:ProcessStack>&lt;/xsl:if>&lt;xsl:if test=&quot;ns0:MsgCode&quot;>&lt;ns0:MsgCode>&lt;xsl:value-of select=&quot;ns0:MsgCode&quot;/>&lt;/ns0:MsgCode>&lt;/xsl:if>&lt;xsl:if test=&quot;ns0:Data&quot;>&lt;ns0:Data>&lt;xsl:value-of select=&quot;ns0:Data&quot;/>&lt;/ns0:Data>&lt;/xsl:if>&lt;/ns0:ErrorReport>&lt;/xsl:for-each>&lt;ns0:ProcessContext>&lt;ns0:ProcessId>&lt;xsl:value-of select=&quot;$_processContext/JobId&quot;/>&lt;/ns0:ProcessId>&lt;ns0:ProjectName>&lt;xsl:value-of select=&quot;$_processContext/ApplicationName&quot;/>&lt;/ns0:ProjectName>&lt;ns0:EngineName>&lt;xsl:value-of select=&quot;$_processContext/EngineName&quot;/>&lt;/ns0:EngineName>&lt;xsl:for-each select=&quot;$_processContext/TrackingInfo&quot;>&lt;ns0:TrackingInfo>&lt;xsl:value-of select=&quot;.&quot;/>&lt;/ns0:TrackingInfo>&lt;/xsl:for-each>&lt;xsl:if test=&quot;$_processContext/CustomJobId&quot;>&lt;ns0:CustomId>&lt;xsl:value-of select=&quot;$_processContext/CustomJobId&quot;/>&lt;/ns0:CustomId>&lt;/xsl:if>&lt;/ns0:ProcessContext>&lt;ns0:ExceptionParameters>&lt;ns0:Name>&lt;xsl:value-of select=&quot;'ProductID'&quot;/>&lt;/ns0:Name>&lt;ns0:Value>&lt;xsl:value-of select=&quot;substring-before(substring-after(substring-after($RTAM-FeedReceiveMessage/message, 'productId&amp;quot;'),'&amp;quot;'), '&amp;quot;')&quot;/>&lt;/ns0:Value>&lt;/ns0:ExceptionParameters>&lt;ns0:ExceptionAttachments>&lt;ns0:Name>&lt;xsl:value-of select=&quot;&amp;quot;Yantriks RTAMFeedService Request&amp;quot;&quot;/>&lt;/ns0:Name>&lt;ns0:Data>&lt;xsl:value-of select=&quot;tib:render-xml($RTAM-FeedReceiveMessage/message)&quot;/>&lt;/ns0:Data>&lt;/ns0:ExceptionAttachments>&lt;/ns0:Exception>&lt;/xsl:when>&lt;xsl:otherwise>&lt;ns0:Exception>&lt;ns0:ExceptionCode>&lt;xsl:value-of select=&quot;if (contains($_error/Msg, 'There was an error while parsing a message') or contains($_error/Msg, 'Output data invalid'))&amp;#xD;&amp;#xA;then&amp;#xD;&amp;#xA;'YANTRIKS_DataValidation'&amp;#xD;&amp;#xA;else&amp;#xD;&amp;#xA;'YANTRIKS_SYS_Exception'&quot;/>&lt;/ns0:ExceptionCode>&lt;ns0:ProcessName>&lt;xsl:value-of select=&quot;'RTAMFeedService'&quot;/>&lt;/ns0:ProcessName>&lt;ns0:Domain>&lt;xsl:value-of select=&quot;'YANTRIKS'&quot;/>&lt;/ns0:Domain>&lt;ns0:ExceptionLoggedDateTime>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/ns0:ExceptionLoggedDateTime>&lt;ns0:ExceptionDetails>&lt;xsl:value-of select=&quot;concat(&amp;quot;Project Name --> &amp;quot;,$_processContext/ApplicationName,&amp;quot;, Yantriks RTAMFeed Service --> &amp;quot;,$_error/Msg)&quot;/>&lt;/ns0:ExceptionDetails>&lt;xsl:for-each select=&quot;$_error&quot;>&lt;ns0:ErrorReport>&lt;ns0:StackTrace>&lt;xsl:value-of select=&quot;StackTrace&quot;/>&lt;/ns0:StackTrace>&lt;ns0:Msg>&lt;xsl:value-of select=&quot;Msg&quot;/>&lt;/ns0:Msg>&lt;ns0:FullClass>&lt;xsl:value-of select=&quot;FullClass&quot;/>&lt;/ns0:FullClass>&lt;ns0:Class>&lt;xsl:value-of select=&quot;Class&quot;/>&lt;/ns0:Class>&lt;ns0:ProcessStack>&lt;xsl:value-of select=&quot;ProcessStack&quot;/>&lt;/ns0:ProcessStack>&lt;xsl:if test=&quot;MsgCode&quot;>&lt;ns0:MsgCode>&lt;xsl:value-of select=&quot;MsgCode&quot;/>&lt;/ns0:MsgCode>&lt;/xsl:if>&lt;xsl:if test=&quot;Data/*&quot;>&lt;ns0:Data>&lt;xsl:value-of select=&quot;Data/*&quot;/>&lt;/ns0:Data>&lt;/xsl:if>&lt;/ns0:ErrorReport>&lt;/xsl:for-each>&lt;ns0:ProcessContext>&lt;ns0:ProcessId>&lt;xsl:value-of select=&quot;$_processContext/JobId&quot;/>&lt;/ns0:ProcessId>&lt;ns0:ProjectName>&lt;xsl:value-of select=&quot;$_processContext/ApplicationName&quot;/>&lt;/ns0:ProjectName>&lt;ns0:EngineName>&lt;xsl:value-of select=&quot;$_processContext/EngineName&quot;/>&lt;/ns0:EngineName>&lt;xsl:for-each select=&quot;$_processContext/TrackingInfo&quot;>&lt;ns0:TrackingInfo>&lt;xsl:value-of select=&quot;.&quot;/>&lt;/ns0:TrackingInfo>&lt;/xsl:for-each>&lt;xsl:if test=&quot;$_processContext/CustomJobId&quot;>&lt;ns0:CustomId>&lt;xsl:value-of select=&quot;$_processContext/CustomJobId&quot;/>&lt;/ns0:CustomId>&lt;/xsl:if>&lt;/ns0:ProcessContext>&lt;ns0:ExceptionParameters>&lt;ns0:Name>&lt;xsl:value-of select=&quot;'ProductID'&quot;/>&lt;/ns0:Name>&lt;ns0:Value>&lt;xsl:value-of select=&quot;substring-before(substring-after(substring-after($RTAM-FeedReceiveMessage/message, 'productId&amp;quot;'),'&amp;quot;'), '&amp;quot;')&quot;/>&lt;/ns0:Value>&lt;/ns0:ExceptionParameters>&lt;ns0:ExceptionAttachments>&lt;ns0:Name>&lt;xsl:value-of select=&quot;&amp;quot;Yantriks RTAMFeedService Request&amp;quot;&quot;/>&lt;/ns0:Name>&lt;ns0:Data>&lt;xsl:value-of select=&quot;tib:render-xml($RTAM-FeedReceiveMessage/message)&quot;/>&lt;/ns0:Data>&lt;/ns0:ExceptionAttachments>&lt;/ns0:Exception>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/ns0:ExceptionCollection>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                </tibex:inputBindings>
+                                <tibex:CallProcess
+                                    moduleRef="LEAFClient"
+                                    subProcessName="Exception.AddException" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                            </tibex:extActivity>
+                        </bpws:extensionActivity>
+                        <bpws:empty name="Empty" tibex:xpdlId="b16d1bd4-e5d3-4c54-b455-d4011daa440d">
+                            <bpws:targets>
+                                <bpws:target linkName="LogExceptionToEmpty_Brokererror"/>
+                            </bpws:targets>
+                        </bpws:empty>
+                    </bpws:flow>
+                </bpws:scope>
+            </bpws:catchAll>
+        </bpws:faultHandlers>
+        <bpws:flow name="flow">
+            <bpws:links>
+                <bpws:link
+                    name="RTAM-FeedReceiveMessageToSetAuditContext" tibex:linkType="SUCCESS"/>
+                <bpws:link name="CallProcessToConfirm" tibex:linkType="SUCCESS"/>
+                <bpws:link name="AuditToCallRTAMFeedImpl" tibex:linkType="SUCCESS"/>
+                <bpws:link name="SetAuditContextToCallRTAMFeedImpl" tibex:linkType="SUCCESS"/>
+                <bpws:link
+                    name="SetAuditContextToAudit-KafkaRecieveMsg_Audit"
+                    tibex:label="Audit" tibex:linkType="SUCCESSWITHCONDITION"/>
+            </bpws:links>
+            <bpws:extensionActivity>
+                <tibex:receiveEvent createInstance="yes"
+                    eventTimeout="60" name="RTAM-FeedReceiveMessage"
+                    tibex:xpdlId="71231a7e-033f-46fb-aa05-537362ac683d"
+                    variable="RTAM-FeedReceiveMessage" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:sources>
+                        <bpws:source linkName="RTAM-FeedReceiveMessageToSetAuditContext"/>
+                    </bpws:sources>
+                    <tibex:eventSource>
+                        <bwext:BWActivity
+                            activityTypeID="bw.kafka.Receiver"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:kafka="http://ns.tibco.com/bw/palette/kafka" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <attributeBindings
+                                bindingType="moduleProperty"
+                                eAttributeName="groupId" processProperty="RTAM-GroupID"/>
+                            <attributeBindings
+                                bindingType="moduleProperty"
+                                eAttributeName="topicNames" processProperty="RTAM"/>
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/kafka#//Receiver"/>
+                                    <value autoCommitIntervalMs="5000"
+                                    autoOffsetReset="earliest"
+                                    encodingType="Binary Encoding"
+                                    fetchMaxWaitMs="500"
+                                    fetchMinBytes="1"
+                                    fetchTimeout="1000"
+                                    heartbeatIntervalMs="3000"
+                                    kafkaConnection="KafkaProperty"
+                                    keyDeserializer="String"
+                                    maxPartitionFetchBytes="1048576"
+                                    sessionTimeoutMs="30000"
+                                    valueDeserializer="String" xsi:type="kafka:Receiver"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:eventSource>
+                </tibex:receiveEvent>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension name="Confirm"
+                    tibex:xpdlId="8846f1c9-c723-4fa4-b440-91869858280c" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="CallProcessToConfirm"/>
+                    </bpws:targets>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.confirm"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Confirm"/>
+                                    <value
+                                    confirmEvent="RTAM-FeedReceiveMessage" xsi:type="generalactivities:Confirm"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:extActivity
+                    inputVariable="CallRTAMFeedImpl-input"
+                    name="CallRTAMFeedImpl"
+                    outputVariable="CallRTAMFeedImpl"
+                    tibex:xpdlId="001cbd14-36fa-421a-aca8-89c9c7d4c953"
+                    type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="AuditToCallRTAMFeedImpl"/>
+                        <bpws:target linkName="SetAuditContextToCallRTAMFeedImpl"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="CallProcessToConfirm"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;http://www.example.org/Message&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;RTAM-FeedReceiveMessage&quot;/>&#xa;    &lt;xsl:template name=&quot;CallProcess-input&quot; match=&quot;/&quot;>&#xa;        &lt;ns:Message>&#xa;            &lt;ns:Message>&#xa;                &lt;xsl:value-of select=&quot;$RTAM-FeedReceiveMessage/message&quot;/>&#xa;            &lt;/ns:Message>&#xa;        &lt;/ns:Message>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:CallProcess
+                        subProcessName="CallProcesses.RTAMFeedImpl" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                </tibex:extActivity>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:extActivity
+                    inputVariable="Audit-KafkaRecieveMsg-input"
+                    name="Audit-KafkaRecieveMsg"
+                    tibex:xpdlId="85c96aa8-56ee-4ae5-9c07-a528b93c8613"
+                    type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="SetAuditContextToAudit-KafkaRecieveMsg_Audit"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="AuditToCallRTAMFeedImpl"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns0=&quot;http://www.urbanoutfitters.com/leaf/auditclient&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;_processContext&quot;/>&lt;xsl:param name=&quot;RTAM-FeedReceiveMessage&quot;/>&lt;xsl:template name=&quot;Audit-KafkaRecieveMsg-input&quot; match=&quot;/&quot;>&lt;ns0:AuditEventLogSchema>&lt;ns0:ProcessContext>&lt;ProcessId>&lt;xsl:value-of select=&quot;$_processContext/JobId&quot;/>&lt;/ProcessId>&lt;ProjectName>&lt;xsl:value-of select=&quot;$_processContext/ApplicationName&quot;/>&lt;/ProjectName>&lt;EngineName>&lt;xsl:value-of select=&quot;$_processContext/EngineName&quot;/>&lt;/EngineName>&lt;RestartedFromCheckpoint>&lt;xsl:value-of select=&quot;xsd:boolean('false')&quot;/>&lt;/RestartedFromCheckpoint>&lt;/ns0:ProcessContext>&lt;ns0:AuditEventLoggedDateTime>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/ns0:AuditEventLoggedDateTime>&lt;ns0:AuditEventSchema>&lt;ns0:AuditEvent>&lt;ns0:ProcessName>&lt;xsl:value-of select=&quot;'RTAMFeedService'&quot;/>&lt;/ns0:ProcessName>&lt;ns0:Event>&lt;xsl:value-of select=&quot;&amp;quot;Yantriks RTAMFeedService started processing &amp;quot;&quot;/>&lt;/ns0:Event>&lt;ns0:EventDescription>&lt;xsl:value-of select=&quot;&amp;quot;Yantriks RTAMFeedService started processing &amp;quot;&quot;/>&lt;/ns0:EventDescription>&lt;/ns0:AuditEvent>&lt;ns0:AuditType>&lt;xsl:value-of select=&quot;'Info'&quot;/>&lt;/ns0:AuditType>&lt;ns0:Domain>&lt;xsl:value-of select=&quot;'YANTRIKS'&quot;/>&lt;/ns0:Domain>&lt;ns0:AuditContext>&lt;ns0:Name>&lt;xsl:value-of select=&quot;'RTAM'&quot;/>&lt;/ns0:Name>&lt;ns0:Key>&lt;xsl:value-of select=&quot;substring-before(substring-after(substring-after($RTAM-FeedReceiveMessage/message, 'productId&amp;quot;'),'&amp;quot;'), '&amp;quot;')&quot;/>&lt;/ns0:Key>&lt;ns0:Description>&lt;xsl:value-of select=&quot;&amp;quot;Yantriks RTAMFeedService started processing &amp;quot;&quot;/>&lt;/ns0:Description>&lt;/ns0:AuditContext>&lt;ns0:AuditKeys>&lt;ns0:Key>&lt;xsl:value-of select=&quot;'ProductID'&quot;/>&lt;/ns0:Key>&lt;ns0:Value>&lt;xsl:value-of select=&quot;substring-before(substring-after(substring-after($RTAM-FeedReceiveMessage/message, 'productId&amp;quot;'),'&amp;quot;'), '&amp;quot;')&quot;/>&lt;/ns0:Value>&lt;/ns0:AuditKeys>&lt;ns0:AuditAttachments>&lt;ns0:Name>&lt;xsl:value-of select=&quot;&amp;quot;Yantriks RTAMFeedService started processing &amp;quot;&quot;/>&lt;/ns0:Name>&lt;ns0:Data>&lt;xsl:value-of select=&quot;$RTAM-FeedReceiveMessage/message&quot;/>&lt;/ns0:Data>&lt;/ns0:AuditAttachments>&lt;/ns0:AuditEventSchema>&lt;/ns0:AuditEventLogSchema>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:CallProcess moduleRef="LEAFClient"
+                        spawn="true" subProcessName="Audit.AddAudit" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                </tibex:extActivity>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:extActivity inputVariable="SetAuditContext-input"
+                    name="SetAuditContext"
+                    outputVariable="SetAuditContext"
+                    tibex:xpdlId="2efb659d-938e-4dbd-89e6-046aa2324a82"
+                    type="bw.internal.setSharedVariable" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="RTAM-FeedReceiveMessageToSetAuditContext"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="SetAuditContextToCallRTAMFeedImpl"/>
+                        <bpws:source linkName="SetAuditContextToAudit-KafkaRecieveMsg_Audit">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="$AuditEnabled='Y'" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[$AuditEnabled='Y']]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.com/namespaces/tns/1587843285059&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;RTAM-FeedReceiveMessage&quot;/>&lt;xsl:template name=&quot;SetAuditContext-input&quot; match=&quot;/&quot;>&lt;tns:AuditContext>&lt;Name>&lt;xsl:value-of select=&quot;'RTAM'&quot;/>&lt;/Name>&lt;Value>&lt;xsl:value-of select=&quot;substring-before(substring-after(substring-after($RTAM-FeedReceiveMessage/message, 'productId&amp;quot;'),'&amp;quot;'), '&amp;quot;')&quot;/>&lt;/Value>&lt;/tns:AuditContext>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:SetSharedVariable inline="true"
+                        variableName="AuditContext" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                </tibex:extActivity>
+            </bpws:extensionActivity>
+        </bpws:flow>
+    </bpws:scope>
+</bpws:process>

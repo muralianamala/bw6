@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:tcpconnection="http://ns.tibco.com/bw/palette/tcpconnection" xmi:id="_hl4DAJUoEeqdTYIWDOLltA" name="Connections.ZebraPrinter" type="tcpconnection:tcpconnection">
+  <jndi:configuration xsi:type="tcpconnection:TCPConnection" xmi:id="_hl7GUJUoEeqdTYIWDOLltA" whenExhaustedAction="Block">
+    <substitutionBindings xmi:id="_i4eTUJUoEeqdTYIWDOLltA" template="host" propName="/Connections/ZebraPrinterTCP/Host"/>
+    <substitutionBindings xmi:id="_o3sq0JUoEeqdTYIWDOLltA" template="port" propName="/Connections/ZebraPrinterTCP/Port"/>
+  </jndi:configuration>
+</jndi:namedResource>

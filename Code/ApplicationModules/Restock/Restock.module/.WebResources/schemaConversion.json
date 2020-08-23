@@ -1,0 +1,37 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/Restock.module/Service Descriptors/StarterProcesses.Styles-Styles.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://xmlns.example.com/Styles/parameters"
+    },
+    {
+        "jsonSchemaLocation": "/Restock.module/Service Descriptors/StarterProcesses.Styles-Styles.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+    },
+    {
+        "jsonSchemaLocation": "/Restock.module/Service Descriptors/StarterProcesses.Divisions-Divisions.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://xmlns.example.com/Divisions/parameters"
+    },
+    {
+        "jsonSchemaLocation": "/Restock.module/Service Descriptors/StarterProcesses.Divisions-Divisions.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+    },
+    {
+        "jsonSchemaLocation": "/Restock.module/Service Descriptors/StarterProcesses.Skus-Skus.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.urbanoutfitters.com/SKU-response"
+    },
+    {
+        "jsonSchemaLocation": "/Restock.module/Service Descriptors/StarterProcesses.Skus-Skus.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+    },
+    {
+        "jsonSchemaLocation": "/Restock.module/Service Descriptors/StarterProcesses.Skus-Skus.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://xmlns.example.com/Skus/parameters"
+    }
+]}

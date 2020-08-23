@@ -1,0 +1,199 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/restock/{version}/{region}/styles/count" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-styles-count",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "classId",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "store",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "region",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "version",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a integer to be returned",
+            "schema" : {
+              "type" : "integer"
+            },
+            "headers" : { }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/restock/{version}/{region}/styles" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-styles",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "classId",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "sortOrder",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "sortBy",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "store",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "region",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "version",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a styles to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/styles"
+            },
+            "headers" : { }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "204" : {
+            "description" : "No Record",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "stylesType" : {
+      "type" : "object",
+      "properties" : {
+        "store" : {
+          "type" : "string"
+        },
+        "divisionId" : {
+          "type" : "string"
+        },
+        "divisionDescription" : {
+          "type" : "string"
+        },
+        "classId" : {
+          "type" : "string"
+        },
+        "classDescription" : {
+          "type" : "string"
+        },
+        "styleNumber" : {
+          "type" : "string"
+        },
+        "styleDescription" : {
+          "type" : "string"
+        },
+        "quanityToBeFilled" : {
+          "type" : "number"
+        },
+        "styleImageUrl" : {
+          "type" : "string"
+        }
+      }
+    },
+    "styles" : {
+      "type" : "object",
+      "properties" : {
+        "stylesType" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/stylesType",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}

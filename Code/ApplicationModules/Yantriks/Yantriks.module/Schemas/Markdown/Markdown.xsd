@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="Item">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="Extn" maxOccurs="1" minOccurs="0">
+    				<xsd:complexType>
+    					<xsd:sequence>
+    						<xsd:element name="Prices" maxOccurs="1"
+    							minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="Price"
+    										maxOccurs="unbounded" minOccurs="0">
+    										<xsd:complexType>
+    											<xsd:attribute
+    												name="Currency" type="xsd:string">
+    											</xsd:attribute>
+    											<xsd:attribute
+    												name="Type" type="xsd:string">
+    											</xsd:attribute>
+    											<xsd:attribute
+    												name="Value" type="xsd:string">
+    											</xsd:attribute>
+    										</xsd:complexType>
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    					</xsd:sequence>
+    				</xsd:complexType>
+    			</xsd:element>
+    		</xsd:sequence>
+    		<xsd:attribute name="ItemID" type="xsd:string"></xsd:attribute>
+    		<xsd:attribute name="UnitOfMeasure" type="xsd:string"></xsd:attribute>
+    		<xsd:attribute name="OrganizationCode" type="xsd:string"></xsd:attribute>
+    		<xsd:attribute name="Operation" type="xsd:string"></xsd:attribute>
+    	</xsd:complexType>
+    </xsd:element>
+</xsd:schema>

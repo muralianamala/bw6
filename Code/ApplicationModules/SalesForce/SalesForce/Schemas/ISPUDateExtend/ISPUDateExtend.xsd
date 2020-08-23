@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+    <xsd:element name="brand" type="xsd:string"></xsd:element>
+
+    <xsd:element name="orderNumber" type="xsd:string"></xsd:element>
+
+    <xsd:element name="expectedDate" type="xsd:string"></xsd:element>
+
+    <xsd:element name="ISPUDateExtendRequest"
+    	type="ISPUDateExtendRequestType">
+    </xsd:element>
+    
+    <xsd:complexType name="ISPUDateExtendRequestType">
+    	<xsd:sequence>
+    		<xsd:element ref="orderLineKey" minOccurs="0"
+    			maxOccurs="1">
+    		</xsd:element>
+    		<xsd:element ref="brand" minOccurs="0" maxOccurs="1"></xsd:element>
+    		<xsd:element ref="orderNumber" minOccurs="0"
+    			maxOccurs="1">
+    		</xsd:element>
+    		<xsd:element ref="expectedDate" minOccurs="0" maxOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="ISPUDateExtend" type="ISPUDateExtendType"></xsd:element>
+    
+    <xsd:element name="status" type="xsd:string"></xsd:element>
+
+    <xsd:complexType name="ISPUDateExtendType">
+    	<xsd:sequence>
+    		<xsd:element ref="status" minOccurs="0" maxOccurs="1"></xsd:element>
+    		<xsd:element ref="orderHeaderKey" minOccurs="0"
+    			maxOccurs="1">
+    		</xsd:element>
+    		<xsd:element ref="orderNumber" minOccurs="0" maxOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="ISPUDateExtendResponse"
+    	type="ISPUDateExtendResponseType">
+    </xsd:element>
+    
+    <xsd:complexType name="ISPUDateExtendResponseType">
+    	<xsd:sequence>
+    		<xsd:element ref="ISPUDateExtend"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="orderHeaderKey" type="xsd:string"></xsd:element>
+
+    <xsd:element name="orderLineKey" type="xsd:string"></xsd:element>
+</xsd:schema>

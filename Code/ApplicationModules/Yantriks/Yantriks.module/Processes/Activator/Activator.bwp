@@ -1,0 +1,2324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no" name="Activator.Activator"
+    suppressJoinFailure="yes"
+    targetNamespace="http://xmlns.example.com/20200330023221"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:info="http://www.tibco.com/bw/process/info"
+    xmlns:ns="http://xmlns.example.com/20200330023221PLT"
+    xmlns:ns0="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns1="http://tibco.com/bw/bw6/system/ModuleActivator"
+    xmlns:ns10="http://www.tibco.com/pe/WriteToLogActivitySchema"
+    xmlns:ns11="http://www.tibco.com/namespaces/tnt/plugins/jdbc+f68995f2-54dd-4037-91e4-430b57aeef5b+input"
+    xmlns:ns12="http://www.tibco.com/namespaces/tnt/plugins/jdbc+f68995f2-54dd-4037-91e4-430b57aeef5b+output"
+    xmlns:ns2="http://www.tibco.com/namespaces/tnt/plugins/jdbc+7f635dcb-7ce7-4f38-b001-bb289cb550c9+input"
+    xmlns:ns3="http://www.tibco.com/namespaces/tnt/plugins/jdbc+7f635dcb-7ce7-4f38-b001-bb289cb550c9+output"
+    xmlns:ns4="http://tns.tibco.com/bw/palette/internal/activityerror+bw.jdbc.JDBCQuery"
+    xmlns:ns5="http://www.tibco.com/namespaces/tnt/plugins/jdbc+e11e0793-9b12-4eff-a710-23b21af4e383+input"
+    xmlns:ns6="http://www.tibco.com/namespaces/tnt/plugins/jdbc+e11e0793-9b12-4eff-a710-23b21af4e383+output"
+    xmlns:ns7="http://www.urbanoutfitters.com/yantriks/lookup"
+    xmlns:ns8="http://www.tibco.com/namespaces/tnt/plugins/jdbc+6d02fec3-f5ad-45b6-858c-791ec257b936+input"
+    xmlns:ns9="http://www.tibco.com/namespaces/tnt/plugins/jdbc+6d02fec3-f5ad-45b6-858c-791ec257b936+output"
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+    xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="MemorySaving">
+        <task name="SetLookup">
+            <endingVariables>
+                <variable>SetLookup-input</variable>
+                <variable>SetLookup</variable>
+                <variable>DC_LookUp</variable>
+                <variable>BrandLookUp</variable>
+            </endingVariables>
+        </task>
+        <task name="DC_LookUp">
+            <endingVariables>
+                <variable>DC_LookUp-input</variable>
+            </endingVariables>
+        </task>
+        <task name="BrandLookUp">
+            <endingVariables>
+                <variable>BrandLookUp-input</variable>
+            </endingVariables>
+        </task>
+        <task name="Log">
+            <endingVariables>
+                <variable>Log-input</variable>
+            </endingVariables>
+        </task>
+    </tibex:VariableDescriptor>
+    <tibex:Types>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/EngineTypes"
+            xmlns:tns="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="OptionalErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="FaultDetail">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ActivityName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ProcessContext">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ApplicationName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="EngineName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessInstanceId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="CustomJobId" type="xs:string"/>
+                    <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="TrackingInfo" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="anydata">
+                <xs:sequence>
+                    <xs:any namespace="##any" processContents="lax"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="OptionalErrorReport" type="tns:OptionalErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="FaultDetail" type="tns:FaultDetail"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ProcessContext" type="tns:ProcessContext"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="CorrelationValue" type="xs:string"/>
+        </xs:schema>
+        <schema attributeFormDefault="unqualified"
+            elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityException" type="tns:ActivityExceptionType"/>
+            <complexType name="ActivityTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/plugins/jdbc/5.0/jdbcExceptions"
+            version="0.1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns2="http://schemas.tibco.com/bw/plugins/jdbc/5.0/jdbcExceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="PluginExceptionType">
+                <complexContent>
+                    <extension base="tns2:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="JDBCPluginException" type="tns2:JDBCPluginExceptionType"/>
+            <complexType name="JDBCPluginExceptionType">
+                <complexContent>
+                    <extension base="tns2:PluginExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="InvalidSQLTypeException" type="tns2:InvalidSQLTypeExceptionType"/>
+            <complexType name="InvalidSQLTypeExceptionType">
+                <complexContent>
+                    <extension base="tns2:JDBCPluginExceptionType">
+                        <sequence>
+                            <element name="typeName" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="JDBCConnectionNotFoundException" type="tns2:JDBCConnectionNotFoundExceptionType"/>
+            <complexType name="JDBCConnectionNotFoundExceptionType">
+                <complexContent>
+                    <extension base="tns2:JDBCPluginExceptionType">
+                        <sequence>
+                            <element name="jdbcConnection" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicatedFieldNameException" type="tns2:DuplicatedFieldNameExceptionType"/>
+            <complexType name="DuplicatedFieldNameExceptionType">
+                <complexContent>
+                    <extension base="tns2:JDBCPluginExceptionType">
+                        <sequence>
+                            <element name="fieldName" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="InvalidTimeZoneException" type="tns2:InvalidTimeZoneExceptionType"/>
+            <complexType name="InvalidTimeZoneExceptionType">
+                <complexContent>
+                    <extension base="tns2:JDBCPluginExceptionType">
+                        <sequence>
+                            <element name="timeZone" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="JDBCSQLException" type="tns2:JDBCSQLExceptionType"/>
+            <complexType name="JDBCSQLExceptionType">
+                <complexContent>
+                    <extension base="tns2:JDBCPluginExceptionType">
+                        <sequence>
+                            <element name="sqlState" type="string"/>
+                            <element name="detailStr" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="LoginTimedOutException" type="tns2:LoginTimedOutExceptionType"/>
+            <complexType name="LoginTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns2:JDBCPluginExceptionType"/>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/activityerror+bw.jdbc.JDBCQuery"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://schemas.tibco.com/bw/plugins/jdbc/5.0/jdbcExceptions"
+            xmlns:Q2="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions" xmlns:tns="http://tns.tibco.com/bw/palette/internal/activityerror+bw.jdbc.JDBCQuery">
+            <import namespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"/>
+            <import namespace="http://schemas.tibco.com/bw/plugins/jdbc/5.0/jdbcExceptions"/>
+            <import namespace="http://schemas.tibco.com/bw/plugins/jdbc/5.0/jdbcExceptions"/>
+            <import namespace="http://schemas.tibco.com/bw/plugins/jdbc/5.0/jdbcExceptions"/>
+            <import namespace="http://schemas.tibco.com/bw/plugins/jdbc/5.0/jdbcExceptions"/>
+            <import namespace="http://schemas.tibco.com/bw/plugins/jdbc/5.0/jdbcExceptions"/>
+            <import namespace="http://schemas.tibco.com/bw/plugins/jdbc/5.0/jdbcExceptions"/>
+            <element name="ActivityErrorData" type="tns:ActivityErrorDataType"/>
+            <complexType name="ActivityErrorDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:JDBCConnectionNotFoundException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:InvalidTimeZoneException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:JDBCSQLException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:LoginTimedOutException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:InvalidSQLTypeException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:DuplicatedFieldNameException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q2:ActivityTimedOutException"/>
+                </choice>
+            </complexType>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+6d02fec3-f5ad-45b6-858c-791ec257b936+input"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+6d02fec3-f5ad-45b6-858c-791ec257b936+input">
+            <element name="jdbcQueryActivityInput">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="ServerTimeZone" type="string"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="timeout" type="long"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="maxRows" type="long"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+6d02fec3-f5ad-45b6-858c-791ec257b936+output"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+6d02fec3-f5ad-45b6-858c-791ec257b936+output">
+            <element name="resultSet">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" minOccurs="0" name="Record">
+                            <complexType>
+                                <sequence>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="DC" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Location_Type"
+                                    nillable="false" type="string"/>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/WriteToLogActivitySchema"
+            xmlns:tns="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType name="LogParametersType">
+                <xs:sequence>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="msgCode" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="loggerName" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="logLevel" type="xs:string"/>
+                    <xs:element form="unqualified" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ActivityInput" type="tns:LogParametersType"/>
+        </xs:schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+f68995f2-54dd-4037-91e4-430b57aeef5b+input"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+f68995f2-54dd-4037-91e4-430b57aeef5b+input">
+            <element name="jdbcQueryActivityInput">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="ServerTimeZone" type="string"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="timeout" type="long"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="maxRows" type="long"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+f68995f2-54dd-4037-91e4-430b57aeef5b+output"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+f68995f2-54dd-4037-91e4-430b57aeef5b+output">
+            <element name="resultSet">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" minOccurs="0" name="Record">
+                            <complexType>
+                                <sequence>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="IP_Brand" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="WMS_Merch_Type" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="Sterling_Brand" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="WMS_SalesMan" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="WMS_Sales_Group" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="Website" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Returns_Url"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Auto_Bagger_elgible_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Auto_Bagger_Carton_Type"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="DC_Process_Days"
+                                    nillable="false" type="int"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="LowestRetail"
+                                    nillable="false" type="int"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Promo_Code"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="AUTO_BAGGER_AMT"
+                                    nillable="false" type="int"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Store_Ship_Method"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Store_Carton_Type"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="AllocationRuleId"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="DependencyShippingRule"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="DistroRuleId"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="MaxRecords"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="OptimizationType"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="StoreDistance"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="SourcingClassification"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="MPOS_STORE_CREDIT_FLAG"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Default_Site_ID"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="PO_DELIVERY_DAYS"
+                                    nillable="false" type="int"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="VAT_FLAG" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="VERTEX_DIVISION"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="BRAND_NAME"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="IP_OPEN_DEMAND_FLAG"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="ThreeDSecureMerchantID"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Generic_Shipment_Tracking_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Generic_Returns_Tracking_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Read_Archived_Orders_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="MSEND_Store_Return_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="PO_Brand_Suffix"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="LowestRetailDecimal"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="NarVar_URL"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Newgistics_Brand"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Sterling_to_IP_Brand"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="WelcomeEmailType"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="LanguageCode"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Narvar_Status_Return_Days"
+                                    nillable="false" type="int"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Narvar_Ship_Email_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Narvar_OAuthToken"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="GIFTMESSAGE"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="BWWReturnsFlag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="STORE_NET_SPLIT_FLAG"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="INV_FLAG" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Package_Consolidator_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Brand_Currency"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Supress_Financials_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="CALL_NETEVEN_ORDERS_FLAG"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Neteven_Image_Path"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Neteven_Image_Suffix"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="VAT_Detail_Returns"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Seed_Return_Label_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Newgistics_MerchantId"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Newgistics_ReturnId_Prefix"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Sterling_Deposit_Sku"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="ATGBrandName"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="tax_Included_Flag"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="ISPU_Pickup_Days"
+                                    nillable="false" type="short"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="STS_Pickup_Days"
+                                    nillable="false" type="short"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="GWP_Store_Code"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Ship_Method_Upgrade"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="LoopBack" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="StoreNet_Pkg_Consolidation_Code"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="No_Shipment_Email"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="MPOS_Ship_Fee_Override_PROMO"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Canada_VERTEX_Date"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Website_Image_Path"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="NarVar_Return_URL"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Metro_Origin_Co"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="METRO_DELIVERY_FLAG"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Min_Upgrade_Days"
+                                    nillable="false" type="short"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Max_Upgrade_Days"
+                                    nillable="false" type="short"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="IP_Ster_PO_Brand"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Sterling_Org"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="SF_ACTION_CODE"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="GC_Promo_Amt"
+                                    nillable="false" type="int"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Wholesale_Division_Code"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="PDP_Path" nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Suggested_Order_Days"
+                                    nillable="false" type="short"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Itochu_CustomerId"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Narvar_Image_URL"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Max_Pick_Up_Extend_Days"
+                                    nillable="false" type="short"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="ExchangeEligible"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="IP_Brand_DailyXref"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="InventoryApp_Brand"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="Onesie_Markdown"
+                                    nillable="false" type="string"/>
+                                    <element maxOccurs="1" minOccurs="0"
+                                    name="ExchangeMethod"
+                                    nillable="false" type="string"/>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <wsdl:definitions
+            targetNamespace="http://xmlns.example.com/20200330023221PLT"
+            xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+            xmlns:ptyp="http://tibco.com/bw/bw6/system/ModuleActivator"
+            xmlns:tns="http://xmlns.example.com/20200330023221PLT"
+            xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <plnk:partnerLinkType name="partnerLinkType">
+                <plnk:role name="use" portType="ptyp:ModuleActivator"/>
+            </plnk:partnerLinkType>
+            <wsdl:import namespace="http://tibco.com/bw/bw6/system/ModuleActivator"/>
+        </wsdl:definitions>
+    </tibex:Types>
+    <tibex:ProcessInfo callable="false" createdBy="MAnamala"
+        createdOn="Mon Mar 30 02:32:21 EDT 2020" description=""
+        extraErrorVars="true" modifiers="public"
+        productVersion="6.6.0 HF1 V55 2020-01-17" scalable="true"
+        singleton="true" stateless="false" type="IT"/>
+    <tibex:ProcessInterface context="" input="" output=""/>
+    <tibex:ProcessTemplateConfigurations/>
+    <notation:Diagram measurementUnit="Pixel" type="BWProcess"
+        xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
+        xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <children type="2001">
+            <children type="5001">
+                <element href="//0/@process"/>
+            </children>
+            <children type="3001">
+                <children type="4001">
+                    <children type="4017">
+                        <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <element href="//0/@process/@partnerLinks/@children.0"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <element href="//0/@process/@partnerLinks/@children.0"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <element href="//0/@process/@partnerLinks/@children.0"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <element href="//0/@process/@partnerLinks/@children.0"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="40011">
+                        <element href="//0/@process/@partnerLinks/@children.0"/>
+                    </children>
+                    <children type="3006">
+                        <styles xsi:type="notation:DrawerStyle"/>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <styles xsi:type="bwnotation:BackgroundStyle"/>
+                        <styles xsi:type="bwnotation:ResizingStyle"/>
+                        <element href="//0/@process/@partnerLinks/@children.0"/>
+                    </children>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@partnerLinks/@children.0"/>
+                    <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3002">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3003">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3004">
+                <children type="4018">
+                    <children type="3018">
+                        <children type="4020">
+                            <children type="3020">
+                                <children type="4005">
+                                    <children type="3007">
+                                    <children type="4010">
+                                    <children type="5002">
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    </children>
+                                    <children type="3010">
+                                    <children type="4013">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    height="34"
+                                    width="34" x="9"
+                                    xsi:type="notation:Bounds" y="126"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    </children>
+                                    <children type="3011">
+                                    <children type="4011">
+                                    <children type="3012">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint
+                                    xsi:type="notation:Bounds" y="40"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0"/>
+                                    </children>
+                                    <children type="3013">
+                                    <children type="4018">
+                                    <children type="3018">
+
+                                    <children type="4020">
+
+                                    <children type="3020">
+
+                                    <children type="4005">
+
+                                    <children type="3007">
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint
+                                    x="318"
+                                    xsi:type="notation:Bounds" y="30"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint
+                                    x="2"
+                                    xsi:type="notation:Bounds" y="30"/>
+                                    </children>
+
+                                    <children type="4002">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.4"/>
+
+                                    <layoutConstraint
+                                    x="131"
+                                    xsi:type="notation:Bounds" y="30"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:DrawerStyle"/>
+
+                                    <styles xsi:type="notation:SortingStyle"/>
+
+                                    <styles xsi:type="notation:FilteringStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity"/>
+
+                                    <layoutConstraint
+                                    height="169"
+                                    width="655" xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:SortingStyle"/>
+
+                                    <styles xsi:type="notation:FilteringStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
+
+                                    <layoutConstraint
+                                    height="168"
+                                    width="658"
+                                    x="15" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
+
+                                    <layoutConstraint
+                                    height="192"
+                                    width="698" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0"/>
+                                    </children>
+                                    <children type="3016">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint
+                                    xsi:type="notation:Bounds" y="40"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.0"/>
+                                    <layoutConstraint
+                                    height="211"
+                                    width="760"
+                                    x="2" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4011">
+                                    <children type="3012">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint
+                                    xsi:type="notation:Bounds" y="40"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1"/>
+                                    </children>
+                                    <children type="3013">
+                                    <children type="4018">
+                                    <children type="3018">
+
+                                    <children type="4020">
+
+                                    <children type="3020">
+
+                                    <children type="4005">
+
+                                    <children type="3007">
+
+                                    <styles xsi:type="notation:DrawerStyle"/>
+
+                                    <styles xsi:type="notation:SortingStyle"/>
+
+                                    <styles xsi:type="notation:FilteringStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity"/>
+
+                                    <layoutConstraint
+                                    height="108"
+                                    width="400"
+                                    x="2"
+                                    xsi:type="notation:Bounds" y="2"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:SortingStyle"/>
+
+                                    <styles xsi:type="notation:FilteringStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity"/>
+                                    </children>
+
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity"/>
+
+                                    <layoutConstraint
+                                    height="-45"
+                                    width="-76"
+                                    x="30"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1"/>
+                                    </children>
+                                    <children type="3016">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint
+                                    xsi:type="notation:Bounds" y="40"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles
+                                    collapsed="true"
+                                    restoreHeight="142"
+                                    restoreWidth="760"
+                                    restoreX="2"
+                                    restoreY="203" xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0/@messages.1"/>
+                                    <layoutConstraint
+                                    height="22"
+                                    width="485"
+                                    x="2"
+                                    xsi:type="notation:Bounds" y="203"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    height="263" width="561" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    <layoutConstraint height="408"
+                                    width="789" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                                <element href="//0/@process/@activity"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity"/>
+                            <layoutConstraint height="373" width="792" xsi:type="notation:Bounds"/>
+                        </children>
+                        <children type="4022">
+                            <children type="3022">
+                                <children type="4029">
+                                    <children type="3031">
+                                    <children type="4033">
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint
+                                    height="34" width="34"
+                                    xsi:type="notation:Bounds" y="68"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3032">
+                                    <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    x="45"
+                                    xsi:type="notation:Bounds" y="34"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint
+                                    x="226"
+                                    xsi:type="notation:Bounds" y="34"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity"/>
+                                    <layoutConstraint
+                                    height="168" width="691" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity/@faultHandlers"/>
+                            <layoutConstraint height="200" width="697" xsi:type="notation:Bounds"/>
+                        </children>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <element href="//0/@process/@activity"/>
+                    </children>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@activity"/>
+                    <layoutConstraint height="609" width="792" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <element href="//0/@process"/>
+            <layoutConstraint height="661" width="1134" xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:DiagramStyle"/>
+        <element href="//0"/>
+        <edges
+            source="//@children.0/@children.1/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1/@children.0/@children.3" type="4016">
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, -21, -93, 79]$[94, -79, -24, 21]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+    </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://www.urbanoutfitters.com/yantriks/lookup" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.urbanoutfitters.com/leaf/exceptionclient" prefix="ns0"/>
+        <tibex:namespaceItem
+            namespace="http://www.urbanoutfitters.com/co/lookup" prefix="ns"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns1"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+f68995f2-54dd-4037-91e4-430b57aeef5b+input" prefix="tns2"/>
+    </tibex:NamespaceRegistry>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://tibco.com/bw/bw6/system/ModuleActivator"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.urbanoutfitters.com/yantriks/lookup"/>
+    <bpws:partnerLinks>
+        <bpws:partnerLink myRole="use" name="ModuleActivator"
+            partnerLinkType="ns:partnerLinkType" sca-bpel:ignore="false" sca-bpel:service="ModuleActivator"/>
+    </bpws:partnerLinks>
+    <bpws:variables>
+        <bpws:variable element="ns0:ProcessContext"
+            name="_processContext" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns1:onStartupRequest"
+            name="onStartup" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns1:onShutdownRequest"
+            name="onShutdown" sca-bpel:internal="true"/>
+        <bpws:variable name="LookupDB" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc}JdbcDataSource" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>Connections.LookupDB</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable element="ns0:ErrorReport" name="_error" sca-bpel:internal="true"/>
+        <bpws:variable element="ns7:Lookup" name="SetLookup-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns7:Lookup" name="SetLookup" sca-bpel:internal="true"/>
+        <bpws:variable element="ns8:jdbcQueryActivityInput"
+            name="DC_LookUp-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns9:resultSet" name="DC_LookUp" sca-bpel:internal="true"/>
+        <bpws:variable element="ns4:ActivityErrorData"
+            name="_error_DC_LookUp" sca-bpel:internal="true"/>
+        <bpws:variable name="FaultName" sca-bpel:internal="true" type="xsd:string"/>
+        <bpws:variable element="ns0:FaultDetail" name="FaultDetails" sca-bpel:internal="true"/>
+        <bpws:variable element="ns10:ActivityInput" name="Log-input" sca-bpel:internal="true"/>
+        <bpws:variable name="LookupDB-Timeout"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/Connections/LookupDB/Timeout" type="xsd:int"/>
+        <bpws:variable element="ns11:jdbcQueryActivityInput"
+            name="BrandLookUp-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns12:resultSet" name="BrandLookUp" sca-bpel:internal="true"/>
+        <bpws:variable element="ns4:ActivityErrorData"
+            name="_error_BrandLookUp" sca-bpel:internal="true"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bw/process/info"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca/200912"/>
+        <bpws:extension mustUnderstand="no" namespace="http://ns.tibco.com/bw/property"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:scope name="scope">
+        <bpws:faultHandlers>
+            <bpws:catchAll tibex:faultDetailsVar="FaultDetails"
+                tibex:faultNameVar="FaultName" tibex:xpdlId="495483cc-f616-46a2-ad0e-2fb5a14e936c">
+                <bpws:scope name="scope3">
+                    <bpws:flow name="flow3">
+                        <bpws:links>
+                            <bpws:link name="LogToEngineCommand" tibex:linkType="SUCCESS"/>
+                        </bpws:links>
+                        <bpws:extensionActivity>
+                            <tibex:activityExtension
+                                inputVariable="Log-input" name="Log"
+                                tibex:xpdlId="48059120-8d04-4009-8e10-c8f378cc0e1e" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                <bpws:sources>
+                                    <bpws:source linkName="LogToEngineCommand"/>
+                                </bpws:sources>
+                                <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;_error&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns1:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat('Error in Onstartup. Shutting Down. ', tib:render-xml($_error))&quot;/>&lt;/message>&lt;/tns1:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                </tibex:inputBindings>
+                                <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.log"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+                                    <value
+                                    controlBy="Application"
+                                    role="Info"
+                                    suppressJobInfo="true" xsi:type="generalactivities:Log"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                </tibex:config>
+                            </tibex:activityExtension>
+                        </bpws:extensionActivity>
+                        <bpws:extensionActivity>
+                            <tibex:activityExtension
+                                name="EngineCommand"
+                                tibex:xpdlId="d1a4531e-7e8a-496f-9d36-0cfa9cff37c3" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                <bpws:targets>
+                                    <bpws:target linkName="LogToEngineCommand"/>
+                                </bpws:targets>
+                                <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.internal.engineCommand"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:internalactivities="http://ns.tibco.com/bw/core/internalactivity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/core/internalactivity#//EngineCommand"/>
+                                    <value
+                                    cmdToExecute="StopApplication" xsi:type="internalactivities:EngineCommand"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                </tibex:config>
+                            </tibex:activityExtension>
+                        </bpws:extensionActivity>
+                    </bpws:flow>
+                </bpws:scope>
+            </bpws:catchAll>
+        </bpws:faultHandlers>
+        <bpws:flow name="flow">
+            <bpws:links/>
+            <bpws:pick createInstance="yes" name="pick" tibex:xpdlId="db7701f7-6537-4e7f-b065-6bb33d6d7a8f">
+                <bpws:onMessage operation="onStartup"
+                    partnerLink="ModuleActivator"
+                    portType="ns1:ModuleActivator"
+                    tibex:xpdlId="041afeb2-38b6-4925-bf76-d668fc53143c" variable="onStartup">
+                    <bpws:scope name="scope1">
+                        <bpws:flow name="flow1">
+                            <bpws:links>
+                                <bpws:link name="DC_LookUpToJDBCQuery" tibex:linkType="SUCCESS"/>
+                                <bpws:link name="BrandLookUpToSetLookup" tibex:linkType="SUCCESS"/>
+                            </bpws:links>
+                            <bpws:empty name="OnMessageStart"
+                                tibex:constructor="onMessageStart" tibex:xpdlId="1a273912-17fc-480c-814b-273ba372ab1f"/>
+                            <bpws:empty name="OnMessageEnd"
+                                tibex:constructor="onMessageEnd" tibex:xpdlId="b0d3a4b6-6a54-4d22-b9cb-589fb4735f5c"/>
+                            <bpws:extensionActivity>
+                                <tibex:extActivity
+                                    inputVariable="SetLookup-input"
+                                    name="SetLookup"
+                                    outputVariable="SetLookup"
+                                    tibex:xpdlId="b998414f-9ce2-4d69-93ba-d914cf392f26"
+                                    type="bw.internal.setSharedVariable" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="BrandLookUpToSetLookup"/>
+                                    </bpws:targets>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.urbanoutfitters.com/yantriks/lookup&quot; xmlns:ns=&quot;http://www.urbanoutfitters.com/co/lookup&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DC_LookUp&quot;/>&lt;xsl:param name=&quot;BrandLookUp&quot;/>&lt;xsl:template name=&quot;SetLookup-input&quot; match=&quot;/&quot;>&lt;tns:Lookup>&lt;xsl:for-each select=&quot;$DC_LookUp/Record&quot;>&lt;tns:DC_Lookup>&lt;ns:dc>&lt;xsl:value-of select=&quot;DC&quot;/>&lt;/ns:dc>&lt;xsl:if test=&quot;Location_Type&quot;>&lt;ns:Location_Type>&lt;xsl:value-of select=&quot;Location_Type&quot;/>&lt;/ns:Location_Type>&lt;/xsl:if>&lt;/tns:DC_Lookup>&lt;/xsl:for-each>&lt;xsl:for-each select=&quot;$BrandLookUp/Record&quot;>&lt;tns:Brand_Lookup>&lt;ns:IPBrand>&lt;xsl:value-of select=&quot;IP_Brand&quot;/>&lt;/ns:IPBrand>&lt;ns:WMSMerchType>&lt;xsl:value-of select=&quot;WMS_Merch_Type&quot;/>&lt;/ns:WMSMerchType>&lt;ns:SterlingBrand>&lt;xsl:value-of select=&quot;Sterling_Brand&quot;/>&lt;/ns:SterlingBrand>&lt;ns:WMSSalesMan>&lt;xsl:value-of select=&quot;WMS_SalesMan&quot;/>&lt;/ns:WMSSalesMan>&lt;ns:WMSSalesGroup>&lt;xsl:value-of select=&quot;WMS_Sales_Group&quot;/>&lt;/ns:WMSSalesGroup>&lt;ns:Website>&lt;xsl:value-of select=&quot;Website&quot;/>&lt;/ns:Website>&lt;xsl:if test=&quot;Returns_Url&quot;>&lt;ns:ReturnsUrl>&lt;xsl:value-of select=&quot;Returns_Url&quot;/>&lt;/ns:ReturnsUrl>&lt;/xsl:if>&lt;xsl:if test=&quot;Auto_Bagger_elgible_Flag&quot;>&lt;ns:AutoBaggerEligibleFlag>&lt;xsl:value-of select=&quot;Auto_Bagger_elgible_Flag&quot;/>&lt;/ns:AutoBaggerEligibleFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;Auto_Bagger_Carton_Type&quot;>&lt;ns:AutoBaggerCartonType>&lt;xsl:value-of select=&quot;Auto_Bagger_Carton_Type&quot;/>&lt;/ns:AutoBaggerCartonType>&lt;/xsl:if>&lt;xsl:if test=&quot;LowestRetail&quot;>&lt;ns:lowestRetail>&lt;xsl:value-of select=&quot;LowestRetail&quot;/>&lt;/ns:lowestRetail>&lt;/xsl:if>&lt;xsl:if test=&quot;Promo_Code&quot;>&lt;ns:promoCode>&lt;xsl:value-of select=&quot;Promo_Code&quot;/>&lt;/ns:promoCode>&lt;/xsl:if>&lt;xsl:if test=&quot;DC_Process_Days&quot;>&lt;ns:dcProcessDays>&lt;xsl:value-of select=&quot;DC_Process_Days&quot;/>&lt;/ns:dcProcessDays>&lt;/xsl:if>&lt;xsl:if test=&quot;AUTO_BAGGER_AMT&quot;>&lt;ns:autoBaggerAmount>&lt;xsl:value-of select=&quot;AUTO_BAGGER_AMT&quot;/>&lt;/ns:autoBaggerAmount>&lt;/xsl:if>&lt;xsl:if test=&quot;Store_Carton_Type&quot;>&lt;ns:storeCartonType>&lt;xsl:value-of select=&quot;Store_Carton_Type&quot;/>&lt;/ns:storeCartonType>&lt;/xsl:if>&lt;xsl:if test=&quot;Store_Ship_Method&quot;>&lt;ns:storeShipMethod>&lt;xsl:value-of select=&quot;Store_Ship_Method&quot;/>&lt;/ns:storeShipMethod>&lt;/xsl:if>&lt;xsl:if test=&quot;AllocationRuleId&quot;>&lt;ns:allocationRuleId>&lt;xsl:value-of select=&quot;AllocationRuleId&quot;/>&lt;/ns:allocationRuleId>&lt;/xsl:if>&lt;xsl:if test=&quot;DependencyShippingRule&quot;>&lt;ns:dependencyShippingRule>&lt;xsl:value-of select=&quot;DependencyShippingRule&quot;/>&lt;/ns:dependencyShippingRule>&lt;/xsl:if>&lt;xsl:if test=&quot;DistroRuleId&quot;>&lt;ns:distroRuleId>&lt;xsl:value-of select=&quot;DistroRuleId&quot;/>&lt;/ns:distroRuleId>&lt;/xsl:if>&lt;xsl:if test=&quot;MaxRecords&quot;>&lt;ns:maxRecords>&lt;xsl:value-of select=&quot;MaxRecords&quot;/>&lt;/ns:maxRecords>&lt;/xsl:if>&lt;xsl:if test=&quot;OptimizationType&quot;>&lt;ns:optimizationType>&lt;xsl:value-of select=&quot;OptimizationType&quot;/>&lt;/ns:optimizationType>&lt;/xsl:if>&lt;xsl:if test=&quot;StoreDistance&quot;>&lt;ns:storeDistance>&lt;xsl:value-of select=&quot;StoreDistance&quot;/>&lt;/ns:storeDistance>&lt;/xsl:if>&lt;xsl:if test=&quot;SourcingClassification&quot;>&lt;ns:sourcingClassification>&lt;xsl:value-of select=&quot;SourcingClassification&quot;/>&lt;/ns:sourcingClassification>&lt;/xsl:if>&lt;xsl:if test=&quot;MPOS_STORE_CREDIT_FLAG&quot;>&lt;ns:mposStoreCreditFlag>&lt;xsl:value-of select=&quot;MPOS_STORE_CREDIT_FLAG&quot;/>&lt;/ns:mposStoreCreditFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;Default_Site_ID&quot;>&lt;ns:defaultSiteID>&lt;xsl:value-of select=&quot;Default_Site_ID&quot;/>&lt;/ns:defaultSiteID>&lt;/xsl:if>&lt;xsl:if test=&quot;PO_DELIVERY_DAYS&quot;>&lt;ns:poDeliveryDays>&lt;xsl:value-of select=&quot;PO_DELIVERY_DAYS&quot;/>&lt;/ns:poDeliveryDays>&lt;/xsl:if>&lt;xsl:if test=&quot;VAT_FLAG&quot;>&lt;ns:VatFlag>&lt;xsl:value-of select=&quot;VAT_FLAG&quot;/>&lt;/ns:VatFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;ThreeDSecureMerchantID&quot;>&lt;ns:ThreeDSecureMerchantId>&lt;xsl:value-of select=&quot;ThreeDSecureMerchantID&quot;/>&lt;/ns:ThreeDSecureMerchantId>&lt;/xsl:if>&lt;xsl:if test=&quot;BRAND_NAME&quot;>&lt;ns:BrandName>&lt;xsl:value-of select=&quot;BRAND_NAME&quot;/>&lt;/ns:BrandName>&lt;/xsl:if>&lt;xsl:if test=&quot;IP_OPEN_DEMAND_FLAG&quot;>&lt;ns:ipOpenDemandFlag>&lt;xsl:value-of select=&quot;IP_OPEN_DEMAND_FLAG&quot;/>&lt;/ns:ipOpenDemandFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;Generic_Returns_Tracking_Flag&quot;>&lt;ns:genericReturnsTrackingFlag>&lt;xsl:value-of select=&quot;Generic_Returns_Tracking_Flag&quot;/>&lt;/ns:genericReturnsTrackingFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;Generic_Shipment_Tracking_Flag&quot;>&lt;ns:genericShipmentTrackingFlag>&lt;xsl:value-of select=&quot;Generic_Shipment_Tracking_Flag&quot;/>&lt;/ns:genericShipmentTrackingFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;Read_Archived_Orders_Flag&quot;>&lt;ns:readArchivedOrdersFlag>&lt;xsl:value-of select=&quot;Read_Archived_Orders_Flag&quot;/>&lt;/ns:readArchivedOrdersFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;MSEND_Store_Return_Flag&quot;>&lt;ns:MSENDStoreReturnFlag>&lt;xsl:value-of select=&quot;MSEND_Store_Return_Flag&quot;/>&lt;/ns:MSENDStoreReturnFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;PO_Brand_Suffix&quot;>&lt;ns:poBrandSuffix>&lt;xsl:value-of select=&quot;PO_Brand_Suffix&quot;/>&lt;/ns:poBrandSuffix>&lt;/xsl:if>&lt;xsl:if test=&quot;NarVar_URL&quot;>&lt;ns:NarvarURL>&lt;xsl:value-of select=&quot;NarVar_URL&quot;/>&lt;/ns:NarvarURL>&lt;/xsl:if>&lt;xsl:if test=&quot;Sterling_to_IP_Brand&quot;>&lt;ns:Sterling_to_IP_Brand>&lt;xsl:value-of select=&quot;Sterling_to_IP_Brand&quot;/>&lt;/ns:Sterling_to_IP_Brand>&lt;/xsl:if>&lt;xsl:if test=&quot;WelcomeEmailType&quot;>&lt;ns:WelcomeEmailType>&lt;xsl:value-of select=&quot;WelcomeEmailType&quot;/>&lt;/ns:WelcomeEmailType>&lt;/xsl:if>&lt;xsl:if test=&quot;LanguageCode&quot;>&lt;ns:LanguageCode>&lt;xsl:value-of select=&quot;LanguageCode&quot;/>&lt;/ns:LanguageCode>&lt;/xsl:if>&lt;xsl:if test=&quot;Narvar_OAuthToken&quot;>&lt;ns:Narvar_OAuthToken>&lt;xsl:value-of select=&quot;Narvar_OAuthToken&quot;/>&lt;/ns:Narvar_OAuthToken>&lt;/xsl:if>&lt;xsl:if test=&quot;Narvar_Status_Return_Days&quot;>&lt;ns:Narvar_Status_Return_Days>&lt;xsl:value-of select=&quot;Narvar_Status_Return_Days&quot;/>&lt;/ns:Narvar_Status_Return_Days>&lt;/xsl:if>&lt;xsl:if test=&quot;Newgistics_Brand&quot;>&lt;ns:Newgistics_Brand>&lt;xsl:value-of select=&quot;Newgistics_Brand&quot;/>&lt;/ns:Newgistics_Brand>&lt;/xsl:if>&lt;xsl:if test=&quot;GIFTMESSAGE&quot;>&lt;ns:GiftMessage>&lt;xsl:value-of select=&quot;GIFTMESSAGE&quot;/>&lt;/ns:GiftMessage>&lt;/xsl:if>&lt;xsl:if test=&quot;INV_FLAG&quot;>&lt;ns:InvFlag>&lt;xsl:value-of select=&quot;INV_FLAG&quot;/>&lt;/ns:InvFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;CALL_NETEVEN_ORDERS_FLAG&quot;>&lt;ns:CallNetEvenOrdersFlag>&lt;xsl:value-of select=&quot;CALL_NETEVEN_ORDERS_FLAG&quot;/>&lt;/ns:CallNetEvenOrdersFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;STORE_NET_SPLIT_FLAG&quot;>&lt;ns:StoreNetSplitFlag>&lt;xsl:value-of select=&quot;STORE_NET_SPLIT_FLAG&quot;/>&lt;/ns:StoreNetSplitFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;Website_Image_Path&quot;>&lt;ns:WebsiteImagePath>&lt;xsl:value-of select=&quot;Website_Image_Path&quot;/>&lt;/ns:WebsiteImagePath>&lt;/xsl:if>&lt;xsl:if test=&quot;Neteven_Image_Path&quot;>&lt;ns:NetEvenImagePath>&lt;xsl:value-of select=&quot;Neteven_Image_Path&quot;/>&lt;/ns:NetEvenImagePath>&lt;/xsl:if>&lt;xsl:if test=&quot;Neteven_Image_Suffix&quot;>&lt;ns:NetEvenImageSuffix>&lt;xsl:value-of select=&quot;Neteven_Image_Suffix&quot;/>&lt;/ns:NetEvenImageSuffix>&lt;/xsl:if>&lt;xsl:if test=&quot;Package_Consolidator_Flag&quot;>&lt;ns:PackageConsolidatorFlag>&lt;xsl:value-of select=&quot;Package_Consolidator_Flag&quot;/>&lt;/ns:PackageConsolidatorFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;Supress_Financials_Flag&quot;>&lt;ns:SuppressFinancialsFlag>&lt;xsl:value-of select=&quot;Supress_Financials_Flag&quot;/>&lt;/ns:SuppressFinancialsFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;Brand_Currency&quot;>&lt;ns:brandCurrency>&lt;xsl:value-of select=&quot;Brand_Currency&quot;/>&lt;/ns:brandCurrency>&lt;/xsl:if>&lt;xsl:if test=&quot;VAT_Detail_Returns&quot;>&lt;ns:VATDetailReturns>&lt;xsl:value-of select=&quot;VAT_Detail_Returns&quot;/>&lt;/ns:VATDetailReturns>&lt;/xsl:if>&lt;xsl:if test=&quot;VERTEX_DIVISION&quot;>&lt;ns:VertexDivision>&lt;xsl:value-of select=&quot;VERTEX_DIVISION&quot;/>&lt;/ns:VertexDivision>&lt;/xsl:if>&lt;xsl:if test=&quot;Newgistics_MerchantId&quot;>&lt;ns:Newgistics_MerchantId>&lt;xsl:value-of select=&quot;Newgistics_MerchantId&quot;/>&lt;/ns:Newgistics_MerchantId>&lt;/xsl:if>&lt;xsl:if test=&quot;Newgistics_ReturnId_Prefix&quot;>&lt;ns:Newgistics_ReturnId_Prefix>&lt;xsl:value-of select=&quot;Newgistics_ReturnId_Prefix&quot;/>&lt;/ns:Newgistics_ReturnId_Prefix>&lt;/xsl:if>&lt;xsl:if test=&quot;Seed_Return_Label_Flag&quot;>&lt;ns:seedReturnLabelFlag>&lt;xsl:value-of select=&quot;Seed_Return_Label_Flag&quot;/>&lt;/ns:seedReturnLabelFlag>&lt;/xsl:if>&lt;xsl:if test=&quot;Sterling_Deposit_Sku&quot;>&lt;ns:Sterling_Deposit_Sku>&lt;xsl:value-of select=&quot;Sterling_Deposit_Sku&quot;/>&lt;/ns:Sterling_Deposit_Sku>&lt;/xsl:if>&lt;xsl:if test=&quot;ATGBrandName&quot;>&lt;ns:ATGBrandName>&lt;xsl:value-of select=&quot;ATGBrandName&quot;/>&lt;/ns:ATGBrandName>&lt;/xsl:if>&lt;xsl:if test=&quot;tax_Included_Flag&quot;>&lt;ns:Tax_Included_Flag>&lt;xsl:value-of select=&quot;tax_Included_Flag&quot;/>&lt;/ns:Tax_Included_Flag>&lt;/xsl:if>&lt;xsl:if test=&quot;ISPU_Pickup_Days&quot;>&lt;ns:ISPU_PICKUP_DAYS>&lt;xsl:value-of select=&quot;ISPU_Pickup_Days&quot;/>&lt;/ns:ISPU_PICKUP_DAYS>&lt;/xsl:if>&lt;xsl:if test=&quot;STS_Pickup_Days&quot;>&lt;ns:STS_PICKUP_DAYS>&lt;xsl:value-of select=&quot;STS_Pickup_Days&quot;/>&lt;/ns:STS_PICKUP_DAYS>&lt;/xsl:if>&lt;xsl:if test=&quot;GWP_Store_Code&quot;>&lt;ns:GwPStoreCode>&lt;xsl:value-of select=&quot;GWP_Store_Code&quot;/>&lt;/ns:GwPStoreCode>&lt;/xsl:if>&lt;xsl:if test=&quot;LoopBack&quot;>&lt;ns:LoopBack>&lt;xsl:value-of select=&quot;LoopBack&quot;/>&lt;/ns:LoopBack>&lt;/xsl:if>&lt;xsl:if test=&quot;Ship_Method_Upgrade&quot;>&lt;ns:ShipMethodUpgrade>&lt;xsl:value-of select=&quot;Ship_Method_Upgrade&quot;/>&lt;/ns:ShipMethodUpgrade>&lt;/xsl:if>&lt;xsl:if test=&quot;StoreNet_Pkg_Consolidation_Code&quot;>&lt;ns:StoreNetPkgConsolidationCode>&lt;xsl:value-of select=&quot;StoreNet_Pkg_Consolidation_Code&quot;/>&lt;/ns:StoreNetPkgConsolidationCode>&lt;/xsl:if>&lt;xsl:if test=&quot;MPOS_Ship_Fee_Override_PROMO&quot;>&lt;ns:MPOSShipFeeOverridePromo>&lt;xsl:value-of select=&quot;MPOS_Ship_Fee_Override_PROMO&quot;/>&lt;/ns:MPOSShipFeeOverridePromo>&lt;/xsl:if>&lt;xsl:if test=&quot;Canada_VERTEX_Date&quot;>&lt;ns:Canada_VERTEX_Date>&lt;xsl:value-of select=&quot;Canada_VERTEX_Date&quot;/>&lt;/ns:Canada_VERTEX_Date>&lt;/xsl:if>&lt;xsl:if test=&quot;NarVar_Return_URL&quot;>&lt;ns:NarVar_Return_URL>&lt;xsl:value-of select=&quot;NarVar_Return_URL&quot;/>&lt;/ns:NarVar_Return_URL>&lt;/xsl:if>&lt;xsl:if test=&quot;METRO_DELIVERY_FLAG&quot;>&lt;ns:Metro_Delivery_Flag>&lt;xsl:value-of select=&quot;METRO_DELIVERY_FLAG&quot;/>&lt;/ns:Metro_Delivery_Flag>&lt;/xsl:if>&lt;xsl:if test=&quot;Metro_Origin_Co&quot;>&lt;ns:Metro_Origin_Co>&lt;xsl:value-of select=&quot;Metro_Origin_Co&quot;/>&lt;/ns:Metro_Origin_Co>&lt;/xsl:if>&lt;xsl:if test=&quot;IP_Ster_PO_Brand&quot;>&lt;ns:IP_Ster_PO_Brand>&lt;xsl:value-of select=&quot;IP_Ster_PO_Brand&quot;/>&lt;/ns:IP_Ster_PO_Brand>&lt;/xsl:if>&lt;xsl:if test=&quot;Min_Upgrade_Days&quot;>&lt;ns:MinUpgradeDays>&lt;xsl:value-of select=&quot;Min_Upgrade_Days&quot;/>&lt;/ns:MinUpgradeDays>&lt;/xsl:if>&lt;xsl:if test=&quot;Max_Upgrade_Days&quot;>&lt;ns:MaxUpgradeDays>&lt;xsl:value-of select=&quot;Max_Upgrade_Days&quot;/>&lt;/ns:MaxUpgradeDays>&lt;/xsl:if>&lt;xsl:if test=&quot;Sterling_Org&quot;>&lt;ns:SterlingOrg>&lt;xsl:value-of select=&quot;Sterling_Org&quot;/>&lt;/ns:SterlingOrg>&lt;/xsl:if>&lt;xsl:if test=&quot;SF_ACTION_CODE&quot;>&lt;ns:SF_ACTION_CODE>&lt;xsl:value-of select=&quot;SF_ACTION_CODE&quot;/>&lt;/ns:SF_ACTION_CODE>&lt;/xsl:if>&lt;xsl:if test=&quot;Wholesale_Division_Code&quot;>&lt;ns:Wholesale_Division_Code>&lt;xsl:value-of select=&quot;Wholesale_Division_Code&quot;/>&lt;/ns:Wholesale_Division_Code>&lt;/xsl:if>&lt;xsl:if test=&quot;PDP_Path&quot;>&lt;ns:PDP_Path>&lt;xsl:value-of select=&quot;PDP_Path&quot;/>&lt;/ns:PDP_Path>&lt;/xsl:if>&lt;xsl:if test=&quot;Suggested_Order_Days&quot;>&lt;ns:Suggested_Order_Days>&lt;xsl:value-of select=&quot;Suggested_Order_Days&quot;/>&lt;/ns:Suggested_Order_Days>&lt;/xsl:if>&lt;xsl:if test=&quot;Itochu_CustomerId&quot;>&lt;ns:ItochuCustomerId>&lt;xsl:value-of select=&quot;Itochu_CustomerId&quot;/>&lt;/ns:ItochuCustomerId>&lt;/xsl:if>&lt;xsl:if test=&quot;Max_Pick_Up_Extend_Days&quot;>&lt;ns:Max_Pick_Up_Extend_Days>&lt;xsl:value-of select=&quot;Max_Pick_Up_Extend_Days&quot;/>&lt;/ns:Max_Pick_Up_Extend_Days>&lt;/xsl:if>&lt;xsl:if test=&quot;ExchangeEligible&quot;>&lt;ns:ExchangeEligible>&lt;xsl:value-of select=&quot;ExchangeEligible&quot;/>&lt;/ns:ExchangeEligible>&lt;/xsl:if>&lt;xsl:if test=&quot;IP_Brand_DailyXref&quot;>&lt;ns:IP_Brand_DailyXref>&lt;xsl:value-of select=&quot;IP_Brand_DailyXref&quot;/>&lt;/ns:IP_Brand_DailyXref>&lt;/xsl:if>&lt;xsl:if test=&quot;InventoryApp_Brand&quot;>&lt;ns:InventoryApp_Brand>&lt;xsl:value-of select=&quot;InventoryApp_Brand&quot;/>&lt;/ns:InventoryApp_Brand>&lt;/xsl:if>&lt;xsl:if test=&quot;Onesie_Markdown&quot;>&lt;ns:Onesie_Markdown>&lt;xsl:value-of select=&quot;Onesie_Markdown&quot;/>&lt;/ns:Onesie_Markdown>&lt;/xsl:if>&lt;xsl:if test=&quot;ExchangeMethod&quot;>&lt;ns:ExchangeMethod>&lt;xsl:value-of select=&quot;ExchangeMethod&quot;/>&lt;/ns:ExchangeMethod>&lt;/xsl:if>&lt;/tns:Brand_Lookup>&lt;/xsl:for-each>&lt;/tns:Lookup>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:SetSharedVariable
+                                    variableName="moduleSharedVariable" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                                </tibex:extActivity>
+                            </bpws:extensionActivity>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    inputVariable="DC_LookUp-input"
+                                    name="DC_LookUp"
+                                    outputVariable="DC_LookUp"
+                                    tibex:xpdlId="6d02fec3-f5ad-45b6-858c-791ec257b936" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:sources>
+                                    <bpws:source linkName="DC_LookUpToJDBCQuery"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+6d02fec3-f5ad-45b6-858c-791ec257b936+input&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns3:jdbcQueryActivityInput/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.jdbc.JDBCQuery"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:jdbcPalette="http://ns.tibco.com/bw/palette/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <attributeBindings
+                                    bindingType="moduleProperty"
+                                    eAttributeName="timeout" processProperty="LookupDB-Timeout"/>
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
+                                    <value
+                                    sharedResourceProperty="LookupDB"
+                                    sqlStatement="SELECT DC,Location_Type FROM DC_LOOKUP&#xa;" xsi:type="jdbcPalette:JDBCQueryActivity">
+                                    <columnMetadata
+                                    columnIndex="1"
+                                    columnName="DC"
+                                    dataType="12" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="2"
+                                    columnName="Location_Type"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="varchar"/>
+                                    </value>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                            <bpws:extensionActivity>
+                                <tibex:activityExtension
+                                    inputVariable="BrandLookUp-input"
+                                    name="BrandLookUp"
+                                    outputVariable="BrandLookUp"
+                                    tibex:xpdlId="f68995f2-54dd-4037-91e4-430b57aeef5b" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="DC_LookUpToJDBCQuery"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="BrandLookUpToSetLookup"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+f68995f2-54dd-4037-91e4-430b57aeef5b+input&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:jdbcQueryActivityInput/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.jdbc.JDBCQuery"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:jdbcPalette="http://ns.tibco.com/bw/palette/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <attributeBindings
+                                    bindingType="moduleProperty"
+                                    eAttributeName="timeout" processProperty="LookupDB-Timeout"/>
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
+                                    <value
+                                    sharedResourceProperty="LookupDB"
+                                    sqlStatement="SELECT IP_Brand,WMS_Merch_Type,Sterling_Brand,WMS_SalesMan,WMS_Sales_Group,Website,Returns_Url,Auto_Bagger_elgible_Flag,Auto_Bagger_Carton_Type,DC_Process_Days,LowestRetail,Promo_Code,AUTO_BAGGER_AMT,Store_Ship_Method,Store_Carton_Type,AllocationRuleId,DependencyShippingRule,DistroRuleId,MaxRecords,OptimizationType,StoreDistance,SourcingClassification,MPOS_STORE_CREDIT_FLAG,Default_Site_ID,PO_DELIVERY_DAYS,VAT_FLAG,VERTEX_DIVISION,BRAND_NAME,IP_OPEN_DEMAND_FLAG,ThreeDSecureMerchantID,Generic_Shipment_Tracking_Flag,Generic_Returns_Tracking_Flag,Read_Archived_Orders_Flag,MSEND_Store_Return_Flag,PO_Brand_Suffix,LowestRetailDecimal,NarVar_URL,Newgistics_Brand,Sterling_to_IP_Brand,WelcomeEmailType,LanguageCode,Narvar_Status_Return_Days,Narvar_Ship_Email_Flag,Narvar_OAuthToken,GIFTMESSAGE,BWWReturnsFlag,STORE_NET_SPLIT_FLAG,INV_FLAG,Package_Consolidator_Flag,Brand_Currency,Supress_Financials_Flag,CALL_NETEVEN_ORDERS_FLAG,Neteven_Image_Path,Neteven_Image_Suffix,VAT_Detail_Returns,Seed_Return_Label_Flag,Newgistics_MerchantId,Newgistics_ReturnId_Prefix,Sterling_Deposit_Sku,ATGBrandName,tax_Included_Flag,ISPU_Pickup_Days,STS_Pickup_Days,GWP_Store_Code,Ship_Method_Upgrade,LoopBack,StoreNet_Pkg_Consolidation_Code,No_Shipment_Email,MPOS_Ship_Fee_Override_PROMO,Canada_VERTEX_Date,Website_Image_Path,NarVar_Return_URL,Metro_Origin_Co,METRO_DELIVERY_FLAG,Min_Upgrade_Days,Max_Upgrade_Days,IP_Ster_PO_Brand,Sterling_Org,SF_ACTION_CODE,GC_Promo_Amt,Wholesale_Division_Code,PDP_Path,Suggested_Order_Days,Itochu_CustomerId,Narvar_Image_URL,Max_Pick_Up_Extend_Days,ExchangeEligible,IP_Brand_DailyXref,InventoryApp_Brand,Onesie_Markdown,ExchangeMethod FROM Brand_Table" xsi:type="jdbcPalette:JDBCQueryActivity">
+                                    <columnMetadata
+                                    columnIndex="1"
+                                    columnName="IP_Brand"
+                                    dataType="-9" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="2"
+                                    columnName="WMS_Merch_Type"
+                                    dataType="-9" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="3"
+                                    columnName="Sterling_Brand"
+                                    dataType="-9" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="4"
+                                    columnName="WMS_SalesMan"
+                                    dataType="-9" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="5"
+                                    columnName="WMS_Sales_Group"
+                                    dataType="-9" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="6"
+                                    columnName="Website"
+                                    dataType="-9" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="7"
+                                    columnName="Returns_Url"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="8"
+                                    columnName="Auto_Bagger_elgible_Flag"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="9"
+                                    columnName="Auto_Bagger_Carton_Type"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="10"
+                                    columnName="DC_Process_Days"
+                                    dataType="4"
+                                    status="OptionalElement" typeName="int"/>
+                                    <columnMetadata
+                                    columnIndex="11"
+                                    columnName="LowestRetail"
+                                    dataType="4"
+                                    status="OptionalElement" typeName="int"/>
+                                    <columnMetadata
+                                    columnIndex="12"
+                                    columnName="Promo_Code"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="varchar"/>
+                                    <columnMetadata
+                                    columnIndex="13"
+                                    columnName="AUTO_BAGGER_AMT"
+                                    dataType="4"
+                                    status="OptionalElement" typeName="int"/>
+                                    <columnMetadata
+                                    columnIndex="14"
+                                    columnName="Store_Ship_Method"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="15"
+                                    columnName="Store_Carton_Type"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="16"
+                                    columnName="AllocationRuleId"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="17"
+                                    columnName="DependencyShippingRule"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="18"
+                                    columnName="DistroRuleId"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="19"
+                                    columnName="MaxRecords"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="20"
+                                    columnName="OptimizationType"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="21"
+                                    columnName="StoreDistance"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="22"
+                                    columnName="SourcingClassification"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="23"
+                                    columnName="MPOS_STORE_CREDIT_FLAG"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="24"
+                                    columnName="Default_Site_ID"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="25"
+                                    columnName="PO_DELIVERY_DAYS"
+                                    dataType="4"
+                                    status="OptionalElement" typeName="int"/>
+                                    <columnMetadata
+                                    columnIndex="26"
+                                    columnName="VAT_FLAG"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="27"
+                                    columnName="VERTEX_DIVISION"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="28"
+                                    columnName="BRAND_NAME"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="29"
+                                    columnName="IP_OPEN_DEMAND_FLAG"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="30"
+                                    columnName="ThreeDSecureMerchantID"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="31"
+                                    columnName="Generic_Shipment_Tracking_Flag"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="32"
+                                    columnName="Generic_Returns_Tracking_Flag"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="33"
+                                    columnName="Read_Archived_Orders_Flag"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="34"
+                                    columnName="MSEND_Store_Return_Flag"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="35"
+                                    columnName="PO_Brand_Suffix"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="36"
+                                    columnName="LowestRetailDecimal"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="37"
+                                    columnName="NarVar_URL"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="38"
+                                    columnName="Newgistics_Brand"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="39"
+                                    columnName="Sterling_to_IP_Brand"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="40"
+                                    columnName="WelcomeEmailType"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="41"
+                                    columnName="LanguageCode"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="42"
+                                    columnName="Narvar_Status_Return_Days"
+                                    dataType="4"
+                                    status="OptionalElement" typeName="int"/>
+                                    <columnMetadata
+                                    columnIndex="43"
+                                    columnName="Narvar_Ship_Email_Flag"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="44"
+                                    columnName="Narvar_OAuthToken"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="45"
+                                    columnName="GIFTMESSAGE"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="46"
+                                    columnName="BWWReturnsFlag"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="47"
+                                    columnName="STORE_NET_SPLIT_FLAG"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="48"
+                                    columnName="INV_FLAG"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="49"
+                                    columnName="Package_Consolidator_Flag"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="50"
+                                    columnName="Brand_Currency"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="51"
+                                    columnName="Supress_Financials_Flag"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="52"
+                                    columnName="CALL_NETEVEN_ORDERS_FLAG"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="53"
+                                    columnName="Neteven_Image_Path"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="54"
+                                    columnName="Neteven_Image_Suffix"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="55"
+                                    columnName="VAT_Detail_Returns"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="56"
+                                    columnName="Seed_Return_Label_Flag"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="57"
+                                    columnName="Newgistics_MerchantId"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="58"
+                                    columnName="Newgistics_ReturnId_Prefix"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="59"
+                                    columnName="Sterling_Deposit_Sku"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="60"
+                                    columnName="ATGBrandName"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="61"
+                                    columnName="tax_Included_Flag"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="62"
+                                    columnName="ISPU_Pickup_Days"
+                                    dataType="5"
+                                    status="OptionalElement" typeName="smallint"/>
+                                    <columnMetadata
+                                    columnIndex="63"
+                                    columnName="STS_Pickup_Days"
+                                    dataType="5"
+                                    status="OptionalElement" typeName="smallint"/>
+                                    <columnMetadata
+                                    columnIndex="64"
+                                    columnName="GWP_Store_Code"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="varchar"/>
+                                    <columnMetadata
+                                    columnIndex="65"
+                                    columnName="Ship_Method_Upgrade"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="66"
+                                    columnName="LoopBack"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="67"
+                                    columnName="StoreNet_Pkg_Consolidation_Code"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="68"
+                                    columnName="No_Shipment_Email"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="69"
+                                    columnName="MPOS_Ship_Fee_Override_PROMO"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="varchar"/>
+                                    <columnMetadata
+                                    columnIndex="70"
+                                    columnName="Canada_VERTEX_Date"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="71"
+                                    columnName="Website_Image_Path"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="72"
+                                    columnName="NarVar_Return_URL"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="73"
+                                    columnName="Metro_Origin_Co"
+                                    dataType="-15"
+                                    status="OptionalElement" typeName="nchar"/>
+                                    <columnMetadata
+                                    columnIndex="74"
+                                    columnName="METRO_DELIVERY_FLAG"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="75"
+                                    columnName="Min_Upgrade_Days"
+                                    dataType="5"
+                                    status="OptionalElement" typeName="smallint"/>
+                                    <columnMetadata
+                                    columnIndex="76"
+                                    columnName="Max_Upgrade_Days"
+                                    dataType="5"
+                                    status="OptionalElement" typeName="smallint"/>
+                                    <columnMetadata
+                                    columnIndex="77"
+                                    columnName="IP_Ster_PO_Brand"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="78"
+                                    columnName="Sterling_Org"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="varchar"/>
+                                    <columnMetadata
+                                    columnIndex="79"
+                                    columnName="SF_ACTION_CODE"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="80"
+                                    columnName="GC_Promo_Amt"
+                                    dataType="4"
+                                    status="OptionalElement" typeName="int"/>
+                                    <columnMetadata
+                                    columnIndex="81"
+                                    columnName="Wholesale_Division_Code"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="82"
+                                    columnName="PDP_Path"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="83"
+                                    columnName="Suggested_Order_Days"
+                                    dataType="5"
+                                    status="OptionalElement" typeName="smallint"/>
+                                    <columnMetadata
+                                    columnIndex="84"
+                                    columnName="Itochu_CustomerId"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="85"
+                                    columnName="Narvar_Image_URL"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="86"
+                                    columnName="Max_Pick_Up_Extend_Days"
+                                    dataType="5"
+                                    status="OptionalElement" typeName="smallint"/>
+                                    <columnMetadata
+                                    columnIndex="87"
+                                    columnName="ExchangeEligible"
+                                    dataType="1"
+                                    status="OptionalElement" typeName="char"/>
+                                    <columnMetadata
+                                    columnIndex="88"
+                                    columnName="IP_Brand_DailyXref"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="89"
+                                    columnName="InventoryApp_Brand"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="varchar"/>
+                                    <columnMetadata
+                                    columnIndex="90"
+                                    columnName="Onesie_Markdown"
+                                    dataType="-9"
+                                    status="OptionalElement" typeName="nvarchar"/>
+                                    <columnMetadata
+                                    columnIndex="91"
+                                    columnName="ExchangeMethod"
+                                    dataType="12"
+                                    status="OptionalElement" typeName="varchar"/>
+                                    </value>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                </tibex:activityExtension>
+                            </bpws:extensionActivity>
+                        </bpws:flow>
+                    </bpws:scope>
+                </bpws:onMessage>
+                <bpws:onMessage operation="onShutdown"
+                    partnerLink="ModuleActivator"
+                    portType="ns1:ModuleActivator"
+                    tibex:xpdlId="3cf0c513-4df4-475e-898b-0fa06d700a73" variable="onShutdown">
+                    <bpws:scope name="scope2">
+                        <bpws:flow name="flow2">
+                            <bpws:links/>
+                            <bpws:empty name="OnMessageStart1"
+                                tibex:constructor="onMessageStart" tibex:xpdlId="30aea54c-a377-486b-b4c0-3ffa42eedac0"/>
+                            <bpws:empty name="OnMessageEnd1"
+                                tibex:constructor="onMessageEnd" tibex:xpdlId="811107f2-9f84-4838-aa91-7bc07b4afb7f"/>
+                        </bpws:flow>
+                    </bpws:scope>
+                </bpws:onMessage>
+            </bpws:pick>
+        </bpws:flow>
+    </bpws:scope>
+</bpws:process>

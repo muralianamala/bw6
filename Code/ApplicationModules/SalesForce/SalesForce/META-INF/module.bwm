@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_TJi4QJOnEeqBkfn6saoghg" targetNamespace="http://tns.tibco.com/bw/composite/SalesForce" name="SalesForce" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_Gof4QJQEEeqqOsBHxUWW7A" name="salesforce-furnitureUnbundle-v1" promote="ComponentSalesforce/salesforce-furnitureUnbundle-v1">
+    <sca:interface.wsdl xmi:id="_Gol-4JQEEeqqOsBHxUWW7A" interface="http://xmlns.example.com/20200511235312PLT#wsdl.interface(furnitureUnbundle-v1)" scaext:wsdlLocation="../Processes/salesforce/furnitureUnbundle.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_GosFgJQEEeqqOsBHxUWW7A" name="RestService" path="/furnitureUnbundle/{version}/" docBasePath="http://localhost:7777/SalesForce" docResourcePath="furnitureUnbundle" basePath="/" connector="salesforce.UrbanFurnitureUnbundle" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/salesforce.furnitureUnbundle-furnitureUnbundle.json">
+      <operation xmi:id="_GowW8JQEEeqqOsBHxUWW7A" operationName="get" nickname="get-furnitureUnbundle-v1" httpMethod="GET" responseStyle="element" outputPartName="FurnitureUnbundle_Response">
+        <parameters xmi:id="_u9tCALQwEeqpU40hPQBK5Q">
+          <parameterMapping xmi:id="_pFpiwLZPEeq3zavAHDlvPw" parameterName="orderHeaderKey" parameterType="Query" dataType="string" required="true"/>
+        </parameters>
+        <responseStatus xmi:id="_6FKWELaKEeq3zavAHDlvPw" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_7Ueo4LaKEeq3zavAHDlvPw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_7hYccLaKEeq3zavAHDlvPw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_3Yb30LaPEeqfHatL2fxRmw">
+        <parameterMapping xmi:id="_3Yb30baPEeqfHatL2fxRmw" parameterName="version" parameterType="Path" required="true"/>
+      </parameters>
+      <advancedConfig xmi:id="_GosFgZQEEeqqOsBHxUWW7A" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Gow-AJQEEeqqOsBHxUWW7A" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_y3zb0LdsEeqBEeYNZHWYNw" name="salesforce-ispuDateExtend-v1" promote="ComponentSalesforce/salesforce-ispuDateExtend-v1">
+    <sca:interface.wsdl xmi:id="_y37XoLdsEeqBEeYNZHWYNw" interface="http://xmlns.example.com/20200511235312PLT#wsdl.interface(salesforce-ispuDateExtend)" scaext:wsdlLocation="../Processes/StarterProcesses/Salesforce.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_y4GWwLdsEeqBEeYNZHWYNw" name="RestService1" path="/ispuDateExtend/{verison}" docBasePath="http://localhost:7777/SalesForce" docResourcePath="furnitureUnbundle" basePath="/" connector="salesforce.UrbanFurnitureUnbundle" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/StarterProcesses.Salesforce-furnitureUnbundle.json">
+      <operation xmi:id="_y4LPQLdsEeqBEeYNZHWYNw" operationName="get" nickname="get-salesforce-ispuDateExtend" httpMethod="GET" notes="getFurnitureUnbundle" responseStyle="element" outputPartName="item">
+        <parameters xmi:id="_9JvlsLdsEeqBEeYNZHWYNw">
+          <parameterMapping xmi:id="_9JwMwLdsEeqBEeYNZHWYNw" parameterName="orderLineKey" parameterType="Query" dataType="string" required="true"/>
+          <parameterMapping xmi:id="__Jt5YLdsEeqBEeYNZHWYNw" parameterName="brand" parameterType="Query" dataType="string" required="true"/>
+          <parameterMapping xmi:id="_Bw3h0LdtEeqBEeYNZHWYNw" parameterName="orderNumber" parameterType="Query" dataType="string" required="true"/>
+          <parameterMapping xmi:id="_C5evsLdtEeqBEeYNZHWYNw" parameterName="expectedDate" parameterType="Query" dataType="string" required="true"/>
+        </parameters>
+        <responseStatus xmi:id="_1ENPsLdxEeqBEeYNZHWYNw" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_1Slp8LdxEeqBEeYNZHWYNw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_2I0uYLdxEeqBEeYNZHWYNw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_y4Qu0LdsEeqBEeYNZHWYNw">
+        <parameterMapping xmi:id="_y4Qu0bdsEeqBEeYNZHWYNw" parameterName="verison" parameterType="Path" required="true"/>
+      </parameters>
+      <advancedConfig xmi:id="_y4GWwbdsEeqBEeYNZHWYNw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_y4LPQbdsEeqBEeYNZHWYNw" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_K0U14MWQEeq606_kTo612g" name="adjustmentInvoice" promote="ComponentSalesforce/adjustmentInvoice">
+    <sca:interface.wsdl xmi:id="_K0cxsMWQEeq606_kTo612g" interface="http://xmlns.example.com/20200511235312PLT#wsdl.interface(adjustmentInvoice)" scaext:wsdlLocation="../Processes/StarterProcesses/Salesforce.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_K0sCQMWQEeq606_kTo612g" name="RestService2" path="/adjustmentInvoice" docBasePath="http://localhost:7777/SalesForce" docResourcePath="furnitureUnbundle" basePath="/" connector="salesforce.UrbanFurnitureUnbundle" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/StarterProcesses.Salesforce-furnitureUnbundle.json">
+      <operation xmi:id="_K0xh0MWQEeq606_kTo612g" operationName="post" nickname="post-adjustmentInvoice" httpMethod="POST" notes="postadjustmentInvoice" responseStyle="array" outputPartName="adjustmentInvoiceResponse">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_K04PgMWQEeq606_kTo612g"/>
+      <advancedConfig xmi:id="_K0sCQcWQEeq606_kTo612g" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_K0yI4MWQEeq606_kTo612g" bindingName="RestService2"/>
+  </sca:service>
+  <sca:property xmi:id="_UVd40JOnEeqBkfn6saoghg" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UV6kwJOnEeqBkfn6saoghg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UWE80JOnEeqBkfn6saoghg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UWOGwJOnEeqBkfn6saoghg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UWmhQJOnEeqBkfn6saoghg" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UW5cMJOnEeqBkfn6saoghg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UXD0QJOnEeqBkfn6saoghg" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UXjjgJOnEeqBkfn6saoghg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UXtUgJOnEeqBkfn6saoghg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_W5pEIJQHEeqqOsBHxUWW7A" name="/Sterling/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ZYTe8JQHEeqqOsBHxUWW7A" name="/Sterling/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ZnUyYJQHEeqqOsBHxUWW7A" name="/Sterling/RequestURI" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ZrFRAJQHEeqqOsBHxUWW7A" name="/Sterling/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_kw2PEJQIEeqqOsBHxUWW7A" name="/Sterling/InteropApiName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_pyargJQIEeqqOsBHxUWW7A" name="/Sterling/YFSEnvironment.userId" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_wO0uQJQIEeqqOsBHxUWW7A" name="/Sterling/IsFlow" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_jFqUkLdzEeqBEeYNZHWYNw" name="/Sterling/ISPUDateExtendInteroAPIName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_lDT6ULWBEeqr44T8IYHW4A" name="/BusinessProcesses/FurnitureUnbundle/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ONbSsLd5EeqBEeYNZHWYNw" name="/BusinessProcesses/ISPUDateExtend/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_w-Co0MWZEeqiCKgowwzCxA" name="/BusinessProcesses/AdjustmentInvoice/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_mvN-oLaWEeqe16Ue6PJhiQ" name="/Connections/HTTP/Salesforce/port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ZYf0gMWREeq606_kTo612g" name="/Connections/EMS/JNDIContextURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nRp8sMWREeq606_kTo612g" name="/Connections/EMS/JNDIUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_naxccMWREeq606_kTo612g" name="/Connections/EMS/JNDIPassword" type="property:password" scaext:simpleValue="#!Kaf5pZLsGeLoICttCgpKfw==" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_GoWuUJQEEeqqOsBHxUWW7A" name="ComponentSalesforce" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_GoWuUZQEEeqqOsBHxUWW7A" processName="StarterProcesses.Salesforce"/>
+    <sca:service xmi:id="_GocN4JQEEeqqOsBHxUWW7A" name="salesforce-furnitureUnbundle-v1">
+      <sca:interface.wsdl xmi:id="_GodcAJQEEeqqOsBHxUWW7A" interface="http://xmlns.example.com/20200511235312PLT#wsdl.interface(furnitureUnbundle-v1)" scaext:wsdlLocation="../Processes/salesforce/furnitureUnbundle.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_y3ujULdsEeqBEeYNZHWYNw" name="salesforce-ispuDateExtend-v1">
+      <sca:interface.wsdl xmi:id="_y3vxcLdsEeqBEeYNZHWYNw" interface="http://xmlns.example.com/20200511235312PLT#wsdl.interface(salesforce-ispuDateExtend)"/>
+    </sca:service>
+    <sca:service xmi:id="_K0OIMMWQEeq606_kTo612g" name="adjustmentInvoice">
+      <sca:interface.wsdl xmi:id="_K0PWUMWQEeq606_kTo612g" interface="http://xmlns.example.com/20200511235312PLT#wsdl.interface(adjustmentInvoice)"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/DivisionDBSchema" xmlns:tns="http://www.example.org/DivisionDBSchema" elementFormDefault="qualified">
+
+    <element name="Divisions">
+    	<complexType>
+    		<sequence>
+    			<element name="Division" maxOccurs="unbounded"
+    				minOccurs="0">
+    				<complexType>
+    					<sequence>
+    						<element name="Store" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Division" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="DivisionDescription"
+    							type="string" maxOccurs="1" minOccurs="0">
+    						</element>
+    						<element name="Qty_fill" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Class" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="ClassDescription" type="string" maxOccurs="1" minOccurs="0"></element>
+    					</sequence>
+    				</complexType>
+    			</element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

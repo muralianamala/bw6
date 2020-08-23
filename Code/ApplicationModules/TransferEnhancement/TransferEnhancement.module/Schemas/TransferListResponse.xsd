@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/json/1584896072986" elementFormDefault="qualified" targetNamespace="http://tns.tibco.com/bw/json/1584896072986">
+  <complexType name="TransferListResponseElementType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="cartonNumber" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="trackingNumber" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="carrier" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="storeNumber" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="storeName" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="destinationStore" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="destinationStoreName" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="transferTypeCode" type="integer"/>
+      <element maxOccurs="1" minOccurs="0" name="transferTypeShortDescription" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="transferTypeLongDescription" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="statusCode" type="integer"/>
+      <element maxOccurs="1" minOccurs="0" name="statusShortDescription" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="statusLongDescription" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="createDate" type="dateTime"/>
+      <element maxOccurs="1" minOccurs="0" name="lastUpdateDate" type="dateTime"/>
+    </sequence>
+  </complexType>
+  <element name="TransferListResponseElement" type="tns:TransferListResponseElementType"/>
+  <complexType name="TransferListResponseElementArrayType">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" ref="tns:TransferListResponseElement"/>
+    </sequence>
+  </complexType>
+  <element name="TransferListResponseElementArray" type="tns:TransferListResponseElementArrayType"/>
+</schema>

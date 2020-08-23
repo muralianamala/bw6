@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/RTAM-Kafka-Schema" xmlns:tns="http://www.example.org/RTAM-Kafka-Schema" elementFormDefault="qualified">
+
+
+    <element name="Root" type="tns:RTAMType"></element>
+
+    <complexType name="RTAMType">
+    	<sequence>
+    		<element name="key" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="orgId" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="sellingChannel" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="transactionType" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="publishTime" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="availabilityByProducts"
+    			type="tns:ProductsType">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ProductsType">
+    	<sequence>
+    		<element name="productId" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="uom" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="gtin" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="atp" type="int" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="futureQty" type="int" maxOccurs="1" minOccurs="0"></element>
+    		<element name="totalQty" type="int" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+</schema>

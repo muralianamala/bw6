@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452">
+  <element name="Lookup">
+    <complexType>
+      <sequence>
+      	<element maxOccurs="1" minOccurs="0"
+      		name="TransferTypeLookup">
+      		<complexType>
+      			<sequence>
+      				<element maxOccurs="unbounded" minOccurs="0"
+      					name="Record">
+      					<complexType>
+      						<sequence>
+      							<element maxOccurs="1" minOccurs="0"
+      								name="TRANSFERTYPECODE" type="int" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="TRANSFERTYPESHORTDESC" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="TRANSFERTYPELONGDESC" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="ONEATATIMEFLAG" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="DCCODE" type="string" />
+      							<element name="IPReasonCode"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element maxOccurs="1" minOccurs="0"
+      								name="LookupDestnStore" type="string" />
+
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+
+      	<element maxOccurs="1" minOccurs="0" name="StatusLookup">
+      		<complexType>
+      			<sequence>
+      				<element maxOccurs="unbounded" minOccurs="0"
+      					name="Record">
+      					<complexType>
+      						<sequence>
+      							<element maxOccurs="1" minOccurs="0"
+      								name="STATUSCODE" type="int" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="STATUSSHORTDESC" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="STATUSLONGDESC" type="string" />
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+
+      	<element maxOccurs="1" minOccurs="0" name="DC_Lookup">
+      		<complexType>
+      			<sequence>
+      				<element maxOccurs="unbounded" minOccurs="0"
+      					name="Record">
+      					<complexType>
+      						<sequence>
+      							<element maxOccurs="1" minOccurs="0"
+      								name="DC" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="DC_NAME" type="string" />
+      							<element name="WMS_Instance"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="IP_Instance"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Sterling_Node"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="WMS_Company"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Service_Level_Flag"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Open_Demand_Flag"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element
+      								name="Complete_Shipment_Response_Flag" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Package_Cons_Narvar"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Partner_ID"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Seed_Return_Label_Flag"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="PIX_Lock_Code"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Temp_DC" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+
+      							<element
+      								name="Process_Blind_Receipt_Flag" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Expedite_Cutoff_Time"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="ASN_StoreNetInstance"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="AutoBagger_Eligible"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="DC_Xfer_Ship_Meth_Flag"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Zip_Code" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Furniture_DC_Flag"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Zip_Codes"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Address1" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Address2" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="City" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="State" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Country" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+
+
+      							<element name="ZipCode" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Weight_UOM"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Distance_UOM"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="WCL_Warehouse"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Convert_Warehouse"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Drop_Receipt_PIX_Flag"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Inventory_Target"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Location_Type"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="DCClosedDate"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="DC_PhoneNumber"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Max_Returns_Case_Qty"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+
+      	<element maxOccurs="1" minOccurs="0"
+      		name="Lock_Code_to_Store_Matrix">
+      		<complexType>
+      			<sequence>
+      				<element maxOccurs="unbounded" minOccurs="0"
+      					name="Record">
+      					<complexType>
+      						<sequence>
+      							<element maxOccurs="1" minOccurs="0"
+      								name="IP_Store" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="Channel" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="Whse" type="string" />
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+
+      	<element maxOccurs="1" minOccurs="0"
+      		name="TRANSFERDESTINATIONLookup">
+      		<complexType>
+      			<sequence>
+      				<element maxOccurs="unbounded" minOccurs="0"
+      					name="Record">
+      					<complexType>
+      						<sequence>
+      							<element maxOccurs="1" minOccurs="0"
+      								name="BRAND" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="TRANSFERTYPECODE" type="int" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="STATE" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="DESTINATIONSTORE" type="string" />
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+
+      	<element maxOccurs="1" minOccurs="0" name="PO_DC_Lookup">
+      		<complexType>
+      			<sequence>
+      				<element maxOccurs="unbounded" minOccurs="0"
+      					name="Record">
+      					<complexType>
+      						<sequence>
+      							<element maxOccurs="1" minOccurs="0"
+      								name="PO_Store" type="string" />
+      							<element maxOccurs="1" minOccurs="0"
+      								name="DC" type="string" />
+      							<element name="WMSCompany"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Temp_DC" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Itochu_WarehouseId"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Lock_code"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Conversion_Node"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Brand" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+
+      	<element name="WarehouseCompany" minOccurs="0"
+      		maxOccurs="1">
+      		<complexType>
+      			<sequence>
+      				<element name="Record" minOccurs="0"
+      					maxOccurs="unbounded">
+      					<complexType>
+      						<sequence>
+      							<element name="WareHouse"
+      								type="string">
+      							</element>
+      							<element name="Company"
+      								type="string">
+      							</element>
+      							<element name="WmSchema"
+      								type="string">
+      							</element>
+      							<element name="IpSchema"
+      								type="string">
+      							</element>
+      							<element name="Member"
+      								type="string">
+      							</element>
+      							<element name="Source"
+      								type="string">
+      							</element>
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+
+      	<element name="Brand" maxOccurs="1" minOccurs="0">
+
+      		<complexType>
+      			<sequence>
+      				<element name="Record" maxOccurs="unbounded"
+      					minOccurs="0">
+      					<complexType>
+      						<sequence>
+      							<element name="IP_Brand"
+      								type="string">
+      							</element>
+      							<element name="Sterling_Brand"
+      								type="string">
+      							</element>
+      							<element name="Sterling_Org"
+      								type="string">
+      							</element>
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+      	<element name="ProshipTransferService" maxOccurs="1"
+      		minOccurs="0">
+      		<complexType>
+      			<sequence>
+      				<element name="Record" maxOccurs="unbounded"
+      					minOccurs="0">
+      					<complexType>
+      						<sequence>
+      							<element name="Brand" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+
+      							<element name="Country" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="TransferTypeCode"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Store" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Service" type="string"
+      								maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="FallbackService"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="LabelSource"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="LabelSize"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="LabelFormat"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="HighVolume"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Shipper_prefix"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Shipper_suffix"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+      	<element name="CarrierLevelOfService" maxOccurs="1"
+      		minOccurs="0">
+      		<complexType>
+      			<sequence>
+      				<element name="Record" maxOccurs="unbounded"
+      					minOccurs="0">
+      					<complexType>
+      						<sequence>
+      							<element name="Sterling_SCAC_Service"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="ProShip_ShipMethod"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+		
+		<element name="Proship" maxOccurs="1"
+      		minOccurs="0">
+      		<complexType>
+      			<sequence>
+      				<element name="Record" maxOccurs="unbounded"
+      					minOccurs="0">
+      					<complexType>
+      						<sequence>
+      							<element name="Carrier"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="Server"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+		
+		<element name="Transfer_Sku_Validation" maxOccurs="1"
+      		minOccurs="0">
+      		<complexType>
+      			<sequence>
+      				<element name="Record" maxOccurs="unbounded"
+      					minOccurs="0">
+      					<complexType>
+      						<sequence>
+      							<element name="SterlingBrand"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="TransferTypeCode"
+      								type="integer" maxOccurs="1" minOccurs="0">
+      							</element>
+								<element name="sku_length_permission"
+      								type="integer" maxOccurs="1" minOccurs="0">
+      							</element>
+      							<element name="OnesieFlag_Permission"
+      								type="string" maxOccurs="1" minOccurs="0">
+      							</element>
+      						</sequence>
+      					</complexType>
+      				</element>
+      			</sequence>
+      		</complexType>
+      	</element>
+		
+      </sequence>
+    </complexType>
+  </element>
+
+</schema>

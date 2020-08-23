@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/json/1590176415499" elementFormDefault="qualified" targetNamespace="http://tns.tibco.com/bw/json/1590176415499">
+  <complexType name="SkuDispenseResponseElementType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="storeid" type="string" nillable="true"/>
+      <element maxOccurs="1" minOccurs="0" name="brand" type="string" nillable="true"/>
+      <element maxOccurs="unbounded" minOccurs="0" name="items">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="id" type="string" nillable="true"/>
+            <element maxOccurs="1" minOccurs="0" name="MIAQty" type="string" nillable="true"/>
+            <element maxOccurs="1" minOccurs="0" name="markdownFlag" type="string" nillable="true"/>
+            <element maxOccurs="1" minOccurs="0" name="onesieFlag" type="string" nillable="true"/>
+            <element maxOccurs="1" minOccurs="0" name="price" type="string" nillable="true"/>
+            <element maxOccurs="1" minOccurs="0" name="PPSDisabled" type="string" nillable="true"/>
+            <element maxOccurs="1" minOccurs="0" name="dispensationCode" type="string" nillable="true"/>
+            <element maxOccurs="1" minOccurs="0" name="dispensationMessage" type="string" nillable="true"/>
+            <element maxOccurs="1" minOccurs="0" name="SKULabelType" type="string" nillable="true"/>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <element name="SkuDispenseResponseElement" type="tns:SkuDispenseResponseElementType"/>
+</schema>

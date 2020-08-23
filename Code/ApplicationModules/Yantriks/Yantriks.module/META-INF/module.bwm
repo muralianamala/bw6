@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_hg9VcGeDEeqMbMdbA8fZ_Q" targetNamespace="http://tns.tibco.com/bw/composite/Yantriks.module" name="Yantriks.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_h-OgQGeDEeqMbMdbA8fZ_Q" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_h-aGcGeDEeqMbMdbA8fZ_Q" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_h-fmAGeDEeqMbMdbA8fZ_Q" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_h-mTsGeDEeqMbMdbA8fZ_Q" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_h-tBYGeDEeqMbMdbA8fZ_Q" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_h-09MGeDEeqMbMdbA8fZ_Q" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_h-6cwGeDEeqMbMdbA8fZ_Q" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_h-_8UGeDEeqMbMdbA8fZ_Q" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_h_GC8GeDEeqMbMdbA8fZ_Q" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_49JkUHJeEeqUNMN3jBrfZA" name="/Connections/EMS/JNDIContextURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Eu2QwHJfEeqUNMN3jBrfZA" name="/Connections/EMS/JNDIPassword" type="property:password" scaext:simpleValue="#!oocxWmfUlmGP2JoxtmUxeA==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_GFSfQHJfEeqUNMN3jBrfZA" name="/Connections/EMS/JNDIUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_58rusHJeEeqUNMN3jBrfZA" name="/Connections/Yantriks/KafkaBootStrapURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_8WGCQHvDEeq_ovKOXk_UqQ" name="/Connections/Yantriks/KeyStore" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_8cJm8HvDEeq_ovKOXk_UqQ" name="/Connections/Yantriks/TrustStore" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Up8nsHvEEeq_ovKOXk_UqQ" name="/Connections/Yantriks/KeyStorePwd" type="property:password" scaext:simpleValue="#!c3D/uOZphWtG9LO87kwjWQ==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_WHvbYHvEEeq_ovKOXk_UqQ" name="/Connections/Yantriks/TrustStorePwd" type="property:password" scaext:simpleValue="#!g/wQPNmzvtfKoXsPzfpFQg==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_6-OrQHJeEeqUNMN3jBrfZA" name="/Connections/LookupDB/Database_URL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Ye9lQHJfEeqUNMN3jBrfZA" name="/Connections/LookupDB/Driver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_YkXpsHJfEeqUNMN3jBrfZA" name="/Connections/LookupDB/Login_Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_YnbkwHJfEeqUNMN3jBrfZA" name="/Connections/LookupDB/MaxConnection" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_YqBlwHJfEeqUNMN3jBrfZA" name="/Connections/LookupDB/Password" type="property:password" scaext:simpleValue="#!EdOmCiNJntceXAvObiM3tw==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Ys2QQHJfEeqUNMN3jBrfZA" name="/Connections/LookupDB/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_YvhJwHJfEeqUNMN3jBrfZA" name="/Connections/LookupDB/UserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_n50J4IYMEeqIpoXa1o-w8Q" name="/Connections/SOAPLookup/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_3Bt9IIYMEeqIpoXa1o-w8Q" name="/Connections/SOAPLookup/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_jSl44JXrEeqpkoBb6GekKA" name="/Connections/SYNCEMS/JNDIContextURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_np-I0JXrEeqpkoBb6GekKA" name="/Connections/SYNCEMS/JNDIPassword" type="property:password" scaext:simpleValue="#!J0AMq+io1EXGz6pJjK5K1A==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_qZCXIJXrEeqpkoBb6GekKA" name="/Connections/SYNCEMS/JNDIUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_nWWhMHTZEeqBW8iV-1YTrw" name="/BusinessProcess/DailyInv/JMSMaxSessions" type="XMLSchema:int" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_oPMNsHTZEeqBW8iV-1YTrw" name="/BusinessProcess/DailyInv/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_vtJNAHTZEeqBW8iV-1YTrw" name="/BusinessProcess/PIXAdjInv/JMSMaxSessions" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ytTLUHTZEeqBW8iV-1YTrw" name="/BusinessProcess/PIXAdjInv/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Gc7sMH4xEeqOCaPSPhZX0w" name="/BusinessProcess/DCSync/JMSMaxSessions" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_RtOUsH4xEeqOCaPSPhZX0w" name="/BusinessProcess/DCSync/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_2w8CgICjEeq3V_QRKnj5fw" name="/BusinessProcess/VendorSync/JMSMaxSessions" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_B8LL4ICkEeq3V_QRKnj5fw" name="/BusinessProcess/VendorSync/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_lKIfQIYGEeq7z8GJQsENhw" name="/BusinessProcess/RTAMFeed/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_oAqngIYGEeq7z8GJQsENhw" name="/BusinessProcess/RTAMFeed/JMSMaxSessions" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ssbogIh2Eeqz6aa-j3p6SQ" name="/BusinessProcess/OfferService/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_yHrJMIh2Eeqz6aa-j3p6SQ" name="/BusinessProcess/OfferService/JMSMaxSessions" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_GszvsMKXEeqvZ5p2EDUMZw" name="/BusinessProcess/Markdown/JMSMaxSessions" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_K3F-0MKXEeqvZ5p2EDUMZw" name="/BusinessProcess/Markdown/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Elji8HSxEeqrt4fUkN_Eeg" name="/KafkaTopics/Store" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cyYTUHSxEeqrt4fUkN_Eeg" name="/KafkaTopics/Aggnode" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_GTsbwHTdEeqBW8iV-1YTrw" name="/KafkaTopics/Vendor" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_XMWW0ILGEeq5Q8-r1CV4IA" name="/KafkaTopics/Warehouse" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_aMxmkIYWEeqfefHNJrnh6A" name="/KafkaTopics/RTAM" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_aSRxoIYWEeqfefHNJrnh6A" name="/KafkaTopics/RTAM-GroupID" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_OYxp4MXZEeq7xqEWNW8AZg" name="/KafkaTopics/Mardown" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_NkyUgHJQEeqHTaPx3rkRyQ" name="ComponentOnStartUpService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_NkyUgXJQEeqHTaPx3rkRyQ" processName="Activator.Activator"/>
+  </sca:component>
+  <sca:component xmi:id="_9YdDMHWZEeqeL5HGiwwWTA" name="ComponentDailyInvService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_9YdDMXWZEeqeL5HGiwwWTA" processName="StarterProcesses.AggNodeStoreInvservice"/>
+  </sca:component>
+  <sca:component xmi:id="_9YuI8HWZEeqeL5HGiwwWTA" name="ComponentPIXAdjInventoryService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_9YuI8XWZEeqeL5HGiwwWTA" processName="StarterProcesses.PIXAdjInventoryService"/>
+  </sca:component>
+  <sca:component xmi:id="_MgfG4H4tEeqsg_V_JWWieA" name="ComponentDCsyncService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_MgfG4X4tEeqsg_V_JWWieA" processName="StarterProcesses.DCSyncService"/>
+  </sca:component>
+  <sca:component xmi:id="_ygZ_QICUEeq3V_QRKnj5fw" name="ComponentAggNodeStoreSyncService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ygZ_QYCUEeq3V_QRKnj5fw" processName="StarterProcesses.AggNodeVendorSyncService"/>
+  </sca:component>
+  <sca:component xmi:id="_zmRIEISaEeqIpoXa1o-w8Q" name="ComponentOfferService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_zmRIEYSaEeqIpoXa1o-w8Q" processName="StarterProcesses.OfferService"/>
+  </sca:component>
+  <sca:component xmi:id="_rJBasJDqEeq-JssUrm7G7A" name="ComponentRTAMFeedService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_rJBasZDqEeq-JssUrm7G7A" processName="StarterProcesses.RTAMFeedService"/>
+  </sca:component>
+  <sca:component xmi:id="_wa-sYMKWEeqvZ5p2EDUMZw" name="ComponentMarkdownService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_wa-sYcKWEeqvZ5p2EDUMZw" processName="StarterProcesses.MarkdownService"/>
+  </sca:component>
+</sca:composite>

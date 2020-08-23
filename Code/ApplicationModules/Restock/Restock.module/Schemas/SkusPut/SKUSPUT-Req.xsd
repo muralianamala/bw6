@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/SKUSPUT-Req" xmlns:tns="http://www.example.org/SKUSPUT-Req" elementFormDefault="qualified">
+
+    <element name="skusPut">
+    	<complexType>
+    		<sequence>
+    			<element name="store" type="string" maxOccurs="1" minOccurs="0"></element>
+    			<element name="quantity" type="double" maxOccurs="1" minOccurs="0"></element>
+    			<element name="pickType" type="string" maxOccurs="1" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

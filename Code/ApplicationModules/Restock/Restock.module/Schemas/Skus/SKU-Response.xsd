@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.urbanoutfitters.com/SKU-response" elementFormDefault="qualified" targetNamespace="http://www.urbanoutfitters.com/SKU-response">
+
+    <element name="sku">
+    	<complexType>
+    		<sequence>
+    			<element maxOccurs="unbounded" minOccurs="0" name="skuType">
+    				<complexType>
+    					<sequence>
+    						<element maxOccurs="1" minOccurs="0" name="store" type="string">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="divisionId" type="string">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="divisionDescription" type="string">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="classId" type="string">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="classDescription" type="string">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="styleNumber" type="string">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="styleDescription" type="string">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="sku" type="string">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="quanityToBeFilled" type="double">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="skuImageUrl" type="string">
+    						</element>
+    						<element maxOccurs="1" minOccurs="0" name="colorDescription" type="string">
+    						</element>
+							<element maxOccurs="1" minOccurs="0" name="sizeDescription" type="string">
+    						</element>
+							<element maxOccurs="1" minOccurs="0" name="currentRetailPrice" type="double">
+    						</element>
+							<element maxOccurs="1" minOccurs="0" name="onHand" type="double">
+    						</element>
+    						
+    						<element maxOccurs="unbounded" minOccurs="0" name="altIdentifiers" type="string">
+							</element>    									
+    						
+                        </sequence>
+    				</complexType>
+    			</element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+</schema>

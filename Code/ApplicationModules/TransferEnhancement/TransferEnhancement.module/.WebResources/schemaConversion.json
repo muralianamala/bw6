@@ -1,0 +1,37 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/TransferEnhancement.module/Service Descriptors/transferenhancement.module.TransferService-transfer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1584895836320"
+    },
+    {
+        "jsonSchemaLocation": "/TransferEnhancement.module/Service Descriptors/transferenhancement.module.TransferService-transfer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1584895895828"
+    },
+    {
+        "jsonSchemaLocation": "/TransferEnhancement.module/Service Descriptors/transferenhancement.module.TransferService-transfer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1584896072986"
+    },
+    {
+        "jsonSchemaLocation": "/TransferEnhancement.module/Service Descriptors/Transfer.TransferService-transfer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1584896072986"
+    },
+    {
+        "jsonSchemaLocation": "/TransferEnhancement.module/Service Descriptors/Transfer.TransferService-transfer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1586461314584"
+    },
+    {
+        "jsonSchemaLocation": "/TransferEnhancement.module/Service Descriptors/Transfer.TransferService-transfer.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1586464847717"
+    },
+    {
+        "jsonSchemaLocation": "/TransferEnhancement.module/Service Descriptors/Sku.SkuService-sku.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1586728954857"
+    }
+]}

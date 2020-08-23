@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="InventoryActivity" type="InventoryActivityType"></xsd:element>
+
+    <xsd:complexType name="InventoryActivityType">
+
+    	<xsd:attribute name="InventoryActivityItemID" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="PoolID" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="InventoryOrg" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="GTIN" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_s55mYE4zEeahI5jOv25mPQ" targetNamespace="http://tns.tibco.com/bw/composite/Restock.module" name="Restock.module" compositeext:version="1.0.0" compositeext:description="application" compositeext:formatVersion="2">
+  <sca:service xmi:id="_4rgMME4zEeahI5jOv25mPQ" name="styles" promote="ComponentStyles/styles">
+    <sca:interface.wsdl xmi:id="_4rng8E4zEeahI5jOv25mPQ" interface="http://xmlns.example.com/20160720003902PLT#wsdl.interface(styles)" scaext:wsdlLocation="../Processes/StarterProcesses/Styles.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_4ru1sE4zEeahI5jOv25mPQ" name="RestService" path="/restock/{version}/{region}/styles?{store}&amp;{classId}&amp;{sortBy}&amp;{offset}&amp;{limit}&amp;{sortOrder}" docBasePath="http://localhost:7777/Restock.module" docResourcePath="Styles" basePath="/" connector="restock.module.Restock" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/StarterProcesses.Styles-Styles.json">
+      <operation xmi:id="_4rzuME4zEeahI5jOv25mPQ" operationName="get" nickname="get-styles" httpMethod="GET" responseStyle="element">
+        <parameters xmi:id="_4uPXI04zEeahI5jOv25mPQ">
+          <parameterMapping xmi:id="_4uPXJE4zEeahI5jOv25mPQ" parameterName="store" parameterType="Query"/>
+          <parameterMapping xmi:id="_4uPXJU4zEeahI5jOv25mPQ" parameterName="classId" parameterType="Query"/>
+          <parameterMapping xmi:id="_4uPXJk4zEeahI5jOv25mPQ" parameterName="sortBy" parameterType="Query"/>
+          <parameterMapping xmi:id="_4uPXJ04zEeahI5jOv25mPQ" parameterName="offset" parameterType="Query"/>
+          <parameterMapping xmi:id="_4uPXKE4zEeahI5jOv25mPQ" parameterName="limit" parameterType="Query"/>
+          <parameterMapping xmi:id="_ZLfmQHU8Eea8ZMzgv-3R-w" parameterName="sortOrder" parameterType="Query"/>
+        </parameters>
+        <responseStatus xmi:id="_bKxDcE45EeaCq_VAb66GrA" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_cc7O4E45EeaCq_VAb66GrA" statusCode="204" reasonPhrase="No Record" dataType="string"/>
+        <responseStatus xmi:id="_huRMsE45EeaCq_VAb66GrA" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_j6nIcE45EeaCq_VAb66GrA" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_ZLgNUHU8Eea8ZMzgv-3R-w">
+        <parameterMapping xmi:id="_ZLgNUXU8Eea8ZMzgv-3R-w" parameterName="version" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_ZLgNUnU8Eea8ZMzgv-3R-w" parameterName="region" parameterType="Path" required="true"/>
+      </parameters>
+      <clientFormat>json</clientFormat>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_4rzuMU4zEeahI5jOv25mPQ" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_E-nKUU45EeaCq_VAb66GrA" name="divisions" promote="ComponentDivisions/divisions">
+    <sca:interface.wsdl xmi:id="_E-w7UE45EeaCq_VAb66GrA" interface="http://xmlns.example.com/20160720011613PLT#wsdl.interface(divisions)" scaext:wsdlLocation="../Processes/StarterProcesses/Divisions.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_E_giME45EeaCq_VAb66GrA" name="RestService1" path="/restock/{version}/{region}/divisions?{store}" docBasePath="http://localhost:7777/Restock.module" docResourcePath="Divisions" basePath="/" connector="restock.module.Restock" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/StarterProcesses.Divisions-Divisions.json">
+      <operation xmi:id="_E_giMU45EeaCq_VAb66GrA" operationName="get" nickname="get-divisions" httpMethod="GET" responseStyle="element">
+        <parameters xmi:id="_E_qTM045EeaCq_VAb66GrA">
+          <parameterMapping xmi:id="_E_qTNE45EeaCq_VAb66GrA" parameterName="store" parameterType="Query"/>
+        </parameters>
+        <responseStatus xmi:id="_2bgQwE45EeaCq_VAb66GrA" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_2q3icE45EeaCq_VAb66GrA" statusCode="204" reasonPhrase="No Content" dataType="string"/>
+        <responseStatus xmi:id="_20jp8E45EeaCq_VAb66GrA" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_4AcOQE45EeaCq_VAb66GrA" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_D4YeIFASEeaSvpBGLiyS3A">
+        <parameterMapping xmi:id="_D4YeIVASEeaSvpBGLiyS3A" parameterName="version" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_D4YeIlASEeaSvpBGLiyS3A" parameterName="region" parameterType="Path" required="true"/>
+      </parameters>
+      <clientFormat>json</clientFormat>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_E_giMk45EeaCq_VAb66GrA" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_XdXEAE_uEeaYSa1YencfoA" name="skus" promote="ComponentSkus/skus">
+    <sca:interface.wsdl xmi:id="_Xdb8gE_uEeaYSa1YencfoA" interface="http://xmlns.example.com/20160722052627PLT#wsdl.interface(skus)" scaext:wsdlLocation="../Processes/StarterProcesses/Skus.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_XdgN8E_uEeaYSa1YencfoA" name="RestService2" path="/restock/{version}/{region}/skus?{store}&amp;{classId}&amp;{vendor}&amp;{style}" docBasePath="http://localhost:7777/Restock.module" docResourcePath="Skus" basePath="/" connector="restock.module.Restock" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/StarterProcesses.Skus-Skus.json">
+      <operation xmi:id="_XdiqME_uEeaYSa1YencfoA" operationName="get" nickname="get-skus" httpMethod="GET" responseStyle="element">
+        <parameters xmi:id="_XdoJw0_uEeaYSa1YencfoA">
+          <parameterMapping xmi:id="_XdoJxE_uEeaYSa1YencfoA" parameterName="store" parameterType="Query"/>
+          <parameterMapping xmi:id="_XdoJxU_uEeaYSa1YencfoA" parameterName="classId" parameterType="Query"/>
+          <parameterMapping xmi:id="_XdoJxk_uEeaYSa1YencfoA" parameterName="vendor" parameterType="Query"/>
+          <parameterMapping xmi:id="_XdoJx0_uEeaYSa1YencfoA" parameterName="style" parameterType="Query"/>
+        </parameters>
+        <responseStatus xmi:id="_W5rAwE_xEeaYSa1YencfoA" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_XUxBUE_xEeaYSa1YencfoA" statusCode="204" reasonPhrase="No Content" dataType="string"/>
+        <responseStatus xmi:id="_Xs0U8E_xEeaYSa1YencfoA" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_ZBJqoE_xEeaYSa1YencfoA" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_80asIFAREeaSvpBGLiyS3A">
+        <parameterMapping xmi:id="_80asIVAREeaSvpBGLiyS3A" parameterName="version" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_80asIlAREeaSvpBGLiyS3A" parameterName="region" parameterType="Path" required="true"/>
+      </parameters>
+      <clientFormat>json</clientFormat>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_XdiqMU_uEeaYSa1YencfoA" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_oFFEMU_uEeaYSa1YencfoA" name="skus-put" promote="ComponentSkus/skus-put">
+    <sca:interface.wsdl xmi:id="_oFFrQE_uEeaYSa1YencfoA" interface="http://xmlns.example.com/20160722052627PLT#wsdl.interface(skus1)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_oFIHgE_uEeaYSa1YencfoA" name="RestService3" path="/restock/{version}/{region}/skus/{sku}" docBasePath="http://localhost:7777/Restock.module" docResourcePath="Skus" basePath="/" connector="restock.module.Restock" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/StarterProcesses.Skus-Skus.json">
+      <operation xmi:id="_oFJVoE_uEeaYSa1YencfoA" operationName="put" nickname="put-skus" httpMethod="PUT" responseStyle="element">
+        <parameters xmi:id="_oFKjxE_uEeaYSa1YencfoA"/>
+        <responseStatus xmi:id="_kQLu4E_xEeaYSa1YencfoA" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_kY93cE_xEeaYSa1YencfoA" statusCode="204" reasonPhrase="No Content" dataType="string"/>
+        <responseStatus xmi:id="_ltrnoE_xEeaYSa1YencfoA" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_mGKZEE_xEeaYSa1YencfoA" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_Aw_DcFJDEean_vChy9zrYg">
+        <parameterMapping xmi:id="_Aw_DcVJDEean_vChy9zrYg" parameterName="version" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_Aw_DclJDEean_vChy9zrYg" parameterName="region" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_Aw_Dc1JDEean_vChy9zrYg" parameterName="sku" parameterType="Path" required="true"/>
+      </parameters>
+      <clientFormat>json</clientFormat>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_oFJ8sE_uEeaYSa1YencfoA" bindingName="RestService3"/>
+  </sca:service>
+  <sca:service xmi:id="_mrfHMFQkEeau5Mr3pumicw" name="styles-count" promote="ComponentStyles/styles-count">
+    <sca:interface.wsdl xmi:id="_mrmb8FQkEeau5Mr3pumicw" interface="http://xmlns.example.com/20160720003902PLT#wsdl.interface(styles-count)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_mr4IwFQkEeau5Mr3pumicw" name="RestService4" path="/restock/{version}/{region}/styles/count?{store}&amp;{classId}" docBasePath="http://localhost:7777/Restock.module" docResourcePath="Styles" basePath="/" connector="restock.module.Restock" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/StarterProcesses.Styles-Styles.json">
+      <operation xmi:id="_mr9oUFQkEeau5Mr3pumicw" operationName="get" nickname="get-styles-count" httpMethod="GET" responseStyle="element">
+        <parameters xmi:id="_xFAfwFQkEeau5Mr3pumicw">
+          <parameterMapping xmi:id="_xFAfwVQkEeau5Mr3pumicw" parameterName="store" parameterType="Query"/>
+          <parameterMapping xmi:id="_xFAfwlQkEeau5Mr3pumicw" parameterName="classId" parameterType="Query"/>
+        </parameters>
+        <responseStatus xmi:id="_zVVjoFQkEeau5Mr3pumicw" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_zal3EFQkEeau5Mr3pumicw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <responseStatus xmi:id="_zf3_sFQkEeau5Mr3pumicw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_xFAfw1QkEeau5Mr3pumicw">
+        <parameterMapping xmi:id="_xFAfxFQkEeau5Mr3pumicw" parameterName="version" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_xFAfxVQkEeau5Mr3pumicw" parameterName="region" parameterType="Path" required="true"/>
+      </parameters>
+      <clientFormat>json</clientFormat>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_mr9oUVQkEeau5Mr3pumicw" bindingName="RestService4"/>
+  </sca:service>
+  <sca:property xmi:id="_tit54E4zEeahI5jOv25mPQ" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ti3D0E4zEeahI5jOv25mPQ" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tjA00E4zEeahI5jOv25mPQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tjA00U4zEeahI5jOv25mPQ" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tjKl0E4zEeahI5jOv25mPQ" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tjKl0U4zEeahI5jOv25mPQ" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tjTvwE4zEeahI5jOv25mPQ" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tjdgwE4zEeahI5jOv25mPQ" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tjdgwU4zEeahI5jOv25mPQ" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_DY8awE4-EeaCq_VAb66GrA" name="/BusinessProcesses/Restock/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_XKvKQE4-EeaCq_VAb66GrA" name="/Connections/HTTP/Restock-REST/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_iKIQAE4-EeaCq_VAb66GrA" name="/Connections/HTTP/Lookup/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_mlwt0E4-EeaCq_VAb66GrA" name="/Connections/HTTP/Lookup/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_rngJYE4-EeaCq_VAb66GrA" name="/Connections/HTTP/Lookup/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_w69AAE4-EeaCq_VAb66GrA" name="/Connections/Database/IP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_he87gDP9EeeLN_ydyMMc3g" name="/Connections/Database/IP/USLibrary" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_JRbLEDP-EeeLN_ydyMMc3g" name="/Connections/Database/IP/UKLibrary" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_4rY3cE4zEeahI5jOv25mPQ" name="ComponentStyles" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_4rY3cU4zEeahI5jOv25mPQ" processName="StarterProcesses.Styles"/>
+    <sca:service xmi:id="_4rdv8E4zEeahI5jOv25mPQ" name="styles">
+      <sca:interface.wsdl xmi:id="_4rdv8U4zEeahI5jOv25mPQ" interface="http://xmlns.example.com/20160720003902PLT#wsdl.interface(styles)" scaext:wsdlLocation="../Processes/StarterProcesses/Styles.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_mraOsFQkEeau5Mr3pumicw" name="styles-count">
+      <sca:interface.wsdl xmi:id="_mrbc0FQkEeau5Mr3pumicw" interface="http://xmlns.example.com/20160720003902PLT#wsdl.interface(styles-count)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_E-eAYE45EeaCq_VAb66GrA" name="ComponentDivisions" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_E-eAYU45EeaCq_VAb66GrA" processName="StarterProcesses.Divisions"/>
+    <sca:service xmi:id="_E-eAYk45EeaCq_VAb66GrA" name="divisions">
+      <sca:interface.wsdl xmi:id="_E-nKUE45EeaCq_VAb66GrA" interface="http://xmlns.example.com/20160720011613PLT#wsdl.interface(divisions)" scaext:wsdlLocation="../Processes/StarterProcesses/Divisions.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_XdQ9YE_uEeaYSa1YencfoA" name="ComponentSkus" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_XdQ9YU_uEeaYSa1YencfoA" processName="StarterProcesses.Skus"/>
+    <sca:service xmi:id="_XdUAsE_uEeaYSa1YencfoA" name="skus">
+      <sca:interface.wsdl xmi:id="_XdVO0E_uEeaYSa1YencfoA" interface="http://xmlns.example.com/20160722052627PLT#wsdl.interface(skus)" scaext:wsdlLocation="../Processes/StarterProcesses/Skus.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_oFEdIE_uEeaYSa1YencfoA" name="skus-put">
+      <sca:interface.wsdl xmi:id="_oFFEME_uEeaYSa1YencfoA" interface="http://xmlns.example.com/20160722052627PLT#wsdl.interface(skus1)"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

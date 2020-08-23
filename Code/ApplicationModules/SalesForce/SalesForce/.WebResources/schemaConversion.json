@@ -1,0 +1,5 @@
+{"records": [{
+    "jsonSchemaLocation": "/SalesForce/Service Descriptors/StarterProcesses.Salesforce-furnitureUnbundle.json",
+    "conversionType": "linked",
+    "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/REST"
+}]}

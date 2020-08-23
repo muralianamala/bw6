@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msv:DocumentRoot xmlns:msv="http://tns.tibco.com/bw/model/core/moduleSV">
+  <moduleSharedVariables>
+    <moduleSharedVariable name="Lookup" type="{http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452}Lookup" initialValueMode="none"/>
+  </moduleSharedVariables>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452" location="../Schemas/Lookup.xsd"/>
+</msv:DocumentRoot>

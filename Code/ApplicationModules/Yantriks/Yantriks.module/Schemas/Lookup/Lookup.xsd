@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.urbanoutfitters.com/yantriks/lookup" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.urbanoutfitters.com/yantriks/lookup" xmlns:Q1="http://www.urbanoutfitters.com/co/lookup">
+
+    <import namespace="http://www.urbanoutfitters.com/co/lookup"></import>
+    <element name="Lookup">
+    	<complexType>
+    		<sequence>
+    			<element name="DC_Lookup" type="Q1:DCLookupType"
+    				minOccurs="0" maxOccurs="unbounded">
+    			</element>
+    			<element name="Brand_Lookup" type="Q1:BrandType" minOccurs="0" maxOccurs="unbounded"></element>
+    		</sequence>
+    	</complexType>
+    </element>    
+
+</schema>

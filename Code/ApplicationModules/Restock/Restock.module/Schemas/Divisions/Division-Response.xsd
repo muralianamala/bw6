@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.urbanoutfitters.com/Division-response" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.urbanoutfitters.com/Division-response">
+
+    <element name="division">
+    	<complexType>
+    		<sequence>
+    			<element name="divisionType" maxOccurs="unbounded"
+    				minOccurs="0">
+    				<complexType>
+    					<sequence>
+    						<element name="store" type="string"
+    							maxOccurs="1" minOccurs="0">
+    						</element>
+    						<element name="divisionId" type="string"
+    							maxOccurs="1" minOccurs="0">
+    						</element>
+    						<element name="divisionDescription"
+    							type="string" maxOccurs="1" minOccurs="0">
+    						</element>
+    						<element name="quantityToBeFilled"
+    							type="double" maxOccurs="1" minOccurs="0">
+    						</element>
+    						<element name="classes" maxOccurs="unbounded" minOccurs="0">
+    							<complexType>
+    								<sequence>
+    									<element name="store"
+    										type="string" maxOccurs="1" minOccurs="0">
+    									</element>
+    									<element name="divisionId"
+    										type="string" maxOccurs="1" minOccurs="0">
+    									</element>
+    									<element
+    										name="divisionDescription" type="string" maxOccurs="1" minOccurs="0">
+    									</element>
+    									<element name="classId"
+    										type="string" maxOccurs="1" minOccurs="0">
+    									</element>
+    									<element name="classDescription"
+    										type="string" maxOccurs="1" minOccurs="0">
+    									</element>
+    									<element name="quantityToBeFilled"
+    										type="double" maxOccurs="1" minOccurs="0">
+    									</element>
+    								</sequence>
+    							</complexType>
+    						</element>
+    					</sequence>
+    				</complexType>
+    			</element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

@@ -1,0 +1,17 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/salesforce.UrbanFurnitureUnbundleService-UrbanFurnitureUnbundle.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/StarterProcesses.Salesforce-furnitureUnbundle.json",
+            "type": "generated"
+        }
+    ]
+}

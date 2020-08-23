@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:httpconnector="http://xsd.tns.tibco.com/bw/models/sharedresource/httpconnector" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_KzXbAZOoEeqDDeAP6Lf4lA" name="salesforce.UrbanFurnitureUnbundle" type="httpconnector:HttpConnectorConfiguration">
+  <jndi:configuration xsi:type="httpconnector:HttpConnectorConfiguration" xmi:id="_KzbscJOoEeqDDeAP6Lf4lA">
+    <substitutionBindings xmi:id="_KzevwJOoEeqDDeAP6Lf4lA" template="host" propName="BW.HOST.NAME"/>
+    <substitutionBindings xmi:id="_eq8mMLaWEeqe16Ue6PJhiQ" template="port" propName="/Connections/HTTP/Salesforce/port"/>
+  </jndi:configuration>
+</jndi:namedResource>

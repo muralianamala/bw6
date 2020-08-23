@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/json/1584895836320" elementFormDefault="qualified" targetNamespace="http://tns.tibco.com/bw/json/1584895836320">
+  <complexType name="TransferCreateRequestElementType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="storeNumber" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="destinationStoreNumber" type="string"/>
+      <element maxOccurs="1" minOccurs="0" name="transferTypeCode" type="integer"/>
+      <element maxOccurs="1" minOccurs="0" name="printerIp" type="string"/>
+    </sequence>
+  </complexType>
+  <element name="TransferCreateRequestElement" type="tns:TransferCreateRequestElementType"/>
+</schema>

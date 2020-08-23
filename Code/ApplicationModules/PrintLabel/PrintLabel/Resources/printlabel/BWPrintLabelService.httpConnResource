@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:httpconnector="http://xsd.tns.tibco.com/bw/models/sharedresource/httpconnector" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_u2hakFS6Eeqb3aqRNpYY2g" name="printlabel.BWPrintLabelService" type="httpconnector:HttpConnectorConfiguration">
+  <jndi:configuration xsi:type="httpconnector:HttpConnectorConfiguration" xmi:id="_u2j20FS6Eeqb3aqRNpYY2g" acceptQueueSize="-1" newAccessLogs="true">
+    <substitutionBindings xmi:id="_3yaAUFgDEeq8Ya9M_ElMGg" template="port" propName="/Connections/BWPrintLabelServiceHTTP/Port"/>
+    <substitutionBindings xmi:id="_jRrXIFgXEeqwaPtXntFcsw" template="host" propName="BW.HOST.NAME"/>
+    <substitutionBindings xmi:id="_ajZfEKTcEeqZ5-JRFVr6Hw" template="minThreads" propName="/Connections/BWPrintLabelServiceHTTP/MinQTPThreads"/>
+    <substitutionBindings xmi:id="_a7M7EKTcEeqZ5-JRFVr6Hw" template="maxThreads" propName="/Connections/BWPrintLabelServiceHTTP/MaxQTPThreads"/>
+  </jndi:configuration>
+</jndi:namedResource>

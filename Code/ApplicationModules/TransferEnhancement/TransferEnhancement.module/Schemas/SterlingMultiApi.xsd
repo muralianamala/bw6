@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MultiApi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="API" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Input" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Item" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ClassificationCodes" minOccurs="0">
+														<xs:complexType>
+															<xs:attribute name="NAICSCode" type="xs:string"/>
+														</xs:complexType>
+													</xs:element>
+													
+													<xs:element name="ItemAliasList" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ItemAlias" minOccurs="0">
+																	<xs:complexType>
+																		<xs:attribute name="AliasValue" type="xs:string"/>
+																	</xs:complexType>	
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													
+												</xs:sequence>
+												<xs:attribute name="MaximumRecords" type="xs:string"/>
+												<xs:attribute name="ItemID" type="xs:string"/>
+												<xs:attribute name="GetUnpublishedItems" type="xs:string"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="Output" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ItemList" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Item" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ClassificationCodes" minOccurs="0">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute name="NAICSCode" type="xs:string"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+
+																<xs:element name="PrimaryInformation" minOccurs="0">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute name="Description" type="xs:string"/>
+																				<xs:attribute name="ImageID" type="xs:string"/>
+																				<xs:attribute name="ImageLocation" type="xs:string"/>
+																				<xs:attribute name="UnitWeight" type="xs:string"/>
+																				<xs:attribute name="UnitWeightUOM" type="xs:string"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																
+																<xs:element name="Extn" minOccurs="0">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute name="ExtnOwnerOrg" type="xs:string"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+
+															</xs:sequence>
+															<xs:attribute name="ItemID" type="xs:string"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+						</xs:sequence>
+						<xs:attribute name="Name" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

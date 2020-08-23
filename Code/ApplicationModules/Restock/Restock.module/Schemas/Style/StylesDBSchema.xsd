@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.urbanoutfitters.com/StylesDBSchema" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.urbanoutfitters.com/StylesDBSchema">
+
+    <element name="Styles">
+    	<complexType>
+    		<sequence>
+    			<element name="Style" maxOccurs="unbounded" minOccurs="0">
+    				<complexType>
+    					<sequence>
+    						<element name="Store" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Div" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Div_Desc" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Class" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Class_Desc" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Item_Desc" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Style" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Vendor" type="string" maxOccurs="1" minOccurs="0"></element>
+    						<element name="Qty_Fill" type="string" maxOccurs="1" minOccurs="0"></element>
+    					</sequence>
+    				</complexType>
+    			</element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

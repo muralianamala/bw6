@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1582576005152" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1582576005152">
+  <xsd:complexType name="MapperInputType">
+    <xsd:sequence>
+      <xsd:element name="WMS_Merch_Type" type="xsd:string"/>
+      <xsd:element name="IPSkuDesc" type="xsd:string"/>
+      <xsd:element name="SterlingItemNo" type="xsd:string"/>
+      <xsd:element name="IPSku" type="xsd:string"/>
+      <xsd:element name="ExtnIpLongSku" type="xsd:string"/>
+      <xsd:element name="NaicsCode" type="xsd:string"/>
+      <xsd:element name="CaseNumber" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+      <xsd:element name="Code" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="MapperInput" tibex:source="bw.generalactivities.mapper" type="tns:MapperInputType"/>
+</xsd:schema>

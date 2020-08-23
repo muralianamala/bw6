@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_JP-qYGxQEeq5wcEF5ng_zw" targetNamespace="http://tns.tibco.com/bw/composite/TransferEnhancement.module" name="TransferEnhancement.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_J6v9UGxeEeq36-e5BUgl8Q" name="transfer" promote="ComponentProcess/transfer">
+    <sca:interface.wsdl xmi:id="_J63SEGxeEeq36-e5BUgl8Q" interface="http://xmlns.example.com/20200322111648PLT#wsdl.interface(transfer)" scaext:wsdlLocation="../Processes/transferenhancement/module/TransferService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_J7BDEGxeEeq36-e5BUgl8Q" name="RestService" path="/transfer" docBasePath="http://localhost:7777/TransferEnhancement.module" docResourcePath="transfer" basePath="/" connector="Connections.TransferEnhancement" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/transferenhancement.module.TransferService-transfer.json">
+      <operation xmi:id="_J7KNAGxeEeq36-e5BUgl8Q" operationName="post" nickname="post-transfer" httpMethod="POST" responseStyle="element" requestStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_dg-vYG4GEeq81-j0V-s8Tg" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_dopdoG4GEeq81-j0V-s8Tg" statusCode="201" reasonPhrase="Created" dataType="string"/>
+        <responseStatus xmi:id="_eA4-gG4GEeq81-j0V-s8Tg" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_eu7JMG4GEeq81-j0V-s8Tg" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_J7aEoGxeEeq36-e5BUgl8Q"/>
+      <advancedConfig xmi:id="_J7EtcGxeEeq36-e5BUgl8Q" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_J7K0EGxeEeq36-e5BUgl8Q" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_qJfgsHqLEeqrIbrxjiwHsA" name="transfers" promote="ComponentProcess/transfers">
+    <sca:interface.wsdl xmi:id="_qJlnUHqLEeqrIbrxjiwHsA" interface="http://xmlns.example.com/20200322111648PLT#wsdl.interface(transfers)" scaext:wsdlLocation="../Processes/Transfer/TransferService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_qJvYUHqLEeqrIbrxjiwHsA" name="RestService1" path="/transfers" docBasePath="http://localhost:7777/TransferEnhancement.module" docResourcePath="transfer" basePath="/" connector="Connections.TransferEnhancement" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Transfer.TransferService-transfer.json">
+      <operation xmi:id="_qJ1e8HqLEeqrIbrxjiwHsA" operationName="get" nickname="get-transfers" httpMethod="GET" responseStyle="array" outputPartName="item">
+        <parameters xmi:id="_Smy18HqMEeqrIbrxjiwHsA">
+          <parameterMapping xmi:id="_hqgeAHqSEeqUVpN0mWlewA" parameterName="storeNumber" parameterType="Query" dataType="string"/>
+          <parameterMapping xmi:id="_i8EMgHqSEeqUVpN0mWlewA" parameterName="destinationStoreNumber" parameterType="Query" dataType="string"/>
+          <parameterMapping xmi:id="_kYtJoHqSEeqUVpN0mWlewA" parameterName="transferTypeCode" parameterType="Query" dataType="integer#int32"/>
+          <parameterMapping xmi:id="_q4aYAHqSEeqUVpN0mWlewA" parameterName="statusCode" parameterType="Query" dataType="integer#int32"/>
+        </parameters>
+        <responseStatus xmi:id="_BAhi0HqMEeqrIbrxjiwHsA" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_BIRJkHqMEeqrIbrxjiwHsA" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_ByH-4HqMEeqrIbrxjiwHsA" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_qJ7lkHqLEeqrIbrxjiwHsA"/>
+      <advancedConfig xmi:id="_qJvYUXqLEeqrIbrxjiwHsA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_qJ1e8XqLEeqrIbrxjiwHsA" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_mmbLIHqiEeqg3L4EVLNYTg" name="transfers-transfer" promote="ComponentProcess/transfers-transfer">
+    <sca:interface.wsdl xmi:id="_mmh40HqiEeqg3L4EVLNYTg" interface="http://xmlns.example.com/20200322111648PLT#wsdl.interface(transfers-transfer)" scaext:wsdlLocation="../Processes/Transfer/TransferService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_mmmxUHqiEeqg3L4EVLNYTg" name="RestService2" path="/transfers/transfer/{cartonNumber}" docBasePath="http://localhost:7777/TransferEnhancement.module" docResourcePath="transfer" basePath="/" connector="Connections.TransferEnhancement" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Transfer.TransferService-transfer.json">
+      <operation xmi:id="_mmqbsHqiEeqg3L4EVLNYTg" operationName="get" nickname="get-transfers-transfer" httpMethod="GET" responseStyle="element" outputPartName="item">
+        <parameters xmi:id="_lyZUwHwkEeq0_OWhEVkvPw"/>
+        <responseStatus xmi:id="_aoZhgHwkEeq0_OWhEVkvPw" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_axiPYHwkEeq0_OWhEVkvPw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_bxZJ4HwkEeq0_OWhEVkvPw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <responseStatus xmi:id="_cxXZIHwkEeq0_OWhEVkvPw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_C1ZnAIWTEeqvE-mjNGcjrw" operationName="put" nickname="put-transfers-transfer" httpMethod="PUT" responseStyle="element" requestStyle="element">
+        <responseStatus xmi:id="_NAjMYIWTEeqvE-mjNGcjrw" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_Ne6jYIWTEeqvE-mjNGcjrw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_NjKxQIWTEeqvE-mjNGcjrw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_mnSGwHqiEeqg3L4EVLNYTg">
+        <parameterMapping xmi:id="_mnSGwXqiEeqg3L4EVLNYTg" parameterName="cartonNumber" parameterType="Path" required="true"/>
+      </parameters>
+      <advancedConfig xmi:id="_mmmxUXqiEeqg3L4EVLNYTg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_mmqbsXqiEeqg3L4EVLNYTg" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_oiN4gH0KEeqCP-pgbQLNgg" name="sku" promote="ComponentSkuService/sku">
+    <sca:interface.wsdl xmi:id="_oiT_IH0KEeqCP-pgbQLNgg" interface="http://xmlns.example.com/20200322160954PLT#wsdl.interface(sku)" scaext:wsdlLocation="../Processes/Sku/SkuService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_oiY3oH0KEeqCP-pgbQLNgg" name="RestService3" path="/transfer/sku" docBasePath="http://localhost:7777/TransferEnhancement.module" docResourcePath="sku" basePath="/" connector="Connections.TransferEnhancement" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Sku.SkuService-sku.json">
+      <operation xmi:id="_oieXMH0KEeqCP-pgbQLNgg" operationName="post" nickname="post-sku" httpMethod="POST" responseStyle="element" requestStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_0AhH0H0KEeqCP-pgbQLNgg" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_0vEP4H0KEeqCP-pgbQLNgg" statusCode="201" reasonPhrase="Created" dataType="string"/>
+        <responseStatus xmi:id="_08UowH0KEeqCP-pgbQLNgg" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_GwTAsH0LEeqCP-pgbQLNgg" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <advancedConfig xmi:id="_oiY3oX0KEeqCP-pgbQLNgg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_oieXMX0KEeqCP-pgbQLNgg" bindingName="RestService3"/>
+  </sca:service>
+  <sca:property xmi:id="_KPx6gGxQEeq5wcEF5ng_zw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KQE1cGxQEeq5wcEF5ng_zw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KQNYUGxQEeq5wcEF5ng_zw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KQTe8GxQEeq5wcEF5ng_zw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KQaMoGxQEeq5wcEF5ng_zw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KQgTQGxQEeq5wcEF5ng_zw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KQtuoGxQEeq5wcEF5ng_zw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KQzOMGxQEeq5wcEF5ng_zw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KRM20GxQEeq5wcEF5ng_zw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UIGR8HHLEeqiRpaCt7bGqg" name="AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cHvCAHHLEeqiRpaCt7bGqg" name="/Connections/LookupDB/ConnectionIdleTimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Bz3QIHHMEeqiRpaCt7bGqg" name="/Connections/LookupDB/Driver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_B3RwgHHMEeqiRpaCt7bGqg" name="/Connections/LookupDB/LoginTimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_B5YpUHHMEeqiRpaCt7bGqg" name="/Connections/LookupDB/Password" type="property:password" scaext:simpleValue="#!6Sb7cqsYDMQOK65QnxAFdA==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_B7m24HHMEeqiRpaCt7bGqg" name="/Connections/LookupDB/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_B97LEHHMEeqiRpaCt7bGqg" name="/Connections/LookupDB/Url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CEPOcHHMEeqiRpaCt7bGqg" name="/Connections/LookupDB/Username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_qmeHAHHMEeqiRpaCt7bGqg" name="/Connections/OnsieTransferDB/ConnectionIdleTimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_vdYLkHHMEeqiRpaCt7bGqg" name="/Connections/OnsieTransferDB/Driver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_vpJ9wHHMEeqiRpaCt7bGqg" name="/Connections/OnsieTransferDB/LoginTimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_vrguMHHMEeqiRpaCt7bGqg" name="/Connections/OnsieTransferDB/Password" type="property:password" scaext:simpleValue="#!DDxNqkFIXVKPK0SuJYLJCA==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_vzGj8HHMEeqiRpaCt7bGqg" name="/Connections/OnsieTransferDB/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_v2To8HHMEeqiRpaCt7bGqg" name="/Connections/OnsieTransferDB/Url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_v536UHHMEeqiRpaCt7bGqg" name="/Connections/OnsieTransferDB/Username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cWLGoHHLEeqiRpaCt7bGqg" name="/Connections/StoreMislHTTP/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CLBhAHHOEeqiRpaCt7bGqg" name="/Connections/StoreMislHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CMhV0HHOEeqiRpaCt7bGqg" name="/Connections/StoreMislHTTP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_rtK-cHHOEeqiRpaCt7bGqg" name="/Connections/StoreMislHTTP/RequestUri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cZhVkHHLEeqiRpaCt7bGqg" name="/Connections/PrintLabelHTTP/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dSk9IHHOEeqiRpaCt7bGqg" name="/Connections/PrintLabelHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_dVzQQHHOEeqiRpaCt7bGqg" name="/Connections/PrintLabelHTTP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_t3PpUHHOEeqiRpaCt7bGqg" name="/Connections/PrintLabelHTTP/RequestUri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_6yewsHHOEeqiRpaCt7bGqg" name="/Connections/PrintLabelHTTP/Content-Type" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ciwKEHHLEeqiRpaCt7bGqg" name="/Connections/BWTransferServiceHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_blCXsKTbEeqZ5-JRFVr6Hw" name="/Connections/BWTransferServiceHTTP/MinQTPThreads" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_byMp8KTbEeqZ5-JRFVr6Hw" name="/Connections/BWTransferServiceHTTP/MaxQTPThreads" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_WW6iYID_EeqTMpVOekjqZQ" name="/Connections/SterlingHTTP/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_a9jWUID_EeqTMpVOekjqZQ" name="/Connections/SterlingHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bImvwID_EeqTMpVOekjqZQ" name="/Connections/SterlingHTTP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bOf8YID_EeqTMpVOekjqZQ" name="/Connections/SterlingHTTP/RequestUri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_6RN5YJBcEeql-uMaZHAh0w" name="/Connections/EMS/JNDIContextURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_DvlRQJBdEeql-uMaZHAh0w" name="/Connections/EMS/JNDIUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_GREWkJBdEeql-uMaZHAh0w" name="/Connections/EMS/JNDIPassword" type="property:password" scaext:simpleValue="#!IlFhUqUlCXal+8Nw9dUAhg==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_LbAr4JBdEeql-uMaZHAh0w" name="/Connections/TibcoProshipHTTP/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_RB0iYJBoEeql-uMaZHAh0w" name="/Connections/TibcoProshipHTTP/URI" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_hmYg4JBoEeql-uMaZHAh0w" name="/Connections/TibcoProshipHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ulV1EJbTEeqWe4L9F1-eVA" name="/Connections/TibcoProshipHTTP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_RHFVUJUoEeqdTYIWDOLltA" name="/Connections/ZebraPrinterTCP/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_WkxtEJUoEeqdTYIWDOLltA" name="/Connections/ZebraPrinterTCP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_atlVgJUoEeqdTYIWDOLltA" name="/Connections/ZebraPrinterTCP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Ec1SQJxlEeq4gI2Mva5bRA" name="/Connections/DispenseSkuHTTP/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_MD5KQJxlEeq4gI2Mva5bRA" name="/Connections/DispenseSkuHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_MWVlIJxlEeq4gI2Mva5bRA" name="/Connections/DispenseSkuHTTP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Mc7VUJxlEeq4gI2Mva5bRA" name="/Connections/DispenseSkuHTTP/RequestUri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Mh2RkJxlEeq4gI2Mva5bRA" name="/Connections/DispenseSkuHTTP/Content-Type" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_JxYuUGxQEeq5wcEF5ng_zw" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_JxajgGxQEeq5wcEF5ng_zw" processName="Transfer.TransferService"/>
+    <sca:service xmi:id="_J6ookGxeEeq36-e5BUgl8Q" name="transfer">
+      <sca:interface.wsdl xmi:id="_J6rE0GxeEeq36-e5BUgl8Q" interface="http://xmlns.example.com/20200322111648PLT#wsdl.interface(transfer)" scaext:wsdlLocation="../Processes/transferenhancement/module/TransferService.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_qJb2UHqLEeqrIbrxjiwHsA" name="transfers">
+      <sca:interface.wsdl xmi:id="_qJcdYHqLEeqrIbrxjiwHsA" interface="http://xmlns.example.com/20200322111648PLT#wsdl.interface(transfers)"/>
+    </sca:service>
+    <sca:service xmi:id="_mmYH0HqiEeqg3L4EVLNYTg" name="transfers-transfer">
+      <sca:interface.wsdl xmi:id="_mmZV8HqiEeqg3L4EVLNYTg" interface="http://xmlns.example.com/20200322111648PLT#wsdl.interface(transfers-transfer)" scaext:wsdlLocation="../Processes/Transfer/TransferService.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_GHvxgGx5EeqMuo0Tws0CYg" name="ComponentSkuService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_GHvxgWx5EeqMuo0Tws0CYg" processName="Sku.SkuService"/>
+    <sca:service xmi:id="_oiJnEH0KEeqCP-pgbQLNgg" name="sku">
+      <sca:interface.wsdl xmi:id="_oiK1MH0KEeqCP-pgbQLNgg" interface="http://xmlns.example.com/20200322160954PLT#wsdl.interface(sku)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_lMjggG3xEeqFAeltcJk2hw" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_lMjggW3xEeqFAeltcJk2hw" processName="Activator.Activator"/>
+  </sca:component>
+</sca:composite>

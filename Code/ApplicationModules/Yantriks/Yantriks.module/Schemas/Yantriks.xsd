@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Yantriks" xmlns:tns="http://www.example.org/Yantriks" elementFormDefault="qualified">
+
+    <element name="Yantriks" type="tns:YantriksType"></element>
+
+    <complexType name="YantriksType">
+    	<sequence>
+    		<element name="uom" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="quantity" type="integer" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="productId" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="locationId" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="audit" type="tns:auditType" maxOccurs="1" minOccurs="0"></element>
+    		<element name="feedType" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="locationType" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="eventType" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="from" type="tns:fromType" maxOccurs="1" minOccurs="0"></element>
+    		<element name="to" type="tns:toType" maxOccurs="1" minOccurs="0"></element>
+    		<element name="updateTimeStamp" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="orgId" type="string" minOccurs="0" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="auditType">
+    	<sequence>
+    		<element name="transactionId" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="transactionReason" type="string"
+    			minOccurs="0" maxOccurs="1">
+    		</element>
+    		<element name="transactionSystem" type="string"
+    			minOccurs="0" maxOccurs="1">
+    		</element>
+    		<element name="transactionType" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="transactionUser" type="string" minOccurs="0" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="fromType">
+    	<sequence>
+    		<element name="supplyDate" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="supplyType" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="toType">
+    	<sequence>
+    		<element name="supplyDate" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="supplyType" type="string" minOccurs="0" maxOccurs="1"></element>
+    		<element name="segment" type="string" minOccurs="0" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+</schema>

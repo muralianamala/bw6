@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/SkuCreate" xmlns:tns="http://www.example.org/SkuCreate" elementFormDefault="qualified">
+
+    <element name="SkuCreate" type="tns:SkuCreateType"></element>
+
+    <complexType name="SkuCreateType">
+    	<sequence>
+    		<element name="action" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="quantity" type="integer" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="sku" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="storeNumber" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="cartonNumber" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="created" type="boolean" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="sterling_Brand" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="naics_code" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="DetailQuantity" type="integer" minOccurs="0" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+</schema>

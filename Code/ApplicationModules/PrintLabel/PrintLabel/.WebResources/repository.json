@@ -1,0 +1,53 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/printlabel.ServiceProcess-Resource.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printlabel.ServiceProcess-label.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printLabel.PrintDirectSkuLabelService-Label.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printLabel.PrintDirectSkuLabelService-DirectSkuLabel.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printLabel.PrintCartonLabelServiceRequest-CartonLabel.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printLabel.PrintCartonLabelService-CartonLabel.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printLabel.PrintShippingLabelService-shipping.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printLabel.PrintShippingLabelService-ShippingLabel.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printLabel.CartonLabelService-CartonLabel.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printLabel.DirectSkuLabelService-DirectSkuLabel.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/printLabel.ShippingLabelService-ShippingLabel.json",
+            "type": "generated"
+        }
+    ]
+}

@@ -1,0 +1,225 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/transfer" : {
+      "post" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "post-transfer",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/TransferCreateRequestElement"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a TransferCreateResponseElement to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/TransferCreateResponseElement"
+            }
+          }
+        }
+      },
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-transfer",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "storeNumber",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "transferTypeCode",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "destinationStoreNumber",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "deviceId",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "statusCode",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a TransferListResponseElement to be returned",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/TransferListResponseElement",
+                "uniqueItems" : false
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "put-transfer",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "delete-transfer",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "TransferCreateRequestElement" : {
+      "type" : "object",
+      "properties" : {
+        "deviceId" : {
+          "type" : "string"
+        },
+        "storeNumber" : {
+          "type" : "string"
+        },
+        "destinationStoreNumber" : {
+          "type" : "string"
+        },
+        "transferTypeCode" : {
+          "type" : "string"
+        },
+        "printerIp" : {
+          "type" : "string"
+        },
+        "printerPort" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "TransferListResponseElement" : {
+      "type" : "object",
+      "properties" : {
+        "cartonNumber" : {
+          "type" : "string"
+        },
+        "trackingNumber" : {
+          "type" : "string"
+        },
+        "carrier" : {
+          "type" : "string"
+        },
+        "storeNumber" : {
+          "type" : "string"
+        },
+        "storeName" : {
+          "type" : "string"
+        },
+        "destinationStore" : {
+          "type" : "string"
+        },
+        "destinationStoreName" : {
+          "type" : "string"
+        },
+        "transferTypeCode" : {
+          "type" : "string"
+        },
+        "transferTypeShortDescription" : {
+          "type" : "string"
+        },
+        "transferTypeLongDescription" : {
+          "type" : "string"
+        },
+        "statusCode" : {
+          "type" : "string"
+        },
+        "statusShortDescription" : {
+          "type" : "string"
+        },
+        "statusLongDescription" : {
+          "type" : "string"
+        },
+        "createDeviceId" : {
+          "type" : "string"
+        },
+        "lastUpdateDeviceId" : {
+          "type" : "string"
+        },
+        "createDate" : {
+          "type" : "string"
+        },
+        "lastUpdateDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "TransferCreateResponseElement" : {
+      "type" : "object",
+      "properties" : {
+        "cartonNumber" : {
+          "type" : "string"
+        },
+        "storeNumber" : {
+          "type" : "string"
+        },
+        "destinationStoreNumber" : {
+          "type" : "string"
+        },
+        "transferTypeCode" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created with Liquid XML Studio Developer Edition (Trial) 9.1.1.3301 (http://www.liquid-technologies.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Product">
+		<xs:complexType>
+			<xs:attribute name="FulfillmentType" type="xs:string"/>
+			<xs:attribute name="Search" type="xs:string"/>
+			<xs:attribute name="Brand" type="xs:string"/>
+			<xs:attribute name="StoreNo" type="xs:string"/>
+			<xs:attribute name="SpecificStyleFlag" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

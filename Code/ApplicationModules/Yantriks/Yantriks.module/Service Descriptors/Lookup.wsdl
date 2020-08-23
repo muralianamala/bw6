@@ -1,0 +1,1947 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL--><wsdl:definitions xmlns:ns0="http://www.urbanoutfitters.com/co/lookupwsdl" xmlns:ns1="http://www.hcleai.com/leaf/exceptionclient" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.example.com/1299141313034" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Untitled" targetNamespace="http://xmlns.example.com/1299141313034" tibex:src="file:/C:/Users/SSachdeva/Desktop/Lookup.wsdl">
+    <wsdl:types>
+        <xsd:schema xmlns="http://www.hcleai.com/leaf/exceptionclient" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.hcleai.com/leaf/exceptionclient">
+            <xsd:element name="ErrorReport">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="StackTrace" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Msg" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="FullClass" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Class" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="ProcessStack" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="MsgCode" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Data" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Exception">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ExceptionCode" type="xsd:string"/>
+                        <xsd:element name="ProcessName" type="xsd:string"/>
+                        <xsd:element name="Domain" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="ExceptionLoggedDateTime" type="xsd:dateTime"/>
+                        <xsd:element minOccurs="0" name="ExceptionDetails" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="RetryTargetType" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="RetryTarget" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="RetryMessage" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="DeferNotification">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:enumeration value="Y"/>
+                                    <xsd:enumeration value="N"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="DeferNotificationTimeoutInSecs" type="xsd:long"/>
+                        <xsd:element minOccurs="0" ref="ns1:ErrorReport"/>
+                        <xsd:element minOccurs="0" ref="ns1:ProcessContext"/>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="ns1:ExceptionParameters"/>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="ns1:ExceptionAttachments"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ExceptionAttachments">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Name" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Type" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Data" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ExceptionCollection">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="ns1:Exception"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ExceptionParameters">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Name" type="xsd:string"/>
+                        <xsd:element name="Value" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="NotifyExceptionStructure">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="EXCEPTION_ID" type="xsd:long"/>
+                        <xsd:element ref="ns1:Exception"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="PersistedException">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="EXCEPTION_LOG_SEQ" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="EXCEPTION_TYPE" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="EXCEPTION_CATEGORY" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="EXCEPTION_DESC" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="EXCEPTION_USER" type="xsd:string"/>
+                        <xsd:element minOccurs="0" ref="ns1:Exception"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ProcessContext">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="ProcessId" type="xsd:long"/>
+                        <xsd:element minOccurs="0" name="ProjectName" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="EngineName" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="RestartedFromCheckpoint" type="xsd:boolean"/>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="TrackingInfo" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="CustomId" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Status">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="Status" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+        <xs:schema xmlns="http://www.urbanoutfitters.com/co/lookupwsdl" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.urbanoutfitters.com/co/lookupwsdl">
+            <xs:complexType name="BrandType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IPBrand" type="xs:string"/>
+                    <xs:element minOccurs="0" name="WMSMerchType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SterlingBrand" type="xs:string"/>
+                    <xs:element minOccurs="0" name="WMSSalesMan" type="xs:string"/>
+                    <xs:element minOccurs="0" name="WMSSalesGroup" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Website" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ReturnsUrl" type="xs:string"/>
+                    <xs:element minOccurs="0" name="AutoBaggerEligibleFlag" type="xs:string"/>
+                    <xs:element minOccurs="0" name="AutoBaggerCartonType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lowestRetail" type="xs:string"/>
+                    <xs:element minOccurs="0" name="promoCode" type="xs:string"/>
+                    <xs:element minOccurs="0" name="dcProcessDays" type="xs:string"/>
+                    <xs:element minOccurs="0" name="autoBaggerAmount" type="xs:string"/>
+                    <xs:element minOccurs="0" name="storeCartonType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="storeShipMethod" type="xs:string"/>
+                    <xs:element minOccurs="0" name="allocationRuleId" type="xs:string"/>
+                    <xs:element minOccurs="0" name="dependencyShippingRule" type="xs:string"/>
+                    <xs:element minOccurs="0" name="distroRuleId" type="xs:string"/>
+                    <xs:element minOccurs="0" name="maxRecords" type="xs:string"/>
+                    <xs:element minOccurs="0" name="optimizationType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="storeDistance" type="xs:string"/>
+                    <xs:element minOccurs="0" name="sourcingClassification" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ThreeDSecureMerchantId" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BrandName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="VATDetailReturns" type="xs:string"/>
+                    <xs:element minOccurs="0" name="MPOSShipFeeOverridePromo" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CarrierLevelServiceType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="SterlingSCACService" type="xs:string"/>
+                    <xs:element minOccurs="0" name="WMSShipMethod" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SterlingSCAC" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ExcludeMposFlag" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="GiftCardLocalType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="giftCardLocalCode" type="xs:string"/>
+                    <xs:element minOccurs="0" name="giftCardLocalDesc" type="xs:string"/>
+                    <xs:element minOccurs="0" name="noGiftCardPermittedFlag" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MposFulfillmentType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="StoreCountry" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FulfillmentType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Brand" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MposType">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="StorePromoCode" type="ns0:StorePromoCodeType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Brand" type="ns0:BrandType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="OrderReleaseStatus" type="ns0:OrderReleaseStatusType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="SterlingChargeCategory" type="ns0:SterlingChargeCategoryType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="GiftCardLocal" type="ns0:GiftCardLocalType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="TenderTypeXref" type="ns0:TenderTypeXrefType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="StoreReasonCodeXfer" type="ns0:StoreReasonCodeXferType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ShipTaxSiteId" type="ns0:ShipTaxSiteIdType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="MposFulfillment" type="ns0:MposFulfillmentType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="VATDetailRollup" type="ns0:VATDetailRollupType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="CarrierLevelService" type="ns0:CarrierLevelServiceType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderReleaseStatusType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="statusdescription" type="xs:string"/>
+                    <xs:element minOccurs="0" name="sterlingStatus" type="xs:string"/>
+                    <xs:element minOccurs="0" name="emailStatus" type="xs:string"/>
+                    <xs:element minOccurs="0" name="shippedFlag" type="xs:string"/>
+                    <xs:element minOccurs="0" name="returnCreatedFlag" type="xs:string"/>
+                    <xs:element minOccurs="0" name="returnRefundedFlag" type="xs:string"/>
+                    <xs:element minOccurs="0" name="returnReceiptFlag" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShipTaxSiteIdType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="storeCountry" type="xs:string"/>
+                    <xs:element minOccurs="0" name="shipToCountry" type="xs:string"/>
+                    <xs:element minOccurs="0" name="siteId" type="xs:string"/>
+                    <xs:element minOccurs="0" name="brand" type="xs:string"/>
+                    <xs:element minOccurs="0" name="A15_SiteID" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SterlingChargeCategoryType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="sterlingChargeCategory" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lineChargeType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="headerChargeType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="feeSKU" type="xs:string"/>
+                    <xs:element minOccurs="0" name="reasonCode" type="xs:string"/>
+                    <xs:element minOccurs="0" name="negFeeSKU" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="StorePromoCodeType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="storeNo" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pomoCode" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="StoreReasonCodeXferType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="storeReasonCode" type="xs:string"/>
+                    <xs:element minOccurs="0" name="directReasonCode" type="xs:string"/>
+                    <xs:element minOccurs="0" name="description" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="TenderTypeXRefOut">
+                <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+            <xs:complexType name="TenderTypeXrefType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="paymentType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="creditCardType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="emailPaymentDesc" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="VATDetailRollupType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="SterlingCategory" type="xs:string"/>
+                    <xs:element minOccurs="0" name="TaxType" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="WarehouseCompanyType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="warehouse" type="xs:string"/>
+                    <xs:element minOccurs="0" name="company" type="xs:string"/>
+                    <xs:element minOccurs="0" name="wmschema" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ipschema" type="xs:string"/>
+                    <xs:element minOccurs="0" name="member" type="xs:string"/>
+                    <xs:element minOccurs="0" name="source" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="WorldPayPaymentDetailType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Brand" type="xs:string"/>
+                    <xs:element minOccurs="0" ref="ns0:Country"/>
+                    <xs:element minOccurs="0" ref="ns0:Currency"/>
+                    <xs:element minOccurs="0" ref="ns0:Method"/>
+                    <xs:element minOccurs="0" ref="ns0:Device_Type"/>
+                    <xs:element minOccurs="0" ref="ns0:Merchant_Code"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:PaymentMethod"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ConvCurrency">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:ConvCurrencyRequest"/>
+                        <xs:element minOccurs="0" ref="ns0:ConvCurrencyResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConvCurrencyRequest">
+                <xs:complexType>
+                    <xs:attribute name="ConversionDate" type="xs:string"/>
+                    <xs:attribute name="EnterpriseCode" type="xs:string"/>
+                    <xs:attribute name="FromCurrency" type="xs:string"/>
+                    <xs:attribute name="InputAmount" type="xs:string"/>
+                    <xs:attribute name="ToCurrency" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConvCurrencyResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="convertCurrency">
+                            <xs:complexType>
+                                <xs:attribute name="OutputAmount" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Country" type="xs:string"/>
+            <xs:element name="Currency" type="xs:string"/>
+            <xs:element name="Device_Type" type="xs:string"/>
+            <xs:element name="FieldNO" type="xs:string"/>
+            <xs:element name="FieldName" type="xs:string"/>
+            <xs:element name="FieldName_Language">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:FieldName"/>
+                        <xs:element minOccurs="0" ref="ns0:NumericFlag"/>
+                        <xs:element minOccurs="0" ref="ns0:MinCharacters"/>
+                        <xs:element minOccurs="0" ref="ns0:MaxCharacters"/>
+                        <xs:element minOccurs="0" ref="ns0:Language"/>
+                        <xs:element minOccurs="0" name="Collect_From_Customer" type="xs:boolean"/>
+                        <xs:element minOccurs="0" name="Field_Description" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Optional" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="FieldNo" type="xs:string"/>
+            <xs:element name="FieldNo_Sequence">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:FieldNO"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:Sequence"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetCheckNodeInv">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:GetCheckNodeInvRequest"/>
+                        <xs:element minOccurs="0" ref="ns0:GetCheckNodeInvResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetCheckNodeInvRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Promise">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="ShipToAddress">
+                                        <xs:complexType>
+                                            <xs:attribute name="Country" type="xs:string"/>
+                                            <xs:attribute name="ZipCode" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="PromiseLines">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="PromiseLine">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element minOccurs="0" name="ShipNodes">
+                                                                <xs:complexType>
+                                                                    <xs:sequence>
+                                                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="ShipNode">
+                                                                            <xs:complexType>
+                                                                                <xs:attribute name="Node" type="xs:string"/>
+                                                                            </xs:complexType>
+                                                                        </xs:element>
+                                                                    </xs:sequence>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element minOccurs="0" name="ShipToAddress">
+                                                                <xs:complexType>
+                                                                    <xs:attribute name="Country" type="xs:string"/>
+                                                                    <xs:attribute name="ZipCode" type="xs:string"/>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                        <xs:attribute name="ItemID" type="xs:string"/>
+                                                        <xs:attribute name="LineId" type="xs:string"/>
+                                                        <xs:attribute name="ProductClass" type="xs:string"/>
+                                                        <xs:attribute name="RequiredQty" type="xs:string"/>
+                                                        <xs:attribute name="UnitOfMeasure" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="CheckInventory" type="xs:string"/>
+                                <xs:attribute name="EnterpriseCode" type="xs:string"/>
+                                <xs:attribute name="IgnoreMinNotificationTime" type="xs:string"/>
+                                <xs:attribute name="IgnorePromised" type="xs:string"/>
+                                <xs:attribute name="IgnoreUnpromised" type="xs:string"/>
+                                <xs:attribute name="IsPartialSubstitutionAllowed" type="xs:string"/>
+                                <xs:attribute name="OrganizationCode" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetCheckNodeInvResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Promise">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="PromiseLines">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="PromiseLine">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element minOccurs="0" name="Availability">
+                                                                <xs:complexType>
+                                                                    <xs:sequence>
+                                                                        <xs:element maxOccurs="unbounded" minOccurs="0" name="AvailableInventory">
+                                                                            <xs:complexType>
+                                                                                <xs:sequence>
+                                                                                    <xs:element minOccurs="0" name="ShipNodeAvailableInventory">
+                                                                                        <xs:complexType>
+                                                                                            <xs:sequence>
+                                                                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="Inventory">
+                                                                                                    <xs:complexType>
+                                                                                                        <xs:attribute name="AvailableFromUnplannedInventory" type="xs:string"/>
+                                                                                                        <xs:attribute name="AvailableFutureQuantity" type="xs:string"/>
+                                                                                                        <xs:attribute name="AvailableOnhandQuantity" type="xs:string"/>
+                                                                                                        <xs:attribute name="AvailableQuantity" type="xs:string"/>
+                                                                                                        <xs:attribute name="Node" type="xs:string"/>
+                                                                                                    </xs:complexType>
+                                                                                                </xs:element>
+                                                                                            </xs:sequence>
+                                                                                        </xs:complexType>
+                                                                                    </xs:element>
+                                                                                </xs:sequence>
+                                                                                <xs:attribute name="AvailableFromUnplannedInventory" type="xs:string"/>
+                                                                                <xs:attribute name="AvailableFutureQuantity" type="xs:string"/>
+                                                                                <xs:attribute name="AvailableOnhandQuantity" type="xs:string"/>
+                                                                                <xs:attribute name="AvailableQuantity" type="xs:string"/>
+                                                                                <xs:attribute name="EndDate" type="xs:string"/>
+                                                                                <xs:attribute name="StartDate" type="xs:string"/>
+                                                                            </xs:complexType>
+                                                                        </xs:element>
+                                                                    </xs:sequence>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                        <xs:attribute name="AutoReplacedByPreferredSubstitute" type="xs:string"/>
+                                                        <xs:attribute name="IsBundleParent" type="xs:string"/>
+                                                        <xs:attribute name="ItemID" type="xs:string"/>
+                                                        <xs:attribute name="LineId" type="xs:string"/>
+                                                        <xs:attribute name="NewItemID" type="xs:string"/>
+                                                        <xs:attribute name="ProductClass" type="xs:string"/>
+                                                        <xs:attribute name="UnitOfMeasure" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="OrganizationCode" type="xs:string"/>
+                                <xs:attribute name="UseUnplannedInventory" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetInventorySupply">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:GetInventorySupplyRequest"/>
+                        <xs:element minOccurs="0" ref="ns0:GetInventorySupplyResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetInventorySupplyRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Tag">
+                            <xs:complexType>
+                                <xs:attribute name="BatchNo" type="xs:string"/>
+                                <xs:attribute name="LotAttribute1" type="xs:string"/>
+                                <xs:attribute name="LotAttribute2" type="xs:string"/>
+                                <xs:attribute name="LotAttribute3" type="xs:string"/>
+                                <xs:attribute name="LotKeyReference" type="xs:string"/>
+                                <xs:attribute name="LotNumber" type="xs:string"/>
+                                <xs:attribute name="ManufacturingDate" type="xs:string"/>
+                                <xs:attribute name="RevisionNo" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="CallingOrganizationCode" type="xs:string"/>
+                    <xs:attribute name="ConsiderAllNodes" type="xs:string"/>
+                    <xs:attribute name="ConsiderAllSegments" type="xs:string"/>
+                    <xs:attribute name="DistributionRuleId" type="xs:string"/>
+                    <xs:attribute name="ETA" type="xs:string"/>
+                    <xs:attribute name="ItemID" type="xs:string"/>
+                    <xs:attribute name="LotNumber" type="xs:string"/>
+                    <xs:attribute name="OrganizationCode" type="xs:string"/>
+                    <xs:attribute name="ProductClass" type="xs:string"/>
+                    <xs:attribute name="Segment" type="xs:string"/>
+                    <xs:attribute name="SegmentType" type="xs:string"/>
+                    <xs:attribute name="ShipByDate" type="xs:string"/>
+                    <xs:attribute name="ShipNode" type="xs:string"/>
+                    <xs:attribute name="SupplyType" type="xs:string"/>
+                    <xs:attribute name="UnitOfMeasure" type="xs:string"/>
+                    <xs:attribute name="ValidateItem" type="xs:string"/>
+                    <xs:attribute name="ValidateShipNode" type="xs:string"/>
+                    <xs:attribute name="ValidateShipNodeOwner" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetInventorySupplyResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Item">
+                            <xs:complexType>
+                                <xs:all>
+                                    <xs:element minOccurs="0" name="LanguageDescriptionList">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="LanguageDescription">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="Description" type="xs:string"/>
+                                                        <xs:attribute name="ExtendedDescription" type="xs:string"/>
+                                                        <xs:attribute name="LocaleCode" type="xs:string"/>
+                                                        <xs:attribute name="ShortDescription" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="Supplies">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="InventorySupply">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element maxOccurs="unbounded" minOccurs="0" name="Tag">
+                                                                <xs:complexType>
+                                                                    <xs:attribute name="BatchNo" type="xs:string"/>
+                                                                    <xs:attribute name="InventoryItemKey" type="xs:string"/>
+                                                                    <xs:attribute name="InventoryTagKey" type="xs:string"/>
+                                                                    <xs:attribute name="LotAttribute1" type="xs:string"/>
+                                                                    <xs:attribute name="LotAttribute2" type="xs:string"/>
+                                                                    <xs:attribute name="LotAttribute3" type="xs:string"/>
+                                                                    <xs:attribute name="LotKeyReference" type="xs:string"/>
+                                                                    <xs:attribute name="LotNumber" type="xs:string"/>
+                                                                    <xs:attribute name="ManufacturingDate" type="xs:string"/>
+                                                                    <xs:attribute name="RevisionNo" type="xs:string"/>
+                                                                    <xs:attribute name="TagNumber" type="xs:string"/>
+                                                                    <xs:attribute name="TotalDemand" type="xs:string"/>
+                                                                    <xs:attribute name="TotalOnhandSupply" type="xs:string"/>
+                                                                    <xs:attribute name="TotalOtherSupply" type="xs:string"/>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element minOccurs="0" name="InventoryItem">
+                                                                <xs:complexType>
+                                                                    <xs:attribute name="ItemID" type="xs:string"/>
+                                                                    <xs:attribute name="UnitOfMeasure" type="xs:string"/>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                        <xs:attribute name="AvailabilityType" type="xs:string"/>
+                                                        <xs:attribute name="ETA" type="xs:string"/>
+                                                        <xs:attribute name="InventoryItemKey" type="xs:string"/>
+                                                        <xs:attribute name="InventorySupplyKey" type="xs:string"/>
+                                                        <xs:attribute name="InventoryTagKey" type="xs:string"/>
+                                                        <xs:attribute name="OrganizationCode" type="xs:string"/>
+                                                        <xs:attribute name="Quantity" type="xs:string"/>
+                                                        <xs:attribute name="Segment" type="xs:string"/>
+                                                        <xs:attribute name="SegmentType" type="xs:string"/>
+                                                        <xs:attribute name="ShipByDate" type="xs:string"/>
+                                                        <xs:attribute name="ShipNode" type="xs:string"/>
+                                                        <xs:attribute name="SupplyLineReference" type="xs:string"/>
+                                                        <xs:attribute name="SupplyReference" type="xs:string"/>
+                                                        <xs:attribute name="SupplyReferenceType" type="xs:string"/>
+                                                        <xs:attribute name="SupplyType" type="xs:string"/>
+                                                        <xs:attribute name="TagNumber" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:all>
+                                <xs:attribute name="ConsiderAllNodes" type="xs:string"/>
+                                <xs:attribute name="ConsiderAllSegments" type="xs:string"/>
+                                <xs:attribute name="DistributionRuleId" type="xs:string"/>
+                                <xs:attribute name="ItemID" type="xs:string"/>
+                                <xs:attribute name="OrganizationCode" type="xs:string"/>
+                                <xs:attribute name="ProductClass" type="xs:string"/>
+                                <xs:attribute name="UnitOfMeasure" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetNodeDetails">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:GetNodeDetailsRequest"/>
+                        <xs:element minOccurs="0" ref="ns0:GetNodeDetailsResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetNodeDetailsRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Organization">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="ComplexQuery">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" name="Or">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element maxOccurs="unbounded" minOccurs="0" name="Exp">
+                                                                <xs:complexType>
+                                                                    <xs:attribute name="Name" type="xs:string"/>
+                                                                    <xs:attribute name="QryType" type="xs:string"/>
+                                                                    <xs:attribute name="Value" type="xs:string"/>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                            <xs:attribute name="Operator" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="OrganizationCode" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetNodeDetailsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="OrganizationList">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Organization">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="CorporatePersonInfo">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="AddressLine1" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine2" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine3" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine4" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine5" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine6" type="xs:string"/>
+                                                        <xs:attribute name="AlternateEmailID" type="xs:string"/>
+                                                        <xs:attribute name="Beeper" type="xs:string"/>
+                                                        <xs:attribute name="City" type="xs:string"/>
+                                                        <xs:attribute name="Company" type="xs:string"/>
+                                                        <xs:attribute name="Country" type="xs:string"/>
+                                                        <xs:attribute name="DayFaxNo" type="xs:string"/>
+                                                        <xs:attribute name="DayPhone" type="xs:string"/>
+                                                        <xs:attribute name="Department" type="xs:string"/>
+                                                        <xs:attribute name="EMailID" type="xs:string"/>
+                                                        <xs:attribute name="ErrorTxt" type="xs:string"/>
+                                                        <xs:attribute name="EveningFaxNo" type="xs:string"/>
+                                                        <xs:attribute name="EveningPhone" type="xs:string"/>
+                                                        <xs:attribute name="FirstName" type="xs:string"/>
+                                                        <xs:attribute name="HttpUrl" type="xs:string"/>
+                                                        <xs:attribute name="JobTitle" type="xs:string"/>
+                                                        <xs:attribute name="LastName" type="xs:string"/>
+                                                        <xs:attribute name="MiddleName" type="xs:string"/>
+                                                        <xs:attribute name="MobilePhone" type="xs:string"/>
+                                                        <xs:attribute name="OtherPhone" type="xs:string"/>
+                                                        <xs:attribute name="PersonID" type="xs:string"/>
+                                                        <xs:attribute name="PersonInfoKey" type="xs:string"/>
+                                                        <xs:attribute name="PreferredShipAddress" type="xs:string"/>
+                                                        <xs:attribute name="State" type="xs:string"/>
+                                                        <xs:attribute name="Suffix" type="xs:string"/>
+                                                        <xs:attribute name="Title" type="xs:string"/>
+                                                        <xs:attribute name="UseCount" type="xs:string"/>
+                                                        <xs:attribute name="VerificationStatus" type="xs:string"/>
+                                                        <xs:attribute name="ZipCode" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="ContactPersonInfo">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="AddressLine1" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine2" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine3" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine4" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine5" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine6" type="xs:string"/>
+                                                        <xs:attribute name="AlternateEmailID" type="xs:string"/>
+                                                        <xs:attribute name="Beeper" type="xs:string"/>
+                                                        <xs:attribute name="City" type="xs:string"/>
+                                                        <xs:attribute name="Company" type="xs:string"/>
+                                                        <xs:attribute name="Country" type="xs:string"/>
+                                                        <xs:attribute name="DayFaxNo" type="xs:string"/>
+                                                        <xs:attribute name="DayPhone" type="xs:string"/>
+                                                        <xs:attribute name="Department" type="xs:string"/>
+                                                        <xs:attribute name="EMailID" type="xs:string"/>
+                                                        <xs:attribute name="ErrorTxt" type="xs:string"/>
+                                                        <xs:attribute name="EveningFaxNo" type="xs:string"/>
+                                                        <xs:attribute name="EveningPhone" type="xs:string"/>
+                                                        <xs:attribute name="FirstName" type="xs:string"/>
+                                                        <xs:attribute name="HttpUrl" type="xs:string"/>
+                                                        <xs:attribute name="JobTitle" type="xs:string"/>
+                                                        <xs:attribute name="LastName" type="xs:string"/>
+                                                        <xs:attribute name="MiddleName" type="xs:string"/>
+                                                        <xs:attribute name="MobilePhone" type="xs:string"/>
+                                                        <xs:attribute name="OtherPhone" type="xs:string"/>
+                                                        <xs:attribute name="PersonID" type="xs:string"/>
+                                                        <xs:attribute name="PersonInfoKey" type="xs:string"/>
+                                                        <xs:attribute name="PreferredShipAddress" type="xs:string"/>
+                                                        <xs:attribute name="State" type="xs:string"/>
+                                                        <xs:attribute name="Suffix" type="xs:string"/>
+                                                        <xs:attribute name="Title" type="xs:string"/>
+                                                        <xs:attribute name="UseCount" type="xs:string"/>
+                                                        <xs:attribute name="VerificationStatus" type="xs:string"/>
+                                                        <xs:attribute name="ZipCode" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="BillingPersonInfo">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="AddressLine1" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine2" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine3" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine4" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine5" type="xs:string"/>
+                                                        <xs:attribute name="AddressLine6" type="xs:string"/>
+                                                        <xs:attribute name="AlternateEmailID" type="xs:string"/>
+                                                        <xs:attribute name="Beeper" type="xs:string"/>
+                                                        <xs:attribute name="City" type="xs:string"/>
+                                                        <xs:attribute name="Company" type="xs:string"/>
+                                                        <xs:attribute name="Country" type="xs:string"/>
+                                                        <xs:attribute name="DayFaxNo" type="xs:string"/>
+                                                        <xs:attribute name="DayPhone" type="xs:string"/>
+                                                        <xs:attribute name="Department" type="xs:string"/>
+                                                        <xs:attribute name="EMailID" type="xs:string"/>
+                                                        <xs:attribute name="ErrorTxt" type="xs:string"/>
+                                                        <xs:attribute name="EveningFaxNo" type="xs:string"/>
+                                                        <xs:attribute name="EveningPhone" type="xs:string"/>
+                                                        <xs:attribute name="FirstName" type="xs:string"/>
+                                                        <xs:attribute name="HttpUrl" type="xs:string"/>
+                                                        <xs:attribute name="JobTitle" type="xs:string"/>
+                                                        <xs:attribute name="LastName" type="xs:string"/>
+                                                        <xs:attribute name="MiddleName" type="xs:string"/>
+                                                        <xs:attribute name="MobilePhone" type="xs:string"/>
+                                                        <xs:attribute name="OtherPhone" type="xs:string"/>
+                                                        <xs:attribute name="PersonID" type="xs:string"/>
+                                                        <xs:attribute name="PersonInfoKey" type="xs:string"/>
+                                                        <xs:attribute name="PreferredShipAddress" type="xs:string"/>
+                                                        <xs:attribute name="State" type="xs:string"/>
+                                                        <xs:attribute name="Suffix" type="xs:string"/>
+                                                        <xs:attribute name="Title" type="xs:string"/>
+                                                        <xs:attribute name="UseCount" type="xs:string"/>
+                                                        <xs:attribute name="VerificationStatus" type="xs:string"/>
+                                                        <xs:attribute name="ZipCode" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" name="Node">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element name="ShipNodePersonInfo">
+                                                                <xs:complexType>
+                                                                    <xs:attribute name="AddressLine1" type="xs:string"/>
+                                                                    <xs:attribute name="AddressLine2" type="xs:string"/>
+                                                                    <xs:attribute name="AddressLine3" type="xs:string"/>
+                                                                    <xs:attribute name="AddressLine4" type="xs:string"/>
+                                                                    <xs:attribute name="AddressLine5" type="xs:string"/>
+                                                                    <xs:attribute name="AddressLine6" type="xs:string"/>
+                                                                    <xs:attribute name="AlternateEmailID" type="xs:string"/>
+                                                                    <xs:attribute name="Beeper" type="xs:string"/>
+                                                                    <xs:attribute name="City" type="xs:string"/>
+                                                                    <xs:attribute name="Company" type="xs:string"/>
+                                                                    <xs:attribute name="Country" type="xs:string"/>
+                                                                    <xs:attribute name="DayFaxNo" type="xs:string"/>
+                                                                    <xs:attribute name="DayPhone" type="xs:string"/>
+                                                                    <xs:attribute name="Department" type="xs:string"/>
+                                                                    <xs:attribute name="EMailID" type="xs:string"/>
+                                                                    <xs:attribute name="ErrorTxt" type="xs:string"/>
+                                                                    <xs:attribute name="EveningFaxNo" type="xs:string"/>
+                                                                    <xs:attribute name="EveningPhone" type="xs:string"/>
+                                                                    <xs:attribute name="FirstName" type="xs:string"/>
+                                                                    <xs:attribute name="HttpUrl" type="xs:string"/>
+                                                                    <xs:attribute name="JobTitle" type="xs:string"/>
+                                                                    <xs:attribute name="LastName" type="xs:string"/>
+                                                                    <xs:attribute name="MiddleName" type="xs:string"/>
+                                                                    <xs:attribute name="MobilePhone" type="xs:string"/>
+                                                                    <xs:attribute name="OtherPhone" type="xs:string"/>
+                                                                    <xs:attribute name="PersonID" type="xs:string"/>
+                                                                    <xs:attribute name="PersonInfoKey" type="xs:string"/>
+                                                                    <xs:attribute name="PreferredShipAddress" type="xs:string"/>
+                                                                    <xs:attribute name="State" type="xs:string"/>
+                                                                    <xs:attribute name="Suffix" type="xs:string"/>
+                                                                    <xs:attribute name="Title" type="xs:string"/>
+                                                                    <xs:attribute name="UseCount" type="xs:string"/>
+                                                                    <xs:attribute name="VerificationStatus" type="xs:string"/>
+                                                                    <xs:attribute name="ZipCode" type="xs:string"/>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                        <xs:attribute name="AcceptanceRequired" type="xs:string"/>
+                                                        <xs:attribute name="ActivateFlag" type="xs:string"/>
+                                                        <xs:attribute name="CanShipToOtherAddresses" type="xs:string"/>
+                                                        <xs:attribute name="ContactAddressKey" type="xs:string"/>
+                                                        <xs:attribute name="CurrentBolNumber" type="xs:string"/>
+                                                        <xs:attribute name="DefaultDeclaredValue" type="xs:string"/>
+                                                        <xs:attribute name="Description" type="xs:string"/>
+                                                        <xs:attribute name="ExportLicenseExpDate" type="xs:string"/>
+                                                        <xs:attribute name="ExportLicenseNo" type="xs:string"/>
+                                                        <xs:attribute name="ExportTaxpayerId" type="xs:string"/>
+                                                        <xs:attribute name="GLN" type="xs:string"/>
+                                                        <xs:attribute name="GenerateBolNumber" type="xs:string"/>
+                                                        <xs:attribute name="IdentifiedByParentAs" type="xs:string"/>
+                                                        <xs:attribute name="InterfaceSubType" type="xs:string"/>
+                                                        <xs:attribute name="InterfaceType" type="xs:string"/>
+                                                        <xs:attribute name="InventoryTracked" type="xs:string"/>
+                                                        <xs:attribute name="Inventorytype" type="xs:string"/>
+                                                        <xs:attribute name="Localecode" type="xs:string"/>
+                                                        <xs:attribute name="MaintainInventoryCost" type="xs:string"/>
+                                                        <xs:attribute name="NodeOrgCode" type="xs:string"/>
+                                                        <xs:attribute name="NodeType" type="xs:string"/>
+                                                        <xs:attribute name="OwnerKey" type="xs:string"/>
+                                                        <xs:attribute name="OwnerType" type="xs:string"/>
+                                                        <xs:attribute name="PicklistType" type="xs:string"/>
+                                                        <xs:attribute name="ReceiptProcessingTime" type="xs:string"/>
+                                                        <xs:attribute name="ReceiptProcessingTimeForForwarding" type="xs:string"/>
+                                                        <xs:attribute name="ReceivingNode" type="xs:string"/>
+                                                        <xs:attribute name="ReturnCenterFlag" type="xs:string"/>
+                                                        <xs:attribute name="ReturnsNode" type="xs:string"/>
+                                                        <xs:attribute name="ShipNode" type="xs:string"/>
+                                                        <xs:attribute name="ShipNodeAddressKey" type="xs:string"/>
+                                                        <xs:attribute name="ShipNodeClass" type="xs:string"/>
+                                                        <xs:attribute name="ShipnodeKey" type="xs:string"/>
+                                                        <xs:attribute name="ShipnodeType" type="xs:string"/>
+                                                        <xs:attribute name="ShippingNode" type="xs:string"/>
+                                                        <xs:attribute name="SupplierKey" type="xs:string"/>
+                                                        <xs:attribute name="ThreePlNode" type="xs:string"/>
+                                                        <xs:attribute name="TimeDiff" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                            <xs:attribute name="BillingAddressKey" type="xs:string"/>
+                                            <xs:attribute name="BusinessCalendarKey" type="xs:string"/>
+                                            <xs:attribute name="CatalogOrganizationCode" type="xs:string"/>
+                                            <xs:attribute name="ContactAddressKey" type="xs:string"/>
+                                            <xs:attribute name="CorporateAddressKey" type="xs:string"/>
+                                            <xs:attribute name="CreatorOrganizationKey" type="xs:string"/>
+                                            <xs:attribute name="DefaultDistributionRuleId" type="xs:string"/>
+                                            <xs:attribute name="DefaultPaymentRuleId" type="xs:string"/>
+                                            <xs:attribute name="DefaultPriceProgramKey" type="xs:string"/>
+                                            <xs:attribute name="InheritConfigFromEnterprise" type="xs:string"/>
+                                            <xs:attribute name="InventoryOrganizationCode" type="xs:string"/>
+                                            <xs:attribute name="InventoryPublished" type="xs:string"/>
+                                            <xs:attribute name="IsHubOrganization" type="xs:string"/>
+                                            <xs:attribute name="IsLegalEntity" type="xs:string"/>
+                                            <xs:attribute name="IsNode" type="xs:string"/>
+                                            <xs:attribute name="IsSourcingKept" type="xs:string"/>
+                                            <xs:attribute name="ItemXrefRule" type="xs:string"/>
+                                            <xs:attribute name="LocaleCode" type="xs:string"/>
+                                            <xs:attribute name="OrganizationCode" type="xs:string"/>
+                                            <xs:attribute name="OrganizationKey" type="xs:string"/>
+                                            <xs:attribute name="OrganizationName" type="xs:string"/>
+                                            <xs:attribute name="ParentOrganizationCode" type="xs:string"/>
+                                            <xs:attribute name="PaymentProcessingReqd" type="xs:string"/>
+                                            <xs:attribute name="PrimaryEnterpriseKey" type="xs:string"/>
+                                            <xs:attribute name="RequiresChainedOrder" type="xs:string"/>
+                                            <xs:attribute name="RequiresChangeRequest" type="xs:string"/>
+                                            <xs:attribute name="ResourceIdentifier" type="xs:string"/>
+                                            <xs:attribute name="TaxpayerId" type="xs:string"/>
+                                            <xs:attribute name="XrefAliasType" type="xs:string"/>
+                                            <xs:attribute name="XrefOrganizationCode" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetProductID">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:GetProductIDRequest"/>
+                        <xs:element minOccurs="0" ref="ns0:GetProductIDResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetProductIDRequest">
+                <xs:complexType>
+                    <xs:attribute name="Brand" type="xs:string"/>
+                    <xs:attribute name="ItemID" type="xs:string"/>
+                    <xs:attribute name="NAICSCode" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetProductIDResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="UrbanProductIDs">
+                            <xs:complexType>
+                                <xs:attribute name="Active" type="xs:string"/>
+                                <xs:attribute name="Brand" type="xs:string"/>
+                                <xs:attribute name="ColorCode" type="xs:string"/>
+                                <xs:attribute name="CreateDate" type="xs:string"/>
+                                <xs:attribute name="CreateProgID" type="xs:string"/>
+                                <xs:attribute name="CreateUserID" type="xs:string"/>
+                                <xs:attribute name="ItemID" type="xs:string"/>
+                                <xs:attribute name="LockId" type="xs:string"/>
+                                <xs:attribute name="ModifyDate" type="xs:string"/>
+                                <xs:attribute name="ModifyProgID" type="xs:string"/>
+                                <xs:attribute name="ModifyUserID" type="xs:string"/>
+                                <xs:attribute name="NAICSCode" type="xs:string"/>
+                                <xs:attribute name="ProductID" type="xs:string"/>
+                                <xs:attribute name="ProductIDsKey" type="xs:string"/>
+                                <xs:attribute name="SizeCode" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetReturnRestockFeeCode">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:GetReturnRestockFeeCodeRequest"/>
+                        <xs:element minOccurs="0" ref="ns0:GetReturnRestockFeeCodeResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetReturnRestockFeeCodeRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ItemList">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Item">
+                                        <xs:complexType>
+                                            <xs:attribute name="ItemID" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="Brand" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetReturnRestockFeeCodeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ItemList">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Item">
+                                        <xs:complexType>
+                                            <xs:attribute name="ExtnCurrency" type="xs:string"/>
+                                            <xs:attribute name="ExtnRestockFeeCode" type="xs:string"/>
+                                            <xs:attribute name="ExtnValue" type="xs:string"/>
+                                            <xs:attribute name="ItemID" type="xs:string"/>
+                                            <xs:attribute name="Longcopy" type="xs:string"/>
+                                            <xs:attribute name="ShortCopy" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="Brand" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Language" type="xs:string"/>
+            <xs:element name="LookUp">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:WarehouseCompany"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:Mpos"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:SKU"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:MultiApi"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:ConvCurrency"/>
+                        <xs:element minOccurs="0" ref="ns0:WorldPayPayment"/>
+                        <xs:element minOccurs="0" ref="ns0:SKUCostList"/>
+                        <xs:element minOccurs="0" ref="ns0:GetNodeDetails"/>
+                        <xs:element minOccurs="0" ref="ns0:UrbanCategories"/>
+                        <xs:element minOccurs="0" ref="ns0:UrbnGetIPStyleMarketPlcList"/>
+                        <xs:element minOccurs="0" ref="ns0:GetProductID"/>
+                        <xs:element minOccurs="0" ref="ns0:GetReturnRestockFeeCode"/>
+                        <xs:element minOccurs="0" ref="ns0:GetInventorySupply"/>
+                        <xs:element minOccurs="0" ref="ns0:GetCheckNodeInv"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MaxCharacters" type="xs:string"/>
+            <xs:element name="Merchant_Code" type="xs:string"/>
+            <xs:element name="Method" type="xs:string"/>
+            <xs:element name="MinCharacters" type="xs:string"/>
+            <xs:element name="Mpos" type="ns0:MposType"/>
+            <xs:element name="MultiApi">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:MultiApiRequest"/>
+                        <xs:element minOccurs="0" ref="ns0:MultiApiResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MultiApiRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ItemList">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Item">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" name="ClassificationCodes">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="NAICSCode" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="PrimaryInformation">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="ImageLocation" type="xs:string"/>
+                                                        <xs:attribute name="ImageLocationQryType" type="xs:string"/>
+                                                        <xs:attribute name="IsModelItem" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="Extn">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="ExtnIPStyleNo" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                            <xs:attribute name="GetUnpublishedItems" type="xs:string"/>
+                                            <xs:attribute name="ItemID" type="xs:string"/>
+                                            <xs:attribute name="MaximumRecords" type="xs:string"/>
+                                            <xs:attribute name="UnitOfMeasure" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="MultiApiResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ItemList">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Item">
+                                        <xs:complexType>
+                                            <xs:all>
+                                                <xs:element minOccurs="0" name="ClassificationCodes">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="CommodityCode" type="xs:string"/>
+                                                        <xs:attribute name="ECCNNo" type="xs:string"/>
+                                                        <xs:attribute name="HarmonizedCode" type="xs:string"/>
+                                                        <xs:attribute name="HazmatClass" type="xs:string"/>
+                                                        <xs:attribute name="Model" type="xs:string"/>
+                                                        <xs:attribute name="NAICSCode" type="xs:string"/>
+                                                        <xs:attribute name="NMFCClass" type="xs:string"/>
+                                                        <xs:attribute name="NMFCCode" type="xs:string"/>
+                                                        <xs:attribute name="OperationalConfigurationComplete" type="xs:string"/>
+                                                        <xs:attribute name="PickingType" type="xs:string"/>
+                                                        <xs:attribute name="PostingClassification" type="xs:string"/>
+                                                        <xs:attribute name="Schedule_B_Code" type="xs:string"/>
+                                                        <xs:attribute name="StorageType" type="xs:string"/>
+                                                        <xs:attribute name="TaxProductCode" type="xs:string"/>
+                                                        <xs:attribute name="UNSPSC" type="xs:string"/>
+                                                        <xs:attribute name="VelocityCode" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="Extn">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="ExtnAlias" type="xs:string"/>
+                                                        <xs:attribute name="ExtnColorDesc" type="xs:string"/>
+                                                        <xs:attribute name="ExtnDeptCode" type="xs:string"/>
+                                                        <xs:attribute name="ExtnIPStyleNo" type="xs:string"/>
+                                                        <xs:attribute name="ExtnSizeCodeDescription" type="xs:string"/>
+                                                        <xs:attribute name="ExtnWMSStyleNo" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="InventoryParameters">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="ATPRule" type="xs:string"/>
+                                                        <xs:attribute name="AdvanceNotificationTime" type="xs:string"/>
+                                                        <xs:attribute name="DefaultExpirationDays" type="xs:string"/>
+                                                        <xs:attribute name="FutureSafetyFactorPercentage" type="xs:string"/>
+                                                        <xs:attribute name="InventoryMonitorRule" type="xs:string"/>
+                                                        <xs:attribute name="IsFifoTracked" type="xs:string"/>
+                                                        <xs:attribute name="IsItemBasedAllocationAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsSerialTracked" type="xs:string"/>
+                                                        <xs:attribute name="LeadTime" type="xs:string"/>
+                                                        <xs:attribute name="MaximumNotificationTime" type="xs:string"/>
+                                                        <xs:attribute name="MinNotificationTime" type="xs:string"/>
+                                                        <xs:attribute name="NodeLevelInventoryMonitorRule" type="xs:string"/>
+                                                        <xs:attribute name="OnhandSafetyFactorPercentage" type="xs:string"/>
+                                                        <xs:attribute name="OnhandSafetyFactorQuantity" type="xs:string"/>
+                                                        <xs:attribute name="ProcessingTime" type="xs:string"/>
+                                                        <xs:attribute name="TagControlFlag" type="xs:string"/>
+                                                        <xs:attribute name="TagReqAtReceipt" type="xs:string"/>
+                                                        <xs:attribute name="TagReqAtShipment" type="xs:string"/>
+                                                        <xs:attribute name="TimeSensitive" type="xs:string"/>
+                                                        <xs:attribute name="UseUnplannedInventory" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="PrimaryInformation">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="AllowGiftWrap" type="xs:string"/>
+                                                        <xs:attribute name="AssumeInfiniteInventory" type="xs:string"/>
+                                                        <xs:attribute name="BundleFulfillmentMode" type="xs:string"/>
+                                                        <xs:attribute name="BundlePricingStrategy" type="xs:string"/>
+                                                        <xs:attribute name="CapacityPerOrderedQty" type="xs:string"/>
+                                                        <xs:attribute name="CapacityQuantityStrategy" type="xs:string"/>
+                                                        <xs:attribute name="CapacityUOM" type="xs:string"/>
+                                                        <xs:attribute name="ColorCode" type="xs:string"/>
+                                                        <xs:attribute name="ComputedUnitCost" type="xs:string"/>
+                                                        <xs:attribute name="ConfiguredModelKey" type="xs:string"/>
+                                                        <xs:attribute name="CostCurrency" type="xs:string"/>
+                                                        <xs:attribute name="CountryOfOrigin" type="xs:string"/>
+                                                        <xs:attribute name="CreditWOReceipt" type="xs:string"/>
+                                                        <xs:attribute name="DefaultProductClass" type="xs:string"/>
+                                                        <xs:attribute name="Description" type="xs:string"/>
+                                                        <xs:attribute name="DisplayItemDescription" type="xs:string"/>
+                                                        <xs:attribute name="EffectiveEndDate" type="xs:string"/>
+                                                        <xs:attribute name="EffectiveStartDate" type="xs:string"/>
+                                                        <xs:attribute name="ExtendedDescription" type="xs:string"/>
+                                                        <xs:attribute name="FixedCapacityQtyPerLine" type="xs:string"/>
+                                                        <xs:attribute name="FixedPricingQtyPerLine" type="xs:string"/>
+                                                        <xs:attribute name="ImageID" type="xs:string"/>
+                                                        <xs:attribute name="ImageLabel" type="xs:string"/>
+                                                        <xs:attribute name="ImageLocation" type="xs:string"/>
+                                                        <xs:attribute name="InvoiceBasedOnActuals" type="xs:string"/>
+                                                        <xs:attribute name="InvolvesSegmentChange" type="xs:string"/>
+                                                        <xs:attribute name="IsAirShippingAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsConfigurable" type="xs:string"/>
+                                                        <xs:attribute name="IsDeliveryAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsEligibleForShippingDiscount" type="xs:string"/>
+                                                        <xs:attribute name="IsForwardingAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsFreezerRequired" type="xs:string"/>
+                                                        <xs:attribute name="IsHazmat" type="xs:string"/>
+                                                        <xs:attribute name="IsModelItem" type="xs:string"/>
+                                                        <xs:attribute name="IsParcelShippingAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsPickupAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsPreConfigured" type="xs:string"/>
+                                                        <xs:attribute name="IsProcurementAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsReturnService" type="xs:string"/>
+                                                        <xs:attribute name="IsReturnable" type="xs:string"/>
+                                                        <xs:attribute name="IsShippingAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsSoldSeparately" type="xs:string"/>
+                                                        <xs:attribute name="IsStandaloneService" type="xs:string"/>
+                                                        <xs:attribute name="IsSubOnOrderAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsValid" type="xs:string"/>
+                                                        <xs:attribute name="ItemType" type="xs:string"/>
+                                                        <xs:attribute name="Keywords" type="xs:string"/>
+                                                        <xs:attribute name="KitCode" type="xs:string"/>
+                                                        <xs:attribute name="ManufacturerItem" type="xs:string"/>
+                                                        <xs:attribute name="ManufacturerItemDesc" type="xs:string"/>
+                                                        <xs:attribute name="ManufacturerName" type="xs:string"/>
+                                                        <xs:attribute name="MasterCatalogID" type="xs:string"/>
+                                                        <xs:attribute name="MaxOrderQuantity" type="xs:string"/>
+                                                        <xs:attribute name="MinOrderQuantity" type="xs:string"/>
+                                                        <xs:attribute name="MinimumCapacityQuantity" type="xs:string"/>
+                                                        <xs:attribute name="ModelItemUnitOfMeasure" type="xs:string"/>
+                                                        <xs:attribute name="NumSecondarySerials" type="xs:string"/>
+                                                        <xs:attribute name="OrderingQuantityStrategy" type="xs:string"/>
+                                                        <xs:attribute name="PricingQuantityConvFactor" type="xs:string"/>
+                                                        <xs:attribute name="PricingQuantityStrategy" type="xs:string"/>
+                                                        <xs:attribute name="PricingUOM" type="xs:string"/>
+                                                        <xs:attribute name="PricingUOMStrategy" type="xs:string"/>
+                                                        <xs:attribute name="PrimaryEnterpriseCode" type="xs:string"/>
+                                                        <xs:attribute name="PrimarySupplier" type="xs:string"/>
+                                                        <xs:attribute name="ProductLine" type="xs:string"/>
+                                                        <xs:attribute name="RequiresProdAssociation" type="xs:string"/>
+                                                        <xs:attribute name="ReturnWindow" type="xs:string"/>
+                                                        <xs:attribute name="RunQuantity" type="xs:string"/>
+                                                        <xs:attribute name="SerializedFlag" type="xs:string"/>
+                                                        <xs:attribute name="ServiceTypeID" type="xs:string"/>
+                                                        <xs:attribute name="ShipmentConsolidationWindow" type="xs:string"/>
+                                                        <xs:attribute name="ShortDescription" type="xs:string"/>
+                                                        <xs:attribute name="SizeCode" type="xs:string"/>
+                                                        <xs:attribute name="Status" type="xs:string"/>
+                                                        <xs:attribute name="TaxableFlag" type="xs:string"/>
+                                                        <xs:attribute name="UnitCost" type="xs:string"/>
+                                                        <xs:attribute name="UnitHeight" type="xs:string"/>
+                                                        <xs:attribute name="UnitHeightUOM" type="xs:string"/>
+                                                        <xs:attribute name="UnitLength" type="xs:string"/>
+                                                        <xs:attribute name="UnitLengthUOM" type="xs:string"/>
+                                                        <xs:attribute name="UnitVolume" type="xs:string"/>
+                                                        <xs:attribute name="UnitVolumeUOM" type="xs:string"/>
+                                                        <xs:attribute name="UnitWeight" type="xs:string"/>
+                                                        <xs:attribute name="UnitWeightUOM" type="xs:string"/>
+                                                        <xs:attribute name="UnitWidth" type="xs:string"/>
+                                                        <xs:attribute name="UnitWidthUOM" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:all>
+                                            <xs:attribute name="CanUseAsServiceTool" type="xs:string"/>
+                                            <xs:attribute name="GlobalItemID" type="xs:string"/>
+                                            <xs:attribute name="IsItemSuperseded" type="xs:string"/>
+                                            <xs:attribute name="ItemGroupCode" type="xs:string"/>
+                                            <xs:attribute name="ItemID" type="xs:string"/>
+                                            <xs:attribute name="ItemKey" type="xs:string"/>
+                                            <xs:attribute name="OrganizationCode" type="xs:string"/>
+                                            <xs:attribute name="SubCatalogOrganizationCode" type="xs:string"/>
+                                            <xs:attribute name="UnitOfMeasure" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="NumericFlag" type="xs:boolean"/>
+            <xs:element name="PaymentMethod">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:PaymentMethodCode"/>
+                        <xs:element minOccurs="0" name="PaymentMethodModel" type="xs:string"/>
+                        <xs:element minOccurs="0" ref="ns0:PaymentMethodName"/>
+                        <xs:element minOccurs="0" ref="ns0:PaymentMethodIcon"/>
+                        <xs:element minOccurs="0" name="MandateFlag" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="FieldNo_Sequence">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" ref="ns0:FieldNo"/>
+                                    <xs:element minOccurs="0" ref="ns0:Sequence"/>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:FieldName_Language"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PaymentMethodCode" type="xs:string"/>
+            <xs:element name="PaymentMethodIcon" type="xs:base64Binary"/>
+            <xs:element name="PaymentMethodName" type="xs:string"/>
+            <xs:element name="SKU">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:SKURequest"/>
+                        <xs:element minOccurs="0" ref="ns0:SKUResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SKUCostList">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:SKUCostListRequest"/>
+                        <xs:element minOccurs="0" ref="ns0:SKUCostListResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SKUCostListRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="SKUCostList">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="SKUCost">
+                                        <xs:complexType>
+                                            <xs:attribute name="CurrencyCode" type="xs:string"/>
+                                            <xs:attribute name="NAICSCode" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SKUCostListResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="SKUCostList">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="SKUCost">
+                                        <xs:complexType>
+                                            <xs:attribute name="Brand" type="xs:string"/>
+                                            <xs:attribute name="CurrencyCode" type="xs:string"/>
+                                            <xs:attribute name="LandedCost" type="xs:string"/>
+                                            <xs:attribute name="NAICSCode" type="xs:string"/>
+                                            <xs:attribute name="ValueCost" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SKURequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Item">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="ClassificationCodes">
+                                        <xs:complexType>
+                                            <xs:attribute name="NAICSCode" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="PrimaryInformation">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="IsModelItem" type="xs:string"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="Extn">
+                                        <xs:complexType>
+                                            <xs:attribute name="ExtnIPStyleNo" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="ItemID" type="xs:string"/>
+                                <xs:attribute name="UnitOfMeasure" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SKUResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ItemList">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="Item">
+                                        <xs:complexType>
+                                            <xs:all>
+                                                <xs:element minOccurs="0" name="ClassificationCodes">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="CommodityCode" type="xs:string"/>
+                                                        <xs:attribute name="ECCNNo" type="xs:string"/>
+                                                        <xs:attribute name="HarmonizedCode" type="xs:string"/>
+                                                        <xs:attribute name="HazmatClass" type="xs:string"/>
+                                                        <xs:attribute name="Model" type="xs:string"/>
+                                                        <xs:attribute name="NAICSCode" type="xs:string"/>
+                                                        <xs:attribute name="NMFCClass" type="xs:string"/>
+                                                        <xs:attribute name="NMFCCode" type="xs:string"/>
+                                                        <xs:attribute name="OperationalConfigurationComplete" type="xs:string"/>
+                                                        <xs:attribute name="PickingType" type="xs:string"/>
+                                                        <xs:attribute name="PostingClassification" type="xs:string"/>
+                                                        <xs:attribute name="Schedule_B_Code" type="xs:string"/>
+                                                        <xs:attribute name="StorageType" type="xs:string"/>
+                                                        <xs:attribute name="TaxProductCode" type="xs:string"/>
+                                                        <xs:attribute name="UNSPSC" type="xs:string"/>
+                                                        <xs:attribute name="VelocityCode" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="Extn">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="ExtnColorDesc" type="xs:string"/>
+                                                        <xs:attribute name="ExtnSizeCodeDescription" type="xs:string"/>
+                                                        <xs:attribute name="ExtnWMSStyleNo" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="InventoryParameters">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="ATPRule" type="xs:string"/>
+                                                        <xs:attribute name="AdvanceNotificationTime" type="xs:string"/>
+                                                        <xs:attribute name="DefaultExpirationDays" type="xs:string"/>
+                                                        <xs:attribute name="FutureSafetyFactorPercentage" type="xs:string"/>
+                                                        <xs:attribute name="InventoryMonitorRule" type="xs:string"/>
+                                                        <xs:attribute name="IsFifoTracked" type="xs:string"/>
+                                                        <xs:attribute name="IsItemBasedAllocationAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsSerialTracked" type="xs:string"/>
+                                                        <xs:attribute name="LeadTime" type="xs:string"/>
+                                                        <xs:attribute name="MaximumNotificationTime" type="xs:string"/>
+                                                        <xs:attribute name="MinNotificationTime" type="xs:string"/>
+                                                        <xs:attribute name="NodeLevelInventoryMonitorRule" type="xs:string"/>
+                                                        <xs:attribute name="OnhandSafetyFactorPercentage" type="xs:string"/>
+                                                        <xs:attribute name="OnhandSafetyFactorQuantity" type="xs:string"/>
+                                                        <xs:attribute name="ProcessingTime" type="xs:string"/>
+                                                        <xs:attribute name="TagControlFlag" type="xs:string"/>
+                                                        <xs:attribute name="TagReqAtReceipt" type="xs:string"/>
+                                                        <xs:attribute name="TagReqAtShipment" type="xs:string"/>
+                                                        <xs:attribute name="TimeSensitive" type="xs:string"/>
+                                                        <xs:attribute name="UseUnplannedInventory" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="PrimaryInformation">
+                                                    <xs:complexType>
+                                                        <xs:attribute name="AllowGiftWrap" type="xs:string"/>
+                                                        <xs:attribute name="AssumeInfiniteInventory" type="xs:string"/>
+                                                        <xs:attribute name="BundleFulfillmentMode" type="xs:string"/>
+                                                        <xs:attribute name="BundlePricingStrategy" type="xs:string"/>
+                                                        <xs:attribute name="CapacityPerOrderedQty" type="xs:string"/>
+                                                        <xs:attribute name="CapacityQuantityStrategy" type="xs:string"/>
+                                                        <xs:attribute name="CapacityUOM" type="xs:string"/>
+                                                        <xs:attribute name="ColorCode" type="xs:string"/>
+                                                        <xs:attribute name="ComputedUnitCost" type="xs:string"/>
+                                                        <xs:attribute name="ConfiguredModelKey" type="xs:string"/>
+                                                        <xs:attribute name="CostCurrency" type="xs:string"/>
+                                                        <xs:attribute name="CountryOfOrigin" type="xs:string"/>
+                                                        <xs:attribute name="CreditWOReceipt" type="xs:string"/>
+                                                        <xs:attribute name="DefaultProductClass" type="xs:string"/>
+                                                        <xs:attribute name="Description" type="xs:string"/>
+                                                        <xs:attribute name="DisplayItemDescription" type="xs:string"/>
+                                                        <xs:attribute name="EffectiveEndDate" type="xs:string"/>
+                                                        <xs:attribute name="EffectiveStartDate" type="xs:string"/>
+                                                        <xs:attribute name="ExtendedDescription" type="xs:string"/>
+                                                        <xs:attribute name="FixedCapacityQtyPerLine" type="xs:string"/>
+                                                        <xs:attribute name="FixedPricingQtyPerLine" type="xs:string"/>
+                                                        <xs:attribute name="ImageID" type="xs:string"/>
+                                                        <xs:attribute name="ImageLabel" type="xs:string"/>
+                                                        <xs:attribute name="ImageLocation" type="xs:string"/>
+                                                        <xs:attribute name="InvoiceBasedOnActuals" type="xs:string"/>
+                                                        <xs:attribute name="InvolvesSegmentChange" type="xs:string"/>
+                                                        <xs:attribute name="IsAirShippingAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsConfigurable" type="xs:string"/>
+                                                        <xs:attribute name="IsDeliveryAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsEligibleForShippingDiscount" type="xs:string"/>
+                                                        <xs:attribute name="IsForwardingAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsFreezerRequired" type="xs:string"/>
+                                                        <xs:attribute name="IsHazmat" type="xs:string"/>
+                                                        <xs:attribute name="IsModelItem" type="xs:string"/>
+                                                        <xs:attribute name="IsParcelShippingAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsPickupAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsPreConfigured" type="xs:string"/>
+                                                        <xs:attribute name="IsProcurementAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsReturnService" type="xs:string"/>
+                                                        <xs:attribute name="IsReturnable" type="xs:string"/>
+                                                        <xs:attribute name="IsShippingAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsSoldSeparately" type="xs:string"/>
+                                                        <xs:attribute name="IsStandaloneService" type="xs:string"/>
+                                                        <xs:attribute name="IsSubOnOrderAllowed" type="xs:string"/>
+                                                        <xs:attribute name="IsValid" type="xs:string"/>
+                                                        <xs:attribute name="ItemType" type="xs:string"/>
+                                                        <xs:attribute name="Keywords" type="xs:string"/>
+                                                        <xs:attribute name="KitCode" type="xs:string"/>
+                                                        <xs:attribute name="ManufacturerItem" type="xs:string"/>
+                                                        <xs:attribute name="ManufacturerItemDesc" type="xs:string"/>
+                                                        <xs:attribute name="ManufacturerName" type="xs:string"/>
+                                                        <xs:attribute name="MasterCatalogID" type="xs:string"/>
+                                                        <xs:attribute name="MaxOrderQuantity" type="xs:string"/>
+                                                        <xs:attribute name="MinOrderQuantity" type="xs:string"/>
+                                                        <xs:attribute name="MinimumCapacityQuantity" type="xs:string"/>
+                                                        <xs:attribute name="ModelItemUnitOfMeasure" type="xs:string"/>
+                                                        <xs:attribute name="NumSecondarySerials" type="xs:string"/>
+                                                        <xs:attribute name="OrderingQuantityStrategy" type="xs:string"/>
+                                                        <xs:attribute name="PricingQuantityConvFactor" type="xs:string"/>
+                                                        <xs:attribute name="PricingQuantityStrategy" type="xs:string"/>
+                                                        <xs:attribute name="PricingUOM" type="xs:string"/>
+                                                        <xs:attribute name="PricingUOMStrategy" type="xs:string"/>
+                                                        <xs:attribute name="PrimaryEnterpriseCode" type="xs:string"/>
+                                                        <xs:attribute name="PrimarySupplier" type="xs:string"/>
+                                                        <xs:attribute name="ProductLine" type="xs:string"/>
+                                                        <xs:attribute name="RequiresProdAssociation" type="xs:string"/>
+                                                        <xs:attribute name="ReturnWindow" type="xs:string"/>
+                                                        <xs:attribute name="RunQuantity" type="xs:string"/>
+                                                        <xs:attribute name="SerializedFlag" type="xs:string"/>
+                                                        <xs:attribute name="ServiceTypeID" type="xs:string"/>
+                                                        <xs:attribute name="ShipmentConsolidationWindow" type="xs:string"/>
+                                                        <xs:attribute name="ShortDescription" type="xs:string"/>
+                                                        <xs:attribute name="SizeCode" type="xs:string"/>
+                                                        <xs:attribute name="Status" type="xs:string"/>
+                                                        <xs:attribute name="TaxableFlag" type="xs:string"/>
+                                                        <xs:attribute name="UnitCost" type="xs:string"/>
+                                                        <xs:attribute name="UnitHeight" type="xs:string"/>
+                                                        <xs:attribute name="UnitHeightUOM" type="xs:string"/>
+                                                        <xs:attribute name="UnitLength" type="xs:string"/>
+                                                        <xs:attribute name="UnitLengthUOM" type="xs:string"/>
+                                                        <xs:attribute name="UnitVolume" type="xs:string"/>
+                                                        <xs:attribute name="UnitVolumeUOM" type="xs:string"/>
+                                                        <xs:attribute name="UnitWeight" type="xs:string"/>
+                                                        <xs:attribute name="UnitWeightUOM" type="xs:string"/>
+                                                        <xs:attribute name="UnitWidth" type="xs:string"/>
+                                                        <xs:attribute name="UnitWidthUOM" type="xs:string"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:all>
+                                            <xs:attribute name="CanUseAsServiceTool" type="xs:string"/>
+                                            <xs:attribute name="GlobalItemID" type="xs:string"/>
+                                            <xs:attribute name="IsItemSuperseded" type="xs:string"/>
+                                            <xs:attribute name="ItemGroupCode" type="xs:string"/>
+                                            <xs:attribute name="ItemID" type="xs:string"/>
+                                            <xs:attribute name="ItemKey" type="xs:string"/>
+                                            <xs:attribute name="OrganizationCode" type="xs:string"/>
+                                            <xs:attribute name="SubCatalogOrganizationCode" type="xs:string"/>
+                                            <xs:attribute name="UnitOfMeasure" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Sequence" type="xs:string"/>
+            <xs:element name="TenderTypeXRef">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="CreditCardType" type="xs:string"/>
+                        <xs:element minOccurs="0" name="PaymentType" type="xs:string"/>
+                        <xs:element minOccurs="0" name="EmailPaymentDesc" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UrbanCategories">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:UrbanCategoryRequest"/>
+                        <xs:element minOccurs="0" ref="ns0:UrbanCategoryResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UrbanCategoryRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="StyleId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ParentCatId" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UrbanCategoryResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="UrbanCategoryList">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="UrbanCategory">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" name="ParentCatId" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="StyleId" type="xs:string"/>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UrbnGetIPStyleMarketPlcList">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="ns0:UrbnGetIPStyleMarketPlcListReq"/>
+                        <xs:element minOccurs="0" ref="ns0:UrbnGetIPStyleMarketPlcListRes"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UrbnGetIPStyleMarketPlcListReq">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ClassVendorStyle" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UrbnGetIPStyleMarketPlcListRes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="UrbnIPStyleMarketPlc">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="ClassVendorStyle" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="FieldType" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Gateway" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="IPStyleMarketPlcKey" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ItemClass" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Style" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Vendor" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="faultcode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="faultstring" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="detail" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="WarehouseCompany" type="ns0:WarehouseCompanyType"/>
+            <xs:element name="WorldPayPayment">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="WorldPayPaymentDetails" type="ns0:WorldPayPaymentDetailType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="abc" type="xs:string"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="LookUpWSDL">
+        <wsdl:port binding="tns:LookUpTypeEndpointBinding" name="LookUpTypeEndpoint">
+            <soap:address location="http://localhost:8027/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent/LookUpTypeEndpoint"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="LookUpType">
+        <wsdl:operation name="UrbanCategoryOperation">
+            <wsdl:input message="tns:UrbanCategoryRequest"/>
+            <wsdl:output message="tns:UrbanCategoryResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="MultiApiOperation">
+            <wsdl:input message="tns:MultiApiRequest"/>
+            <wsdl:output message="tns:MultiApiResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="SterlingSkuLookupOp">
+            <wsdl:input message="tns:SKURequest"/>
+            <wsdl:output message="tns:SKUResponse"/>
+            <wsdl:fault message="tns:ErrorReport" name="fault1"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetProductIDOperation">
+            <wsdl:input message="tns:GetProductIDRequest"/>
+            <wsdl:output message="tns:GetProductIDResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetNodeDetailsOperation">
+            <wsdl:input message="tns:GetNodeDetailsRequest"/>
+            <wsdl:output message="tns:GetNodeDetailsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetReturnRestockFeeCode">
+            <wsdl:input message="tns:GetReturnRestockFeeCodeRequest"/>
+            <wsdl:output message="tns:GetReturnRestockFeeCodeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInventorySupplyOperation">
+            <wsdl:input message="tns:GetInventorySupplyRequest"/>
+            <wsdl:output message="tns:GetInventorySupplyResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="WorldPayOperation">
+            <wsdl:input message="tns:WorldPayRequest"/>
+            <wsdl:output message="tns:WorldPayResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="UrbanGetSKUOperation">
+            <wsdl:input message="tns:UrbanGetSKURequest"/>
+            <wsdl:output message="tns:UrbanGetSKUResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetCheckNodeInvOperation">
+            <wsdl:input message="tns:GetCheckNodeInvRequest"/>
+            <wsdl:output message="tns:GetCheckNodeInvResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="UrbnGetIPStyleMarketPlcList">
+            <wsdl:input message="tns:UrbnGetIPStyleMarketPlcListReq"/>
+            <wsdl:output message="tns:UrbnGetIPStyleMarketPlcListRes"/>
+        </wsdl:operation>
+        <wsdl:operation name="USRetailOperation">
+            <wsdl:input message="tns:USRetailRequest"/>
+            <wsdl:output message="tns:USRetailResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="MPOSOperation">
+            <wsdl:input message="tns:MPOSRequest"/>
+            <wsdl:output message="tns:MPOSResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="ConvCurrencyOperation">
+            <wsdl:input message="tns:ConvCurrencyRequest"/>
+            <wsdl:output message="tns:ConvCurrencyResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="LookUpTypeEndpointBinding" type="tns:LookUpType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="UrbanCategoryOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//UrbanCategoryOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Request" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Response" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MultiApiOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//MultiApiOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Request" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Reponse" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SterlingSkuLookupOp">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//SterlingSkuLookupOp" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetProductIDOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//GetProductIDOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Request" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Response" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetNodeDetailsOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//GetNodeDetailsOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Request" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Response" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetReturnRestockFeeCode">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//GetReturnRestockFeeCode" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Request" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Response" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInventorySupplyOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//GetInventorySupplyOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Request" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Response" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="WorldPayOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//WorldPayOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="WorldPayRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="WorldPayResponse" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UrbanGetSKUOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//UrbanGetSKUOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Request" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Response" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCheckNodeInvOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//GetCheckNodeInvOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Request" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Response" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UrbnGetIPStyleMarketPlcList">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//UrbnGetIPStyleMarketPlcList" style="document"/>
+            <wsdl:input>
+                <soap:body parts="UrbnGetIPStyleMarketPlcListReq" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="UrbnGetIPStyleMarketPlcListRes" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="USRetailOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent/LookUpTypeEndpoint/USRetailOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="InputRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="WarehouseCompanyResponse" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="MPOSOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent//MPOSOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="InputRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="MPOSResponse" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConvCurrencyOperation">
+            <soap:operation soapAction="/BusinessProcess/StarterProcess/LookUpWSDL.serviceagent/ConvCurrencyOperation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="ConvCurrencyRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="ConvCurrencyResponse" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="UrbanCategoryRequest">
+        <wsdl:part element="ns0:UrbanCategoryRequest" name="Request"/>
+    </wsdl:message>
+    <wsdl:message name="UrbanCategoryResponse">
+        <wsdl:part element="ns0:UrbanCategoryResponse" name="Response"/>
+    </wsdl:message>
+    <wsdl:message name="MultiApiRequest">
+        <wsdl:part element="ns0:MultiApiRequest" name="Request"/>
+    </wsdl:message>
+    <wsdl:message name="MultiApiResponse">
+        <wsdl:part element="ns0:MultiApiResponse" name="Reponse"/>
+    </wsdl:message>
+    <wsdl:message name="SKURequest">
+        <wsdl:part element="ns0:SKURequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="SKUResponse">
+        <wsdl:part element="ns0:SKUResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="ErrorReport">
+        <wsdl:part element="ns1:ErrorReport" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetProductIDRequest">
+        <wsdl:part element="ns0:GetProductIDRequest" name="Request"/>
+    </wsdl:message>
+    <wsdl:message name="GetProductIDResponse">
+        <wsdl:part element="ns0:GetProductIDResponse" name="Response"/>
+    </wsdl:message>
+    <wsdl:message name="GetNodeDetailsRequest">
+        <wsdl:part element="ns0:GetNodeDetailsRequest" name="Request"/>
+    </wsdl:message>
+    <wsdl:message name="GetNodeDetailsResponse">
+        <wsdl:part element="ns0:GetNodeDetailsResponse" name="Response"/>
+    </wsdl:message>
+    <wsdl:message name="GetReturnRestockFeeCodeRequest">
+        <wsdl:part element="ns0:GetReturnRestockFeeCodeRequest" name="Request"/>
+    </wsdl:message>
+    <wsdl:message name="GetReturnRestockFeeCodeResponse">
+        <wsdl:part element="ns0:GetReturnRestockFeeCodeResponse" name="Response"/>
+    </wsdl:message>
+    <wsdl:message name="GetInventorySupplyRequest">
+        <wsdl:part element="ns0:GetInventorySupplyRequest" name="Request"/>
+    </wsdl:message>
+    <wsdl:message name="GetInventorySupplyResponse">
+        <wsdl:part element="ns0:GetInventorySupplyResponse" name="Response"/>
+    </wsdl:message>
+    <wsdl:message name="WorldPayRequest">
+        <wsdl:part name="WorldPayRequest" type="xs:string"/>
+    </wsdl:message>
+    <wsdl:message name="WorldPayResponse">
+        <wsdl:part element="ns0:WorldPayPayment" name="WorldPayResponse"/>
+    </wsdl:message>
+    <wsdl:message name="UrbanGetSKURequest">
+        <wsdl:part element="ns0:SKUCostListRequest" name="Request"/>
+    </wsdl:message>
+    <wsdl:message name="UrbanGetSKUResponse">
+        <wsdl:part element="ns0:SKUCostListResponse" name="Response"/>
+    </wsdl:message>
+    <wsdl:message name="GetCheckNodeInvRequest">
+        <wsdl:part element="ns0:GetCheckNodeInvRequest" name="Request"/>
+    </wsdl:message>
+    <wsdl:message name="GetCheckNodeInvResponse">
+        <wsdl:part element="ns0:GetCheckNodeInvResponse" name="Response"/>
+    </wsdl:message>
+    <wsdl:message name="UrbnGetIPStyleMarketPlcListReq">
+        <wsdl:part element="ns0:UrbnGetIPStyleMarketPlcListReq" name="UrbnGetIPStyleMarketPlcListReq"/>
+    </wsdl:message>
+    <wsdl:message name="UrbnGetIPStyleMarketPlcListRes">
+        <wsdl:part element="ns0:UrbnGetIPStyleMarketPlcListRes" name="UrbnGetIPStyleMarketPlcListRes"/>
+    </wsdl:message>
+    <wsdl:message name="USRetailRequest">
+        <wsdl:part name="InputRequest" type="xs:string"/>
+    </wsdl:message>
+    <wsdl:message name="USRetailResponse">
+        <wsdl:part element="ns0:LookUp" name="WarehouseCompanyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="MPOSRequest">
+        <wsdl:part name="InputRequest" type="xs:string"/>
+    </wsdl:message>
+    <wsdl:message name="MPOSResponse">
+        <wsdl:part element="ns0:LookUp" name="MPOSResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ConvCurrencyRequest">
+        <wsdl:part element="ns0:ConvCurrencyRequest" name="ConvCurrencyRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ConvCurrencyResponse">
+        <wsdl:part element="ns0:ConvCurrencyResponse" name="ConvCurrencyResponse"/>
+    </wsdl:message>
+</wsdl:definitions>

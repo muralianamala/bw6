@@ -1,0 +1,27 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/PrintLabel/Service Descriptors/printlabel.ServiceProcess-Resource.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.com/namespaces/tns/1582221748055"
+    },
+    {
+        "jsonSchemaLocation": "/PrintLabel/Service Descriptors/printLabel.PrintCartonLabelServiceRequest-CartonLabel.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1585339233215"
+    },
+    {
+        "jsonSchemaLocation": "/PrintLabel/Service Descriptors/printLabel.PrintShippingLabelService-shipping.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1588874086173"
+    },
+    {
+        "jsonSchemaLocation": "/PrintLabel/Service Descriptors/printLabel.DirectSkuLabelService-DirectSkuLabel.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.com/namespaces/tns/1582221748055"
+    },
+    {
+        "jsonSchemaLocation": "/PrintLabel/Service Descriptors/printLabel.DirectSkuLabelService-DirectSkuLabel.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1592424383398"
+    }
+]}

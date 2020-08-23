@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:tns="http://www.example.com/namespaces/tns/1588866436045" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.example.com/namespaces/tns/1588866436045">
+  <xsd:element name="Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="storeNumber" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="destinationStoreNumber" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="transferTypeCode" type="xsd:integer"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="timeZone" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="Sterling_Brand" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="Sterling_Org" type="xsd:string"/>
+            </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

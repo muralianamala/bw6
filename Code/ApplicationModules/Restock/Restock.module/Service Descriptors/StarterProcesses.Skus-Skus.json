@@ -1,0 +1,239 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/restock/{version}/{region}/skus" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-skus",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "classId",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "vendor",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "style",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "store",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "region",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "version",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a sku to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/sku"
+            },
+            "headers" : { }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "204" : {
+            "description" : "No Content",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/restock/{version}/{region}/skus/{sku}" : {
+      "put" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "put-skus",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/skusPut"
+          },
+          "required" : true
+        }, {
+          "name" : "region",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "sku",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "version",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a statusType to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/statusType"
+            },
+            "headers" : { }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "204" : {
+            "description" : "No Content",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "skusPut" : {
+      "type" : "object",
+      "properties" : {
+        "store" : {
+          "type" : "string"
+        },
+        "quantity" : {
+          "type" : "number"
+        },
+        "pickType" : {
+          "type" : "string"
+        }
+      }
+    },
+    "statusType" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "type" : "string"
+        }
+      }
+    },
+    "sku" : {
+      "type" : "object",
+      "properties" : {
+        "skuType" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/skuType",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "skuType" : {
+      "type" : "object",
+      "properties" : {
+        "store" : {
+          "type" : "string"
+        },
+        "divisionId" : {
+          "type" : "string"
+        },
+        "divisionDescription" : {
+          "type" : "string"
+        },
+        "classId" : {
+          "type" : "string"
+        },
+        "classDescription" : {
+          "type" : "string"
+        },
+        "styleNumber" : {
+          "type" : "string"
+        },
+        "styleDescription" : {
+          "type" : "string"
+        },
+        "sku" : {
+          "type" : "string"
+        },
+        "quanityToBeFilled" : {
+          "type" : "number"
+        },
+        "skuImageUrl" : {
+          "type" : "string"
+        },
+        "colorDescription" : {
+          "type" : "string"
+        },
+        "sizeDescription" : {
+          "type" : "string"
+        },
+        "currentRetailPrice" : {
+          "type" : "number"
+        },
+        "onHand" : {
+          "type" : "number"
+        },
+        "altIdentifiers" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}

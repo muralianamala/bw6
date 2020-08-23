@@ -1,0 +1,1739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no"
+    name="Transfer.TransferCreateImpl" suppressJoinFailure="yes"
+    targetNamespace="http://xmlns.example.com/20200322152803"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:info="http://www.tibco.com/bw/process/info"
+    xmlns:ns="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns0="http://tns.tibco.com/bw/json/1584895836320"
+    xmlns:ns1="http://tns.tibco.com/bw/json/1584895895828"
+    xmlns:ns10="http://www.urbanoutfitters.com/leaf/exceptionclient"
+    xmlns:ns11="http://tns.tibco.com/bw/palette/internal/activityerror+com.tibco.bw.core.design.process.editor.Activity_4002_Throw"
+    xmlns:ns12="http://tns.tibco.com/bw/json/1586801642684"
+    xmlns:ns13="http://tns.tibco.com/bw/palette/internal/activityerror+d1da8dd2-ff10-45f1-9cc8-d9c3e19d5128"
+    xmlns:ns14="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1585672256568"
+    xmlns:ns15="http://www.example.com/namespaces/tns/1588866436045"
+    xmlns:ns16="http://tns.tibco.com/bw/json/1586728954857"
+    xmlns:ns17="http://tns.tibco.com/bw/json/1586464847717"
+    xmlns:ns2="http://www.example.com/namespaces/tns/1585152803559"
+    xmlns:ns3="http://tns.tibco.com/bw/json/1584916967332"
+    xmlns:ns4="http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452"
+    xmlns:ns5="http://tns.tibco.com/bw/json/1585421706255"
+    xmlns:ns6="http://tns.tibco.com/bw/palette/internal/errorlinkhandler+99da9b92-1172-4940-9268-d8b8cbb45c3b"
+    xmlns:ns7="http://tns.tibco.com/bw/palette/internal/errorlinkhandler+d1da8dd2-ff10-45f1-9cc8-d9c3e19d5128"
+    xmlns:ns8="http://tns.tibco.com/bw/palette/internal/activityerror+bw.internal.end"
+    xmlns:ns9="http://tns.tibco.com/bw/palette/internal/activityerror+af183615-2e3f-44f7-bc4f-ce14234b8b38"
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+    xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
+    xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:Types>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/EngineTypes"
+            xmlns:tns="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="OptionalErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="FaultDetail">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ActivityName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ProcessContext">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ApplicationName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="EngineName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessInstanceId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="CustomJobId" type="xs:string"/>
+                    <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="TrackingInfo" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="anydata">
+                <xs:sequence>
+                    <xs:any namespace="##any" processContents="lax"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="OptionalErrorReport" type="tns:OptionalErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="FaultDetail" type="tns:FaultDetail"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ProcessContext" type="tns:ProcessContext"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="CorrelationValue" type="xs:string"/>
+        </xs:schema>
+        <schema attributeFormDefault="unqualified"
+            elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityException" type="tns:ActivityExceptionType"/>
+            <complexType name="ActivityTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/errorlinkhandler+99da9b92-1172-4940-9268-d8b8cbb45c3b"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://www.urbanoutfitters.com/leaf/exceptionclient" xmlns:tns="http://tns.tibco.com/bw/palette/internal/errorlinkhandler+99da9b92-1172-4940-9268-d8b8cbb45c3b">
+            <import namespace="http://www.urbanoutfitters.com/leaf/exceptionclient"/>
+            <element name="ErrorLinkHandlerFaultData" type="tns:ErrorLinkHandlerFaultDataType"/>
+            <complexType name="ErrorLinkHandlerFaultDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:ErrorReport"/>
+                </choice>
+            </complexType>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/activityerror+bw.internal.end"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://www.urbanoutfitters.com/leaf/exceptionclient" xmlns:tns="http://tns.tibco.com/bw/palette/internal/activityerror+bw.internal.end">
+            <import namespace="http://www.urbanoutfitters.com/leaf/exceptionclient"/>
+            <element name="ActivityErrorData" type="tns:ActivityErrorDataType"/>
+            <complexType name="ActivityErrorDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:ErrorReport"/>
+                </choice>
+            </complexType>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/activityerror+com.tibco.bw.core.design.process.editor.Activity_4002_Throw"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://www.urbanoutfitters.com/leaf/exceptionclient" xmlns:tns="http://tns.tibco.com/bw/palette/internal/activityerror+com.tibco.bw.core.design.process.editor.Activity_4002_Throw">
+            <import namespace="http://www.urbanoutfitters.com/leaf/exceptionclient"/>
+            <element name="ActivityErrorData" type="tns:ActivityErrorDataType"/>
+            <complexType name="ActivityErrorDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:ErrorReport"/>
+                </choice>
+            </complexType>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/activityerror+d1da8dd2-ff10-45f1-9cc8-d9c3e19d5128"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://www.urbanoutfitters.com/leaf/exceptionclient" xmlns:tns="http://tns.tibco.com/bw/palette/internal/activityerror+d1da8dd2-ff10-45f1-9cc8-d9c3e19d5128">
+            <import namespace="http://www.urbanoutfitters.com/leaf/exceptionclient"/>
+            <element name="ActivityErrorData" type="tns:ActivityErrorDataType"/>
+            <complexType name="ActivityErrorDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:ErrorReport"/>
+                </choice>
+            </complexType>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/activityerror+af183615-2e3f-44f7-bc4f-ce14234b8b38"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://www.urbanoutfitters.com/leaf/exceptionclient" xmlns:tns="http://tns.tibco.com/bw/palette/internal/activityerror+af183615-2e3f-44f7-bc4f-ce14234b8b38">
+            <import namespace="http://www.urbanoutfitters.com/leaf/exceptionclient"/>
+            <element name="ActivityErrorData" type="tns:ActivityErrorDataType"/>
+            <complexType name="ActivityErrorDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:ErrorReport"/>
+                </choice>
+            </complexType>
+        </schema>
+    </tibex:Types>
+    <tibex:ProcessInfo callable="true" createdBy="ArgekarA1"
+        createdOn="Sun Mar 22 15:28:03 EDT 2020" description=""
+        extraErrorVars="true" modifiers="public"
+        productVersion="6.6.0 HF1 V55 2020-01-17" scalable="true"
+        singleton="true" stateless="false" type="IT"/>
+    <tibex:ProcessInterface context=""
+        input="{http://tns.tibco.com/bw/json/1584895836320}TransferCreateRequestElement" output="{http://tns.tibco.com/bw/json/1584895895828}TransferCreateResponseElement">
+        <tibex:errorList>
+            <tibex:error
+                error="{http://www.urbanoutfitters.com/leaf/exceptionclient}ErrorReport" name="ErrorReport"/>
+        </tibex:errorList>
+    </tibex:ProcessInterface>
+    <tibex:ProcessTemplateConfigurations/>
+    <notation:Diagram measurementUnit="Pixel" type="BWProcess"
+        xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
+        xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <children type="2001">
+            <children type="5001"/>
+            <children type="3002">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3003">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3004">
+                <children type="4018">
+                    <children type="3018">
+                        <children type="4020">
+                            <children type="3020">
+                                <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint x="-42"
+                                    xsi:type="notation:Bounds" y="398"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint x="940"
+                                    xsi:type="notation:Bounds" y="398"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint x="721"
+                                    xsi:type="notation:Bounds" y="398"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint
+                                    width="176" x="824"
+                                    xsi:type="notation:Bounds" y="21"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint x="325"
+                                    xsi:type="notation:Bounds" y="398"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.5"/>
+                                    <layoutConstraint x="69"
+                                    xsi:type="notation:Bounds" y="398"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.6"/>
+                                    <layoutConstraint x="850"
+                                    xsi:type="notation:Bounds" y="202"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.7"/>
+                                    <layoutConstraint
+                                    height="109" x="72"
+                                    xsi:type="notation:Bounds" y="50"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.8"/>
+                                    <layoutConstraint x="194"
+                                    xsi:type="notation:Bounds" y="398"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.9"/>
+                                    <layoutConstraint x="328"
+                                    xsi:type="notation:Bounds" y="175"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.10"/>
+                                    <layoutConstraint x="526"
+                                    xsi:type="notation:Bounds" y="398"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.11"/>
+                                    <layoutConstraint x="526"
+                                    xsi:type="notation:Bounds" y="235"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.12"/>
+                                    <layoutConstraint
+                                    height="109" x="526"
+                                    xsi:type="notation:Bounds" y="42"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.13"/>
+                                    <layoutConstraint
+                                    height="109" x="328"
+                                    xsi:type="notation:Bounds" y="50"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    <layoutConstraint height="526"
+                                    width="1077" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity"/>
+                            <layoutConstraint height="372" width="782" xsi:type="notation:Bounds"/>
+                        </children>
+                        <children type="4022">
+                            <children type="3022">
+                                <children type="4029">
+                                    <children type="3031">
+                                    <children type="4033">
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint
+                                    height="34" width="34"
+                                    xsi:type="notation:Bounds" y="68"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3032">
+                                    <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    x="24"
+                                    xsi:type="notation:Bounds" y="75"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint
+                                    x="254"
+                                    xsi:type="notation:Bounds" y="30"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint
+                                    x="254"
+                                    xsi:type="notation:Bounds" y="138"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity"/>
+                                    <layoutConstraint
+                                    height="233" width="681" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity/@faultHandlers"/>
+                            <layoutConstraint height="249" width="742"
+                                x="22" xsi:type="notation:Bounds" y="407"/>
+                        </children>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <element href="//0/@process/@activity"/>
+                    </children>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@activity"/>
+                    <layoutConstraint height="657" width="782" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <element href="//0/@process"/>
+            <layoutConstraint height="828" width="1422" xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:DiagramStyle"/>
+        <element href="//0"/>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-4" xsi:type="notation:Location" y="31"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, -4, -142, 21]$[143, -21, -24, 4]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
+            <bendpoints
+                points="[10, 7, -77, -222]$[78, 7, -9, -222]$[78, 205, -9, -24]" xsi:type="notation:RelativeBendpoints"/>
+            <sourceAnchor id="(0.9090909090909091,0.36)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.10" type="4006">
+            <children type="6002">
+                <layoutConstraint x="16" xsi:type="notation:Location" y="-23"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[25, 0, -126, 14]$[117, 0, -34, 14]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-45" xsi:type="notation:Location" y="1"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.3"/>
+            <bendpoints
+                points="[-5, -24, -69, 270]$[-5, -307, -69, -13]$[57, -307, -7, -13]" xsi:type="notation:RelativeBendpoints"/>
+            <targetAnchor id="(0.07386363636363637,0.9066666666666666)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="255" xsi:type="notation:ConnectorStyle"/>
+            <styles fontColor="255" fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.4"/>
+            <bendpoints
+                points="[-37, 25, 175, -118]$[-187, 126, 25, -17]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="255" xsi:type="notation:ConnectorStyle"/>
+            <styles fontColor="255" fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.5"/>
+            <bendpoints
+                points="[-16, 25, -109, -116]$[-16, 134, -109, -7]$[69, 134, -24, -7]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint x="36" xsi:type="notation:Location" y="-24"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.6"/>
+            <bendpoints points="[14, -24, -86, 150]$[86, -149, -14, 25]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.8" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-5" xsi:type="notation:Location" y="-27"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.7"/>
+            <bendpoints
+                points="[25, 19, -196, -155]$[197, 155, -24, -19]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-28" xsi:type="notation:Location" y="-29"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.8"/>
+            <bendpoints
+                points="[-4, -24, -145, 254]$[-4, -290, -145, -12]$[117, -290, -24, -12]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.8"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.9"/>
+            <bendpoints points="[25, 0, -69, 0]$[70, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.9" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-16" xsi:type="notation:Location" y="15"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.10"/>
+            <bendpoints points="[-2, -24, 16, 162]$[-14, -144, 4, 42]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.10"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-3" xsi:type="notation:Location" y="-27"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.11"/>
+            <bendpoints points="[25, 0, -202, 0]$[203, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.10"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.11" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-9" xsi:type="notation:Location" y="27"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.12"/>
+            <bendpoints points="[-13, -24, 16, 190]$[-13, -189, 16, 25]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.11"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.12" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-16" xsi:type="notation:Location"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.13"/>
+            <bendpoints points="[0, -24, 0, 86]$[0, -68, 0, 42]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.11"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint x="-43" xsi:type="notation:Location" y="66"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.14"/>
+            <bendpoints
+                points="[25, 0, -202, -159]$[168, 0, -59, -159]$[168, 159, -59, 0]$[203, 159, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.9"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.13" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.15"/>
+            <bendpoints points="[12, -24, -36, 74]$[28, -56, -20, 42]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+    </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/json/1584895836320" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/json/1584895895828" prefix="tns1"/>
+        <tibex:namespaceItem
+            namespace="http://www.example.com/namespaces/tns/1585152803559" prefix="tns10"/>
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/json/1584916967332" prefix="tns2"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452" prefix="tns3"/>
+        <tibex:namespaceItem
+            namespace="http://www.urbanoutfitters.com/leaf/exceptionclient" prefix="tns4"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xpath/bw-custom-functions" prefix="bw"/>
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/json/1585421706255" prefix="tns5"/>
+        <tibex:namespaceItem
+            namespace="http://www.urbanoutfitters.com/leaf/auditclient" prefix="ns0"/>
+        <tibex:namespaceItem
+            namespace="http://www.w3.org/2001/XMLSchema" prefix="xsd"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/json/1586801642684" prefix="tns6"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1585672256568" prefix="tns12"/>
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/json/1584906700817" prefix="tns7"/>
+        <tibex:namespaceItem
+            namespace="http://www.example.com/namespaces/tns/1588866436045" prefix="tns8"/>
+    </tibex:NamespaceRegistry>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/json/1584895836320"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/json/1584895895828"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.com/namespaces/tns/1585152803559"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/json/1585421706255"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.urbanoutfitters.com/leaf/exceptionclient"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/json/1586801642684"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1585672256568"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.com/namespaces/tns/1588866436045"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/json/1586728954857"/>
+    <bpws:variables>
+        <bpws:variable element="ns:ProcessContext"
+            name="_processContext" sca-bpel:internal="true"/>
+        <bpws:variable element="ns0:TransferCreateRequestElement"
+            name="Start" sca-bpel:internal="true" tibex:parameter="in"/>
+        <bpws:variable element="ns1:TransferCreateResponseElement"
+            name="End-input" sca-bpel:internal="true" tibex:parameter="out"/>
+        <bpws:variable element="ns2:Element" name="StoreMislSub-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns12:StoreMislResponseNewElement"
+            name="StoreMislSub" sca-bpel:internal="true"/>
+        <bpws:variable element="ns4:Lookup" name="GetLookup" sca-bpel:internal="true"/>
+        <bpws:variable element="ns5:PrintCartonLabelSubRequestElement"
+            name="PrintCartonLabelSub-input" sca-bpel:internal="true"/>
+        <bpws:variable name="FaultName" sca-bpel:internal="true" type="xsd:string"/>
+        <bpws:variable element="ns:ErrorReport" name="_error" sca-bpel:internal="true"/>
+        <bpws:variable element="ns:OptionalErrorReport"
+            name="_errorOptional" sca-bpel:internal="true"/>
+        <bpws:variable name="FaultName1" sca-bpel:internal="true" type="xsd:string"/>
+        <bpws:variable element="ns:FaultDetail" name="FaultDetails" sca-bpel:internal="true"/>
+        <bpws:variable element="ns10:ErrorReport" name="Throw-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns10:ErrorReport"
+            name="FieldsMissingInvalid-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns14:StoreDetails"
+            name="StoreNumbers-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns14:StoreDetails" name="StoreNumbers" sca-bpel:internal="true"/>
+        <bpws:variable element="ns14:StoreDetails"
+            name="InvalidStoreNo-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns14:StoreDetails" name="InvalidStoreNo" sca-bpel:internal="true"/>
+        <bpws:variable element="ns14:StoreDetails" name="DCNumber-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns14:StoreDetails" name="DCNumber" sca-bpel:internal="true"/>
+        <bpws:variable element="ns10:ErrorReport"
+            name="Throw_NoDestnStore-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns11:ActivityErrorData"
+            name="_error_Thro" sca-bpel:internal="true"/>
+        <bpws:variable element="ns10:ErrorReport"
+            name="ThrowInvalidStore-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns11:ActivityErrorData"
+            name="_error_InvalidStor" sca-bpel:internal="true"/>
+        <bpws:variable element="ns8:ActivityErrorData" name="_error_End" sca-bpel:internal="true"/>
+        <bpws:variable element="ns9:ActivityErrorData"
+            name="_error_TransferCreateSub" sca-bpel:internal="true"/>
+        <bpws:variable element="ns13:ActivityErrorData"
+            name="_error_StoreMislSub" sca-bpel:internal="true"/>
+        <bpws:variable element="ns11:ActivityErrorData"
+            name="_error_FieldsMissingInvalid" sca-bpel:internal="true"/>
+        <bpws:variable element="ns11:ActivityErrorData"
+            name="_error_Throw_NoDestnStore" sca-bpel:internal="true"/>
+        <bpws:variable element="ns11:ActivityErrorData"
+            name="_error_ThrowInvalidStore" sca-bpel:internal="true"/>
+        <bpws:variable element="ns11:ActivityErrorData"
+            name="_error_Throw" sca-bpel:internal="true"/>
+        <bpws:variable element="ns15:Element"
+            name="TransferCreateSub-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:TransferCreateResponseElement"
+            name="TransferCreateSub" sca-bpel:internal="true"/>
+        <bpws:variable element="ns6:ErrorLinkHandlerFaultData"
+            name="_error_PrintCartonLabelSub" sca-bpel:internal="true"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bw/process/info"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca/200912"/>
+        <bpws:extension mustUnderstand="no" namespace="http://ns.tibco.com/bw/property"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:scope name="scope">
+        <bpws:faultHandlers>
+            <bpws:catchAll tibex:faultDetailsVar="FaultDetails"
+                tibex:faultNameVar="FaultName1" tibex:xpdlId="fc26e92c-7922-4ba3-8a87-fdce4c965d5c">
+                <bpws:scope name="scope1">
+                    <bpws:flow name="flow1">
+                        <bpws:links>
+                            <bpws:link name="Empty1ToRethrow_Rethrow"
+                                tibex:label="Rethrow" tibex:linkType="SUCCESSWITHCONDITION"/>
+                            <bpws:link name="Empty1ToThrow_else"
+                                tibex:label="else" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                        </bpws:links>
+                        <bpws:empty name="Empty1" tibex:xpdlId="921c8e9d-ca56-4802-972e-5c5d2624c8fe">
+                            <bpws:sources>
+                                <bpws:source linkName="Empty1ToRethrow_Rethrow">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="exists($_error_TransferCreateSub) or exists($_error_StoreMislSub) or exists($_error_FieldsMissingInvalid) or exists($_error_Throw_NoDestnStore) or exists($_error_ThrowInvalidStore)" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[exists($_error_TransferCreateSub) or exists($_error_StoreMislSub) or exists($_error_FieldsMissingInvalid) or exists($_error_Throw_NoDestnStore) or exists($_error_ThrowInvalidStore)]]></bpws:transitionCondition>
+                                </bpws:source>
+                                <bpws:source linkName="Empty1ToThrow_else">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                                </bpws:source>
+                            </bpws:sources>
+                        </bpws:empty>
+                        <bpws:rethrow name="Rethrow" tibex:xpdlId="dde7f183-1e19-4b82-8f6f-0269c2534b2a">
+                            <bpws:targets>
+                                <bpws:target linkName="Empty1ToRethrow_Rethrow"/>
+                            </bpws:targets>
+                        </bpws:rethrow>
+                        <bpws:throw faultName="ns10:ErrorReport"
+                            faultVariable="Throw-input" name="Throw" tibex:xpdlId="cb37ad94-0359-454a-8555-148843dc2a17">
+                            <tibex:inputBindings>
+                                <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.urbanoutfitters.com/leaf/exceptionclient&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:template name=&quot;Throw-input&quot; match=&quot;/&quot;>&lt;tns4:ErrorReport>&lt;tns4:StackTrace>&lt;xsl:value-of select=&quot;concat('Activity ',$FaultDetails/ActivityName ,' in process ',bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;), ' - ',$FaultDetails/Msg,' ',$FaultDetails/StackTrace)&quot;/>&lt;/tns4:StackTrace>&lt;tns4:Msg>&lt;xsl:value-of select=&quot;'TRANSFER_CREATE_FAILED'&quot;/>&lt;/tns4:Msg>&lt;tns4:FullClass>&lt;xsl:value-of select=&quot;$FaultDetails/FullClass&quot;/>&lt;/tns4:FullClass>&lt;tns4:Class>&lt;xsl:value-of select=&quot;$FaultDetails/Class&quot;/>&lt;/tns4:Class>&lt;tns4:ProcessStack>&lt;xsl:value-of select=&quot;$FaultDetails/ProcessStack&quot;/>&lt;/tns4:ProcessStack>&lt;tns4:MsgCode>&lt;xsl:value-of select=&quot;'400'&quot;/>&lt;/tns4:MsgCode>&lt;xsl:if test=&quot;$FaultDetails/Data/*&quot;>&lt;tns4:Data>&lt;xsl:value-of select=&quot;$FaultDetails/Data/*&quot;/>&lt;/tns4:Data>&lt;/xsl:if>&lt;/tns4:ErrorReport>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            </tibex:inputBindings>
+                            <bpws:targets>
+                                <bpws:target linkName="Empty1ToThrow_else"/>
+                            </bpws:targets>
+                        </bpws:throw>
+                    </bpws:flow>
+                </bpws:scope>
+            </bpws:catchAll>
+        </bpws:faultHandlers>
+        <bpws:flow name="flow">
+            <bpws:links>
+                <bpws:link name="TransferCreateSubToEnd_else"
+                    tibex:label="else" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                <bpws:link name="PrintCartonLabelSubToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="StoreMislSubToEmpty2"
+                    tibex:label="else" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                <bpws:link name="TransferCreateSubToPrintCartonLabelSub"
+                    tibex:label="created" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="PrintCartonLabelSubToEmpty" tibex:linkType="ERROR"/>
+                <bpws:link name="EmptyToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="StartToGetLookup" tibex:linkType="SUCCESS"/>
+                <bpws:link name="GetLookupToStoreNumbers"
+                    tibex:label="else" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                <bpws:link
+                    name="GetLookupToFieldsMissing_FieldsMissingOrInvalid"
+                    tibex:label="FieldsMissingOrInvalid" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="StoreNumbersToStoreMislSub" tibex:linkType="SUCCESS"/>
+                <bpws:link name="StoreMislSubToInvalidStore"
+                    tibex:label="Invalid Store" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="Empty2ToTransferCreateSub_ToStore"
+                    tibex:label="ToStore" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="Empty2ToDCNumber_else"
+                    tibex:label="else" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                <bpws:link name="DCNumberToCopy_1_FieldsMissingInvalid"
+                    tibex:label="No Destn Store" tibex:linkType="SUCCESSWITHCONDITION"/>
+                <bpws:link name="DCNumberToTransferCreateSub_else"
+                    tibex:label="else" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                <bpws:link
+                    name="InvalidStoreToCopy_2_FieldsMissingInvalid" tibex:linkType="SUCCESS"/>
+            </bpws:links>
+            <bpws:extensionActivity>
+                <tibex:receiveEvent createInstance="yes"
+                    eventTimeout="0" name="Start"
+                    tibex:xpdlId="39ecdfe4-6c1b-4477-9b00-aa39208870b9"
+                    variable="Start" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:sources>
+                        <bpws:source linkName="StartToGetLookup"/>
+                    </bpws:sources>
+                    <tibex:eventSource>
+                        <tibex:StartEvent xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                    </tibex:eventSource>
+                </tibex:receiveEvent>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension inputVariable="End-input"
+                    name="End"
+                    tibex:xpdlId="f02e6b72-6d63-40a6-812f-8a575cdf5db8" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="TransferCreateSubToEnd_else"/>
+                        <bpws:target linkName="PrintCartonLabelSubToEnd"/>
+                        <bpws:target linkName="EmptyToEnd"/>
+                    </bpws:targets>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://tns.tibco.com/bw/json/1584895895828&quot; xmlns:tns6=&quot;http://tns.tibco.com/bw/json/1586801642684&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;TransferCreateSub&quot;/>&lt;xsl:param name=&quot;StoreMislSub&quot;/>&lt;xsl:param name=&quot;StoreNumbers&quot;/>&lt;xsl:param name=&quot;DCNumber&quot;/>&lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&lt;tns1:TransferCreateResponseElement>&lt;xsl:variable name=&quot;varRequestStore&quot; select=&quot;$StoreNumbers/StoreDetail[1]/StoreNumber&quot;/>&lt;xsl:variable name=&quot;varRequestDestnStore&quot; select=&quot;$StoreNumbers/StoreDetail[2]/StoreNumber&quot;/>&lt;xsl:if test=&quot;$TransferCreateSub/tns1:cartonNumber&quot;>&lt;tns1:cartonNumber>&lt;xsl:value-of select=&quot;$TransferCreateSub/tns1:cartonNumber&quot;/>&lt;/tns1:cartonNumber>&lt;/xsl:if>&lt;xsl:if test=&quot;$TransferCreateSub/tns1:storeNumber&quot;>&lt;tns1:storeNumber>&lt;xsl:value-of select=&quot;$TransferCreateSub/tns1:storeNumber&quot;/>&lt;/tns1:storeNumber>&lt;/xsl:if>&lt;tns1:storeName>&lt;xsl:value-of select=&quot;tib:trim($StoreMislSub/tns6:results[tns6:storeNumber=$varRequestStore]/tns6:storeName)&quot;/>&lt;/tns1:storeName>&lt;xsl:if test=&quot;$TransferCreateSub/tns1:destinationStoreNumber&quot;>&lt;tns1:destinationStoreNumber>&lt;xsl:value-of select=&quot;$TransferCreateSub/tns1:destinationStoreNumber&quot;/>&lt;/tns1:destinationStoreNumber>&lt;/xsl:if>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length(tib:trim($varRequestDestnStore))>0&quot;>&lt;tns1:destinationStoreName>&lt;xsl:value-of select=&quot;tib:trim($StoreMislSub/tns6:results[tns6:storeNumber=$varRequestDestnStore]/tns6:storeName)&quot;/>&lt;/tns1:destinationStoreName>&lt;/xsl:when>&lt;xsl:otherwise>&lt;tns1:destinationStoreName>&lt;xsl:value-of select=&quot;tib:trim($DCNumber/StoreDetail[1]/StoreName)&quot;/>&lt;/tns1:destinationStoreName>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;xsl:if test=&quot;$TransferCreateSub/tns1:transferTypeCode&quot;>&lt;tns1:transferTypeCode>&lt;xsl:value-of select=&quot;$TransferCreateSub/tns1:transferTypeCode&quot;/>&lt;/tns1:transferTypeCode>&lt;/xsl:if>&lt;xsl:if test=&quot;$TransferCreateSub/tns1:cartonCreated&quot;>&lt;tns1:cartonCreated>&lt;xsl:value-of select=&quot;$TransferCreateSub/tns1:cartonCreated&quot;/>&lt;/tns1:cartonCreated>&lt;/xsl:if>&lt;/tns1:TransferCreateResponseElement>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.internal.end"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:internalactivities="http://ns.tibco.com/bw/core/internalactivity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/core/internalactivity#//End"/>
+                                    <value xsi:type="internalactivities:End"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:extActivity
+                    inputVariable="TransferCreateSub-input"
+                    name="TransferCreateSub"
+                    outputVariable="TransferCreateSub"
+                    tibex:xpdlId="af183615-2e3f-44f7-bc4f-ce14234b8b38"
+                    type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="Empty2ToTransferCreateSub_ToStore"/>
+                        <bpws:target linkName="DCNumberToTransferCreateSub_else"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="TransferCreateSubToEnd_else">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                        </bpws:source>
+                        <bpws:source linkName="TransferCreateSubToPrintCartonLabelSub">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="$TransferCreateSub/ns1:cartonCreated=true()" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[$TransferCreateSub/ns1:cartonCreated=true()]]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/json/1584895836320&quot; xmlns:tns8=&quot;http://www.example.com/namespaces/tns/1588866436045&quot; xmlns:tns6=&quot;http://tns.tibco.com/bw/json/1586801642684&quot; xmlns:tns3=&quot;http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;DCNumber&quot;/>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:param name=&quot;StoreMislSub&quot;/>&lt;xsl:param name=&quot;GetLookup&quot;/>&lt;xsl:template name=&quot;TransferCreateSub-input&quot; match=&quot;/&quot;>&lt;tns8:Element>&lt;xsl:variable name=&quot;var_storeNumber&quot; select=&quot;$Start/tns:storeNumber&quot;/>&lt;xsl:variable name=&quot;var_IpBrand&quot; select=&quot;$StoreMislSub/tns6:results[tns6:storeNumber=$var_storeNumber][1]/tns6:brandId&quot;/>&lt;tns8:storeNumber>&lt;xsl:value-of select=&quot;$var_storeNumber&quot;/>&lt;/tns8:storeNumber>&lt;xsl:choose>&lt;xsl:when test=&quot;string-length(tib:trim($DCNumber/StoreDetail[1]/StoreNumber))>0&quot;>&lt;tns8:destinationStoreNumber>&lt;xsl:value-of select=&quot;tib:trim($DCNumber/StoreDetail[1]/StoreNumber)&quot;/>&lt;/tns8:destinationStoreNumber>&lt;/xsl:when>&lt;xsl:otherwise>&lt;tns8:destinationStoreNumber>&lt;xsl:value-of select=&quot;$Start/tns:destinationStoreNumber&quot;/>&lt;/tns8:destinationStoreNumber>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;tns8:transferTypeCode>&lt;xsl:value-of select=&quot;$Start/tns:transferTypeCode&quot;/>&lt;/tns8:transferTypeCode>&lt;tns8:timeZone>&lt;xsl:value-of select=&quot;$StoreMislSub/tns6:results[tns6:storeNumber=$var_storeNumber]/tns6:timeZone&quot;/>&lt;/tns8:timeZone>&lt;tns8:Sterling_Brand>&lt;xsl:value-of select=&quot;tib:trim($GetLookup/tns3:Brand/tns3:Record[number(tns3:IP_Brand) = number($var_IpBrand)]/tns3:Sterling_Brand)&quot;/>&lt;/tns8:Sterling_Brand>&lt;tns8:Sterling_Org>&lt;xsl:value-of select=&quot;tib:trim($GetLookup/tns3:Brand/tns3:Record[number(tns3:IP_Brand) = number($var_IpBrand)]/tns3:Sterling_Org)&quot;/>&lt;/tns8:Sterling_Org>&lt;/tns8:Element>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:CallProcess
+                        subProcessName="Transfer.TransferCreateSub" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                </tibex:extActivity>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:extActivity
+                    inputVariable="PrintCartonLabelSub-input"
+                    name="PrintCartonLabelSub"
+                    tibex:xpdlId="99da9b92-1172-4940-9268-d8b8cbb45c3b"
+                    type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="TransferCreateSubToPrintCartonLabelSub"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="PrintCartonLabelSubToEnd"/>
+                        <bpws:source
+                            linkName="PrintCartonLabelSubToEmpty"
+                            tibex:faultDetailsVar="PrintCartonLabelSub" tibex:faultNameVar="FaultName">
+                            <tibex:DesignExpression>
+                                <tibex:expression expression="##error##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[##error##]]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/json/1584895836320&quot; xmlns:tns5=&quot;http://tns.tibco.com/bw/json/1585421706255&quot; xmlns:tns1=&quot;http://tns.tibco.com/bw/json/1584895895828&quot; xmlns:tns3=&quot;http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452&quot; xmlns:tns6=&quot;http://tns.tibco.com/bw/json/1586801642684&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:param name=&quot;TransferCreateSub&quot;/>&lt;xsl:param name=&quot;StoreMislSub&quot;/>&lt;xsl:param name=&quot;GetLookup&quot;/>&lt;xsl:template name=&quot;PrintCartonLabelSub-input&quot; match=&quot;/&quot;>&lt;tns5:PrintCartonLabelSubRequestElement>&lt;xsl:variable name=&quot;varTransferTypeCode&quot; select=&quot;$TransferCreateSub/tns1:transferTypeCode&quot;/>&lt;xsl:if test=&quot;$TransferCreateSub/tns1:cartonNumber&quot;>&lt;tns5:cartonNumber>&lt;xsl:value-of select=&quot;$TransferCreateSub/tns1:cartonNumber&quot;/>&lt;/tns5:cartonNumber>&lt;/xsl:if>&lt;xsl:if test=&quot;$TransferCreateSub/tns1:destinationStoreNumber&quot;>&lt;tns5:destinationStoreNumber>&lt;xsl:value-of select=&quot;$TransferCreateSub/tns1:destinationStoreNumber&quot;/>&lt;/tns5:destinationStoreNumber>&lt;/xsl:if>&lt;xsl:if test=&quot;$StoreMislSub/tns6:results[1]/tns6:storeName&quot;>&lt;tns5:destinationStoreName>&lt;xsl:value-of select=&quot;$StoreMislSub/tns6:results[1]/tns6:storeName&quot;/>&lt;/tns5:destinationStoreName>&lt;/xsl:if>&lt;xsl:if test=&quot;$varTransferTypeCode&quot;>&lt;tns5:transferTypeCode>&lt;xsl:value-of select=&quot;$varTransferTypeCode&quot;/>&lt;/tns5:transferTypeCode>&lt;/xsl:if>&lt;xsl:if test=&quot;$GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:TRANSFERTYPESHORTDESC&quot;>&lt;tns5:transferTypeShortDesc>&lt;xsl:value-of select=&quot;$GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:TRANSFERTYPESHORTDESC&quot;/>&lt;/tns5:transferTypeShortDesc>&lt;/xsl:if>&lt;xsl:if test=&quot;$GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:TRANSFERTYPELONGDESC&quot;>&lt;tns5:transferTypeLongDesc>&lt;xsl:value-of select=&quot;$GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:TRANSFERTYPELONGDESC&quot;/>&lt;/tns5:transferTypeLongDesc>&lt;/xsl:if>&lt;xsl:if test=&quot;$Start/tns:printerIp&quot;>&lt;tns5:printerIp>&lt;xsl:value-of select=&quot;$Start/tns:printerIp&quot;/>&lt;/tns5:printerIp>&lt;/xsl:if>&lt;/tns5:PrintCartonLabelSubRequestElement>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:CallProcess
+                        subProcessName="Transfer.PrintCartonLabelSub" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                </tibex:extActivity>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:extActivity inputVariable="StoreMislSub-input"
+                    name="StoreMislSub" outputVariable="StoreMislSub"
+                    tibex:xpdlId="d1da8dd2-ff10-45f1-9cc8-d9c3e19d5128"
+                    type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="StoreNumbersToStoreMislSub"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="StoreMislSubToEmpty2">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                        </bpws:source>
+                        <bpws:source linkName="StoreMislSubToInvalidStore">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="count($StoreNumbers/StoreDetail)>$StoreMislSub/ns12:count" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[count($StoreNumbers/StoreDetail)>$StoreMislSub/ns12:count]]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns10=&quot;http://www.example.com/namespaces/tns/1585152803559&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;StoreNumbers&quot;/>&lt;xsl:template name=&quot;StoreMislSub-input&quot; match=&quot;/&quot;>&lt;tns10:Element>&lt;xsl:variable name=&quot;StoreNumber&quot; select=&quot;tib:concat-sequence-format($StoreNumbers/StoreDetail/StoreNumber, '|', true())&quot;/>&lt;tns10:QueryString>&lt;xsl:value-of select=&quot;concat('storeNumber=',$StoreNumber,'&amp;amp;projection=storeNumber%2CstoreName%2CbrandId%2Cstate%2CtimeZone')&quot;/>&lt;/tns10:QueryString>&lt;/tns10:Element>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:CallProcess
+                        subProcessName="Transfer.StoreMislSub" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                </tibex:extActivity>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:extActivity name="GetLookup"
+                    outputVariable="GetLookup"
+                    tibex:xpdlId="a7ce2d7f-3925-45b4-be40-bcbbf4375b3e"
+                    type="bw.internal.getSharedVariable" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="StartToGetLookup"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="GetLookupToStoreNumbers">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                        </bpws:source>
+                        <bpws:source linkName="GetLookupToFieldsMissing_FieldsMissingOrInvalid">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="string-length(tib:trim($Start/ns0:storeNumber))=0 or string-length(tib:trim(xsd:string($Start/ns0:transferTypeCode)))=0 or string-length(tib:trim($Start/ns0:printerIp))=0 or count($GetLookup/ns4:TransferTypeLookup/ns4:Record[ns4:TRANSFERTYPECODE=$Start/ns0:transferTypeCode])=0 or (upper-case(tib:trim($GetLookup/ns4:TransferTypeLookup/ns4:Record[ns4:TRANSFERTYPECODE=$Start/ns0:transferTypeCode]/ns4:LookupDestnStore))='Y' and string-length(tib:trim($Start/ns0:destinationStoreNumber))>0) or (upper-case(tib:trim($GetLookup/ns4:TransferTypeLookup/ns4:Record[ns4:TRANSFERTYPECODE=$Start/ns0:transferTypeCode]/ns4:LookupDestnStore))='N' and string-length(tib:trim($Start/ns0:destinationStoreNumber))=0)" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[string-length(tib:trim($Start/ns0:storeNumber))=0 or string-length(tib:trim(xsd:string($Start/ns0:transferTypeCode)))=0 or string-length(tib:trim($Start/ns0:printerIp))=0 or count($GetLookup/ns4:TransferTypeLookup/ns4:Record[ns4:TRANSFERTYPECODE=$Start/ns0:transferTypeCode])=0 or (upper-case(tib:trim($GetLookup/ns4:TransferTypeLookup/ns4:Record[ns4:TRANSFERTYPECODE=$Start/ns0:transferTypeCode]/ns4:LookupDestnStore))='Y' and string-length(tib:trim($Start/ns0:destinationStoreNumber))>0) or (upper-case(tib:trim($GetLookup/ns4:TransferTypeLookup/ns4:Record[ns4:TRANSFERTYPECODE=$Start/ns0:transferTypeCode]/ns4:LookupDestnStore))='N' and string-length(tib:trim($Start/ns0:destinationStoreNumber))=0)]]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:GetSharedVariable variableName="Lookup" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                </tibex:extActivity>
+            </bpws:extensionActivity>
+            <bpws:empty name="Empty" tibex:xpdlId="60c79367-226e-4c53-a8f5-11ad9c6b4109">
+                <bpws:targets>
+                    <bpws:target linkName="PrintCartonLabelSubToEmpty"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="EmptyToEnd"/>
+                </bpws:sources>
+            </bpws:empty>
+            <bpws:throw faultName="ns10:ErrorReport"
+                faultVariable="FieldsMissingInvalid-input"
+                name="FieldsMissingInvalid" tibex:xpdlId="20304a08-9384-4d4a-bc5f-35e1dcddc39b">
+                <tibex:inputBindings>
+                    <tibex:partBinding
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.urbanoutfitters.com/leaf/exceptionclient&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/json/1584895836320&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns3=&quot;http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:param name=&quot;GetLookup&quot;/>&lt;xsl:template name=&quot;FieldsMissingInvalid-input&quot; match=&quot;/&quot;>&lt;tns4:ErrorReport>&lt;xsl:variable name=&quot;varTransferTypeCode&quot; select=&quot;$Start/tns:transferTypeCode&quot;/>&lt;tns4:Msg>&lt;xsl:value-of select=&quot;if(count($GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode])=0)&amp;#xD;&amp;#xA;then&amp;#xD;&amp;#xA;'INVALID_TRANSFERTYPECODE'&amp;#xD;&amp;#xA;else if((upper-case(tib:trim($GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:LookupDestnStore))='Y' and string-length(tib:trim($Start/tns:destinationStoreNumber))>0))&amp;#xD;&amp;#xA;then&amp;#xD;&amp;#xA;'DESTN_STORE_NOT_NEEDED'&amp;#xD;&amp;#xA;else&amp;#xD;&amp;#xA;concat('FIELD(S)_MISSING:',&amp;#xD;&amp;#xA;if (string-length(tib:trim($Start/tns:storeNumber))=0)&amp;#xD;&amp;#xA;then&amp;#xD;&amp;#xA;',storeNumber'&amp;#xD;&amp;#xA;else '',&amp;#xD;&amp;#xA;if (upper-case(tib:trim($GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:LookupDestnStore))='N' and string-length(tib:trim($Start/tns:destinationStoreNumber))=0)&amp;#xD;&amp;#xA;then&amp;#xD;&amp;#xA;',destinationStoreNumber'&amp;#xD;&amp;#xA;else '',&amp;#xD;&amp;#xA;if (string-length(tib:trim(xsd:string($varTransferTypeCode)))=0)&amp;#xD;&amp;#xA;then&amp;#xD;&amp;#xA;',transferTypeCode'&amp;#xD;&amp;#xA;else '',&amp;#xD;&amp;#xA;if (string-length(tib:trim($Start/tns:printerIp))=0)&amp;#xD;&amp;#xA;then&amp;#xD;&amp;#xA;',printerIp'&amp;#xD;&amp;#xA;else ''&amp;#xD;&amp;#xA;)&quot;/>&lt;/tns4:Msg>&lt;tns4:MsgCode>&lt;xsl:value-of select=&quot;'400'&quot;/>&lt;/tns4:MsgCode>&lt;/tns4:ErrorReport>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                </tibex:inputBindings>
+                <bpws:targets>
+                    <bpws:target linkName="GetLookupToFieldsMissing_FieldsMissingOrInvalid"/>
+                </bpws:targets>
+            </bpws:throw>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    inputVariable="StoreNumbers-input"
+                    name="StoreNumbers" outputVariable="StoreNumbers"
+                    tibex:xpdlId="b9783061-a128-4720-85d8-d2bc63f12bf6" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="GetLookupToStoreNumbers"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="StoreNumbersToStoreMislSub"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns12=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1585672256568&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/json/1584895836320&quot; xmlns:tns3=&quot;http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:param name=&quot;GetLookup&quot;/>&lt;xsl:template name=&quot;StoreNumbers-input&quot; match=&quot;/&quot;>&lt;tns12:StoreDetails>&lt;xsl:variable name=&quot;varTransferTypeCode&quot; select=&quot;$Start/tns:transferTypeCode&quot;/>&lt;StoreDetail>&lt;xsl:if test=&quot;$Start/tns:storeNumber&quot;>&lt;StoreNumber>&lt;xsl:value-of select=&quot;$Start/tns:storeNumber&quot;/>&lt;/StoreNumber>&lt;/xsl:if>&lt;/StoreDetail>&lt;xsl:if test=&quot;upper-case(tib:trim($GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:DCCODE))='S'&quot;>&lt;StoreDetail>&lt;xsl:if test=&quot;$Start/tns:destinationStoreNumber&quot;>&lt;StoreNumber>&lt;xsl:value-of select=&quot;$Start/tns:destinationStoreNumber&quot;/>&lt;/StoreNumber>&lt;/xsl:if>&lt;/StoreDetail>&lt;/xsl:if>&lt;/tns12:StoreDetails>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.mapper"
+                            version="6.0.0.001"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities"
+                            xmlns:mapper_1585672256568="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1585672256568" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Mapper"/>
+                                    <value
+                                    inputQName="mapper_1585672256568:StoreDetails" xsi:type="generalactivities:Mapper"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    inputVariable="InvalidStoreNo-input"
+                    name="InvalidStoreNo"
+                    outputVariable="InvalidStoreNo"
+                    tibex:xpdlId="c93ed300-cc41-47c9-8f70-39fd0994c3e0" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="StoreMislSubToInvalidStore"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="InvalidStoreToCopy_2_FieldsMissingInvalid"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns12=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1585672256568&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns6=&quot;http://tns.tibco.com/bw/json/1586801642684&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;StoreNumbers&quot;/>&lt;xsl:param name=&quot;StoreMislSub&quot;/>&lt;xsl:template name=&quot;InvalidStoreNo-input&quot; match=&quot;/&quot;>&lt;tns12:StoreDetails>&lt;xsl:for-each select=&quot;$StoreNumbers/StoreDetail&quot;>&lt;xsl:variable name=&quot;varStoreNumber&quot; select=&quot;current()/StoreNumber&quot;/>&lt;xsl:if test=&quot;not(exists($StoreMislSub/tns6:results[tns6:storeNumber=$varStoreNumber]))&quot;>&lt;StoreDetail>&lt;xsl:if test=&quot;StoreNumber&quot;>&lt;StoreNumber>&lt;xsl:value-of select=&quot;StoreNumber&quot;/>&lt;/StoreNumber>&lt;/xsl:if>&lt;/StoreDetail>&lt;/xsl:if>&lt;/xsl:for-each>&lt;/tns12:StoreDetails>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.mapper"
+                            version="6.0.0.001"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities"
+                            xmlns:mapper_1585672256568="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1585672256568" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Mapper"/>
+                                    <value
+                                    inputQName="mapper_1585672256568:StoreDetails" xsi:type="generalactivities:Mapper"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:empty name="Empty2" tibex:xpdlId="afc27123-c591-48c8-8089-27fba97746aa">
+                <bpws:targets>
+                    <bpws:target linkName="StoreMislSubToEmpty2"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="Empty2ToTransferCreateSub_ToStore">
+                        <tibex:DesignExpression>
+                            <tibex:expression
+                                expression="count($StoreNumbers/StoreDetail)=2" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                        </tibex:DesignExpression>
+                        <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[count($StoreNumbers/StoreDetail)=2]]></bpws:transitionCondition>
+                    </bpws:source>
+                    <bpws:source linkName="Empty2ToDCNumber_else">
+                        <tibex:DesignExpression>
+                            <tibex:expression expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                        </tibex:DesignExpression>
+                        <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                    </bpws:source>
+                </bpws:sources>
+            </bpws:empty>
+            <bpws:extensionActivity>
+                <tibex:activityExtension inputVariable="DCNumber-input"
+                    name="DCNumber" outputVariable="DCNumber"
+                    tibex:xpdlId="177fee28-b848-4d4f-9023-fce2935dca85" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="Empty2ToDCNumber_else"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="DCNumberToCopy_1_FieldsMissingInvalid">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="string-length(tib:trim($DCNumber/StoreDetail[1]/StoreName))=0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[string-length(tib:trim($DCNumber/StoreDetail[1]/StoreName))=0]]></bpws:transitionCondition>
+                        </bpws:source>
+                        <bpws:source linkName="DCNumberToTransferCreateSub_else">
+                            <tibex:DesignExpression>
+                                <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                            </tibex:DesignExpression>
+                            <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                        </bpws:source>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns12=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1585672256568&quot; xmlns:tns3=&quot;http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452&quot; xmlns:tns6=&quot;http://tns.tibco.com/bw/json/1586801642684&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/json/1584895836320&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:param name=&quot;GetLookup&quot;/>&lt;xsl:param name=&quot;StoreMislSub&quot;/>&lt;xsl:template name=&quot;DCNumber-input&quot; match=&quot;/&quot;>&lt;tns12:StoreDetails>&lt;StoreDetail>&lt;xsl:variable name=&quot;varTransferTypeCode&quot; select=&quot;$Start/tns:transferTypeCode&quot;/>&lt;xsl:variable name=&quot;varBrandId&quot; select=&quot;$StoreMislSub/tns6:results[1]/tns6:brandId&quot;/>&lt;xsl:variable name=&quot;varState&quot; select=&quot;$StoreMislSub/tns6:results[1]/tns6:state&quot;/>&lt;xsl:variable name=&quot;varDestnStore&quot; select=&quot;if (upper-case(tib:trim($GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:LookupDestnStore))='N')&amp;#xD;&amp;#xA;then&amp;#xD;&amp;#xA;$Start/tns:destinationStoreNumber&amp;#xD;&amp;#xA;else&amp;#xD;&amp;#xA;tib:trim($GetLookup/tns3:TRANSFERDESTINATIONLookup/tns3:Record[tns3:BRAND=$varBrandId and tns3:TRANSFERTYPECODE=$varTransferTypeCode and tns3:STATE=$varState]/tns3:DESTINATIONSTORE)&quot;/>&lt;xsl:variable name=&quot;varDestnStore_num&quot; select=&quot;number($varDestnStore)&quot;/>&lt;xsl:variable name=&quot;varDC&quot; select=&quot;tib:trim($GetLookup/tns3:PO_DC_Lookup/tns3:Record[number(tns3:PO_Store)=$varDestnStore_num]/tns3:DC)&quot;/>&lt;xsl:variable name=&quot;varDC_Name&quot; select=&quot;tib:trim($GetLookup/tns3:DC_Lookup/tns3:Record[tns3:DC=$varDC]/tns3:DC_NAME)&quot;/>&lt;xsl:if test=&quot;$varDestnStore&quot;>&lt;StoreNumber>&lt;xsl:value-of select=&quot;$varDestnStore&quot;/>&lt;/StoreNumber>&lt;/xsl:if>&lt;StoreName>&lt;xsl:value-of select=&quot;$varDC_Name&quot;/>&lt;/StoreName>&lt;/StoreDetail>&lt;/tns12:StoreDetails>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.mapper"
+                            version="6.0.0.001"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities"
+                            xmlns:mapper_1585672256568="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1585672256568" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Mapper"/>
+                                    <value
+                                    inputQName="mapper_1585672256568:StoreDetails" xsi:type="generalactivities:Mapper"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:throw faultName="ns10:ErrorReport"
+                faultVariable="Throw_NoDestnStore-input"
+                name="Throw_NoDestnStore" tibex:xpdlId="e33393c5-b495-41ec-be4e-7ea126d5ffe8">
+                <tibex:inputBindings>
+                    <tibex:partBinding
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.urbanoutfitters.com/leaf/exceptionclient&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns3=&quot;http://www.tibco.com/namespaces/jdbc/utils/tabletoxml/1585070341452&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/json/1584895836320&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:param name=&quot;GetLookup&quot;/>&lt;xsl:template name=&quot;Throw_NoDestnStore-input&quot; match=&quot;/&quot;>&lt;tns4:ErrorReport>&lt;xsl:variable name=&quot;varTransferTypeCode&quot; select=&quot;$Start/tns:transferTypeCode&quot;/>&lt;xsl:choose>&lt;xsl:when test=&quot;upper-case(tib:trim($GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:LookupDestnStore))='N'&quot;>&lt;tns4:Msg>&lt;xsl:value-of select=&quot;'INVALID_STORE'&quot;/>&lt;/tns4:Msg>&lt;/xsl:when>&lt;xsl:otherwise>&lt;tns4:Msg>&lt;xsl:value-of select=&quot;'UNKNOWN_DESTN_STORE'&quot;/>&lt;/tns4:Msg>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;xsl:if test=&quot;upper-case(tib:trim($GetLookup/tns3:TransferTypeLookup/tns3:Record[tns3:TRANSFERTYPECODE=$varTransferTypeCode]/tns3:LookupDestnStore))='N'&quot;>&lt;tns4:ProcessStack>&lt;xsl:value-of select=&quot;concat(&amp;quot;CUSTOMMESSAGE:&amp;quot;, $Start/tns:destinationStoreNumber, &amp;quot; is/are invalid store(s)&amp;quot;)&quot;/>&lt;/tns4:ProcessStack>&lt;/xsl:if>&lt;tns4:MsgCode>&lt;xsl:value-of select=&quot;'400'&quot;/>&lt;/tns4:MsgCode>&lt;/tns4:ErrorReport>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                </tibex:inputBindings>
+                <bpws:targets>
+                    <bpws:target linkName="DCNumberToCopy_1_FieldsMissingInvalid"/>
+                </bpws:targets>
+            </bpws:throw>
+            <bpws:throw faultName="ns10:ErrorReport"
+                faultVariable="ThrowInvalidStore-input"
+                name="ThrowInvalidStore" tibex:xpdlId="0bab784b-6a16-42e6-a3f5-8f6a77c97e90">
+                <tibex:inputBindings>
+                    <tibex:partBinding
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.urbanoutfitters.com/leaf/exceptionclient&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;InvalidStoreNo&quot;/>&#xa;    &lt;xsl:template name=&quot;ThrowInvalidStore-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns4:ErrorReport>&#xa;            &lt;tns4:Msg>&#xa;                &lt;xsl:value-of select=&quot;'INVALID_STORE'&quot;/>&#xa;            &lt;/tns4:Msg>&#xa;            &lt;tns4:ProcessStack>&#xa;                &lt;xsl:value-of select=&quot;concat(&amp;quot;CUSTOMMESSAGE:&amp;quot;, tib:concat-sequence-format($InvalidStoreNo/StoreDetail/StoreNumber, &amp;quot;,&amp;quot;), &amp;quot; is/are invalid store(s)&amp;quot;)&quot;/>&#xa;            &lt;/tns4:ProcessStack>&#xa;            &lt;tns4:MsgCode>&#xa;                &lt;xsl:value-of select=&quot;'400'&quot;/>&#xa;            &lt;/tns4:MsgCode>&#xa;        &lt;/tns4:ErrorReport>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                </tibex:inputBindings>
+                <bpws:targets>
+                    <bpws:target linkName="InvalidStoreToCopy_2_FieldsMissingInvalid"/>
+                </bpws:targets>
+            </bpws:throw>
+        </bpws:flow>
+    </bpws:scope>
+</bpws:process>

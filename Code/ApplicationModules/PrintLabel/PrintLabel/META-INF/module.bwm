@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_hiY7AFQKEeqk8uP3uX1IDw" targetNamespace="http://tns.tibco.com/bw/composite/PrintLabel" name="PrintLabel" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_VQMUIFQLEeqk8uP3uX1IDw" name="printLabel-directSku" promote="ComponentProcess/printLabel-directSku">
+    <sca:interface.wsdl xmi:id="_VQWsMFQLEeqk8uP3uX1IDw" interface="http://xmlns.example.com/20200220125759PLT#wsdl.interface(printLabel-directSku)" scaext:wsdlLocation="../Processes/printlabel/ServiceProcess.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_VQhrUFQLEeqk8uP3uX1IDw" name="RestService" path="/print/direct-sku" docBasePath="http://localhost:7777/PrintLabel" docResourcePath="DirectSkuLabel" basePath="/" connector="printlabel.BWPrintLabelService" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/printlabel.ServiceProcess-Resource.json">
+      <operation xmi:id="_VQnK4FQLEeqk8uP3uX1IDw" operationName="post" nickname="" httpMethod="POST" responseStyle="element" requestStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_i78swFjdEeqxcvRo_AeuMw" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_jBvywFjdEeqxcvRo_AeuMw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_dm79kFmmEeqs4K6-1azeGg" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <advancedConfig xmi:id="_VQkuoFQLEeqk8uP3uX1IDw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_VQnK4VQLEeqk8uP3uX1IDw" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_4Iv9YHBlEeq1esFCfeio8w" name="print-carton" promote="ComponentPrintCartonLabelServiceRequest/print-carton">
+    <sca:interface.wsdl xmi:id="_4I2EAHBlEeq1esFCfeio8w" interface="http://xmlns.example.com/20200327160110PLT#wsdl.interface(print-carton)" scaext:wsdlLocation="../Processes/printLabel/PrintCartonLabelServiceRequest.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_4I68gHBlEeq1esFCfeio8w" name="RestService1" path="/print/carton" docBasePath="http://localhost:7777/PrintLabel" docResourcePath="CartonLabel" basePath="/" connector="printlabel.BWPrintLabelService" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/printLabel.PrintCartonLabelServiceRequest-CartonLabel.json">
+      <operation xmi:id="_4I_N8HBlEeq1esFCfeio8w" operationName="post" nickname="post-print-carton" httpMethod="POST" responseStyle="element" requestStyle="element" outputPartName="item">
+        <responseStatus xmi:id="__00M0HK4EeqIgZiG9r1fWg" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="__-jXoHK4EeqIgZiG9r1fWg" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_A8Pu8HK5EeqIgZiG9r1fWg" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_4JDfYHBlEeq1esFCfeio8w"/>
+      <advancedConfig xmi:id="_4I68gXBlEeq1esFCfeio8w" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_4I_N8XBlEeq1esFCfeio8w" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_SjjQgJCMEeql3rM2YyL0Kw" name="print-shipping" promote="ComponentPrintShippingLabelService/print-shipping">
+    <sca:interface.wsdl xmi:id="_Sjnh8JCMEeql3rM2YyL0Kw" interface="http://xmlns.example.com/20200507135549PLT#wsdl.interface(print-shipping)" scaext:wsdlLocation="../Processes/printLabel/PrintShippingLabelService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_SjrMUJCMEeql3rM2YyL0Kw" name="RestService2" path="/print/shipping" docBasePath="http://localhost:7777/PrintLabel" docResourcePath="ShippingLabel" basePath="/" connector="printlabel.BWPrintLabelService" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/printLabel.PrintShippingLabelService-shipping.json">
+      <operation xmi:id="_SjuPoJCMEeql3rM2YyL0Kw" operationName="post" nickname="post-print-shipping" httpMethod="POST" responseStyle="element" requestStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_dAJyQJCMEeql3rM2YyL0Kw" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_dFe-MJCMEeql3rM2YyL0Kw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_dMDgQJCMEeql3rM2YyL0Kw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_SjyhEJCMEeql3rM2YyL0Kw"/>
+      <advancedConfig xmi:id="_SjrMUZCMEeql3rM2YyL0Kw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_SjuPoZCMEeql3rM2YyL0Kw" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_TSDIQLDYEeqnW7mV-LR7ow" name="print-direct-sku-label" promote="ComponentProcess/print-direct-sku-label">
+    <sca:interface.wsdl xmi:id="_TSGyoLDYEeqnW7mV-LR7ow" interface="http://xmlns.example.com/20200220125759PLT#wsdl.interface(print-direct-sku-label)" scaext:wsdlLocation="../Processes/printLabel/DirectSkuLabelService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_TSJO4LDYEeqnW7mV-LR7ow" name="RestService3" path="/print/direct-sku-label" docBasePath="http://localhost:7777/PrintLabel" docResourcePath="DirectSkuLabel" basePath="/" connector="printlabel.BWPrintLabelService" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/printLabel.DirectSkuLabelService-DirectSkuLabel.json">
+      <operation xmi:id="_TSKdALDYEeqnW7mV-LR7ow" operationName="post" nickname="post-print-direct-sku-label" httpMethod="POST" notes="postDirectSkuLabel" responseStyle="element" requestStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_gcMOULDYEeqnW7mV-LR7ow" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_gnHE4LDYEeqnW7mV-LR7ow" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_hb1GYLDYEeqnW7mV-LR7ow" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_TSLrILDYEeqnW7mV-LR7ow"/>
+      <advancedConfig xmi:id="_TSJO4bDYEeqnW7mV-LR7ow" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_TSKdAbDYEeqnW7mV-LR7ow" bindingName="RestService3"/>
+  </sca:service>
+  <sca:property xmi:id="_ir79AFQKEeqk8uP3uX1IDw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_isNCwFQKEeqk8uP3uX1IDw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_isTwcFQKEeqk8uP3uX1IDw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_isaeIFQKEeqk8uP3uX1IDw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ishy4FQKEeqk8uP3uX1IDw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_isqVwFQKEeqk8uP3uX1IDw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_isxDcFQKEeqk8uP3uX1IDw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_is2jAFQKEeqk8uP3uX1IDw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_is7bgFQKEeqk8uP3uX1IDw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_S-oWgFgDEeq8Ya9M_ElMGg" name="/Connections/BWPrintLabelServiceHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ELS0oKTcEeqZ5-JRFVr6Hw" name="/Connections/BWPrintLabelServiceHTTP/MinQTPThreads" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_EUi3QKTcEeqZ5-JRFVr6Hw" name="/Connections/BWPrintLabelServiceHTTP/MaxQTPThreads" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_jApwAFgAEeq8Ya9M_ElMGg" name="/Connections/LookupDB/Username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_40XT8FgAEeq8Ya9M_ElMGg" name="/Connections/LookupDB/Password" type="property:password" scaext:simpleValue="#!rw2IDXmJNWvhsSSWc5yZPg==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_46DFMFgAEeq8Ya9M_ElMGg" name="/Connections/LookupDB/Driver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_47GOEFgAEeq8Ya9M_ElMGg" name="/Connections/LookupDB/Url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5DeuAFgAEeq8Ya9M_ElMGg" name="/Connections/LookupDB/LoginTimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5HMJUFgAEeq8Ya9M_ElMGg" name="/Connections/LookupDB/ConnectionIdleTimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_J1n4YF5KEeqWt7YeojbkIg" name="/Connections/LookupDB/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_jGRP0FgAEeq8Ya9M_ElMGg" name="/Connections/SterlingHTTP/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_wOnmIFgAEeq8Ya9M_ElMGg" name="/Connections/SterlingHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_OrrRQFl8EeqrgJZH7sac9A" name="/Connections/SterlingHTTP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_jf1mYFgAEeq8Ya9M_ElMGg" name="/Connections/ZebraPrinterTCP/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_qd4WkFgAEeq8Ya9M_ElMGg" name="/Connections/ZebraPrinterTCP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_M_YvkF5TEeqWt7YeojbkIg" name="/Connections/ZebraPrinterTCP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_EosnsJFnEeqSYfVfejunAQ" name="/Connections/TibcoProshipHTTP/Host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_It0qAJFnEeqSYfVfejunAQ" name="/Connections/TibcoProshipHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_I1rlgJFnEeqSYfVfejunAQ" name="/Connections/TibcoProshipHTTP/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_WO6QcJFnEeqSYfVfejunAQ" name="/Connections/TibcoProshipHTTP/RequestUri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_enNggJFZEeqSYfVfejunAQ" name="/BusinessProcesses/ShippingLabel/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_e9wYQJFZEeqSYfVfejunAQ" name="/BusinessProcesses/DirectSkuLabel/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_fEmnIJFZEeqSYfVfejunAQ" name="/BusinessProcesses/CartonLabel/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_iLKyQFQKEeqk8uP3uX1IDw" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_iLMAYFQKEeqk8uP3uX1IDw" processName="printLabel.DirectSkuLabelService"/>
+    <sca:service xmi:id="_VQFmcFQLEeqk8uP3uX1IDw" name="printLabel-directSku">
+      <sca:interface.wsdl xmi:id="_VQHboFQLEeqk8uP3uX1IDw" interface="http://xmlns.example.com/20200220125759PLT#wsdl.interface(printLabel-directSku)" scaext:wsdlLocation="../Processes/printlabel/ServiceProcess.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_TSAE8LDYEeqnW7mV-LR7ow" name="print-direct-sku-label">
+      <sca:interface.wsdl xmi:id="_TSBTELDYEeqnW7mV-LR7ow" interface="http://xmlns.example.com/20200220125759PLT#wsdl.interface(print-direct-sku-label)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_1Hx3EFdIEeqCf6zvoxNmjg" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_1Hx3EVdIEeqCf6zvoxNmjg" processName="printLabel.Activator"/>
+  </sca:component>
+  <sca:component xmi:id="_tG29QHBlEeq1esFCfeio8w" name="ComponentPrintCartonLabelServiceRequest" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_tG29QXBlEeq1esFCfeio8w" processName="printLabel.CartonLabelService"/>
+    <sca:service xmi:id="_4IrE4HBlEeq1esFCfeio8w" name="print-carton">
+      <sca:interface.wsdl xmi:id="_4IsTAHBlEeq1esFCfeio8w" interface="http://xmlns.example.com/20200327160110PLT#wsdl.interface(print-carton)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="__CjWEJCLEeql3rM2YyL0Kw" name="ComponentPrintShippingLabelService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="__CjWEZCLEeql3rM2YyL0Kw" processName="printLabel.ShippingLabelService"/>
+    <sca:service xmi:id="_SjgNMJCMEeql3rM2YyL0Kw" name="print-shipping">
+      <sca:interface.wsdl xmi:id="_Sjg0QJCMEeql3rM2YyL0Kw" interface="http://xmlns.example.com/20200507135549PLT#wsdl.interface(print-shipping)"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

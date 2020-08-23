@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/OfferSchema" xmlns:tns="http://www.example.org/OfferSchema" elementFormDefault="qualified">
+
+    <element name="GetInventorySupplyRequest" type="tns:InventoryType"></element>
+
+    <complexType name="InventoryType">
+    	<sequence>
+    		<element name="ConsiderAllNodes" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="ItemID" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="OrganizationCode" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="ProductClass" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="SupplyType" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="UnitOfMeasure" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="CallingOrganizationCode" type="string"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="ConsiderAllSegments" type="string"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="DistributionRuleID" type="string"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="ETA" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="LotNumber" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="Segment" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="SegmentType" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="ShipByDate" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="ShipNode" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="ValidateItem" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="ValidateShipNode" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="ValidateShipNodeOwner" type="string"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="TAG" type="tns:TagType" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TagType">
+    	<sequence>
+    		<element name="BatchNo" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="LotAttribute1" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="LotAttribute2" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="LotAttribute3" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="LotKeyReference" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="LotNumber" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="ManufacturingDate" type="string"
+    			maxOccurs="1" minOccurs="0">
+    		</element>
+    		<element name="RevisionNo" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+</schema>

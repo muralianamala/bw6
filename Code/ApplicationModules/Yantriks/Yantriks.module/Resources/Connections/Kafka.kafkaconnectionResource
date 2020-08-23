@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:kafka="http://ns.tibco.com/bw/sharedresource/kafka" xmlns:keystore="http://xsd.tns.tibco.com/bw/sharedresource/trinity/models/cred/keystore" xmi:id="_2soZgXWbEeqeL5HGiwwWTA" name="Connections.Kafka" type="kafka:KafkaConnection">
+  <jndi:reference xmi:id="_0Dh5sHvEEeq_ovKOXk_UqQ" key="trustStoreServiceProvider" type="keystore:KeystoreConfiguration" value="Connections.Kafka_TruststoreProviderResource"/>
+  <jndi:reference xmi:id="_0zkPgHvEEeq_ovKOXk_UqQ" key="identityStoreServiceProvider" type="keystore:KeystoreConfiguration" value="Connections.Kafka_KeystoreProviderResource"/>
+  <jndi:configuration xsi:type="kafka:KafkaConnection" xmi:id="_2soZgnWbEeqeL5HGiwwWTA" reconnectBackoffMs="50" retryBackoffMs="100" requestTimeout="40000" metadataMaxAge="300000" SSL="true" ClientAuthentication="true" SchemaRegistryVendor="None">
+    <substitutionBindings xmi:id="_398QYHWbEeqeL5HGiwwWTA" template="bootstrapServers" propName="/Connections/Yantriks/KafkaBootStrapURL"/>
+    <substitutionBindings xmi:id="_2JXk0HvEEeq_ovKOXk_UqQ" template="KeyPassword" propName="/Connections/Yantriks/KeyStorePwd"/>
+  </jndi:configuration>
+</jndi:namedResource>

@@ -1,0 +1,129 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/restock/{version}/{region}/divisions" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-divisions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "store",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        }, {
+          "name" : "region",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "version",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a division to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/division"
+            },
+            "headers" : { }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "204" : {
+            "description" : "No Content",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "division" : {
+      "type" : "object",
+      "properties" : {
+        "divisionType" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/divisionType",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "divisionType" : {
+      "type" : "object",
+      "properties" : {
+        "store" : {
+          "type" : "string"
+        },
+        "divisionId" : {
+          "type" : "string"
+        },
+        "divisionDescription" : {
+          "type" : "string"
+        },
+        "quantityToBeFilled" : {
+          "type" : "number"
+        },
+        "classes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/classes",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "classes" : {
+      "type" : "object",
+      "properties" : {
+        "store" : {
+          "type" : "string"
+        },
+        "divisionId" : {
+          "type" : "string"
+        },
+        "divisionDescription" : {
+          "type" : "string"
+        },
+        "classId" : {
+          "type" : "string"
+        },
+        "classDescription" : {
+          "type" : "string"
+        },
+        "quantityToBeFilled" : {
+          "type" : "number"
+        }
+      }
+    }
+  }
+}

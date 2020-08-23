@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/json/1586801642684" elementFormDefault="qualified" targetNamespace="http://tns.tibco.com/bw/json/1586801642684">
+  <complexType name="StoreMislResponseNewElementType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="count" type="integer"/>
+      <element maxOccurs="unbounded" minOccurs="0" name="results">
+        <complexType>
+          <sequence>
+          <element maxOccurs="1" minOccurs="0" name="timeZone" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="state" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="storeName" type="string"/>            
+            <element maxOccurs="1" minOccurs="0" name="brandId" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="storeNumber" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="addressLineOne" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="addressLineTwo" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="city" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="zip" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="addresses">
+				<complexType>
+					<sequence>
+						<element name="iso2" maxOccurs="1" minOccurs="0">
+							<complexType>
+								<sequence>
+									<element name="country"
+										type="string" maxOccurs="1" minOccurs="0">
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element maxOccurs="1" minOccurs="0" name="brandName" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="storePhoneNumber" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <element name="StoreMislResponseNewElement" type="tns:StoreMislResponseNewElementType"/>
+</schema>

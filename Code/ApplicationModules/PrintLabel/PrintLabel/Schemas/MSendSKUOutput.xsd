@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid XML Studio Developer Edition (Trial) 9.1.1.3301 (http://www.liquid-technologies.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ItemList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:choice maxOccurs="unbounded">
+								<xs:element name="Extn" minOccurs="0">
+									<xs:complexType>
+										<xs:attribute name="AllowGiftWrap" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnModelDescription" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnAlias" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnBackorderableFlag" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnCarrierServiceCode" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnDeptCode" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnDivisionCode" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnFeeType" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIsDropShip" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIsGiftCard" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIsGiftItem" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIsShipAlone" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnProductRestrictCode" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnStoreReturnable" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIPLongSKU" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnOwnerOrg" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnCallCenterKeywordNotes" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnCallCenterUpsellNotes" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnThumbnailMessage" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnSizeCodeDescription" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnColorName" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnColorDesc" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIsGiftWrap" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIPStyleNo" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIPStyleDesc" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnWMSStyleNo" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnStrInvAllocElgblty" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnActiveForSync" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnFulfillmentPriority" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIsUpdatedFromMotionPt" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIsPriceModified" type="xs:string" use="optional"/>
+										<xs:attribute name="ExtnIsDeactivated" type="xs:string" use="optional"/>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="ChildItemList" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="ChildItem" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:choice maxOccurs="unbounded">
+															<xs:element name="PrimaryInformation" minOccurs="0">
+																<xs:complexType>
+																	<xs:attribute name="ColorCode" type="xs:string" use="optional"/>
+																	<xs:attribute name="SizeCode" type="xs:string" use="optional"/>
+																	<xs:attribute name="ImageLocation" type="xs:string" use="optional"/>
+																	<xs:attribute name="ImageID" type="xs:string" use="optional"/>
+																	<xs:attribute name="Description" type="xs:string" use="optional"/>
+																	<xs:attribute name="ShortDescription" type="xs:string" use="optional"/>
+																	<xs:attribute name="Status" type="xs:string" use="optional"/>
+																	<xs:attribute name="PrimarySupplier" type="xs:string" use="optional"/>
+																	<xs:attribute name="ProductLine" type="xs:string" use="optional"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="Extn" minOccurs="0">
+																<xs:complexType>
+																	<xs:attribute name="AllowGiftWrap" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnColorDesc" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnIsGiftCard" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnOwnerOrg" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnSizeCodeDescription" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnStoreReturnable" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnAlias" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnBackorderableFlag" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnIPLongSKU" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnIsDropShip" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnIsShipAlone" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnIsGiftWrap" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnModelDescription" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnProductRestrictCode" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnCarrierServiceCode" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnColorName" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnCallCenterKeywordNotes" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnCallCenterUpsellNotes" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnThumbnailMessage" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnIsGiftItem" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnIPStyleNo" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnIPStyleDesc" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnWMSStyleNo" type="xs:string" use="optional"/>
+																	<xs:attribute name="ExtnIsDeactivated" type="xs:string" use="optional"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="ClassificationCodes" minOccurs="0">
+																<xs:complexType>
+																	<xs:attribute name="NAICSCode" type="xs:string" use="optional"/>
+																	<xs:attribute name="Model" type="xs:string" use="optional"/>
+																	<xs:attribute name="TaxProductCode" type="xs:string" use="optional"/>
+																	<xs:attribute name="ImageLocation" type="xs:string" use="optional"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="ComputedPrice" minOccurs="0">
+																<xs:complexType>
+																	<xs:attribute name="BundlePrice" type="xs:string" use="optional"/>
+																	<xs:attribute name="RetailPrice" type="xs:string" use="optional"/>
+																	<xs:attribute name="UnitPrice" type="xs:string" use="optional"/>
+																	<xs:attribute name="ListPrice" type="xs:string" use="optional"/>
+																</xs:complexType>
+															</xs:element>
+														</xs:choice>
+													</xs:sequence>
+													<xs:attribute name="DirectFutureAvailability" type="xs:string" use="optional"/>
+													<xs:attribute name="StoreAvailable" type="xs:string" use="optional"/>
+													<xs:attribute name="EnterpriseAvailable" type="xs:string" use="optional"/>
+													<xs:attribute name="ItemKey" type="xs:string" use="optional"/>
+													<xs:attribute name="OrganizationCode" type="xs:string" use="optional"/>
+													<xs:attribute name="DirectAvailable" type="xs:string" use="optional"/>
+													<xs:attribute name="ItemID" type="xs:string" use="optional"/>
+													<xs:attribute name="ItemGroupCode" type="xs:string" use="optional"/>
+													<xs:attribute name="GiftWrapEligible" type="xs:string" use="optional"/>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="ClassificationCodes" minOccurs="0">
+									<xs:complexType>
+										<xs:attribute name="NAICSCode" type="xs:string" use="optional"/>
+										<xs:attribute name="Model" type="xs:string" use="optional"/>
+										<xs:attribute name="TaxProductCode" type="xs:string" use="optional"/>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="ComputedPrice" minOccurs="0">
+									<xs:complexType>
+										<xs:attribute name="ListPrice" type="xs:string" use="optional"/>
+										<xs:attribute name="BundleTotal" type="xs:string" use="optional"/>
+										<xs:attribute name="RetailPrice" type="xs:string" use="optional"/>
+										<xs:attribute name="UnitPrice" type="xs:string" use="optional"/>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="PrimaryInformation" minOccurs="0">
+									<xs:complexType>
+										<xs:attribute name="Description" type="xs:string" use="optional"/>
+										<xs:attribute name="ShortDescription" type="xs:string" use="optional"/>
+										<xs:attribute name="ColorCode" type="xs:string" use="optional"/>
+										<xs:attribute name="SizeCode" type="xs:string" use="optional"/>
+										<xs:attribute name="ImageLocation" type="xs:string" use="optional"/>
+										<xs:attribute name="ImageID" type="xs:string" use="optional"/>
+										<xs:attribute name="Status" type="xs:string" use="optional"/>
+										<xs:attribute name="ProductLine" type="xs:string" use="optional"/>
+										<xs:attribute name="PrimarySupplier" type="xs:string" use="optional"/>
+									</xs:complexType>
+								</xs:element>
+							</xs:choice>
+						</xs:sequence>
+						<xs:attribute name="CanUseAsServiceTool" type="xs:string" use="optional"/>
+						<xs:attribute name="Createprogid" type="xs:string" use="optional"/>
+						<xs:attribute name="Createts" type="xs:string" use="optional"/>
+						<xs:attribute name="Createuserid" type="xs:string" use="optional"/>
+						<xs:attribute name="DisplayItemId" type="xs:string" use="optional"/>
+						<xs:attribute name="GlobalItemID" type="xs:string" use="optional"/>
+						<xs:attribute name="InheritAttributesFromClassification" type="xs:string" use="optional"/>
+						<xs:attribute name="IsShippingCntr" type="xs:string" use="optional"/>
+						<xs:attribute name="ItemGroupCode" type="xs:string" use="optional"/>
+						<xs:attribute name="ItemID" type="xs:string" use="optional"/>
+						<xs:attribute name="ItemKey" type="xs:string" use="optional"/>
+						<xs:attribute name="Lockid" type="xs:string" use="optional"/>
+						<xs:attribute name="MaxModifyTS" type="xs:string" use="optional"/>
+						<xs:attribute name="Modifyprogid" type="xs:string" use="optional"/>
+						<xs:attribute name="Modifyts" type="xs:string" use="optional"/>
+						<xs:attribute name="Modifyuserid" type="xs:string" use="optional"/>
+						<xs:attribute name="OrganizationCode" type="xs:string" use="optional"/>
+						<xs:attribute name="SyncTS" type="xs:string" use="optional"/>
+						<xs:attribute name="UnitOfMeasure" type="xs:string" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="TooManyFlags" type="xs:string" use="optional"/>
+			<xs:attribute name="IsInventoryCallFailure" type="xs:string" use="optional"/>
+			<xs:attribute name="FulfillmentType" type="xs:string" use="optional"/>
+			<xs:attribute name="StoreNo" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

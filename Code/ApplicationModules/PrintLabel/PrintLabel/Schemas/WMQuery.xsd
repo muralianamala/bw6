@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/WMQuery" xmlns:tns="http://www.example.org/WMQuery" elementFormDefault="qualified">
+
+    <element name="WMQueryInput" type="tns:WMQueryInputType"></element>
+
+    <complexType name="WMQueryInputType">
+    	<sequence>
+    		<element name="WMQueryInput" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="WMQueryOutput" type="tns:WMQueryOutputType"></element>
+
+    <complexType name="WMQueryOutputType">
+    	<sequence>
+    		<element name="wght" type="string" minOccurs="0" maxOccurs="1"></element>
+    		<element name="hval" type="string" minOccurs="0" maxOccurs="1"></element>
+    		<element name="haz" type="string" minOccurs="0" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+</schema>

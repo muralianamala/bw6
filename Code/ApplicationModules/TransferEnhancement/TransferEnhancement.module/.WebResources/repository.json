@@ -1,0 +1,21 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/transferenhancement.module.TransferService-transfer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Transfer.TransferService-transfer.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Sku.SkuService-sku.json",
+            "type": "generated"
+        }
+    ]
+}

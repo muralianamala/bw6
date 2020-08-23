@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_3SWOkcWQEeq606_kTo612g" name="salesforce.EMSConnectionResource" type="jms:JMSConnectionFactory">
+  <jndi:configuration xsi:type="jms:DirectConnectionFactory" xmi:id="_CJpvUMWREeq606_kTo612g" factoryType="Queue/Topic">
+    <substitutionBindings xmi:id="_YEqOEMWREeq606_kTo612g" template="providerURL" propName="/Connections/EMS/JNDIContextURL"/>
+    <userCredentials xmi:id="_-w0V0MWREeq606_kTo612g">
+      <substitutionBindings xmi:id="__SwlQMWREeq606_kTo612g" template="username" propName="/Connections/EMS/JNDIUserName"/>
+      <substitutionBindings xmi:id="_BKYOMMWSEeq606_kTo612g" template="password" propName="/Connections/EMS/JNDIPassword"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

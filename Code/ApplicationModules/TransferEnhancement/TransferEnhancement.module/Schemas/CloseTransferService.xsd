@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/CloseTransfer" xmlns:tns="http://www.example.org/CloseTransfer" elementFormDefault="qualified">
+    <element name="CloseTrasfer">
+        <complexType>
+        	<sequence>
+        		<element name="TransferHeaderAndDetails" minOccurs="0"
+        			maxOccurs="1">
+        			<complexType>
+        				<sequence>
+        					<element name="CartonNumber" type="string"
+        						minOccurs="0" maxOccurs="1">
+        					</element>
+        					<element name="TransferTypeCode"
+        						type="string" minOccurs="0" maxOccurs="1">
+        					</element>
+        					<element name="ShipStore" type="string"
+        						minOccurs="0" maxOccurs="1">
+        					</element>
+        					<element name="DestinationStore"
+        						type="string" maxOccurs="1" minOccurs="0">
+        					</element>
+        					<element name="Details" minOccurs="0"
+        						maxOccurs="unbounded">
+        						<complexType>
+        							<sequence>
+        								<element name="SKU"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>
+        								<element name="Qty"
+        									type="integer" maxOccurs="1" minOccurs="0">
+        								</element>
+        								<element name="ItemId"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>
+        								<element name="NaicsCode"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>
+        								<element name="Weight"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>
+        								<element name="WeightUOM"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>
+        								<element name="UnitPrice"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>        								
+        								<element name="Description"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>
+        								<element name="ImageURL"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>
+        							</sequence>
+        						</complexType>
+        					</element>
+        				</sequence>
+        			</complexType>
+        		</element>
+        		<element name="CloseTrasferRequest" maxOccurs="1"
+        			minOccurs="0">
+        			<complexType>
+        				<sequence>
+        					<element name="PrinterIP" type="string"
+        						maxOccurs="1" minOccurs="0">
+        					</element>
+        					<element name="CartonNumber" type="string"
+        						maxOccurs="1" minOccurs="0">
+        					</element>
+        				</sequence>
+        			</complexType>
+        		</element>
+        		<element name="ProShipRequest" maxOccurs="1"
+        			minOccurs="0">
+        			<complexType>
+        				<sequence>
+        					<element name="URI" type="string"
+        						maxOccurs="1" minOccurs="0">
+        					</element>
+        					<element name="Body" maxOccurs="1"
+        						minOccurs="0">
+        						<complexType>
+        							<sequence>
+        								<element name="type"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>
+        								<element name="content"
+        									type="string" maxOccurs="1" minOccurs="0">
+        								</element>
+        							</sequence>
+        						</complexType>
+        					</element>
+        				</sequence>
+        			</complexType>
+        		</element>
+        		<element name="PrintLable" maxOccurs="1"
+        			minOccurs="0">
+        			<complexType>
+        				<sequence>
+        					<element name="Collate" type="string"
+        						maxOccurs="1" minOccurs="0">
+        					</element>
+        					<element name="PrinteIp" type="string"
+        						maxOccurs="1" minOccurs="0">
+        					</element>
+        					<element name="CartonNumber" type="string" maxOccurs="1" minOccurs="0"></element>
+        				</sequence>
+        			</complexType>
+        		</element>
+        	</sequence>
+        </complexType>
+    </element>
+    
+</schema>

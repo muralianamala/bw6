@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/SKUDBSchema" xmlns:tns="http://www.example.org/SKUDBSchema" elementFormDefault="qualified">
+
+    <element name="SKU">
+    	<complexType>
+    		<sequence>
+    			<element name="SKU" minOccurs="0"
+    				maxOccurs="unbounded">
+    				<complexType>
+    					<sequence>
+    						<element name="STORE" type="string"></element>
+    						<element name="DIV" type="string"></element>
+    						<element name="CLASS" type="string"></element>
+    						<element name="STYLE" type="string"></element>
+    						<element name="ITEM" type="string"></element>
+    						<element name="ONHAND_INV" type="string"></element>
+    						<element name="DIV_DESC" type="string"></element>
+    						<element name="CLASS_DESC" type="string"></element>
+    						<element name="ITEM_DESC" type="string"></element>
+    						<element name="COLOR_DESC" type="string"></element>
+    						<element name="SIZE_DESC" type="string"></element>
+    						<element name="VENDOR" type="string"></element>
+    						<element name="RET_PRICE" type="string"></element>
+    						<element name="QTY_FILL" type="string"></element>
+    						<element name="CONCEPT" type="string"></element>
+    					</sequence>
+    				</complexType>
+    			</element>
+    			
+    		</sequence>
+    	</complexType>
+    </element>
+    
+</schema>

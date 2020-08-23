@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_c7h_kXJREeqHTaPx3rkRyQ" name="Connections.LookupDB" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_c8lvgHJREeqHTaPx3rkRyQ" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_c8lvgXJREeqHTaPx3rkRyQ">
+    <substitutionBindings xmi:id="_7S0PEH4uEequpLYj70jxXQ" template="username" propName="/Connections/LookupDB/UserName"/>
+    <substitutionBindings xmi:id="_85ob4H4uEequpLYj70jxXQ" template="password" propName="/Connections/LookupDB/Password"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_c8oLwHJREeqHTaPx3rkRyQ" jdbcDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+      <substitutionBindings xmi:id="_TOyLoHKMEeqz0r2CFcEJLg" template="loginTimeout" propName="/Connections/LookupDB/Login_Timeout"/>
+      <substitutionBindings xmi:id="_UvNckHKMEeqz0r2CFcEJLg" template="connectionIdleTimeout" propName="/Connections/LookupDB/Timeout"/>
+      <substitutionBindings xmi:id="_-bkIsH4uEequpLYj70jxXQ" template="dbURL" propName="/Connections/LookupDB/Database_URL"/>
+    </connectionConfig>
+    <connectionProperties xmi:id="_r9t54H4ZEequpLYj70jxXQ" key="jarFile" value="sqljdbc4"/>
+  </jndi:configuration>
+</jndi:namedResource>
