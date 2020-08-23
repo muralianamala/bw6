@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/CaseQueryWMSSQLresponse" xmlns:tns="http://www.example.org/CaseQueryWMSSQLresponse" elementFormDefault="qualified">
+<complexType name="CaseQueryWMSSQLresponseElementType">
+        <sequence>
+        <element maxOccurs="unbounded" minOccurs="0" name="CaseQueryResults">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="idcasn" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="idstyl" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="idfunc" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="source" type="string"/>
+            <element maxOccurs="1" minOccurs="0" name="itemcount" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <element name="CaseQueryWMSSQLresponseElement" type="tns:CaseQueryWMSSQLresponseElementType"/>
+</schema>

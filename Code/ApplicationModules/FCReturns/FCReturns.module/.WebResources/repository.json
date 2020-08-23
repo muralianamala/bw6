@@ -1,0 +1,29 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/fcreturns.module.SkuService-sku.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/fcreturns.module.CaseService-case.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Services.SkuService-sku.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Services.CaseService-case.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Services.ReturnsService-returns.json",
+            "type": "generated"
+        }
+    ]
+}

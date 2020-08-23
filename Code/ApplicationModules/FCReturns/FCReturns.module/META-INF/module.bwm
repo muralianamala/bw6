@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_wsS8gIqIEeqbFIwnr_0XeA" targetNamespace="http://tns.tibco.com/bw/composite/FCReturns.module" name="FCReturns.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_OWQD8IqJEeqbFIwnr_0XeA" name="case-sku" promote="ComponentProcess/case-sku">
+    <sca:interface.wsdl xmi:id="_OWX_wIqJEeqbFIwnr_0XeA" interface="http://xmlns.example.com/20200429221739PLT#wsdl.interface(fc-case-sku)" scaext:wsdlLocation="../Processes/fcreturns/module/SkuService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_OWgioIqJEeqbFIwnr_0XeA" name="RestService" path="/fc/{fcId}/case/{caseId}/sku/{sku}" docBasePath="http://localhost:7777/FCReturns.module" docResourcePath="sku" basePath="/" connector="fcreturns.module.FCReturn" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/fcreturns.module.SkuService-sku.json">
+      <operation xmi:id="_OWk0EIqJEeqbFIwnr_0XeA" operationName="post" nickname="post-case-sku" httpMethod="POST" responseStyle="element" requestStyle="element" outputPartName="item">
+        <responseStatus xmi:id="__Fs1kIqJEeq4kqVAJqO5Lw" statusCode="201" reasonPhrase="Created" dataType="string"/>
+        <responseStatus xmi:id="_A2KtoIqKEeq4kqVAJqO5Lw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_BmsysIqKEeq4kqVAJqO5Lw" statusCode="412" reasonPhrase="Precondition Failed" dataType="string"/>
+        <responseStatus xmi:id="_CNmaoIqKEeq4kqVAJqO5Lw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_OW7ZYIqJEeqbFIwnr_0XeA">
+        <parameterMapping xmi:id="_OW8AcIqJEeqbFIwnr_0XeA" parameterName="fcId" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_OW8AcYqJEeqbFIwnr_0XeA" parameterName="caseId" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_OW8AcoqJEeqbFIwnr_0XeA" parameterName="sku" parameterType="Path" required="true"/>
+      </parameters>
+      <advancedConfig xmi:id="_OWjl8IqJEeqbFIwnr_0XeA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_OWlbIIqJEeqbFIwnr_0XeA" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_0GoqgIqKEeq4kqVAJqO5Lw" name="case" promote="Component1Process/case">
+    <sca:interface.wsdl xmi:id="_0GwmUIqKEeq4kqVAJqO5Lw" interface="http://xmlns.example.com/20200429221811PLT#wsdl.interface(fc-case)" scaext:wsdlLocation="../Processes/fcreturns/module/CaseService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_0G03wIqKEeq4kqVAJqO5Lw" name="RestService1" path="/fc/{fcId}/case/{caseId}" docBasePath="http://localhost:7777/FCReturns.module" docResourcePath="case" basePath="/" connector="fcreturns.module.FCReturn" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/fcreturns.module.CaseService-case.json">
+      <operation xmi:id="_0G2F4IqKEeq4kqVAJqO5Lw" operationName="get" nickname="get-case" httpMethod="GET" responseStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_HbJoIIqLEeq4kqVAJqO5Lw" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_HtOPkIqLEeq4kqVAJqO5Lw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_IZWVwIqLEeq4kqVAJqO5Lw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_0G2F4YqKEeq4kqVAJqO5Lw" operationName="put" nickname="put-case" httpMethod="PUT" responseStyle="element" requestStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_dyr_8IqNEeq4kqVAJqO5Lw" statusCode="200" reasonPhrase="OK" dataType="string"/>
+        <responseStatus xmi:id="_gR9ewIqNEeq4kqVAJqO5Lw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_hCiAEIqNEeq4kqVAJqO5Lw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_0G7lcIqKEeq4kqVAJqO5Lw">
+        <parameterMapping xmi:id="_0G7lcYqKEeq4kqVAJqO5Lw" parameterName="fcId" parameterType="Path" required="true"/>
+        <parameterMapping xmi:id="_0G7lcoqKEeq4kqVAJqO5Lw" parameterName="caseId" parameterType="Path" required="true"/>
+      </parameters>
+      <advancedConfig xmi:id="_0G03wYqKEeq4kqVAJqO5Lw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_0G2F4oqKEeq4kqVAJqO5Lw" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_spCsAI92EeqalIOojIHJjw" name="returns" promote="ComponentReturnsService/returns">
+    <sca:interface.wsdl xmi:id="_spOSMI92EeqalIOojIHJjw" interface="http://xmlns.example.com/20200506045023PLT#wsdl.interface(returns)" scaext:wsdlLocation="../Processes/Services/ReturnsService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_spwdsI92EeqalIOojIHJjw" name="RestService2" path="/returns" docBasePath="http://localhost:7777/FCReturns.module" docResourcePath="returns" basePath="/" connector="fcreturns.module.FCReturn" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Services.ReturnsService-returns.json">
+      <operation xmi:id="_sqCxkI92EeqalIOojIHJjw" operationName="post" nickname="post-returns" httpMethod="POST" responseStyle="element" requestStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_4WfxoI92EeqalIOojIHJjw" statusCode="201" reasonPhrase="Created" dataType="string"/>
+        <responseStatus xmi:id="_5ILtQI92EeqalIOojIHJjw" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
+        <responseStatus xmi:id="_5uMkYI92EeqalIOojIHJjw" statusCode="500" reasonPhrase="Internal Server Error" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_sqKGUI92EeqalIOojIHJjw"/>
+      <advancedConfig xmi:id="_spwdsY92EeqalIOojIHJjw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_sqCxkY92EeqalIOojIHJjw" bindingName="RestService2"/>
+  </sca:service>
+  <sca:property xmi:id="_xvLV0IqIEeqbFIwnr_0XeA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xvb0gIqIEeqbFIwnr_0XeA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xvjwUIqIEeqbFIwnr_0XeA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xvrFEIqIEeqbFIwnr_0XeA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xvyZ0IqIEeqbFIwnr_0XeA" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xv35YIqIEeqbFIwnr_0XeA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xv9Y8IqIEeqbFIwnr_0XeA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xwC4gIqIEeqbFIwnr_0XeA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xwQT4IqIEeqbFIwnr_0XeA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_naDd0IrEEeqZ-J_ijNisbQ" name="/Connections/Database/LookupDB/Username" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ZVwYcIrLEeqZ-J_ijNisbQ" name="/Connections/Database/LookupDB/ConnectionIdleTimeout" type="XMLSchema:int" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Zk2kYIrLEeqZ-J_ijNisbQ" name="/Connections/Database/LookupDB/LoginTimeout" type="XMLSchema:int" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Zs67QIrLEeqZ-J_ijNisbQ" name="/Connections/Database/LookupDB/Url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Z1nkQIrLEeqZ-J_ijNisbQ" name="/Connections/Database/LookupDB/Driver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_uhbsAIrLEeqZ-J_ijNisbQ" name="/Connections/Database/LookupDB/Password" type="property:password" scaext:simpleValue="#!lme54EjsS6ZV2XML5zkf3g==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5unWIIrLEeqZ-J_ijNisbQ" name="/Connections/Database/LookupDB/Timeout" type="XMLSchema:int" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_rF0N0IrYEeqZ-J_ijNisbQ" name="/Connections/Database/LookupDB/Maxrows" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_t1OOIJNOEeq7uslkuA5frw" name="/Connections/EMS/JNDIContextURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zXzF4JNOEeq7uslkuA5frw" name="/Connections/EMS/JNDIUserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zf__oJNOEeq7uslkuA5frw" name="/Connections/EMS/JNDIPassword" type="property:password" scaext:simpleValue="#!Nk/v6/QrvgCkF5Udjrjslg==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_9tP9sKTcEeqZ5-JRFVr6Hw" name="/Connections/BWFCReturnsHTTP/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_-h8xEKTcEeqZ5-JRFVr6Hw" name="/Connections/BWFCReturnsHTTP/MinQTPThreads" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_-oOYMKTcEeqZ5-JRFVr6Hw" name="/Connections/BWFCReturnsHTTP/MaxQTPThreads" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_2-KBsIrAEeq5LJjVaE7NMw" name="/BusinessProcesses/Case/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_JuLyMIrBEeq5LJjVaE7NMw" name="/BusinessProcesses/SKU/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_pufqgJNoEeqhjMXnHWJXCQ" name="/BusinessProcesses/Returns/AuditEnabled" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_xOg4wIqIEeqbFIwnr_0XeA" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_xOit8IqIEeqbFIwnr_0XeA" processName="Services.SkuService"/>
+    <sca:service xmi:id="_OWMZkIqJEeqbFIwnr_0XeA" name="case-sku">
+      <sca:interface.wsdl xmi:id="_OWNAoIqJEeqbFIwnr_0XeA" interface="http://xmlns.example.com/20200429221739PLT#wsdl.interface(fc-case-sku)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_10-GgIqIEeqbFIwnr_0XeA" name="Component1Process" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_10-GgYqIEeqbFIwnr_0XeA" processName="Services.CaseService"/>
+    <sca:service xmi:id="_0GjyAIqKEeq4kqVAJqO5Lw" name="case">
+      <sca:interface.wsdl xmi:id="_0GlAIIqKEeq4kqVAJqO5Lw" interface="http://xmlns.example.com/20200429221811PLT#wsdl.interface(fc-case)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_eQyYwIqvEeqN79o74ZCyAw" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_eQyYwYqvEeqN79o74ZCyAw" processName="Activator.Activator"/>
+  </sca:component>
+  <sca:component xmi:id="_n88JQI92EeqalIOojIHJjw" name="ComponentReturnsService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_n88JQY92EeqalIOojIHJjw" processName="Services.ReturnsService"/>
+    <sca:service xmi:id="_so7-UI92EeqalIOojIHJjw" name="returns">
+      <sca:interface.wsdl xmi:id="_so9zgI92EeqalIOojIHJjw" interface="http://xmlns.example.com/20200506045023PLT#wsdl.interface(returns)"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

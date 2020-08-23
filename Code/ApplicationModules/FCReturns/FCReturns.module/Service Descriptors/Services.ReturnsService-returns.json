@@ -1,0 +1,153 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "returns",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/returns" : {
+      "post" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "post-returns",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/returnsRequest"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "item" : {
+      "type" : "object",
+      "properties" : {
+        "quantity" : {
+          "type" : "integer"
+        },
+        "lineNumber" : {
+          "type" : "string"
+        },
+        "sku" : {
+          "type" : "string"
+        },
+        "price" : {
+          "type" : "string"
+        },
+        "isDamaged" : {
+          "type" : "boolean"
+        },
+        "caseId" : {
+          "type" : "string"
+        },
+        "returnOrderNumber" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "returnsRequest" : {
+      "type" : "object",
+      "properties" : {
+        "order" : {
+          "$ref" : "#/definitions/order"
+        }
+      }
+    },
+    "shipments" : {
+      "type" : "object",
+      "properties" : {
+        "items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/items",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "items" : {
+      "type" : "object",
+      "properties" : {
+        "item" : {
+          "$ref" : "#/definitions/item"
+        }
+      }
+    },
+    "order" : {
+      "type" : "object",
+      "properties" : {
+        "brandCode" : {
+          "type" : "string"
+        },
+        "channel" : {
+          "type" : "string"
+        },
+        "storeNo" : {
+          "type" : "string"
+        },
+        "orderNumber" : {
+          "type" : "string"
+        },
+        "orderVariety" : {
+          "type" : "string"
+        },
+        "extnCashier" : {
+          "type" : "string"
+        },
+        "returnByGiftRecipient" : {
+          "type" : "string"
+        },
+        "returnByGiftRecipientEmail" : {
+          "type" : "string"
+        },
+        "orderComment" : {
+          "type" : "string"
+        },
+        "shipments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/shipments",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}

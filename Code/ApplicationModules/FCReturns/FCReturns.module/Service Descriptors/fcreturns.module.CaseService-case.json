@@ -1,0 +1,138 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:3653",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/fc/{fcId}/case/{caseId}" : {
+      "get" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "get-case",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "fcId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "caseId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a CaseDetailResponseElement to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/CaseDetailResponseElement"
+            },
+            "headers" : { }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "put-case",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/UpdateCaseRequestElement"
+          },
+          "required" : true
+        }, {
+          "name" : "fcId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "caseId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          },
+          "200" : {
+            "description" : "OK",
+            "headers" : { }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "skus" : {
+      "type" : "object",
+      "properties" : {
+        "sku" : {
+          "type" : "string"
+        },
+        "count" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "UpdateCaseRequestElement" : {
+      "type" : "object",
+      "properties" : {
+        "associateId" : {
+          "type" : "string"
+        }
+      }
+    },
+    "CaseDetailResponseElement" : {
+      "type" : "object",
+      "properties" : {
+        "totalSkuCount" : {
+          "type" : "integer"
+        },
+        "caseFull" : {
+          "type" : "boolean"
+        },
+        "caseClosed" : {
+          "type" : "boolean"
+        },
+        "skus" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/skus",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}

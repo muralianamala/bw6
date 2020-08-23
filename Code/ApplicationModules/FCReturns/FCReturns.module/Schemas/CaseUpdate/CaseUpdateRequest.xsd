@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/CaseCloseRequest" xmlns:tns="http://www.example.org/CaseCloseRequest" elementFormDefault="qualified">
+<complexType name="CaseCloseRequestElementType">
+    <sequence>
+      <element name="FCId" type="string" minOccurs="0"/>
+	  <element name="CaseId" type="string" minOccurs="0"/>
+    </sequence>
+  </complexType>
+  <element name="CaseCloseRequestElement" type="tns:CaseCloseRequestElementType"/>
+</schema>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/json/1588011047090" elementFormDefault="qualified" targetNamespace="http://tns.tibco.com/bw/json/1588011047090">
+  <complexType name="SearchCasesResponseElementType">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="assosiateIds" type="string"/>
+    </sequence>
+  </complexType>
+  <element name="SearchCasesResponseElement" type="tns:SearchCasesResponseElementType"/>
+</schema>

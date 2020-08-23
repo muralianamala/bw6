@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.example.org/SkuAddRequest"
+ xmlns:tns="http://www.example.org/SkuAddRequest" elementFormDefault="qualified">
+<complexType name="SkuAddRequestElementType">
+    <sequence>
+    	<element name="FCId" type="string" minOccurs="0" />
+    	<element name="CaseId" type="string" minOccurs="0" />
+    	<element name="Sku" type="string" minOccurs="0" />
+    	<element name="OrderNo" type="string" minOccurs="0" />
+    	<element name="OrderLineNo" type="string" minOccurs="0" />
+    	<element name="AssociateId" type="string" minOccurs="0" />
+    	<element name="BCTN" type="string" minOccurs="0" />
+    	<element name="Total_Idtqty" type="string" maxOccurs="1" minOccurs="0"></element>
+    </sequence>
+</complexType>
+  <element name="SkuAddRequestElement" type="tns:SkuAddRequestElementType"/>
+</schema>

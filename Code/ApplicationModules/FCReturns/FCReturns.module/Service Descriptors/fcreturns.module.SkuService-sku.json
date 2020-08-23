@@ -1,0 +1,105 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Summary about the new REST service.",
+    "description" : "Summary about the new REST service."
+  },
+  "host" : "localhost:3653",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/fc/{fcId}/case/{caseId}/sku/{sku}" : {
+      "post" : {
+        "summary" : "",
+        "description" : "",
+        "operationId" : "post-case-sku",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/CreateSkuRequestElement"
+          },
+          "required" : true
+        }, {
+          "name" : "fcId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "caseId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "sku",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a CreateSkuResponseElement to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/CreateSkuResponseElement"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "412" : {
+            "description" : "Precondition Failed",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "CreateSkuRequestElement" : {
+      "type" : "object",
+      "properties" : {
+        "orderNo" : {
+          "type" : "string"
+        },
+        "orderLineNo" : {
+          "type" : "string"
+        },
+        "associateId" : {
+          "type" : "string"
+        }
+      }
+    },
+    "CreateSkuResponseElement" : {
+      "type" : "object",
+      "properties" : {
+        "caseClosed" : {
+          "type" : "boolean"
+        }
+      }
+    }
+  }
+}

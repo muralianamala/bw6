@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:httpconnector="http://xsd.tns.tibco.com/bw/models/sharedresource/httpconnector" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_OWtW8IqJEeqbFIwnr_0XeA" name="fcreturns.module.FCReturn" type="httpconnector:HttpConnectorConfiguration">
+  <jndi:configuration xsi:type="httpconnector:HttpConnectorConfiguration" xmi:id="_OWvzMIqJEeqbFIwnr_0XeA">
+    <substitutionBindings xmi:id="_OWyPcIqJEeqbFIwnr_0XeA" template="host" propName="BW.HOST.NAME"/>
+    <substitutionBindings xmi:id="_LRlscKTdEeqZ5-JRFVr6Hw" template="port" propName="/Connections/BWFCReturnsHTTP/Port"/>
+    <substitutionBindings xmi:id="_QTdq4KTdEeqZ5-JRFVr6Hw" template="minThreads" propName="/Connections/BWFCReturnsHTTP/MinQTPThreads"/>
+    <substitutionBindings xmi:id="_Qp-tcKTdEeqZ5-JRFVr6Hw" template="maxThreads" propName="/Connections/BWFCReturnsHTTP/MaxQTPThreads"/>
+  </jndi:configuration>
+</jndi:namedResource>

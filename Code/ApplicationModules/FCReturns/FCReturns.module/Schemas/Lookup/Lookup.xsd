@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.urbanoutfitters.com/FCreturns/lookup" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://www.urbanoutfitters.com/co/lookup" xmlns:Q2="http://www.urbanoutfitters.com/FCreturns/lookup">
+    <import namespace="http://www.urbanoutfitters.com/co/lookup"></import>
+    <element name="Lookup">
+    	<complexType>
+    		<sequence>
+    			<element name="WarehouseCompany"
+    				type="Q1:WarehouseCompanyType" minOccurs="0"
+    				maxOccurs="unbounded">
+    			</element>
+    			<element name="DCLookup" type="Q1:DCLookupType"
+    				minOccurs="0" maxOccurs="unbounded">
+    			</element>
+    			<element name="BuildingFC" type="Q1:BuildingFCType" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>    
+
+</schema>

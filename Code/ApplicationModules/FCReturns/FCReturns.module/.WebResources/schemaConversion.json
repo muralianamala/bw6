@@ -1,0 +1,27 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/FCReturns.module/Service Descriptors/fcreturns.module.SkuService-sku.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1587607211756"
+    },
+    {
+        "jsonSchemaLocation": "/FCReturns.module/Service Descriptors/fcreturns.module.SkuService-sku.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1587607323266"
+    },
+    {
+        "jsonSchemaLocation": "/FCReturns.module/Service Descriptors/fcreturns.module.CaseService-case.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1588168130096"
+    },
+    {
+        "jsonSchemaLocation": "/FCReturns.module/Service Descriptors/fcreturns.module.CaseService-case.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://tns.tibco.com/bw/json/1587659047314"
+    },
+    {
+        "jsonSchemaLocation": "/FCReturns.module/Service Descriptors/Services.ReturnsService-returns.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.urbanoutfitters.com/ReturnsRequest"
+    }
+]}
