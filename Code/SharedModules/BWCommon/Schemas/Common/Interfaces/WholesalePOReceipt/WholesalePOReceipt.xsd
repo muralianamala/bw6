@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/WholesalePOReceipt"
+	 targetNamespace="http://www.urbanoutfitters.com/WholesalePOReceipt"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="WholesalePOReceipt">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="applicationName" type="xs:string" minOccurs="0"/>
+							<xs:element name="trackingId" type="xs:string" minOccurs="0"/>
+							<xs:element name="source" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="WholesalePOReceipts" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DATABASE" type="xs:string" minOccurs="0"/>
+							<xs:element name="PONO" type="xs:string" minOccurs="0"/>
+							<xs:element name="PSEQ" type="xs:string" minOccurs="0"/>
+							<xs:element name="ITHDRSKU" type="xs:string" minOccurs="0"/>
+							<xs:element name="ITHDRIGTIN" type="xs:string" minOccurs="0"/>
+							<xs:element name="PEXP" type="xs:string" minOccurs="0"/>
+							<xs:element name="PCLS" type="xs:string" minOccurs="0"/>
+							<xs:element name="PVEN" type="xs:string" minOccurs="0"/>
+							<xs:element name="PSTY" type="xs:string" minOccurs="0"/>
+							<xs:element name="PCLR" type="xs:string" minOccurs="0"/>
+							<xs:element name="PSIZ" type="xs:string" minOccurs="0"/>
+							<xs:element name="POPEN5" type="xs:string" minOccurs="0"/>
+							<xs:element name="PUCD" type="xs:string" minOccurs="0"/>
+							<xs:element name="PXXC" type="xs:string" minOccurs="0"/>
+							<xs:element name="PXXR" type="xs:string" minOccurs="0"/>
+							<xs:element name="PDES" type="xs:string" minOccurs="0"/>
+							<xs:element name="PVST" type="xs:string" minOccurs="0"/>
+							<xs:element name="PLQR" type="xs:string" minOccurs="0"/>
+							<xs:element name="PLRS" type="xs:string" minOccurs="0"/>
+							<xs:element name="PRCNO" type="xs:string" minOccurs="0"/>
+							<xs:element name="POPN" type="xs:string" minOccurs="0"/>
+							<xs:element name="PLRX" type="xs:string" minOccurs="0"/>
+							<xs:element name="PEXT" type="xs:string" minOccurs="0"/>
+							<xs:element name="PWGT" type="xs:string" minOccurs="0"/>
+							<xs:element name="PPFL" type="xs:string" minOccurs="0"/>
+							<xs:element name="PIFL" type="xs:string" minOccurs="0"/>
+							<xs:element name="PXCC" type="xs:string" minOccurs="0"/>
+							<xs:element name="PQRS" type="xs:string" minOccurs="0"/>
+							<xs:element name="PFRI" type="xs:string" minOccurs="0"/>
+							<xs:element name="PRET" type="xs:string" minOccurs="0"/>
+							<xs:element name="PASNRCPT" type="xs:string" minOccurs="0"/>
+							<xs:element name="PVNC" type="xs:string" minOccurs="0"/>
+							<xs:element name="PACC" type="xs:string" minOccurs="0"/>
+							<xs:element name="PCSG" type="xs:string" minOccurs="0"/>
+							<xs:element name="PLQRCSG" type="xs:string" minOccurs="0"/>
+							<xs:element name="AINVNO" type="xs:string" minOccurs="0"/>
+							<xs:element name="POIGTIN" type="xs:string" minOccurs="0"/>
+							<xs:element name="FILL1" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PublishFields" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Instance" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

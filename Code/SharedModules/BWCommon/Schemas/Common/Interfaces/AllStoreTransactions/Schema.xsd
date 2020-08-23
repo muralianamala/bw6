@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/allstoretransactions"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 targetNamespace="http://www.urbanoutfitters.com/co/allstoretransactions"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="AllStoreTransactions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AllStoreTransactionsRequest" minOccurs="0"/>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AllStoreTransactionsRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID_STR_RT" type="xs:string" minOccurs="0"/>
+							<xs:element name="ID_WS" type="xs:string" minOccurs="0"/>
+							<xs:element name="DC_DY_BSN" type="xs:string" minOccurs="0"/>
+							<xs:element name="AI_TRN" type="xs:string" minOccurs="0"/>
+							<xs:element name="OFFER_CD" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

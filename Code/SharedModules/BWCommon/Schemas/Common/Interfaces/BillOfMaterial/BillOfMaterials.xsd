@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/billOfMaterial/billOfMaterial"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/billOfMaterial/billOfMaterial"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="ListOfbillOfMaterials" type="billOfMaterialType"/>
+	<xsd:complexType name="billOfMaterialType">
+		<xsd:sequence>
+			<xsd:element name="System" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LoadTo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Brand" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorSeq" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processedDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processedTime" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="batchCtlNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dateCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="timeCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="userID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedCompany" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedDivision" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSeason" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSeasonYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedStyle" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedStyleSFX" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedColor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedColorSFX" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSecDimn" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedQuality" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSizeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSizePOSN" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedGroupCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedAssortment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedInvType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedProdStat" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSKUAttri1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSKUAttri2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSKUAttri3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSKUAttri4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSKUAttri5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSKUBatch" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedSKUSeq" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedGoodsQty" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedBuildType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredCompany" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredDivision" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSeason" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSeasonYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredStyle" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredStyleSFX" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredColor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredColorSFX" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSecDimn" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredQuality" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSizeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSizePosn" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredInvType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredProdStat" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSKUAttri1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSKUAttri2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSKUAttri3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSKUAttri4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSKUAttri5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredSKUBatch" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredGroupCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredAssortment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredQty" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredBuildLocation" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredDetrMethod" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredBuildGroup" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="componentType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="inventoryConstraint" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="bulkPullFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="consumeSingleManufDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="backFlushFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="buildLocation" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="estimatedMinutes" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="invAllocationType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="putAwayType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="speclInstrCode0" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="speclInstrCode1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="speclInstrCode2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="speclInstrCode3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="speclInstrCode4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="recordExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="customRcdExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="finishedCountryOfOrg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requiredCountryOfOrg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="function" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="noOfRecordsinBOMSKU" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="unassembleInventoryAllocationPriorityType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="unassemblePutawayType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="frameWorkID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="frameWorkFlags" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ListOfbillOfMaterial" type="ListOfbillOfMaterialType"/>
+	<xsd:complexType name="ListOfbillOfMaterialType">
+		<xsd:annotation>
+			<xsd:documentation>List of Bill Of Materials</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element name="billOfMaterial" type="billOfMaterialType" minOccurs="0"/>
+			<xsd:element name="PublishedFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="whseSchema" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

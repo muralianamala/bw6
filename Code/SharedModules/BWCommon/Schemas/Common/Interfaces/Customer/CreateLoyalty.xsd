@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/customer/createloyalty"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 targetNamespace="http://www.urbanoutfitters.com/customer/createloyalty"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="CreateLoyalty">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CreateLoyaltyRequest" minOccurs="0"/>
+				<xs:element ref="CreateLoyaltyResponse" minOccurs="0"/>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateLoyaltyRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="requestHeader" type="base:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateLoyaltyResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Extn" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ExtnLoyalty" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fault" type="fault:FaultType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

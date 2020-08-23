@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/accertify/accertifyorder"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:orderrequest="http://www.urbanoutfitters.com/co/order/orderrequest"
+	 xmlns:orderresponse="http://www.urbanoutfitters.com/co/order/orderresponse"
+	 targetNamespace="http://www.urbanoutfitters.com/accertify/accertifyorder"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/order/orderrequest" schemaLocation="../../Objects/Order/OrderRequest.xsd"/>
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/order/orderresponse" schemaLocation="../../Objects/Order/OrderResponse.xsd"/>
+	<xsd:element name="AccertifyOrder" type="OrderType"/>
+	<xsd:complexType name="OrderType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="Order" minOccurs="0"/>
+			<xsd:element name="PublishedFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="authStore" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="blackBox" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="EGiftCardFlag" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="paymentmethod" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="modifyTs" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="position" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Order" type="orderresponse:OrderResponseType"/>
+</xsd:schema>

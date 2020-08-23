@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/InvoiceToIpWriteFile/InvoiceToIpWriteFileSchema"
+	 targetNamespace="http://www.urbanoutfitters.com/InvoiceToIpWriteFile/InvoiceToIpWriteFileSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="InvoiceToIP">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Header" minOccurs="0"/>
+				<xs:element ref="Details" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="NonMerchDetails" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RecordID" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransmissionDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransmissionNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransmissionSeqNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="Vendor" type="xs:string" minOccurs="0"/>
+				<xs:element name="RecordType" type="xs:string" minOccurs="0"/>
+				<xs:element name="Invoice" type="xs:string" minOccurs="0"/>
+				<xs:element name="InvoiceDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="GrossAmount" type="xs:string" minOccurs="0"/>
+				<xs:element name="Param1" type="xs:string" minOccurs="0"/>
+				<xs:element name="Param2" type="xs:string" minOccurs="0"/>
+				<xs:element name="InvoiceDesc" type="xs:string" minOccurs="0"/>
+				<xs:element name="Param3" type="xs:string" minOccurs="0"/>
+				<xs:element name="Param4" type="xs:string" minOccurs="0"/>
+				<xs:element name="Param5" type="xs:string" minOccurs="0"/>
+				<xs:element name="MerchandiseAmount" type="xs:string" minOccurs="0"/>
+				<xs:element name="TermsCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="VATCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="VATAmount" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field19" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field20" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field21" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field22" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field23" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field24" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field25" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field26" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field27" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field28" type="xs:string" minOccurs="0"/>
+				<xs:element name="CurrencyCode" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Details">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RecordID" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransmissionDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransmissionNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransmissionSeq" type="xs:string" minOccurs="0"/>
+				<xs:element name="LineItemSeq" type="xs:string" minOccurs="0"/>
+				<xs:element name="FrtCat" type="xs:string" minOccurs="0"/>
+				<xs:element name="AllocAmt" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NonMerchDetails">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RecordID" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransmissionDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransmissionNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransmissionSeq" type="xs:string" minOccurs="0"/>
+				<xs:element name="LineItemSeq" type="xs:string" minOccurs="0"/>
+				<xs:element name="SeqNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="NmType" type="xs:string" minOccurs="0"/>
+				<xs:element name="Cat" type="xs:string" minOccurs="0"/>
+				<xs:element name="Qty" type="xs:string" minOccurs="0"/>
+				<xs:element name="Amt" type="xs:string" minOccurs="0"/>
+				<xs:element name="Rate" type="xs:string" minOccurs="0"/>
+				<xs:element name="Percent" type="xs:string" minOccurs="0"/>
+				<xs:element name="Descr" type="xs:string" minOccurs="0"/>
+				<xs:element name="ExtCost" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

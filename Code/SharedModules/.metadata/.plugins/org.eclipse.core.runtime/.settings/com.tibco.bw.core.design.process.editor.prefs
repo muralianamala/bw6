@@ -1,0 +1,17 @@
+//LEAFClient/BusinessProcesses/Audit/AddAudit.bwp.displayer.openstate=1
+//LEAFClient/BusinessProcesses/Audit/AddAudit.bwp.favorite.expansionstate=1
+//LEAFClient/BusinessProcesses/Audit/AddAudit.bwp.library.expansionstate=0
+//LEAFClient/BusinessProcesses/Audit/AddAudit.bwp.recent.expansionstate=1
+//LEAFClient/BusinessProcesses/Exception/AddException.bwp.displayer.openstate=1
+//LEAFClient/BusinessProcesses/Exception/AddException.bwp.favorite.expansionstate=1
+//LEAFClient/BusinessProcesses/Exception/AddException.bwp.library.expansionstate=0
+//LEAFClient/BusinessProcesses/Exception/AddException.bwp.recent.expansionstate=1
+//LEAFClient/BusinessProcesses/Info/AddInfo.bwp.displayer.openstate=1
+//LEAFClient/BusinessProcesses/Info/AddInfo.bwp.favorite.expansionstate=1
+//LEAFClient/BusinessProcesses/Info/AddInfo.bwp.library.expansionstate=0
+//LEAFClient/BusinessProcesses/Info/AddInfo.bwp.recent.expansionstate=1
+com.tibco.bw.core.design.process.editor.numofvirtualpalettes=0
+eclipse.preferences.version=1
+global.favorite_palette_size=0
+global.recent_palette_capacity=8
+global.recent_palette_size=0

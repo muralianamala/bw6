@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns="http://www.urbanoutfitters.com/co/currencyconversion"
+	 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/co/currencyconversion"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="CurrencyConversion" type="CurrencyConversionType"/>
+	<xs:complexType name="CurrencyConversionType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element ref="CurrencyConversionData" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PublishFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CurrencyConversionData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BuyCurrencyid" type="xs:string" minOccurs="0"/>
+				<xs:element name="BuyCurrencyiso" type="xs:string" minOccurs="0"/>
+				<xs:element name="SellCurrencyid" type="xs:string" minOccurs="0"/>
+				<xs:element name="SellCurrencyiso" type="xs:string" minOccurs="0"/>
+				<xs:element name="Rate" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PublishFields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BasecurrencyAlpha" type="xs:string" minOccurs="0"/>
+				<xs:element name="Basecurrencynumeric" type="xs:string" minOccurs="0"/>
+				<xs:element name="Customercurrencynumeric" type="xs:string" minOccurs="0"/>
+				<xs:element name="CurrencyRateFrom" type="xs:string" minOccurs="0"/>
+				<xs:element name="CurrencyRate" type="xs:string" minOccurs="0"/>
+				<xs:element name="CurrencyCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="ServiceFeeAmount" type="xs:string" minOccurs="0"/>
+				<xs:element name="OracleId" type="xs:string" minOccurs="0"/>
+				<xs:element name="WordPayCompanyTableCurrency" type="xs:string" minOccurs="0"/>
+				<xs:element name="StoreCurrencyTableCurrency" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="CurrencyConversion">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:schema>

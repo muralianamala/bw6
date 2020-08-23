@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema targetNamespace="http://www.urbanoutfitters.com/leaf/infoclient"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.urbanoutfitters.com/leaf/infoclient">
+	<xs:element name="Info">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Domain" type="xs:string"/>
+				<xs:element name="Type" type="xs:string"/>
+				<xs:element name="ProcessName" type="xs:string"/>
+				<xs:element name="LoggedDateTime" type="xs:string"/>
+				<xs:element name="Details" type="xs:string" minOccurs="0"/>
+				<xs:element name="Attachment" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

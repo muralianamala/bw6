@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema targetNamespace="http://www.urbanoutfitters.com/leaf/logclient"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.urbanoutfitters.com/leaf/logclient">
+	<xs:element name="docRoot">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AddLog"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AddLog">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="logLevel"/>
+				<xs:element ref="logDttm"/>
+				<xs:element ref="logMsg"/>
+				<xs:element ref="logDomain"/>
+				<xs:element ref="applicationName"/>
+				<xs:element name="processName" type="xs:string"/>
+				<xs:element name="instance_id" type="xs:string"/>
+				<xs:element ref="logParams" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="logLevel">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="INFO"/>
+				<xs:enumeration value="WARN"/>
+				<xs:enumeration value="DEBUG"/>
+				<xs:enumeration value="FATAL"/>
+				<xs:enumeration value="ERROR"/>
+				<xs:enumeration value="ALL"/>
+				<xs:enumeration value="OFF"/>
+				<xs:enumeration value="TRACE"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Status">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Status" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="logDttm" type="xs:dateTime"/>
+	<xs:element name="logMsg" type="xs:string"/>
+	<xs:element name="logDomain" type="xs:string"/>
+	<xs:element name="applicationName" type="xs:string"/>
+	<xs:element name="logParams">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="param" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string"/>
+							<xs:element name="value" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

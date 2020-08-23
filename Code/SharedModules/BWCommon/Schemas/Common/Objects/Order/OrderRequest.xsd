@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/co/order/orderrequest"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://www.urbanoutfitters.com/co/order/orderrequest"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:element name="OrderRequest" type="OrderRequestType"/>
+	<xsd:complexType name="OrderRequestType">
+		<xsd:sequence>
+			<xsd:element name="orderNo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="enterpriseCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="orderHeaderKey" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="storeCurrency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="multiBrand" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

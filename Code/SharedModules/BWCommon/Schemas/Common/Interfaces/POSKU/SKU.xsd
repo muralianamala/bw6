@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/BWCommon/Shared Resources/Schemas/Common/Interfaces/POSKU/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/BWCommon/Shared Resources/Schemas/Common/Interfaces/POSKU/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="SKU">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SKURequest" minOccurs="0"/>
+				<xs:element ref="SKUResponse" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SKURequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ClassificationCodes" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="NAICSCode" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SKUResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ItemList" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Item" minOccurs="0">
+								<xs:complexType>
+									<xs:all>
+										<xs:element name="PrimaryInformation" type="xs:anyType" minOccurs="0"/>
+										<xs:element name="InventoryParameters" type="xs:anyType" minOccurs="0"/>
+										<xs:element name="Extn" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="ExtnColorDesc" type="xs:string"/>
+												<xs:attribute name="ExtnSizeCodeDescription" type="xs:string"/>
+												<xs:attribute name="ExtnWMSStyleNo" type="xs:string"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ClassificationCodes" type="xs:anyType" minOccurs="0"/>
+									</xs:all>
+									<xs:attribute name="ItemGroupCode" type="xs:string"/>
+									<xs:attribute name="ItemID" type="xs:string"/>
+									<xs:attribute name="ItemKey" type="xs:string"/>
+									<xs:attribute name="OrganizationCode" type="xs:string"/>
+									<xs:attribute name="UnitOfMeasure" type="xs:string"/>
+									<xs:attribute name="SubCatalogOrganizationCode" type="xs:string"/>
+									<xs:attribute name="CanUseAsServiceTool" type="xs:string"/>
+									<xs:attribute name="GlobalItemID" type="xs:string"/>
+									<xs:attribute name="IsItemSuperseded" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fault" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="faultcode" type="xs:string" minOccurs="0"/>
+							<xs:element name="faultstring" type="xs:string" minOccurs="0"/>
+							<xs:element name="detail" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

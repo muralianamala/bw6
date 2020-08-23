@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/picknopick/picknopick"
+	 xmlns:ns0="http://www.urbanoutfitters.com/co/common"
+	 xmlns:ns1="http://www.urbanoutfitters.com/co/base"
+	 targetNamespace="http://www.urbanoutfitters.com/picknopick/picknopick"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="PickNoPick">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PickNoPickRequest" minOccurs="0"/>
+				<xs:element name="Header" type="ns0:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PickNoPickRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PickNopick" minOccurs="0"/>
+				<xs:element name="requestHeader" type="ns1:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Header" type="xs:string"/>
+	<xs:element name="PickNopick">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="StoreNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="Quantity" type="xs:string" minOccurs="0"/>
+				<xs:element name="PickType" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="requestHeader" type="xs:string"/>
+</xs:schema>

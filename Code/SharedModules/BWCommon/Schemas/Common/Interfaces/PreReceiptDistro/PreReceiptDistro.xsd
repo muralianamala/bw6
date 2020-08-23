@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/PreReceiptDistro/PreReceiptDistro.xsd"
+	 targetNamespace="http://www.urbanoutfitters.com/PreReceiptDistro/PreReceiptDistro.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="PreReceiptDistro">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+				<xs:element name="PO" type="xs:string" minOccurs="0"/>
+				<xs:element name="Line" type="xs:string" minOccurs="0"/>
+				<xs:element name="Date" type="xs:string" minOccurs="0"/>
+				<xs:element name="Node" type="xs:string" minOccurs="0"/>
+				<xs:element name="ISTR" type="xs:string" minOccurs="0"/>
+				<xs:element name="DSTR" type="xs:string" minOccurs="0"/>
+				<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="QTY" type="xs:string" minOccurs="0"/>
+				<xs:element name="Code" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

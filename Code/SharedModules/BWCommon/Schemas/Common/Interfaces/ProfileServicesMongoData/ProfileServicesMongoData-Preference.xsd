@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MongoResponseData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="JSON" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="JSON">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="web" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="interstitialDeclined" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="lastModified" type="xs:string" minOccurs="0"/>
+				<xs:element name="mobileApp" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="coachmarkMyuoSeen" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="loyaltyAppDownloaded" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="loyaltySetupWizard" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="loyaltyInterstitialCancel" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="braze" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="androidAppVersion" type="xs:string" minOccurs="0"/>
+										<xs:element name="androidDevice" type="xs:string" minOccurs="0"/>
+										<xs:element name="androidDeviceOs" type="xs:string" minOccurs="0"/>
+										<xs:element name="appDownload" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="deviceSupportsApplePay" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="firstUsed" type="xs:string" minOccurs="0"/>
+										<xs:element name="hasApplePaySetup" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="iosAppVersion" type="xs:string" minOccurs="0"/>
+										<xs:element name="iosDevice" type="xs:string" minOccurs="0"/>
+										<xs:element name="iosDeviceOs" type="xs:string" minOccurs="0"/>
+										<xs:element name="lastReceived" type="xs:string" minOccurs="0"/>
+										<xs:element name="lastUsed" type="xs:string" minOccurs="0"/>
+										<xs:element name="locationEnabled" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="pushEnabled" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="pushSubscribe" type="xs:string" minOccurs="0"/>
+										<xs:element name="sessions" type="xs:integer" minOccurs="0"/>
+										<xs:element name="uninstalled" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="webBrowser" type="xs:string" minOccurs="0"/>
+										<xs:element name="webDeviceOs" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="global" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="language" type="xs:string" minOccurs="0"/>
+							<xs:element name="country" type="xs:string" minOccurs="0"/>
+							<xs:element name="profilePhoto" type="xs:string" minOccurs="0"/>
+							<xs:element name="favoriteStores" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="currency" type="xs:string" minOccurs="0"/>
+							<xs:element name="coverPhoto" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="socialMedia" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="twitter" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="userName" type="xs:string" minOccurs="0"/>
+										<xs:element name="oAuthTokenSecret" type="xs:string" minOccurs="0"/>
+										<xs:element name="connected" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="oAuthToken" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="facebook" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="userName" type="xs:string" minOccurs="0"/>
+										<xs:element name="oAuthTokenSecret" type="xs:string" minOccurs="0"/>
+										<xs:element name="connected" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="oAuthToken" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="instagram" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="userName" type="xs:string" minOccurs="0"/>
+										<xs:element name="oAuthTokenSecret" type="xs:string" minOccurs="0"/>
+										<xs:element name="connected" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="oAuthToken" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="id" type="xs:string" minOccurs="0"/>
+				<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

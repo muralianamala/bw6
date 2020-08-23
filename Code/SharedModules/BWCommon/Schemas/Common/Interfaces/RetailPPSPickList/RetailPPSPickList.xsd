@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns="http://www.urbanoutfitters.com/RetailPPSPickList/RetailPPSPickList"
+	 targetNamespace="http://www.urbanoutfitters.com/RetailPPSPickList/RetailPPSPickList"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="PickList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="common:HeaderType" minOccurs="0"/>
+				<xs:element name="PickListData" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DC" type="xs:string" minOccurs="0"/>
+							<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+							<xs:element name="Store" type="xs:string" minOccurs="0"/>
+							<xs:element name="BatchNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+							<xs:element name="Qty" type="xs:string" minOccurs="0"/>
+							<xs:element name="Timestamp" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

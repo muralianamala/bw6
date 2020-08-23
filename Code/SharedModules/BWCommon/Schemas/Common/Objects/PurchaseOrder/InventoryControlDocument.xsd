@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.nrf-arts.org/IXRetail/namespace" xmlns="http://www.nrf-arts.org/IXRetail/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="OrderDocument.xsd"/>
+	<xs:include schemaLocation="Vendor.xsd"/>
+	<xs:include schemaLocation="BusinessUnit.xsd"/>
+	<xs:include schemaLocation="Transaction.xsd"/>
+	<xs:include schemaLocation="Address.xsd"/>
+	<xs:element name="InventoryControlDocument">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="dtocPoNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="hblk" type="xs:string" minOccurs="0"/>
+				<xs:element name="hlrnum" type="xs:string" minOccurs="0"/>
+				<xs:element name="hnumnum2" type="xs:string" minOccurs="0"/>
+				<xs:element name="SendToTss" type="xs:string" minOccurs="0"/>
+				<xs:element name="BuyerID" type="xs:string" minOccurs="0"/>
+				<xs:element name="OrderDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="InventoryControlDocumentID" type="xs:string" minOccurs="0"/>
+				<xs:element name="OperationalPartyID" minOccurs="0"/>
+				<xs:element name="DestinationBusinessUnitID" minOccurs="0"/>
+				<xs:element name="CreateDateTimestamp" type="xs:string" minOccurs="0"/>
+				<xs:element name="Revision" type="xs:string" minOccurs="0"/>
+				<xs:element name="TermsAndConditionsCode" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>This code denotes the relevant terms and conditions pertaining to this particular inventory control document, eg the supplier must be notified of any shortages within three days.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="InHouseCancelDate" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="AnticipatedDate" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="SupplierExpectedShipDate" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The actual ship date of the shipment, to which this particular inventory control document relates. The actual date of the to which this particular inventory control document relates, is expected to be shipped from the originating company or store..</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ShipMode" minOccurs="0"/>
+				<xs:element name="ShipModeDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="ShipmentTerms" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="6"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="PayTerms" minOccurs="0"/>
+				<xs:element name="FOBPoint" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="25"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="MasterPO" minOccurs="0"/>
+				<xs:element ref="UnladingPoint" minOccurs="0"/>
+				<xs:element ref="OrderDocument" minOccurs="0"/>
+				<xs:element ref="Vendor" minOccurs="0"/>
+				<xs:element ref="BusinessUnit" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Currency" minOccurs="0"/>
+				<xs:element ref="Address" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MasterPO" type="xs:string"/>
+	<xs:element name="UnladingPoint" type="xs:string"/>
+</xs:schema>

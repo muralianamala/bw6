@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/ipAllocation"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://www.urbanoutfitters.com/ipAllocation"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:element name="IPAllocation" type="IPAllocationType"/>
+	<xsd:complexType name="IPAllocationType">
+		<xsd:sequence>
+			<xsd:element name="field0" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="orderNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field6" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="distroFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field8" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field9" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field10" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field11" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field12" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field13" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field14" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field15" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field16" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field17" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field18" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field19" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field20" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dockedFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field22" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="field23" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="blockout" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

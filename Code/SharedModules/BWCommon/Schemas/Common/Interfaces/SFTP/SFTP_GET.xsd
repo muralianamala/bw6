@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/sftp"
+	 targetNamespace="http://www.urbanoutfitters.com/co/sftp"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="SFTP">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserName" minOccurs="0"/>
+				<xs:element ref="Password" minOccurs="0"/>
+				<xs:element ref="Host" minOccurs="0"/>
+				<xs:element ref="Port" minOccurs="0"/>
+				<xs:element ref="RemoteDir" minOccurs="0"/>
+				<xs:element ref="LocalDir" minOccurs="0"/>
+				<xs:element ref="TriggerFileFlag" minOccurs="0"/>
+				<xs:element ref="InputFileExtn" minOccurs="0"/>
+				<xs:element name="TriggerFileExtn" type="xs:string" minOccurs="0"/>
+				<xs:element name="ExceptionCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="Domain" type="xs:string" minOccurs="0"/>
+				<xs:element name="ProcessName" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UserName" type="xs:string"/>
+	<xs:element name="Password" type="xs:string"/>
+	<xs:element name="Host" type="xs:string"/>
+	<xs:element name="Port" type="xs:string"/>
+	<xs:element name="RemoteDir" type="xs:string"/>
+	<xs:element name="LocalDir" type="xs:string"/>
+	<xs:element name="TriggerFileFlag" type="xs:string"/>
+	<xs:element name="InputFileExtn" type="xs:string"/>
+</xs:schema>

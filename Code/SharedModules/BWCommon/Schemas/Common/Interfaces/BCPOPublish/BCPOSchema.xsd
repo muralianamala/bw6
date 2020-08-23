@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbn.com/BCPOSchema"
+	 targetNamespace="http://www.urbn.com/BCPOSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="PO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Detail" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DETAIL_FIELD_1" type="xs:string" minOccurs="0"/>
+							<xs:element name="PKEY" type="xs:string" minOccurs="0"/>
+							<xs:element name="FKEY" type="xs:string" minOccurs="0"/>
+							<xs:element name="PROD_NUM" type="xs:string" minOccurs="0"/>
+							<xs:element name="PO_STATUS" type="xs:string" minOccurs="0"/>
+							<xs:element name="STAGE" type="xs:string" minOccurs="0"/>
+							<xs:element name="STAGE_NUM" type="xs:string" minOccurs="0"/>
+							<xs:element name="STYLE" type="xs:string" minOccurs="0"/>
+							<xs:element name="STYLE_NAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="COLOR_CODE" type="xs:string" minOccurs="0"/>
+							<xs:element name="COLOR_NAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="LBL_CODE" type="xs:string" minOccurs="0"/>
+							<xs:element name="DIMENSION" type="xs:string" minOccurs="0"/>
+							<xs:element name="SIZE_DESC" type="xs:string" minOccurs="0"/>
+							<xs:element name="QTY" type="xs:string" minOccurs="0"/>
+							<xs:element name="TOTAL_QTY" type="xs:string" minOccurs="0"/>
+							<xs:element name="UOM" type="xs:string" minOccurs="0"/>
+							<xs:element name="COST" type="xs:string" minOccurs="0"/>
+							<xs:element name="UPC" type="xs:string" minOccurs="0"/>
+							<xs:element name="DUE_DATE" type="xs:string" minOccurs="0"/>
+							<xs:element name="SIZE_TO_SLN" type="xs:string" minOccurs="0"/>
+							<xs:element name="RETAIL_PRICE" type="xs:string" minOccurs="0"/>
+							<xs:element name="COMP_PRICE" type="xs:string" minOccurs="0"/>
+							<xs:element name="CUSTOMER_STYLE" type="xs:string" minOccurs="0"/>
+							<xs:element name="CUST_COLOR" type="xs:string" minOccurs="0"/>
+							<xs:element name="CUST_DEPT" type="xs:string" minOccurs="0"/>
+							<xs:element name="CUST_DESC" type="xs:string" minOccurs="0"/>
+							<xs:element name="CUST_SEASON" type="xs:string" minOccurs="0"/>
+							<xs:element name="CUST_CATG" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHPDATE" type="xs:string" minOccurs="0"/>
+							<xs:element name="START_DATE" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHPT_CODE" type="xs:string" minOccurs="0"/>
+							<xs:element name="LOCATION" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHIPTO" type="xs:string" minOccurs="0"/>
+							<xs:element name="AGENT" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHIPPER" type="xs:string" minOccurs="0"/>
+							<xs:element name="PACK_TYPE" type="xs:string" minOccurs="0"/>
+							<xs:element name="PORT_EXIT" type="xs:string" minOccurs="0"/>
+							<xs:element name="FOB_DESC" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_NAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="HS_NUM" type="xs:string" minOccurs="0"/>
+							<xs:element name="QUOTA" type="xs:string" minOccurs="0"/>
+							<xs:element name="PPACK_OK" type="xs:string" minOccurs="0"/>
+							<xs:element name="NRF_COLOR" type="xs:string" minOccurs="0"/>
+							<xs:element name="FO_COLOR_CODE" type="xs:string" minOccurs="0"/>
+							<xs:element name="COLOR_DESC" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHPT_HDR_DESC" type="xs:string" minOccurs="0"/>
+							<xs:element name="PARTY" type="xs:string" minOccurs="0"/>
+							<xs:element name="CUST_STYLE" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_CODE1" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_CODE2" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_CODE3" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_CODE4" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_CODE5" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_CODE6" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_CODE7" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_CODE8" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_NAME1" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_NAME2" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_NAME3" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_NAME4" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_NAME5" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_NAME6" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_NAME7" type="xs:string" minOccurs="0"/>
+							<xs:element name="GROUP_NAME8" type="xs:string" minOccurs="0"/>
+							<xs:element name="PROD_LINE" type="xs:string" minOccurs="0"/>
+							<xs:element name="GAR_WGT" type="xs:string" minOccurs="0"/>
+							<xs:element name="CUBIC" type="xs:string" minOccurs="0"/>
+							<xs:element name="WGT_UOM" type="xs:string" minOccurs="0"/>
+							<xs:element name="VOLUME_UOM" type="xs:string" minOccurs="0"/>
+							<xs:element name="STYLE_DESC" type="xs:string" minOccurs="0"/>
+							<xs:element name="MST_QTY" type="xs:string" minOccurs="0"/>
+							<xs:element name="INR_QTY" type="xs:string" minOccurs="0"/>
+							<xs:element name="START_SHIP_DATE" type="xs:string" minOccurs="0"/>
+							<xs:element name="LAST_MOD" type="xs:string" minOccurs="0"/>
+							<xs:element name="NMFC_CODE" type="xs:string" minOccurs="0"/>
+							<xs:element name="UDFORD7C" type="xs:string" minOccurs="0"/>
+							<xs:element name="ORD_NUM" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHIP_NAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="LC_NUM" type="xs:string" minOccurs="0"/>
+							<xs:element name="DUTY_PERC" type="xs:string" minOccurs="0"/>
+							<xs:element name="HS_NAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="UDFSTY1C" type="xs:string" minOccurs="0"/>
+							<xs:element name="PACK_QTY" type="xs:string" minOccurs="0"/>
+							<xs:element name="PPK_IND" type="xs:string" minOccurs="0"/>
+							<xs:element name="RANGE_STYLE" type="xs:string" minOccurs="0"/>
+							<xs:element name="EARL_SHIP_DATE" type="xs:string" minOccurs="0"/>
+							<xs:element name="CONTR_LOT" type="xs:string" minOccurs="0"/>
+							<xs:element name="CONT_CODE" type="xs:string" minOccurs="0"/>
+							<xs:element name="COLOR_DESC_RESV" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

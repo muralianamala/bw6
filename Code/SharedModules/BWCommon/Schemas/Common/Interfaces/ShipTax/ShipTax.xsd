@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 xmlns="http://www.urbanoutfitters.com/shiptax/shiptax"
+	 targetNamespace="http://www.urbanoutfitters.com/shiptax/shiptax"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="ShipTax">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ShipTaxRequest" minOccurs="0"/>
+				<xs:element ref="ShipTaxResponse" minOccurs="0"/>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShipTaxRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Order" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="StoreNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="Customer" type="xs:string" minOccurs="0"/>
+							<xs:element name="EmployeeID" type="xs:string" minOccurs="0"/>
+							<xs:element name="Password" type="xs:string" minOccurs="0"/>
+							<xs:element name="WebProfileID" type="xs:string" minOccurs="0"/>
+							<xs:element name="PromoCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="RegisteredCustomer" type="xs:string" minOccurs="0"/>
+							<xs:element name="EmailAddress" type="xs:string" minOccurs="0"/>
+							<xs:element name="BrandCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+							<xs:element name="IsNewOrder" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderTime" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+							<xs:element name="EnterpriseCurrency" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReportingConversionDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReportingConversionRate" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderVariety" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnGiftRecipient" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnReasonCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="StoreCurrency" type="xs:string" minOccurs="0"/>
+							<xs:element name="SmartLabelFeeFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="MultiBrand" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnByGiftRecipient" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnMethod" type="xs:string" minOccurs="0"/>
+							<xs:element name="IsInitialRequest" type="xs:string" minOccurs="0"/>
+							<xs:element name="ContainerKey" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExchangeFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnType" type="xs:string" minOccurs="0"/>
+							<xs:element name="SiteId" type="xs:string" minOccurs="0"/>
+							<xs:element name="GcFreeReturn" type="xs:string" minOccurs="0"/>
+							<xs:element name="Shipments" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ShipFeeOverriddenFlag" type="xs:string" minOccurs="0"/>
+										<xs:element name="ShippingMethod" type="xs:string" minOccurs="0"/>
+										<xs:element name="TaxAreaID" type="xs:string" minOccurs="0"/>
+										<xs:element name="Items" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Item" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Quantity" type="xs:string" minOccurs="0"/>
+																<xs:element name="LineNumber" type="xs:string" minOccurs="0"/>
+																<xs:element name="Status" type="xs:string" minOccurs="0"/>
+																<xs:element name="IsPriceLocked" type="xs:string" minOccurs="0"/>
+																<xs:element name="OriginalPrice" type="xs:string" minOccurs="0"/>
+																<xs:element name="Price" type="xs:string" minOccurs="0"/>
+																<xs:element name="Sku" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnIsLineChargeLocked" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnIsShipAndHandLocked" type="xs:string" minOccurs="0"/>
+																<xs:element name="AssociatedLineNumber" type="xs:string" minOccurs="0"/>
+																<xs:element name="GiftCardCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ShipToID" type="xs:string" minOccurs="0"/>
+																<xs:element name="IsGWPInsert" type="xs:string" minOccurs="0"/>
+																<xs:element name="AllocatedShippingFee" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnTaxCalculationDriverDate" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnIsGiftItem" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnReasonCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ShipQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnCreateQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnRefundQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnReceiptQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnGiftWrapSKU" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnGiftWrapAmount" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeSKU" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeColor" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeSizeType" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeSize" type="xs:string" minOccurs="0"/>
+																<xs:element name="Discounts" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Discount" minOccurs="0">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="DiscountCode" type="xs:string" minOccurs="0"/>
+																						<xs:element name="Discountname" type="xs:string" minOccurs="0"/>
+																						<xs:element name="DiscountPerUnit" type="xs:string" minOccurs="0"/>
+																						<xs:element name="DiscountRoundingAmount" type="xs:string" minOccurs="0"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="skuType" type="xs:string" minOccurs="0"/>
+																<xs:element name="ProductId" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ShippingAddress" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Address1" type="xs:string" minOccurs="0"/>
+													<xs:element name="Address2" type="xs:string" minOccurs="0"/>
+													<xs:element name="Address3" type="xs:string" minOccurs="0"/>
+													<xs:element name="City" type="xs:string" minOccurs="0"/>
+													<xs:element name="CompanyName" type="xs:string" minOccurs="0"/>
+													<xs:element name="Country" type="xs:string" minOccurs="0"/>
+													<xs:element name="DayPhone" type="xs:string" minOccurs="0"/>
+													<xs:element name="EmailId" type="xs:string" minOccurs="0"/>
+													<xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+													<xs:element name="LastName" type="xs:string" minOccurs="0"/>
+													<xs:element name="EveningPhone" type="xs:string" minOccurs="0"/>
+													<xs:element name="State" type="xs:string" minOccurs="0"/>
+													<xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="AddressIsCommercial" type="xs:string" minOccurs="0"/>
+													<xs:element name="QASverified" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Promotions" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Promotion" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="DenialReason" type="xs:string" minOccurs="0"/>
+													<xs:element name="Description" type="xs:string" minOccurs="0"/>
+													<xs:element name="PromotionApplied" type="xs:string" minOccurs="0"/>
+													<xs:element name="PromotionId" type="xs:string" minOccurs="0"/>
+													<xs:element name="PromotionType" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="StoreCountry" type="xs:string" minOccurs="0"/>
+							<xs:element name="RestockOverride" type="xs:string" minOccurs="0"/>
+							<xs:element name="DeviceType" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="requestHeader" type="base:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShipTaxResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Order" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Customer" type="xs:string" minOccurs="0"/>
+							<xs:element name="EmployeeID" type="xs:string" minOccurs="0"/>
+							<xs:element name="Password" type="xs:string" minOccurs="0"/>
+							<xs:element name="PromoCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="RegisteredCustomer" type="xs:string" minOccurs="0"/>
+							<xs:element name="EmailAddress" type="xs:string" minOccurs="0"/>
+							<xs:element name="BrandCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+							<xs:element name="WebProfileID" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderTime" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="VertexFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+							<xs:element name="EntrpriseCurrency" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReportingConversionDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReportingConversionRate" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentTotalRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentMdseRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentShipFeeRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentTotalTaxRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentMdseTaxRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentShipFeeTaxRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="PriorTotalRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="PriorMdseRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="PriorShipFeeRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="PriorTaxRefund" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnOrderNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="GiftCardLocalNotSupporteCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="GiftCardLocalNotSupporteDesc" type="xs:string" minOccurs="0"/>
+							<xs:element name="GiftCardRefundAmount" type="xs:string" minOccurs="0"/>
+							<xs:element name="NOGiftCardPermittedFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="PaymentMethod" type="xs:string" minOccurs="0"/>
+							<xs:element name="PaymentMethodLastFour" type="xs:string" minOccurs="0"/>
+							<xs:element name="SmartLabelFee" type="xs:string" minOccurs="0"/>
+							<xs:element name="PriorRefundSmartLabelFee" type="xs:string" minOccurs="0"/>
+							<xs:element name="SiteID" type="xs:string" minOccurs="0"/>
+							<xs:element name="LanguageCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentOrderAdjustment" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentDuty" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentVAT" type="xs:string" minOccurs="0"/>
+							<xs:element name="PriorCurrentOrderAdjustment" type="xs:string" minOccurs="0"/>
+							<xs:element name="PriorDuty" type="xs:string" minOccurs="0"/>
+							<xs:element name="PriorVAT" type="xs:string" minOccurs="0"/>
+							<xs:element name="TotalDutyTax" type="xs:string" minOccurs="0"/>
+							<xs:element name="PriorTotalDutyTax" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentTtlRefundWAdj" type="xs:string" minOccurs="0"/>
+							<xs:element name="NearStoreName" type="xs:string" minOccurs="0"/>
+							<xs:element name="NearStoreAddressLine1" type="xs:string" minOccurs="0"/>
+							<xs:element name="NearStoreAddressLine2" type="xs:string" minOccurs="0"/>
+							<xs:element name="NearStoreAddressLine3" type="xs:string" minOccurs="0"/>
+							<xs:element name="NearStoreCity" type="xs:string" minOccurs="0"/>
+							<xs:element name="NearStoreState" type="xs:string" minOccurs="0"/>
+							<xs:element name="NearStoreCountry" type="xs:string" minOccurs="0"/>
+							<xs:element name="NearStoreZip" type="xs:string" minOccurs="0"/>
+							<xs:element name="RefundTimingCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="RefundTimingShortDesc" type="xs:string" minOccurs="0"/>
+							<xs:element name="RefundTimingLongDesc" type="xs:string" minOccurs="0"/>
+							<xs:element name="IssueRefundNow" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnByGiftRecipient" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnPaymentMethod" type="xs:string" minOccurs="0"/>
+							<xs:element name="ContainerKey" type="xs:string" minOccurs="0"/>
+							<xs:element name="RequestType" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnType" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnReasonCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNodeServiceLevel" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNodeName" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNodeAddressLine1" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNodeAddressLine2" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNodeAddressLine3" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNodeCity" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNodeState" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNodeCountry" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnNodeZip" type="xs:string" minOccurs="0"/>
+							<xs:element name="IsInitialRequest" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExchangeFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReceiverID" type="xs:string" minOccurs="0"/>
+							<xs:element name="BillingNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnTotals" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="MerchBeforeDiscount" type="xs:float" minOccurs="0"/>
+										<xs:element name="Discount" type="xs:float" minOccurs="0"/>
+										<xs:element name="NetMerch" type="xs:float" minOccurs="0"/>
+										<xs:element name="ShipFees" type="xs:float" minOccurs="0"/>
+										<xs:element name="SmartLabelFee" type="xs:float" minOccurs="0"/>
+										<xs:element name="Duty" type="xs:float" minOccurs="0"/>
+										<xs:element name="Tax" type="xs:float" minOccurs="0"/>
+										<xs:element name="OrderAdjustment" type="xs:float" minOccurs="0"/>
+										<xs:element name="OrderTotal" type="xs:float" minOccurs="0"/>
+										<xs:element name="FlatRateShipFee" type="xs:float" minOccurs="0"/>
+										<xs:element name="ReturnRestockFee" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ExchangeTotals" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="MerchBeforeDiscount" type="xs:float" minOccurs="0"/>
+										<xs:element name="Discount" type="xs:float" minOccurs="0"/>
+										<xs:element name="NetMerch" type="xs:float" minOccurs="0"/>
+										<xs:element name="ShipFees" type="xs:float" minOccurs="0"/>
+										<xs:element name="SmartLabelFee" type="xs:float" minOccurs="0"/>
+										<xs:element name="Duty" type="xs:float" minOccurs="0"/>
+										<xs:element name="Tax" type="xs:float" minOccurs="0"/>
+										<xs:element name="OrderAdjustment" type="xs:float" minOccurs="0"/>
+										<xs:element name="OrderTotal" type="xs:float" minOccurs="0"/>
+										<xs:element name="FlatRateShipFee" type="xs:float" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="NetTotals" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="MerchBeforeDiscount" type="xs:float" minOccurs="0"/>
+										<xs:element name="Discount" type="xs:float" minOccurs="0"/>
+										<xs:element name="NetMerch" type="xs:float" minOccurs="0"/>
+										<xs:element name="ShipFees" type="xs:float" minOccurs="0"/>
+										<xs:element name="SmartLabelFee" type="xs:float" minOccurs="0"/>
+										<xs:element name="Duty" type="xs:float" minOccurs="0"/>
+										<xs:element name="Tax" type="xs:float" minOccurs="0"/>
+										<xs:element name="OrderAdjustment" type="xs:float" minOccurs="0"/>
+										<xs:element name="OrderTotal" type="xs:float" minOccurs="0"/>
+										<xs:element name="FlatRateShipFee" type="xs:float" minOccurs="0"/>
+										<xs:element name="ReturnRestockFee" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Shipments" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Items" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="IsGWPInsert" type="xs:string" minOccurs="0"/>
+																<xs:element name="Quantity" type="xs:string" minOccurs="0"/>
+																<xs:element name="LineNumber" type="xs:string" minOccurs="0"/>
+																<xs:element name="ShipToID" type="xs:string" minOccurs="0"/>
+																<xs:element name="Sku" type="xs:string" minOccurs="0"/>
+																<xs:element name="IsPriceLocked" type="xs:string" minOccurs="0"/>
+																<xs:element name="OriginalPrice" type="xs:string" minOccurs="0"/>
+																<xs:element name="Price" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnIsLineChargeLocked" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnIsShipAndHandLocked" type="xs:string" minOccurs="0"/>
+																<xs:element name="SKUShippingFee" type="xs:string" minOccurs="0"/>
+																<xs:element name="AllocatedShippingFee" type="xs:string" minOccurs="0"/>
+																<xs:element name="Tax" type="xs:string" minOccurs="0"/>
+																<xs:element name="MdseTax" type="xs:string" minOccurs="0"/>
+																<xs:element name="ShipFeeTax" type="xs:string" minOccurs="0"/>
+																<xs:element name="GiftCardCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnTaxCalculationDriverDate" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnIsGiftItem" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnReasonCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnIsGiftCard" type="xs:string" minOccurs="0"/>
+																<xs:element name="ShipQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnCreateQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnRefundQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundSKUShippingFee" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnReceiptQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="MaxStoreReturnQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundMdseAmt" type="xs:string" minOccurs="0"/>
+																<xs:element name="CurrentRefundMdseAmt" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundTax" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundAllocatedShippingFee" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundMdseTax" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundShipFeeTax" type="xs:string" minOccurs="0"/>
+																<xs:element name="Discount" type="xs:string" minOccurs="0"/>
+																<xs:element name="PreviousDiscounts" type="xs:string" minOccurs="0"/>
+																<xs:element name="MaxWebReturnQty" type="xs:string" minOccurs="0"/>
+																<xs:element name="DirectStyle" type="xs:string" minOccurs="0"/>
+																<xs:element name="ItemDesc" type="xs:string" minOccurs="0"/>
+																<xs:element name="SmartLabelFee" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundSmartLabelFee" type="xs:string" minOccurs="0"/>
+																<xs:element name="DiscountsPerUnit" type="xs:string" minOccurs="0"/>
+																<xs:element name="OriginalPricePerUnit" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriceBeforeDisc" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriceBeforeDiscPerUnit" type="xs:string" minOccurs="0"/>
+																<xs:element name="ShortSKU" type="xs:string" minOccurs="0"/>
+																<xs:element name="OrderAdjustment" type="xs:string" minOccurs="0"/>
+																<xs:element name="DutyAmt" type="xs:string" minOccurs="0"/>
+																<xs:element name="VATAmt" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundOrderAdjustment" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundDuty" type="xs:string" minOccurs="0"/>
+																<xs:element name="PriorRefundVAT" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnGiftWrapSKU" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtnGiftWrapAmount" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeQuantity" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeSKU" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeLineNo" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeColor" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeSizeType" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeSize" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeMerchBeforeDiscount" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeDiscount" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeOrderAdjustment" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeShipFees" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeSmartLabelFee" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeDuty" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeMdseTax" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExchangeShipFeeTax" type="xs:string" minOccurs="0"/>
+																<xs:element name="Discounts" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Discount" minOccurs="0">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="DiscountCode" type="xs:string" minOccurs="0"/>
+																						<xs:element name="Discountname" type="xs:string" minOccurs="0"/>
+																						<xs:element name="DiscountPerUnit" type="xs:string" minOccurs="0"/>
+																						<xs:element name="DiscountRoundingAmount" type="xs:string" minOccurs="0"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="ExchangeVATDetails" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="VATDetailName" type="xs:string" minOccurs="0"/>
+																			<xs:element name="VATDetailLineItem" type="xs:string" minOccurs="0"/>
+																			<xs:element name="VATDetailAmount" type="xs:string" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="VATDetails" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="VATDetailName" type="xs:string" minOccurs="0"/>
+																			<xs:element name="VATDetailLineItem" type="xs:string" minOccurs="0"/>
+																			<xs:element name="VATDetailAmount" type="xs:string" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="CurrentTotalTax" type="xs:string" minOccurs="0"/>
+																<xs:element name="Supply" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="AvailableQty" type="xs:string" minOccurs="0"/>
+																			<xs:element name="FutureQty" type="xs:string" minOccurs="0"/>
+																			<xs:element name="FutureDate" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ColorName" type="xs:string" minOccurs="0"/>
+																			<xs:element name="SizeTypeName" type="xs:string" minOccurs="0"/>
+																			<xs:element name="SizeName" type="xs:string" minOccurs="0"/>
+																			<xs:element name="SizeType" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ColorCode" type="xs:string" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="OtherSKUSupply" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="PrimarySlice" minOccurs="0" maxOccurs="unbounded">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="SliceName" type="xs:string" minOccurs="0"/>
+																						<xs:element name="Name" type="xs:string" minOccurs="0"/>
+																						<xs:element name="Code" type="xs:string" minOccurs="0"/>
+																						<xs:element name="Supply" type="xs:string" minOccurs="0"/>
+																						<xs:element name="Type" type="xs:string" minOccurs="0"/>
+																						<xs:element name="SizeType" minOccurs="0" maxOccurs="unbounded">
+																							<xs:complexType>
+																								<xs:sequence>
+																									<xs:element name="Type" type="xs:string" minOccurs="0"/>
+																									<xs:element name="SizeTypeName" type="xs:string" minOccurs="0"/>
+																									<xs:element name="Supply" type="xs:string" minOccurs="0"/>
+																									<xs:element name="Sizes" minOccurs="0" maxOccurs="unbounded">
+																										<xs:complexType>
+																											<xs:sequence>
+																												<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+																												<xs:element name="SizeName" type="xs:string" minOccurs="0"/>
+																												<xs:element name="AvailableQty" type="xs:string" minOccurs="0"/>
+																												<xs:element name="FutureQty" type="xs:string" minOccurs="0"/>
+																												<xs:element name="FutureDate" type="xs:string" minOccurs="0"/>
+																											</xs:sequence>
+																										</xs:complexType>
+																									</xs:element>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="SKUType" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnRestockFee" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnRestockfeeCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnRestockfeeCurrency" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnRestockvalue" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnRestockshortCopy" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnRestocklongCopy" type="xs:string" minOccurs="0"/>
+																<xs:element name="ReturnRestockFeeTax" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ShippingAddress" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Address1" type="xs:string" minOccurs="0"/>
+													<xs:element name="Address2" type="xs:string" minOccurs="0"/>
+													<xs:element name="Address3" type="xs:string" minOccurs="0"/>
+													<xs:element name="City" type="xs:string" minOccurs="0"/>
+													<xs:element name="CompanyName" type="xs:string" minOccurs="0"/>
+													<xs:element name="Country" type="xs:string" minOccurs="0"/>
+													<xs:element name="DayPhone" type="xs:string" minOccurs="0"/>
+													<xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+													<xs:element name="LastName" type="xs:string" minOccurs="0"/>
+													<xs:element name="State" type="xs:string" minOccurs="0"/>
+													<xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="AddressIsCommercial" type="xs:string" minOccurs="0"/>
+													<xs:element name="EmailId" type="xs:string" minOccurs="0"/>
+													<xs:element name="EveningPhone" type="xs:string" minOccurs="0"/>
+													<xs:element name="QASVerified" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ShippingMethod" type="xs:string" minOccurs="0"/>
+										<xs:element name="ShipFeeOverriddenFlag" type="xs:string" minOccurs="0"/>
+										<xs:element name="TaxAreaID" type="xs:string" minOccurs="0"/>
+										<xs:element name="ServiceLevel" type="xs:string" minOccurs="0"/>
+										<xs:element name="ServiceLevelDesc" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ShipMethodList" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ShipMethod" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ShipMethodCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ShipMethodDescription" type="xs:string" minOccurs="0"/>
+													<xs:element name="ShipMethodAmt" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Promotions" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Promotion" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="DenialReason" type="xs:string" minOccurs="0"/>
+													<xs:element name="Description" type="xs:string" minOccurs="0"/>
+													<xs:element name="PromotionApplied" type="xs:string" minOccurs="0"/>
+													<xs:element name="PromotionId" type="xs:string" minOccurs="0"/>
+													<xs:element name="PromotionType" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BillingAddress" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Address1" type="xs:string" minOccurs="0"/>
+										<xs:element name="Address2" type="xs:string" minOccurs="0"/>
+										<xs:element name="Address3" type="xs:string" minOccurs="0"/>
+										<xs:element name="City" type="xs:string" minOccurs="0"/>
+										<xs:element name="CompanyName" type="xs:string" minOccurs="0"/>
+										<xs:element name="Country" type="xs:string" minOccurs="0"/>
+										<xs:element name="DayPhone" type="xs:string" minOccurs="0"/>
+										<xs:element name="EmailId" type="xs:string" minOccurs="0"/>
+										<xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+										<xs:element name="LastName" type="xs:string" minOccurs="0"/>
+										<xs:element name="EveningPhone" type="xs:string" minOccurs="0"/>
+										<xs:element name="State" type="xs:string" minOccurs="0"/>
+										<xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="AddressIsCommercial" type="xs:string" minOccurs="0"/>
+										<xs:element name="QASverified" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="VATDetail" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="VATDetailName" type="xs:string" minOccurs="0"/>
+										<xs:element name="VATDetailAmount" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="CurrentOtherTax" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentTotalTax" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShowVATDetails" type="xs:string" minOccurs="0"/>
+							<xs:element name="displayStoreInfo" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReturnRestockFee" type="xs:string" minOccurs="0"/>
+							<xs:element name="FlatRateShipFee" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fault" type="fault:FaultType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

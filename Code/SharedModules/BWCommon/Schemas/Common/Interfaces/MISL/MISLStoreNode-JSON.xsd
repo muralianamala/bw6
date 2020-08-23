@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="mislStoreNode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="regionID" type="xs:string" minOccurs="0"/>
+				<xs:element name="localeId" type="xs:string" minOccurs="0"/>
+				<xs:element name="addressLineTwo" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeName" type="xs:string" minOccurs="0"/>
+				<xs:element name="channelId" type="xs:string" minOccurs="0"/>
+				<xs:element name="number" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="zones" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string" minOccurs="0"/>
+							<xs:element name="label" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="geographicArea" type="xs:string" minOccurs="0"/>
+				<xs:element name="serverIp" type="xs:string" minOccurs="0"/>
+				<xs:element name="districtName" type="xs:string" minOccurs="0"/>
+				<xs:element name="id" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeImages" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="links" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="href" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="null" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="regionName" type="xs:string" minOccurs="0"/>
+				<xs:element name="loc" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="zip" type="xs:string" minOccurs="0"/>
+				<xs:element name="companyId" type="xs:string" minOccurs="0"/>
+				<xs:element name="addressLineOne" type="xs:string" minOccurs="0"/>
+				<xs:element name="currencyCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="channelID" type="xs:string" minOccurs="0"/>
+				<xs:element name="apps" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="tps" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="downloadURL" type="xs:string" minOccurs="0"/>
+										<xs:element name="minVersion" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="mkd" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="downloadURL" type="xs:string" minOccurs="0"/>
+										<xs:element name="minVersion" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="rfg" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="downloadURL" type="xs:string" minOccurs="0"/>
+										<xs:element name="minVersion" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="chargingStation" type="xs:string" minOccurs="0"/>
+				<xs:element name="localeName" type="xs:string" minOccurs="0"/>
+				<xs:element name="state" type="xs:string" minOccurs="0"/>
+				<xs:element name="brandName" type="xs:string" minOccurs="0"/>
+				<xs:element name="closed" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeType" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeInventory" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="availableToSell" type="xs:string" minOccurs="0"/>
+							<xs:element name="availableToFulfill" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="channelName" type="xs:string" minOccurs="0"/>
+				<xs:element name="email" type="xs:string" minOccurs="0"/>
+				<xs:element name="storePhoneNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="subnets" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="grossSquareFeet" type="xs:string" minOccurs="0"/>
+				<xs:element name="regionId" type="xs:string" minOccurs="0"/>
+				<xs:element name="city" type="xs:string" minOccurs="0"/>
+				<xs:element name="marketing" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="comingSoon" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="flag" type="xs:string" minOccurs="0"/>
+										<xs:element name="description" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="wifiAccess" type="xs:string" minOccurs="0"/>
+				<xs:element name="companyName" type="xs:string" minOccurs="0"/>
+				<xs:element name="brandId" type="xs:string" minOccurs="0"/>
+				<xs:element name="hours" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Monday" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="comment" minOccurs="0"/>
+										<xs:element name="close" minOccurs="0"/>
+										<xs:element name="open" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Tuesday" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="comment" type="xs:string" minOccurs="0"/>
+										<xs:element name="close" type="xs:string" minOccurs="0"/>
+										<xs:element name="open" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Friday" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="comment" type="xs:string" minOccurs="0"/>
+										<xs:element name="close" type="xs:string" minOccurs="0"/>
+										<xs:element name="open" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Sunday" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="comment" type="xs:string" minOccurs="0"/>
+										<xs:element name="close" type="xs:string" minOccurs="0"/>
+										<xs:element name="open" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Thursday" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="comment" type="xs:string" minOccurs="0"/>
+										<xs:element name="close" type="xs:string" minOccurs="0"/>
+										<xs:element name="open" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Wednesday" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="comment" type="xs:string" minOccurs="0"/>
+										<xs:element name="close" type="xs:string" minOccurs="0"/>
+										<xs:element name="open" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Saturday" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="comment" type="xs:string" minOccurs="0"/>
+										<xs:element name="close" type="xs:string" minOccurs="0"/>
+										<xs:element name="open" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="inStorePickUp" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="inStorePickUpLocation" type="xs:string" minOccurs="0"/>
+							<xs:element name="inStorePickUpInstructions" type="xs:string" minOccurs="0"/>
+							<xs:element name="participating" type="xs:string" minOccurs="0"/>
+							<xs:element name="pickUpService" type="xs:string" minOccurs="0"/>
+							<xs:element name="shipToStoreSLA" type="xs:string" minOccurs="0"/>
+							<xs:element name="inStorePickUpSLA" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="pickPackService" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="storeMaxUnits" type="xs:int" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="storeFriendlyName" type="xs:string" minOccurs="0"/>
+				<xs:element name="ipValidationBypass" type="xs:string" minOccurs="0"/>
+				<xs:element name="districtID" type="xs:string" minOccurs="0"/>
+				<xs:element name="services" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="inStorePickUp" type="xs:string" minOccurs="0"/>
+							<xs:element name="fdis" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="inStorePickUpMessage" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="slug" type="xs:string" minOccurs="0"/>
+				<xs:element name="count" type="xs:string" minOccurs="0"/>
+				<xs:element name="addresses" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="marketing" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="city" type="xs:string" minOccurs="0"/>
+										<xs:element name="zip" type="xs:string" minOccurs="0"/>
+										<xs:element name="name" type="xs:string" minOccurs="0"/>
+										<xs:element name="addressLineTwo" type="xs:string" minOccurs="0"/>
+										<xs:element name="addressLineOne" type="xs:string" minOccurs="0"/>
+										<xs:element name="country" type="xs:string" minOccurs="0"/>
+										<xs:element name="state" type="xs:string" minOccurs="0"/>
+										<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="iso2" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="country" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="storeCloseDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="districtId" type="xs:string" minOccurs="0"/>
+				<xs:element name="plannedClimate" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeIndex" type="xs:string" minOccurs="0"/>
+				<xs:element name="srcId" type="xs:string" minOccurs="0"/>
+				<xs:element name="compStoreDate1" type="xs:string" minOccurs="0"/>
+				<xs:element name="odsHash" type="xs:string" minOccurs="0"/>
+				<xs:element name="uo" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="withoutWalls" type="xs:string" minOccurs="0"/>
+							<xs:element name="womensOnly" type="xs:string" minOccurs="0"/>
+							<xs:element name="extendedShoes" type="xs:string" minOccurs="0"/>
+							<xs:element name="inStorePickUp" type="xs:string" minOccurs="0"/>
+							<xs:element name="vinyl" type="xs:string" minOccurs="0"/>
+							<xs:element name="apartmentHome" type="xs:string" minOccurs="0"/>
+							<xs:element name="urbanRenewal" type="xs:string" minOccurs="0"/>
+							<xs:element name="extendedBeauty" type="xs:string" minOccurs="0"/>
+							<xs:element name="mensOnly" type="xs:string" minOccurs="0"/>
+							<xs:element name="tortoiseAndBlonde" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="playId" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeOpenDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="social" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="pintrest" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="username" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="twitter" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="username" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="foursquare" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="username" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="facebook" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="username" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="instagram" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="username" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="timeZone" type="xs:string" minOccurs="0"/>
+				<xs:element name="country" type="xs:string" minOccurs="0"/>
+				<xs:element name="sellingSquareFeet" type="xs:string" minOccurs="0"/>
+				<xs:element name="published" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

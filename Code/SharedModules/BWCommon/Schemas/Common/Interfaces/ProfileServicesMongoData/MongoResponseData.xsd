@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MongoResponseData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProfileData" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ProfileData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="subscriptions" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="created" type="xs:string" minOccurs="0"/>
+							<xs:element name="lastModified" type="xs:string" minOccurs="0"/>
+							<xs:element name="loyalty" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="loyaltyId" type="xs:string" minOccurs="0"/>
+										<xs:element name="channelId" type="xs:string" minOccurs="0"/>
+										<xs:element name="loyaltyDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="channel" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="id" type="xs:string" minOccurs="0"/>
+							<xs:element name="pushNotifications" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="token" type="xs:string" minOccurs="0"/>
+										<xs:element name="subscriptionCategories" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="tokenType" type="xs:string" minOccurs="0"/>
+										<xs:element name="pushAllowed" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+							<xs:element name="email" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="email" type="xs:string" minOccurs="0"/>
+										<xs:element name="optedIn" type="xs:string" minOccurs="0"/>
+										<xs:element name="categories" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="date" type="xs:string" minOccurs="0"/>
+													<xs:element name="aid" type="xs:string" minOccurs="0"/>
+													<xs:element name="sub" type="xs:string" minOccurs="0"/>
+													<xs:element name="listName" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="subscriptions" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="currentEmailId" type="xs:string" minOccurs="0"/>
+							<xs:element name="action" type="xs:string" minOccurs="0"/>
+							<xs:element name="gender" type="xs:string" minOccurs="0"/>
+							<xs:element name="listName" type="xs:string" minOccurs="0"/>
+							<xs:element name="source" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="preferences" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="web" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="interstitialDeclined" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="lastModified" type="xs:string" minOccurs="0"/>
+							<xs:element name="mobileApp" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="coachmarkMyuoSeen" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="loyaltyAppDownloaded" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="loyaltySetupWizard" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="loyaltyInterstitialCancel" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="braze" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="androidAppVersion" type="xs:string" minOccurs="0"/>
+													<xs:element name="androidDevice" type="xs:string" minOccurs="0"/>
+													<xs:element name="androidDeviceOs" type="xs:string" minOccurs="0"/>
+													<xs:element name="appDownload" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="deviceSupportsApplePay" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="firstUsed" type="xs:string" minOccurs="0"/>
+													<xs:element name="hasApplePaySetup" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="iosAppVersion" type="xs:string" minOccurs="0"/>
+													<xs:element name="iosDevice" type="xs:string" minOccurs="0"/>
+													<xs:element name="iosDeviceOs" type="xs:string" minOccurs="0"/>
+													<xs:element name="lastReceived" type="xs:string" minOccurs="0"/>
+													<xs:element name="lastUsed" type="xs:string" minOccurs="0"/>
+													<xs:element name="locationEnabled" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="pushEnabled" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="pushSubscribe" type="xs:string" minOccurs="0"/>
+													<xs:element name="sessions" type="xs:integer" minOccurs="0"/>
+													<xs:element name="uninstalled" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="webBrowser" type="xs:string" minOccurs="0"/>
+													<xs:element name="webDeviceOs" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="global" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="language" type="xs:string" minOccurs="0"/>
+										<xs:element name="country" type="xs:string" minOccurs="0"/>
+										<xs:element name="profilePhoto" type="xs:string" minOccurs="0"/>
+										<xs:element name="favoriteStores" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="currency" type="xs:string" minOccurs="0"/>
+										<xs:element name="coverPhoto" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="socialMedia" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="twitter" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="userName" type="xs:string" minOccurs="0"/>
+													<xs:element name="oAuthTokenSecret" type="xs:string" minOccurs="0"/>
+													<xs:element name="connected" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="oAuthToken" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="facebook" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="userName" type="xs:string" minOccurs="0"/>
+													<xs:element name="oAuthTokenSecret" type="xs:string" minOccurs="0"/>
+													<xs:element name="connected" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="oAuthToken" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="instagram" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="userName" type="xs:string" minOccurs="0"/>
+													<xs:element name="oAuthTokenSecret" type="xs:string" minOccurs="0"/>
+													<xs:element name="connected" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="oAuthToken" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="id" type="xs:string" minOccurs="0"/>
+							<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="profile" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="userName" type="xs:string" minOccurs="0"/>
+							<xs:element name="sterlingId" type="xs:string" minOccurs="0"/>
+							<xs:element name="name" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="middle" type="xs:string" minOccurs="0"/>
+										<xs:element name="prefix" type="xs:string" minOccurs="0"/>
+										<xs:element name="last" type="xs:string" minOccurs="0"/>
+										<xs:element name="suffix" type="xs:string" minOccurs="0"/>
+										<xs:element name="first" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="created" type="xs:string" minOccurs="0"/>
+							<xs:element name="gender" type="xs:string" minOccurs="0"/>
+							<xs:element name="brand" type="xs:string" minOccurs="0"/>
+							<xs:element name="site" type="xs:string" minOccurs="0"/>
+							<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+							<xs:element name="dateOfBirth" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="year" type="xs:string" minOccurs="0"/>
+										<xs:element name="day" type="xs:string" minOccurs="0"/>
+										<xs:element name="month" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+							<xs:element name="student" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="college" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="graduation" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="lastModified" type="xs:string" minOccurs="0"/>
+							<xs:element name="employee" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="employeeId" type="xs:string" minOccurs="0"/>
+										<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+										<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+										<xs:element name="authUserEmployee" type="xs:string" minOccurs="0"/>
+										<xs:element name="userType" type="xs:string" minOccurs="0"/>
+										<xs:element name="storeNumber" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="defaultPaymentId" type="xs:string" minOccurs="0"/>
+							<xs:element name="defaultShippingAddressId" type="xs:string" minOccurs="0"/>
+							<xs:element name="id" type="xs:string" minOccurs="0"/>
+							<xs:element name="guest" type="xs:string" minOccurs="0"/>
+							<xs:element name="language" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="credentials" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="newPassword" type="xs:string" minOccurs="0"/>
+							<xs:element name="oldPassword" type="xs:string" minOccurs="0"/>
+							<xs:element name="login" type="xs:string" minOccurs="0"/>
+							<xs:element name="exceededMaxLoginAttempts" type="xs:string" minOccurs="0"/>
+							<xs:element name="lastPasswordChangeDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="registeredDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="lastActivityDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="userId" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="addresses" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="sterling" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="personInfoKey" type="xs:string" minOccurs="0"/>
+										<xs:element name="addressId" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="cartId" type="xs:string" minOccurs="0"/>
+							<xs:element name="lastModified" type="xs:string" minOccurs="0"/>
+							<xs:element name="atgId" type="xs:string" minOccurs="0"/>
+							<xs:element name="visible" type="xs:string" minOccurs="0"/>
+							<xs:element name="activeCartIds" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="address" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="city" type="xs:string" minOccurs="0"/>
+										<xs:element name="poBox" type="xs:string" minOccurs="0"/>
+										<xs:element name="name" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="middle" type="xs:string" minOccurs="0"/>
+													<xs:element name="prefix" type="xs:string" minOccurs="0"/>
+													<xs:element name="last" type="xs:string" minOccurs="0"/>
+													<xs:element name="suffix" type="xs:string" minOccurs="0"/>
+													<xs:element name="first" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="address1" type="xs:string" minOccurs="0"/>
+										<xs:element name="address2" type="xs:string" minOccurs="0"/>
+										<xs:element name="address3" type="xs:string" minOccurs="0"/>
+										<xs:element name="verificationStatus" type="xs:string" minOccurs="0"/>
+										<xs:element name="county" type="xs:string" minOccurs="0"/>
+										<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+										<xs:element name="masked" type="xs:string" minOccurs="0"/>
+										<xs:element name="country" type="xs:string" minOccurs="0"/>
+										<xs:element name="postalCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="region" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+							<xs:element name="nickName" type="xs:string" minOccurs="0"/>
+							<xs:element name="id" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="addressReset" type="xs:string" minOccurs="0"/>
+				<xs:element name="dataCentre" type="xs:string" minOccurs="0"/>
+				<xs:element name="profileIdTrigger" type="xs:string" minOccurs="0"/>
+				<xs:element name="sterlingCounter" type="xs:string" minOccurs="0"/>
+				<xs:element name="triggerData" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="resource" type="xs:string" minOccurs="0"/>
+							<xs:element name="method" type="xs:string" minOccurs="0"/>
+							<xs:element name="type" type="xs:string" minOccurs="0"/>
+							<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+							<xs:element name="id" type="xs:string" minOccurs="0"/>
+							<xs:element name="brand" type="xs:string" minOccurs="0"/>
+							<xs:element name="site" type="xs:string" minOccurs="0"/>
+							<xs:element name="language" type="xs:string" minOccurs="0"/>
+							<xs:element name="currency" type="xs:string" minOccurs="0"/>
+							<xs:element name="dataCenter" type="xs:string" minOccurs="0"/>
+							<xs:element name="retryCount" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

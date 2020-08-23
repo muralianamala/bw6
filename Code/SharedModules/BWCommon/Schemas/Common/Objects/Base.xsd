@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/base"
+	 targetNamespace="http://www.urbanoutfitters.com/co/base"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:complexType name="HeaderType">
+		<xs:sequence>
+			<xs:element name="requestStartTime" type="xs:string" minOccurs="0"/>
+			<xs:element name="trackingId" type="xs:string" minOccurs="0"/>
+			<xs:element name="version" type="xs:string" minOccurs="0"/>
+			<xs:element name="clientId" type="xs:string" minOccurs="0"/>
+			<xs:element name="clientTimeOut" type="xs:string" minOccurs="0"/>
+			<xs:element name="source" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

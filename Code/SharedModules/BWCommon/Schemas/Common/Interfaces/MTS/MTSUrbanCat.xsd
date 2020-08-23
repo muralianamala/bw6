@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/MTS/MTSUrbanCat"
+	 xmlns:ns0="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/MTS/MTSUrbanCat"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="MTS" type="MTSType"/>
+	<xs:complexType name="MTSType">
+		<xs:sequence>
+			<xs:element name="Header" type="ns0:HeaderType" minOccurs="0"/>
+			<xs:element name="MTSData" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="sourceSystem" type="xs:string" minOccurs="0"/>
+						<xs:element name="locale" type="xs:string" minOccurs="0"/>
+						<xs:element name="styleNum" type="xs:string" minOccurs="0"/>
+						<xs:element name="brand" type="xs:string" minOccurs="0"/>
+						<xs:element name="description" type="xs:string" minOccurs="0"/>
+						<xs:element name="dimensions" type="xs:string" minOccurs="0"/>
+						<xs:element name="displayName" type="xs:string" minOccurs="0"/>
+						<xs:element name="longDescription" type="xs:string" minOccurs="0"/>
+						<xs:element name="modelNotes" type="xs:string" minOccurs="0"/>
+						<xs:element name="moreInfo" type="xs:string" minOccurs="0"/>
+						<xs:element name="isWebExclusive" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="keywords" type="xs:string" minOccurs="0"/>
+						<xs:element name="supplierSku" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

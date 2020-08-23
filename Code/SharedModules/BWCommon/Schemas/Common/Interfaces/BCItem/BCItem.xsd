@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com//BCItem"
+	 targetNamespace="http://www.urbanoutfitters.com//BCItem"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="BCItemSchema">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="applicationName" type="xs:string" minOccurs="0"/>
+							<xs:element name="trackingId" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BCItem" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="ItemHeader" minOccurs="0"/>
+							<xs:element ref="ItemDetail" minOccurs="0"/>
+							<xs:element name="PublishFields" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="CartonGroup" type="xs:string" minOccurs="0"/>
+										<xs:element name="WMActionCode" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ItemHeader">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Class" type="xs:string" minOccurs="0"/>
+				<xs:element name="Vendor" type="xs:string" minOccurs="0"/>
+				<xs:element name="Style" type="xs:string" minOccurs="0"/>
+				<xs:element name="Color" type="xs:string" minOccurs="0"/>
+				<xs:element name="Size" type="xs:string" minOccurs="0"/>
+				<xs:element name="TicketFormat" type="xs:string" minOccurs="0"/>
+				<xs:element name="ItemHoldIndicator" type="xs:string" minOccurs="0"/>
+				<xs:element name="UserDefStatus" type="xs:string" minOccurs="0"/>
+				<xs:element name="ShortSKUNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="ItemDesc" type="xs:string" minOccurs="0"/>
+				<xs:element name="ShortDesc" type="xs:string" minOccurs="0"/>
+				<xs:element name="VendorStyleNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="ISBNNum" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ItemDetail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="FKEY" type="xs:string" minOccurs="0"/>
+				<xs:element name="STYLE" type="xs:string" minOccurs="0"/>
+				<xs:element name="COLOR_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SIZE_DESC" type="xs:string" minOccurs="0"/>
+				<xs:element name="RET_PRICE" type="xs:string" minOccurs="0"/>
+				<xs:element name="STYLE_NAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="COLOR_NAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="UPC" type="xs:string" minOccurs="0"/>
+				<xs:element name="NRF_COLOR" type="xs:string" minOccurs="0"/>
+				<xs:element name="NRF_SIZE" type="xs:string" minOccurs="0"/>
+				<xs:element name="ORIG_DATE" type="xs:string" minOccurs="0"/>
+				<xs:element name="EXP_DATE" type="xs:string" minOccurs="0"/>
+				<xs:element name="LAST_SENT" type="xs:string" minOccurs="0"/>
+				<xs:element name="CATG_DEST" type="xs:string" minOccurs="0"/>
+				<xs:element name="CATG_NUM" type="xs:string" minOccurs="0"/>
+				<xs:element name="ACT_STATUS" type="xs:string" minOccurs="0"/>
+				<xs:element name="ACT_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="CATG_DESC" type="xs:string" minOccurs="0"/>
+				<xs:element name="VND_QUAL" type="xs:string" minOccurs="0"/>
+				<xs:element name="VND_ID" type="xs:string" minOccurs="0"/>
+				<xs:element name="DIVISION" type="xs:string" minOccurs="0"/>
+				<xs:element name="LBL_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="DIMENSION" type="xs:string" minOccurs="0"/>
+				<xs:element name="CONT_DESC" type="xs:string" minOccurs="0"/>
+				<xs:element name="CONT_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFSCO1C" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFSCO2C" type="xs:string" minOccurs="0"/>
+				<xs:element name="PPACK_OK" type="xs:string" minOccurs="0"/>
+				<xs:element name="PACK_QTY" type="xs:string" minOccurs="0"/>
+				<xs:element name="GAR_WGT" type="xs:string" minOccurs="0"/>
+				<xs:element name="CUBIC" type="xs:string" minOccurs="0"/>
+				<xs:element name="EAN" type="xs:string" minOccurs="0"/>
+				<xs:element name="COLOR_DESC" type="xs:string" minOccurs="0"/>
+				<xs:element name="A_PRICE" type="xs:string" minOccurs="0"/>
+				<xs:element name="MIN_MULTIPLE" type="xs:string" minOccurs="0"/>
+				<xs:element name="UOM" type="xs:string" minOccurs="0"/>
+				<xs:element name="COUNTRY" type="xs:string" minOccurs="0"/>
+				<xs:element name="HS_NUM" type="xs:string" minOccurs="0"/>
+				<xs:element name="PCK_WGT" type="xs:string" minOccurs="0"/>
+				<xs:element name="PCK_MIN_MULTIPLE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SEASON" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFDIV1C" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFDLV1C" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFDLV2C" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE1" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE2" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE3" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE4" type="xs:string" minOccurs="0"/>
+				<xs:element name="PKEY" type="xs:string" minOccurs="0"/>
+				<xs:element name="ISO_CODE_CHAR" type="xs:string" minOccurs="0"/>
+				<xs:element name="ISO_CODE_2" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFDIV2C" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE5" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE6" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE7" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE8" type="xs:string" minOccurs="0"/>
+				<xs:element name="PRODUCT_ID" type="xs:string" minOccurs="0"/>
+				<xs:element name="TAX_EMPT" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEE" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEF" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEG" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEH" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFSTY3C" type="xs:string" minOccurs="0"/>
+				<xs:element name="STYLE_DESC" type="xs:string" minOccurs="0"/>
+				<xs:element name="DELV_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="B_PRICE" type="xs:string" minOccurs="0"/>
+				<xs:element name="C_PRICE" type="xs:string" minOccurs="0"/>
+				<xs:element name="D_PRICE" type="xs:string" minOccurs="0"/>
+				<xs:element name="E_PRICE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SIZE_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SIZEBUCKET" type="xs:string" minOccurs="0"/>
+				<xs:element name="SIZE_DESC_EXTD" type="xs:string" minOccurs="0"/>
+				<xs:element name="INR_QTY" type="xs:string" minOccurs="0"/>
+				<xs:element name="SUPPLIER_NUM" type="xs:string" minOccurs="0"/>
+				<xs:element name="PPK_IND" type="xs:string" minOccurs="0"/>
+				<xs:element name="PRODTYPE1" type="xs:string" minOccurs="0"/>
+				<xs:element name="QUANTITY1" type="xs:string" minOccurs="0"/>
+				<xs:element name="PRODTYPE2" type="xs:string" minOccurs="0"/>
+				<xs:element name="QUANTITY2" type="xs:string" minOccurs="0"/>
+				<xs:element name="PRODTYPE3" type="xs:string" minOccurs="0"/>
+				<xs:element name="QUANTITY3" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEI" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEJ" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEK" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEL" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEM" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEA" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEB" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMEC" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_NAMED" type="xs:string" minOccurs="0"/>
+				<xs:element name="HS_NUM2" type="xs:string" minOccurs="0"/>
+				<xs:element name="FILE_DESC" type="xs:string" minOccurs="0"/>
+				<xs:element name="STOR_FILE" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFSTY2C" type="xs:string" minOccurs="0"/>
+				<xs:element name="PRIMARY_VENDOR" type="xs:string" minOccurs="0"/>
+				<xs:element name="STD_COST" type="xs:string" minOccurs="0"/>
+				<xs:element name="LOC_NAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="ROY_CLS" type="xs:string" minOccurs="0"/>
+				<xs:element name="ROYALTY" type="xs:string" minOccurs="0"/>
+				<xs:element name="GIFTBOXSKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="THIRD_PARTY_ITEM" type="xs:string" minOccurs="0"/>
+				<xs:element name="FILE_DESC_HDR" type="xs:string" minOccurs="0"/>
+				<xs:element name="STOR_FILE_HDR" type="xs:string" minOccurs="0"/>
+				<xs:element name="HS_NAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="HS_NAME2" type="xs:string" minOccurs="0"/>
+				<xs:element name="DIV_NAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="ST_PRODUCT_ID" type="xs:string" minOccurs="0"/>
+				<xs:element name="MST_QTY" type="xs:string" minOccurs="0"/>
+				<xs:element name="COO_832" type="xs:string" minOccurs="0"/>
+				<xs:element name="CONT_DESC_EXT" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE9" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFUPCC1" type="xs:string" minOccurs="0"/>
+				<xs:element name="UDFUPCC2" type="xs:string" minOccurs="0"/>
+				<xs:element name="CNTY_NAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="COO_832_ISO_3" type="xs:string" minOccurs="0"/>
+				<xs:element name="COO_832_CNTY_NAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="HS_ID" type="xs:string" minOccurs="0"/>
+				<xs:element name="HS_NUM_TO_CNTY" type="xs:string" minOccurs="0"/>
+				<xs:element name="TR_SIZE_DESC" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE10" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE11" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE12" type="xs:string" minOccurs="0"/>
+				<xs:element name="GROUP_CODE13" type="xs:string" minOccurs="0"/>
+				<xs:element name="COLOR_GROUP" type="xs:string" minOccurs="0"/>
+				<xs:element name="DESIGN_NUM" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

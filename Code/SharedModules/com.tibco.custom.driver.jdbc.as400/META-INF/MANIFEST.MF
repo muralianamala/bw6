@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As400
+Bundle-SymbolicName: com.tibco.custom.driver.jdbc.as400
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: lib/jt400-java8.jar, .
+Bundle-Vendor: TIBCO
+Export-Package: com.tibco.custom.driver.jdbc.as400;version="1.0.0.qualifier"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: OSGI-INF/customDataSourceFactory.xml
+Import-Package: org.eclipse.osgi.framework.console;version="1.0.0",
+ org.osgi.framework;version="[1.6.0,2.0.0)",
+ org.osgi.service.jdbc;version="[1.0.0,2.0.0)",
+ org.osgi.util.tracker;version="1.3.1"

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema targetNamespace="http://www.urbanoutfitters.com/leaf/auditclient"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.urbanoutfitters.com/leaf/auditclient">
+	<xsd:complexType name="ProcessContext">
+		<xsd:sequence>
+			<xsd:element name="ProcessId" type="xsd:string" form="unqualified"/>
+			<xsd:element name="ProjectName" type="xsd:string" form="unqualified"/>
+			<xsd:element name="EngineName" type="xsd:string" form="unqualified"/>
+			<xsd:element name="RestartedFromCheckpoint" type="xsd:boolean" form="unqualified"/>
+			<xsd:element name="TrackingInfo" type="xsd:string" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CustomId" type="xsd:string" form="unqualified" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ProcessContext" type="ProcessContext"/>
+	<xsd:element name="AuditEventSchema">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AuditEvent">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ProcessName" type="xsd:string"/>
+							<xsd:element name="Event" type="xsd:string"/>
+							<xsd:element name="EventDescription" type="xsd:string" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AuditType">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="Fatal"/>
+							<xsd:enumeration value="Error"/>
+							<xsd:enumeration value="Warning"/>
+							<xsd:enumeration value="Info"/>
+							<xsd:enumeration value="Trace"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="AuditRepo" default="DB" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="DB"/>
+							<xsd:enumeration value="FILE"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Domain" type="xsd:string"/>
+				<xsd:element name="AuditContext" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Name" type="xsd:string"/>
+							<xsd:element name="Key" type="xsd:string"/>
+							<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element ref="AuditKeys" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="AuditAttachments" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AddAuditInput">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="AuditEventLogSchema"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AddAuditOutput">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Status" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AuditEventLogSchema">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ProcessContext"/>
+				<xsd:element ref="AuditEventLoggedDateTime"/>
+				<xsd:element ref="AuditEventSchema"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AuditEventLoggedDateTime" type="xsd:dateTime"/>
+	<xsd:element name="AuditAttachments">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Name" type="xsd:string"/>
+				<xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Data" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AuditKeys">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Key" type="xsd:string"/>
+				<xsd:element name="DataType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Value" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AuditNotificationStructure">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="audit_id" type="xsd:double"/>
+				<xsd:element ref="AuditEventLogSchema"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/RyderStatus/RyderStatus"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/RyderStatus/RyderStatus"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="RyderStatus" type="RyderStatusType"/>
+	<xs:complexType name="RyderStatusType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="Document" minOccurs="0">
+	<xs:complexType>
+			<xs:sequence>
+				<xs:element name="OrderInfo" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="OrderNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="Account" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Code" type="xs:string" minOccurs="0"/>
+										<xs:element name="Name" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RLMtracking" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderReferences" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+							<xs:element name="ConsigneeInfo" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipperInfo" type="xs:string" minOccurs="0"/>
+							<xs:element name="ServiceLocation" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrentOrderStatus" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Sequence" type="xs:string" minOccurs="0"/>
+										<xs:element name="StatusCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="Description" type="xs:string" minOccurs="0"/>
+										<xs:element name="City" type="xs:string" minOccurs="0"/>
+										<xs:element name="State" type="xs:string" minOccurs="0"/>
+										<xs:element name="Zip" type="xs:string" minOccurs="0"/>
+										<xs:element name="DateTime" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="MileStoneEvents" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="StatusCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="Description" type="xs:string" minOccurs="0"/>
+										<xs:element name="City" type="xs:string" minOccurs="0"/>
+										<xs:element name="State" type="xs:string" minOccurs="0"/>
+										<xs:element name="DateTime" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RLMParentTracking" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ShipmentInfo" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

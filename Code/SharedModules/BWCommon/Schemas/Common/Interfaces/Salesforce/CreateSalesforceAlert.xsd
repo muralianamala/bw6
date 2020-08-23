@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="SalesForceAlert">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SalesForceAlertRequest" minOccurs="0"/>
+				<xs:element ref="SalesForceAlertResponse" minOccurs="0"/>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SalesForceAlertRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RecordType" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Name" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Account" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Primary_Digital_Customer_ID__c" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SuppliedEmail" type="xs:string" minOccurs="0"/>
+				<xs:element name="SuppliedName" type="xs:string" minOccurs="0"/>
+				<xs:element name="Origin" type="xs:string" minOccurs="0"/>
+				<xs:element name="Description" type="xs:string" minOccurs="0"/>
+				<xs:element name="Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Escalation_Reason__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="Order_Number__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="Alert_Key__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="Subject" type="xs:string" minOccurs="0"/>
+				<xs:element name="CC_Brand__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="SKU__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="SKU_Description__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="Node__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="Pick_Ticket_Number__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="Priority" type="xs:string" minOccurs="0"/>
+				<xs:element name="Topic__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="Source" type="xs:string" minOccurs="0"/>
+				<xs:element name="Locale__c" type="xs:string" minOccurs="0"/>
+				<xs:element name="requestHeader" type="base:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SalesForceAlertResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:string" minOccurs="0"/>
+				<xs:element name="success" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="errors" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="warnings" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

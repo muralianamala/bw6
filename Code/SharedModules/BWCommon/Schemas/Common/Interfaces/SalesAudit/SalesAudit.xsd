@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns="http://www.urbanoutfitters.com/salesaudit/salesaudit"
+	 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://www.urbanoutfitters.com/salesaudit/salesaudit"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="SalesAudit" type="SalesAudittype"/>
+	<xs:complexType name="SalesAudittype">
+		<xs:sequence>
+			<xs:element ref="Header"/>
+			<xs:element ref="Detail" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Tender" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DropShip" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Vertex" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="AspectHeader" minOccurs="0"/>
+			<xs:element ref="AspectLine" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="AspectTender" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="recordType" type="xs:string" minOccurs="0"/>
+				<xs:element name="shipmentNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="transactionType" type="xs:string" minOccurs="0"/>
+				<xs:element name="date" type="xs:string" minOccurs="0"/>
+				<xs:element name="time" type="xs:string" minOccurs="0"/>
+				<xs:element name="totalTax4" type="xs:string" minOccurs="0"/>
+				<xs:element name="arAccountNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="sterlingNoder" type="xs:string" minOccurs="0"/>
+				<xs:element name="sterlingNodeType" type="xs:string" minOccurs="0"/>
+				<xs:element name="dcStore" type="xs:string" minOccurs="0"/>
+				<xs:element name="siteID" type="xs:string" minOccurs="0"/>
+				<xs:element name="currecny" type="xs:string" minOccurs="0"/>
+				<xs:element name="exchangeRate" type="xs:string" minOccurs="0"/>
+				<xs:element name="country" type="xs:string" minOccurs="0"/>
+				<xs:element name="settlementStoreNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="originalStoreNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="TaxRateCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="mpOrderId" type="xs:string" minOccurs="0"/>
+				<xs:element name="miraklReferenceField" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Detail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="recordType" type="xs:string" minOccurs="0"/>
+				<xs:element name="shipmentNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="sequence" type="xs:string" minOccurs="0"/>
+				<xs:element name="itemCodeType" type="xs:string" minOccurs="0"/>
+				<xs:element name="itemCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="quantity" type="xs:string" minOccurs="0"/>
+				<xs:element name="extendedSalePrice" type="xs:string" minOccurs="0"/>
+				<xs:element name="discountAmount" type="xs:string" minOccurs="0"/>
+				<xs:element name="discountCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="returnFlag" type="xs:string" minOccurs="0"/>
+				<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="returnReasonCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="appliesToTax" type="xs:string" minOccurs="0"/>
+				<xs:element name="giftRegistryNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="extnRegistryID" type="xs:string" minOccurs="0"/>
+				<xs:element name="dealNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="couponNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="miraklReferenceField" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Tender">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="recordType" type="xs:string" minOccurs="0"/>
+				<xs:element name="shipmentNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="storeNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="sequenceNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="code" type="xs:string" minOccurs="0"/>
+				<xs:element name="amount" type="xs:string" minOccurs="0"/>
+				<xs:element name="accountGiftCertificate" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DropShip">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Store" type="xs:string" minOccurs="0"/>
+				<xs:element name="Date" type="xs:string" minOccurs="0"/>
+				<xs:element name="transactionNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="orderNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="vendorNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="sku" type="xs:string" minOccurs="0"/>
+				<xs:element name="qty" type="xs:string" minOccurs="0"/>
+				<xs:element name="edpNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="unitRetail" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Vertex">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="companyCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="documentNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="documentDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="messageType" type="xs:string" minOccurs="0"/>
+				<xs:element name="divisionCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="currCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="originalCurrCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="postingDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="destinationTaxAreaId" type="xs:string" minOccurs="0"/>
+				<xs:element name="destinationStreet" type="xs:string" minOccurs="0"/>
+				<xs:element name="destinationStreet2" type="xs:string" minOccurs="0"/>
+				<xs:element name="destinationCity" type="xs:string" minOccurs="0"/>
+				<xs:element name="destinationMainDivision" type="xs:string" minOccurs="0"/>
+				<xs:element name="destinationPostalCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="destinationCountry" type="xs:string" minOccurs="0"/>
+				<xs:element name="extendedPrice" type="xs:string" minOccurs="0"/>
+				<xs:element name="quantity" type="xs:string" minOccurs="0"/>
+				<xs:element name="unitPrice" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField1" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField2" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField3" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField4" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField5" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField6" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField7" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField8" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField9" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField10" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleCodeField11" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleDateField1" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleNumericField1" type="xs:string" minOccurs="0"/>
+				<xs:element name="flexibleNumericField2" type="xs:string" minOccurs="0"/>
+				<xs:element name="inputTotalTax" type="xs:string" minOccurs="0"/>
+				<xs:element name="landedCost" type="xs:string" minOccurs="0"/>
+				<xs:element name="lineItemNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="locationCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="productCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="productClassCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="taxIncludedInd" type="xs:string" minOccurs="0"/>
+				<xs:element name="freight" type="xs:string" minOccurs="0"/>
+				<xs:element name="destinationCurrConversion" type="xs:string" minOccurs="0"/>
+				<xs:element name="destinationCurrUnit" type="xs:string" minOccurs="0"/>
+				<xs:element name="intrastatCommodityCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="weight" type="xs:string" minOccurs="0"/>
+				<xs:element name="physicalOriginTaxAreaId" type="xs:string" minOccurs="0"/>
+				<xs:element name="physicalOriginStreet" type="xs:string" minOccurs="0"/>
+				<xs:element name="physicalOriginStreet2" type="xs:string" minOccurs="0"/>
+				<xs:element name="physicalOriginCity" type="xs:string" minOccurs="0"/>
+				<xs:element name="physicalOriginMainDivision" type="xs:string" minOccurs="0"/>
+				<xs:element name="physicalOriginPostalCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="physicalOriginCountry" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AspectHeader">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="recordType" type="xs:string" minOccurs="0"/>
+				<xs:element name="orderNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="division" type="xs:string" minOccurs="0"/>
+				<xs:element name="store" type="xs:string" minOccurs="0"/>
+				<xs:element name="businessDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="registerNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="transactionNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="associateNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingCustomerId" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingFirstName" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingLastName" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingAddress1" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingAddress2" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingAddress3" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingAddress4" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingCity" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingState" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingPostalCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingCountry" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingPhone" type="xs:string" minOccurs="0"/>
+				<xs:element name="billingEmail" type="xs:string" minOccurs="0"/>
+				<xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+				<xs:element name="transactionType" type="xs:string" minOccurs="0"/>
+				<xs:element name="transactionDiscountAmount" type="xs:string" minOccurs="0"/>
+				<xs:element name="transactionTime" type="xs:string" minOccurs="0"/>
+				<xs:element name="totalTax" type="xs:string" minOccurs="0"/>
+				<xs:element name="fulfillmentNode" type="xs:string" minOccurs="0"/>
+				<xs:element name="shipmentNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="employeePurchaseId" type="xs:string" minOccurs="0"/>
+				<xs:element name="orderType" type="xs:string" minOccurs="0"/>
+				<xs:element name="orderPurpose" type="xs:string" minOccurs="0"/>
+				<xs:element name="salesOrderNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="entryType" type="xs:string" minOccurs="0"/>
+				<xs:element name="currencyCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="enterpriseCurrencyCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="registeredCustomer" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingCustomerId" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingFirstName" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingLastName" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingAddress1" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingAddress2" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingAddress3" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingAddress4" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingCity" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingState" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingPostalCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingCountry" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingPhone" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingEmail" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingVendor" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingMethod" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AspectLine">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="recordType" type="xs:string" minOccurs="0"/>
+				<xs:element name="division" type="xs:string" minOccurs="0"/>
+				<xs:element name="store" type="xs:string" minOccurs="0"/>
+				<xs:element name="businessDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="registerNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="transactionNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="lineItemNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="description" type="xs:string" minOccurs="0"/>
+				<xs:element name="deptNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="classNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="style" type="xs:string" minOccurs="0"/>
+				<xs:element name="colorCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="sizeCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="saleQty" type="xs:string" minOccurs="0"/>
+				<xs:element name="systemPrice" type="xs:string" minOccurs="0"/>
+				<xs:element name="discountAmount" type="xs:string" minOccurs="0"/>
+				<xs:element name="finalPrice" type="xs:string" minOccurs="0"/>
+				<xs:element name="nonMerchIndicator" type="xs:string" minOccurs="0"/>
+				<xs:element name="giftCardAccountNumber" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AspectTender">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="recordType" type="xs:string" minOccurs="0"/>
+				<xs:element name="division" type="xs:string" minOccurs="0"/>
+				<xs:element name="store" type="xs:string" minOccurs="0"/>
+				<xs:element name="businessDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="registerNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="transactionNum" type="xs:string" minOccurs="0"/>
+				<xs:element name="tenderCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="amount" type="xs:string" minOccurs="0"/>
+				<xs:element name="creditCardAcct" type="xs:string" minOccurs="0"/>
+				<xs:element name="accountNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="giftCardBalance" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

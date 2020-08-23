@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="URBANTIBCOCustomXPathFunction"
+         name="URBANTIBCOCustomXPathFunction"
+         point="com.tibco.xml.cxf.common.customXPathFunction">
+      <customXPathFunctionGroup
+            class="md5.URBANTIBCOCustomXPathFunction"
+            id="md5">
+      </customXPathFunctionGroup>
+   </extension>
+
+</plugin>

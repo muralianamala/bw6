@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="despatchConsignment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="despatchConsignmentWithBookingCode" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="despatchConsignmentWithBookingCode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EVENTCODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="WAREHOUSE" type="xs:string" minOccurs="0"/>
+				<xs:element name="cartonId" type="xs:string" minOccurs="0"/>
+				<xs:element name="bookingCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="carrierServiceCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="carrierConsignmentCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="status" type="xs:string" minOccurs="0"/>
+				<xs:element name="despatchDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="earliestDeliveryDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="guaranteedDeliveryDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="cutOffDate" type="xs:string" minOccurs="0"/>
+				<xs:element name="DATECREATED" type="xs:string" minOccurs="0"/>
+				<xs:element name="TIMECREATED" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingCost" type="xs:string" minOccurs="0"/>
+				<xs:element name="shippingCharge" type="xs:string" minOccurs="0"/>
+				<xs:element name="taxAndDuty" type="xs:string" minOccurs="0"/>
+				<xs:element name="FORMATpropertyName" type="xs:string" minOccurs="0"/>
+				<xs:element name="FORMATpropertyValue" type="xs:string" minOccurs="0"/>
+				<xs:element name="cartonNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="COMPANY" type="xs:string" minOccurs="0"/>
+				<xs:element name="DIVISION" type="xs:string" minOccurs="0"/>
+				<xs:element name="consignmentCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="EVENTCATEGORY" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

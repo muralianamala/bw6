@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/SizeDescription/sizedescription"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/SizeDescription/sizedescription"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="SizeDescription" type="SizeDescriptionType"/>
+	<xsd:complexType name="SizeDescriptionType">
+		<xsd:sequence>
+			<xsd:element name="System" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LoadTo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Brand" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorSeq" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processedDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processedTime" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="batchCtlNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="recordExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="customRcdExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dateCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="timeCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="userID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="company" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="division" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeRngeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeRelPosnInTable" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="function" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="frameWorkID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="frameWorkFlags" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ListOfSizeDescription" type="ListOfSizeDescriptionType"/>
+	<xsd:complexType name="ListOfSizeDescriptionType">
+		<xsd:annotation>
+			<xsd:documentation>List Of Size Description</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SizeDescription" type="SizeDescriptionType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element name="PublishedFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="whseSchema" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

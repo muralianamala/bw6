@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/pix/onhandsync"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:pix="http://www.urbanoutfitters.com/co/pix/pix"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/pix/onhandsync"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/pix/pix" schemaLocation="../../Objects/PIX/PIX.xsd"/>
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="OnhandSync" type="OnhandSyncType"/>
+	<xsd:complexType name="OnhandSyncType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="PIXBridge"/>
+			<xsd:element ref="PublishFields" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PIXBridge" type="pix:PIXBridgeType"/>
+	<xsd:element name="PublishFields">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dtcSku" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipSku" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="primaryLockCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="quantity" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingSupplyType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="store" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="tostore" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="warehouse" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingbrand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="source" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ConversionNode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="SterlingNode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="DropFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="invSystem" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="futureDate" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="yanSupplyType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field1" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field2" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field3" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field4" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field5" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

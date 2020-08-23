@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="URBNCustomFunctions"
+         name="URBNCustomFunctions"
+         point="com.tibco.xml.cxf.common.customXPathFunction">
+      <customXPathFunctionGroup
+            class="urlencode.URBNCustomFunctions"
+            id="urlencode">
+      </customXPathFunctionGroup>
+   </extension>
+
+</plugin>

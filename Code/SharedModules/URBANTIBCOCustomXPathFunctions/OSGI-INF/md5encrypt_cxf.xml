@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" factory="com.tibco.xml.cxf.user.md5encrypt_" name="cxf.user.md5encrypt_">
+   <implementation class="urbantibcocustomxpathfunctions.MD5EncryptFunctionGroup"/>
+</scr:component>

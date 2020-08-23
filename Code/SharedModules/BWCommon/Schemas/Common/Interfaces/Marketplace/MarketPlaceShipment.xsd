@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/MarketPlace/MarketPlaceShipment"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/MarketPlace/MarketPlaceShipment"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="MarketPlaceShipment" type="MarketPlaceShipmentType"/>
+	<xs:complexType name="MarketPlaceShipmentType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element ref="Order"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Order">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EnterpriseCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="OrderNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="ExtnMarketPlaceID" type="xs:string" minOccurs="0"/>
+				<xs:element name="OrderLines" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="OrderLine" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Extn" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ExtnNetEvenLineID" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OrderStatuses" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="OrderStatus" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="OrderReleaseKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="OrderLineKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="OrderHeaderKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="Status" type="xs:string" minOccurs="0"/>
+																<xs:element name="StatusDate" type="xs:string" minOccurs="0"/>
+																<xs:element name="StatusQty" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="LineOverallTotals" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Charges" type="xs:string" minOccurs="0"/>
+													<xs:element name="Discount" type="xs:string" minOccurs="0"/>
+													<xs:element name="DisplayCharge" type="xs:string" minOccurs="0"/>
+													<xs:element name="DisplayDiscount" type="xs:string" minOccurs="0"/>
+													<xs:element name="DisplayExtendedPrice" type="xs:string" minOccurs="0"/>
+													<xs:element name="DisplayLineAdjustments" type="xs:string" minOccurs="0"/>
+													<xs:element name="DisplayLineTotal" type="xs:string" minOccurs="0"/>
+													<xs:element name="DisplayLineTotalWithoutTaxes" type="xs:string" minOccurs="0"/>
+													<xs:element name="DisplayUnitPrice" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtendedPrice" type="xs:string" minOccurs="0"/>
+													<xs:element name="KitUnitPrice" type="xs:string" minOccurs="0"/>
+													<xs:element name="LineAdjustments" type="xs:string" minOccurs="0"/>
+													<xs:element name="LineTotal" type="xs:string" minOccurs="0"/>
+													<xs:element name="LineTotalWithoutTaxes" type="xs:string" minOccurs="0"/>
+													<xs:element name="OptionPrice" type="xs:string" minOccurs="0"/>
+													<xs:element name="PricingQty" type="xs:string" minOccurs="0"/>
+													<xs:element name="Tax" type="xs:string" minOccurs="0"/>
+													<xs:element name="UnitPrice" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ItemID" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Containers" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Container" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="TrackingNo" type="xs:string" minOccurs="0"/>
+										<xs:element name="CarrierServiceCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnTrackingNoURL" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/pix/pixdtc"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:pix="http://www.urbanoutfitters.com/co/pix/pix"
+	 targetNamespace="http://www.urbanoutfitters.com/pix/pixdtc"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/pix/pix" schemaLocation="../../Objects/PIX/PIX.xsd"/>
+	<xsd:element name="PIXDTC" type="PIXDTCType"/>
+	<xsd:complexType name="PIXDTCType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="PIXBridge"/>
+			<xsd:element ref="PublishFields" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PIXBridge" type="pix:PIXBridgeType"/>
+	<xsd:element name="PublishFields">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="dtcSku" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipSku" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipClass" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipVendor" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipStyle" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipColor" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipSize" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipOrderNumber" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="fromPrimaryLockCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="fromStore" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="toPrimaryLockCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="toStore" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="updateSystems" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipReasonCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="quantity" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingDropFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipInstance" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="pixType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingBrand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="qtyMultiplyFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ExtralineFromStore" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="transactionType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="transactionCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ExtralineToStore" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="case_create_date" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dc_Process_Days" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="fromSupplyType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="toSupplyType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="toNoPickFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="tfromNoPickFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="useFromStore" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="useToStore" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="member" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipSchema" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingDocType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="wclWarehouse" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingNode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingSplitLockCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="finalReceiptLockCodeFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dropReceiptPIXFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field1" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field2" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field3" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field4" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field5" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field6" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field7" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field8" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field9" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field10" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

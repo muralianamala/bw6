@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/Item/ItemMaster"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:item="http://www.urbanoutfitters.com/co/item/item"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:ns0="http://www.urbanoutfitters.com/co/item/item"
+	 targetNamespace="http://www.urbanoutfitters.com/Item/ItemMaster"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/item/item" schemaLocation="../../Objects/Item/Item.xsd"/>
+	<xsd:element name="ItemMaster" type="ItemMasterType"/>
+	<xsd:complexType name="ItemMasterType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="Item"/>
+			<xsd:element ref="PublishFields" minOccurs="0"/>
+			<xsd:element ref="Websiteskuinfo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Item" type="ns0:ItemType"/>
+	<xsd:element name="PublishFields">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ecometryLongSKU" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ecometryLongSKUspaced" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPLongSKU" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPLongSKUspaced" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPDtoCLongSKU" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPDtoCLongSKUSpaced" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPEcometryLongSKU" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPEcometryLongSKUspaced" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPEcometryEDPSKU" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPDtoCStyle" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPEcometryStyle" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="websiteLongStyle" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPEcometryShortStyle" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPDtoCStyledescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPSKUDescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ecometrySKUDescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPEcometrySKUDescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPEcometryColorCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPDtoCColorDescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPEcometrySizeCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="iPEcometrySizeDescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="FeeSKUBrand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="association" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="associationType" type="xsd:string" minOccurs="0"/>
+							<xsd:element name="associateItemID" type="xsd:string" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="returnCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="backOrderFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="publish" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingbrand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="merchType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="website" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dc" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="siteId" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="webProductIdPrefix" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dropshipVendor" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="SecondaryClassification" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Websiteskuinfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="websiteskuflag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sku_id" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="style_number" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="style_name" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sku_code" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="color_code" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="color_name" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="size_code" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="size_name" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="short_style" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="primary_image_url" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="primary_image_file_name" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="style_color_image_url" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="style_color_image_file_name" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="style_color_swatch_url" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="style_color_swatch_file_name" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="style_copy" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="composition" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="care" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="season" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="year" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="origin" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="editorNotes" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="productDescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="masterCategory" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="keywords" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="gender" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="imageviews" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="brandname" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="longdescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="colorId" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field1" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field2" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field3" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field4" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field5" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field6" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field7" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field8" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field9" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field10" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

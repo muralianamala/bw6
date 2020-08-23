@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.nrf-arts.org/IXRetail/namespace"
+	 targetNamespace="http://www.nrf-arts.org/IXRetail/namespace"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Size">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="AssocID" type="xs:string" minOccurs="0"/>
+				<xs:element name="TableName" form="qualified" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The name of the size table code, eg size code 4=infants and
+                        childrens clothing</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="20"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="TableNameDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="Description" form="qualified" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>A description of the apparel cataegories encompassed within
+                        the size table code</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="ModelName" type="xs:string" minOccurs="0"/>
+				<xs:element name="ActualSizeCode" form="qualified" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The last four characters of the NRF size code. This code
+                        uniquely identifies a particular size, eg dress size 12 or combination of
+                        sizes, eg pants, waist size 36, inseam 31</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="AllocQuantity" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="UnitOfMeasureCode" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Field1" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field2" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field3" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field4" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field5" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field6" type="xs:string" minOccurs="0"/>
+				<xs:element name="Match1" type="xs:string" minOccurs="0"/>
+				<xs:element name="Match2" type="xs:string" minOccurs="0"/>
+				<xs:element name="Match3" type="xs:string" minOccurs="0"/>
+				<xs:element name="Match4" type="xs:string" minOccurs="0"/>
+				<xs:element name="Match5" type="xs:string" minOccurs="0"/>
+				<xs:element name="Match6" type="xs:string" minOccurs="0"/>
+				<xs:element name="MatchID" type="xs:string" minOccurs="0"/>
+				<xs:element name="ModifyTimestamp" type="xs:string" minOccurs="0"/>
+				<xs:element name="ModifyUser" type="xs:string" minOccurs="0"/>
+				<xs:element name="PackCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="SizeB" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="AssocID" type="xs:string" minOccurs="0"/>
+							<xs:element name="RowNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="TotalPercent" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipPack" type="xs:string" minOccurs="0"/>
+							<xs:element name="QuantityPerPack" type="xs:string" minOccurs="0"/>
+							<xs:element name="TotalQuantity" type="xs:string" minOccurs="0"/>
+							<xs:element name="ModifyTimestamp" type="xs:string" minOccurs="0"/>
+							<xs:element name="ModifyUser" type="xs:string" minOccurs="0"/>
+							<xs:element name="NoInners" type="xs:string" minOccurs="0"/>
+							<xs:element name="NoShipPacks" type="xs:string" minOccurs="0"/>
+							<xs:element name="PctRatio" type="xs:string" minOccurs="0"/>
+							<xs:element name="Priority" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipPackQuantity" type="xs:string" minOccurs="0"/>
+							<xs:element name="QuantityPerInner" type="xs:string" minOccurs="0"/>
+							<xs:element name="SizeD" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="AssocID" type="xs:string" minOccurs="0"/>
+										<xs:element name="RowNumber" type="xs:string" minOccurs="0"/>
+										<xs:element name="TotalQuantity" type="xs:decimal" minOccurs="0"/>
+										<xs:element name="ShortSKU" type="xs:string" minOccurs="0"/>
+										<xs:element name="Allocate" type="xs:string" minOccurs="0"/>
+										<xs:element name="SizeCode" type="xs:string" form="qualified" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>A code to designate the size of the ITEM. It is proposed to
+                        use the 5 apparel and miscellaneous coding structure as specified by the
+                        NRMA to facilitate data interchange between vendors and retailers. This code
+                        permits the use of both standard and proprietary coding
+                    format.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="SizeCodeDescription" type="xs:string" minOccurs="0"/>
+										<xs:element name="ModifyTimestamp" type="xs:string" minOccurs="0"/>
+										<xs:element name="ModifyUser" type="xs:string" minOccurs="0"/>
+										<xs:element name="UnitsPerBundle" type="xs:string" minOccurs="0"/>
+										<xs:element name="ShipPack" type="xs:string" minOccurs="0"/>
+										<xs:element name="SortValue" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

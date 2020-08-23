@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Login">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="LoginRequest" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="LoginResponse" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LoginRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UserName" type="xs:string"/>
+				<xs:element name="Password" type="xs:string"/>
+				<xs:element name="Environment" type="xs:string" minOccurs="0"/>
+				<xs:element name="Warehouse" type="xs:string" minOccurs="0"/>
+				<xs:element name="Company" type="xs:string" minOccurs="0"/>
+				<xs:element name="Division" type="xs:string" minOccurs="0"/>
+				<xs:element name="CallCustom" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="UserDefined1" type="xs:string" minOccurs="0"/>
+				<xs:element name="UserDefined2" type="xs:string" minOccurs="0"/>
+				<xs:element name="UserDefined3" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LoginResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ContextID" type="xs:string"/>
+				<xs:element name="MessageId" type="xs:string" minOccurs="0"/>
+				<xs:element name="Message" type="xs:string" minOccurs="0"/>
+				<xs:element name="UserDefined1" type="xs:string" minOccurs="0"/>
+				<xs:element name="UserDefined2" type="xs:string" minOccurs="0"/>
+				<xs:element name="UserDefined3" type="xs:string" minOccurs="0"/>
+				<xs:element name="Warehouse" type="xs:string" minOccurs="0"/>
+				<xs:element name="Company" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string"/>
+			<xs:attribute name="version" type="xs:string"/>
+			<xs:attribute name="timestamp" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

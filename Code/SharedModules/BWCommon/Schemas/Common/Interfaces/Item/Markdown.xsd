@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/co/markdown"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/co/markdown"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="MarkDown" type="MarkDownType"/>
+	<xsd:complexType name="MarkDownType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="Markdown" minOccurs="0"/>
+			<xsd:element ref="PublishFields" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PublishFields">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="websiteCurrency" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingPriceList" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sellingRetail" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="ipEcometryEdpSku" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="website" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="adjustment" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="siteID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ATGSiteId" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="isMarkdown" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="siteIDs" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="MarkdownCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field1" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field2" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field3" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field4" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field5" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Markdown">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="FromRetail" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipDatabase" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipBrandId" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipSku" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ecometryEdp" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="pluSessionNumber" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="pluSequenceNumber" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="itemKey" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="pluKeyType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="pluDepartment" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="class" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="vendor" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="style" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="color" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="size" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="effectiveFrom" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="effectiveTo" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="retail" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="splitPriceRetail" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="splitPriceQuantity" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="itemDescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="mdControlNumber" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="mdSequenceNumber" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="promoPriceCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="vatCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="alternateItemId" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="vendorStyleNumber" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="purchaseUnitCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="numberOfDecimals" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="unused" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="originalRetail" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="suggestedRetail" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="bookRetail" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="pluRetail" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="multipleEanUpc" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="effectiveFromIsoDate" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="effectiveToIsoDate" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="currencyCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="altPluRetail" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="promotionalRetail" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="reservedForFutureUse" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="batchTime" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="markDownFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="grandFatherFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Source" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field1" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field2" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field3" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field4" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field5" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field6" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field7" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field8" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field9" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field10" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MongoResponseData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="JSON" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="JSON">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="loyaltyUserName" type="xs:string" minOccurs="0"/>
+				<xs:element name="sterlingId" type="xs:string" minOccurs="0"/>
+				<xs:element name="name" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="middle" type="xs:string" minOccurs="0"/>
+							<xs:element name="prefix" type="xs:string" minOccurs="0"/>
+							<xs:element name="last" type="xs:string" minOccurs="0"/>
+							<xs:element name="suffix" type="xs:string" minOccurs="0"/>
+							<xs:element name="first" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="createdAt" type="xs:float" minOccurs="0"/>
+				<xs:element name="gender" type="xs:string" minOccurs="0"/>
+				<xs:element name="brand" type="xs:string" minOccurs="0"/>
+				<xs:element name="site" type="xs:string" minOccurs="0"/>
+				<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+				<xs:element name="dateOfBirth" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="year" type="xs:integer" minOccurs="0"/>
+							<xs:element name="day" type="xs:integer" minOccurs="0"/>
+							<xs:element name="month" type="xs:integer" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+				<xs:element name="student" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="college" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="graduation" type="xs:integer" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="lastModifiedAt" type="xs:float" minOccurs="0"/>
+				<xs:element name="employee" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="employeeId" type="xs:string" minOccurs="0"/>
+							<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+							<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+							<xs:element name="authUserEmployee" type="xs:string" minOccurs="0"/>
+							<xs:element name="userType" type="xs:string" minOccurs="0"/>
+							<xs:element name="storeNumber" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="defaultPaymentId" type="xs:string" minOccurs="0"/>
+				<xs:element name="defaultShippingAddressId" type="xs:string" minOccurs="0"/>
+				<xs:element name="id" type="xs:string" minOccurs="0"/>
+				<xs:element name="guest" type="xs:boolean" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

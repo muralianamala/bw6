@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.nrf-arts.org/IXRetail/namespace"
+	 targetNamespace="http://www.nrf-arts.org/IXRetail/namespace"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="POPublishFields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="POSterling" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="POSterling" type="POSterlingType"/>
+	<xs:complexType name="POSterlingType">
+		<xs:sequence>
+			<xs:element name="orderDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="reqDeliveryDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="documentType" type="xs:string" minOccurs="0"/>
+			<xs:element name="enterpriseCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="buyerOrganizationCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="supplyTypeIndicator" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReceivingNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="hsts" type="xs:string" minOccurs="0"/>
+			<xs:element name="hclo" type="xs:string" minOccurs="0"/>
+			<xs:element name="channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="wareHouseName" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmDiv" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsCompany" type="xs:string" minOccurs="0"/>
+			<xs:element name="poDeliveryDays" type="xs:string" minOccurs="0"/>
+			<xs:element name="ToLocation" type="xs:string" minOccurs="0"/>
+			<xs:element name="SpecialInsCode2" type="xs:string" minOccurs="0"/>
+			<xs:element name="BrandName" type="xs:string" minOccurs="0"/>
+			<xs:element name="Source" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterShipmentNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="firstReceiptDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="lastReceiptDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="packStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConversionNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingNode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

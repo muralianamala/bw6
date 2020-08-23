@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.nrf-arts.org/IXRetail/namespace"
+	 targetNamespace="http://www.nrf-arts.org/IXRetail/namespace"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:include schemaLocation="ICDMerchandiseLineItem.xsd"/>
+	<xs:include schemaLocation="Transaction.xsd"/>
+	<xs:include schemaLocation="Size.xsd"/>
+	<xs:element name="Item">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CustomerOrderLineItemSequenceNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="LineItemSequenceNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="DetailLineKey" type="xs:string" minOccurs="0"/>
+				<xs:element name="Prod_Line" type="xs:string" minOccurs="0"/>
+				<xs:element name="CustomerOrderID" type="xs:string" minOccurs="0"/>
+				<xs:element name="VendorStyleNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="ecometryStyle" type="xs:string" minOccurs="0"/>
+				<xs:element name="primarySKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="ecometryColorCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="color" type="xs:string" minOccurs="0"/>
+				<xs:element name="ecometrySizeCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="size" type="xs:string" minOccurs="0"/>
+				<xs:element name="wmsHeaderStatus" type="xs:string" minOccurs="0"/>
+				<xs:element name="wmsDetailStatus" type="xs:string" minOccurs="0"/>
+				<xs:element name="IPEcometryEDPSKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="ecometryEDPNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="ecometryVendor" type="xs:string" minOccurs="0"/>
+				<xs:element name="ecometrySizeDes" type="xs:string" minOccurs="0"/>
+				<xs:element name="ecometryLongSKUSpaced" type="xs:string" minOccurs="0"/>
+				<xs:element name="ierr" type="xs:string" minOccurs="0"/>
+				<xs:element name="icls" type="xs:string" minOccurs="0"/>
+				<xs:element name="itqr" type="xs:string" minOccurs="0"/>
+				<xs:element name="itqy" type="xs:string" minOccurs="0"/>
+				<xs:element name="DeleteLine" type="DeleteLineType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="ItemDes" type="xs:string" minOccurs="0"/>
+				<xs:element name="ItemID" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="ShortSKU" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="LongSKU" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Brand" type="BrandType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>A unique name to denote a class of ITEMs as a product of a single supplier or manufacturer. The brand can include private label ITEMs.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="TicketFormat" type="xs:string" minOccurs="0"/>
+				<xs:element name="OriginalSKUVendor" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Style" minOccurs="0"/>
+				<xs:element ref="Color" minOccurs="0"/>
+				<xs:element ref="ICDMerchandiseLineItem" minOccurs="0"/>
+				<xs:element ref="Transaction" minOccurs="0"/>
+				<xs:element ref="ItemSellingPrices" minOccurs="0"/>
+				<xs:element name="DetailedVendorInstructions" type="xs:string" minOccurs="0"/>
+				<xs:element ref="IPClass" minOccurs="0"/>
+				<xs:element name="Special" type="xs:string" minOccurs="0"/>
+				<xs:element name="DestinationBusinessUnitID" type="xs:string" minOccurs="0"/>
+				<xs:element name="Inners">
+					<xs:complexType>
+						<xs:attribute name="UnitOfMeasureCode" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ShipDate" type="xs:date" minOccurs="0"/>
+				<xs:element name="InDCDate" type="xs:date" minOccurs="0"/>
+				<xs:element name="StartShip" type="xs:date" minOccurs="0"/>
+				<xs:element name="ShipMode" type="xs:string" minOccurs="0"/>
+				<xs:element name="MerchSeason" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="SourcingPriorityCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="StoreShipEligibleFlag" type="xs:string" minOccurs="0"/>
+				<xs:element name="EdpNoFlag" type="xs:string" minOccurs="0"/>
+				<xs:element name="TradestoneIDNum" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Size" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="POLineCases" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CaseNo" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Field1" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field2" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field3" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field4" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field5" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field6" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field7" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field8" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field9" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field10" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field11" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field12" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field13" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field14" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field15" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field16" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field17" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field18" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field19" type="xs:string" minOccurs="0"/>
+				<xs:element name="Field20" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="BrandType">
+		<xs:sequence>
+			<xs:element name="BrandName" form="qualified">
+				<xs:annotation>
+					<xs:documentation>A unique name to denote a class of ITEMs as a product of a single supplier or manufacturer. The brand can include private label ITEMs.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="35"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProductClass" form="qualified" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="35"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ProductLine" form="qualified" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="17"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Trend" form="qualified" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="35"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="WHLBrand" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Style">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="StyleCode" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Description" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="80"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Color">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ColorCode" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="20"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element name="Description" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="VendorColor" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ItemSellingPrices">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="ItemSellingPricesID" type="xs:string"/>
+					<xs:attribute name="PermanentSaleUnitRetailPriceAmount" type="xs:string"/>
+					<xs:attribute name="RetailCurrency" type="xs:string"/>
+					<xs:attribute name="CurrentSaleUnitRetailPriceAmount" type="xs:string"/>
+					<xs:attribute name="UnitOfMeasureCode" type="xs:string"/>
+					<xs:attribute name="CurrentPackagePrice" type="xs:decimal"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IPClass">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:complexType name="DeleteLineType">
+		<xs:sequence>
+			<xs:element name="ADSHMT" type="xs:normalizedString" minOccurs="0"/>
+			<xs:element name="ADPOLN" type="xs:normalizedString" minOccurs="0"/>
+			<xs:element name="ADSYR" type="xs:normalizedString" minOccurs="0"/>
+			<xs:element name="ADSTYL" type="xs:normalizedString" minOccurs="0"/>
+			<xs:element name="ADSSFX" type="xs:normalizedString" minOccurs="0"/>
+			<xs:element name="ADCOLR" type="xs:normalizedString" minOccurs="0"/>
+			<xs:element name="ADUNSH" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ADPRC" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ADSEQN" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ADSTAT" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/sessionm/postvoidtrans"
+	 targetNamespace="http://www.urbanoutfitters.com/sessionm/postvoidtrans"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="PostVoidTransData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IsVoided" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransactionId" type="xs:string" minOccurs="0"/>
+				<xs:element name="ModifiedTime" type="xs:string" minOccurs="0"/>
+				<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+				<xs:element name="Email" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

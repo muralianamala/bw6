@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="TIBCO BW Custom DataSource Factory">
+   <implementation class="com.tibco.custom.driver.jdbc.as400.CustomDataSourceFactory"/>
+   
+   <property name="osgi.jdbc.driver.class" type="String" value="com.ibm.as400.access.AS400JDBCDriver"/>
+   <property name="osgi.jdbc.driver.name" type="String" value="JTDS"/>
+   <property name="osgi.jdbc.driver.version" type="String" value="1.3.1"/>
+   
+   <service>
+      <provide interface="org.osgi.service.jdbc.DataSourceFactory"/>
+   </service>
+</scr:component>

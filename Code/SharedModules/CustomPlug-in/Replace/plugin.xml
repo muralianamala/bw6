@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="ReplaceFunctionGroup"
+         name="ReplaceFunctionGroup"
+         point="com.tibco.xml.cxf.common.customXPathFunction">
+      <customXPathFunctionGroup
+            class="replace.ReplaceFunctionGroup"
+            id="replace">
+      </customXPathFunctionGroup>
+   </extension>
+
+</plugin>

@@ -1,0 +1,6 @@
+output.. = bin/
+bin.includes = META-INF/,\
+               OSGI-INF/customDataSourceFactory.xml,\
+               lib/*.jar,\
+               .
+source.. = src/

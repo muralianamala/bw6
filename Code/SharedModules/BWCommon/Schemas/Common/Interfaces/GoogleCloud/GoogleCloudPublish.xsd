@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/BWCommon/Shared Resources/Schemas/Common/Interfaces/GoogleCloud/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/BWCommon/Shared Resources/Schemas/Common/Interfaces/GoogleCloud/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="GoogleCloudPublish" type="GoogleCloudPublishType"/>
+	<xs:complexType name="GoogleCloudPublishType">
+		<xs:sequence>
+			<xs:element name="xml" type="xs:string" minOccurs="0"/>
+			<xs:element name="GoogleTopic" type="xs:string" minOccurs="0"/>
+			<xs:element name="AuditContextKey" type="xs:string" minOccurs="0"/>
+			<xs:element name="AuditContextValue" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

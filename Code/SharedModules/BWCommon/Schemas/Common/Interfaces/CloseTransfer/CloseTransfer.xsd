@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.urbanoutfitters.com/CloseTransfer/closetransfer"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.urbanoutfitters.com/CloseTransfer/closetransfer" xmlns:common="http://www.urbanoutfitters.com/co/common">
+	<import schemaLocation="../../Objects/Common.xsd" namespace="http://www.urbanoutfitters.com/co/common"></import>
+	<element name="CloseTransfer">
+		<complexType>
+			<sequence>
+				<element name="Header" type="common:HeaderType"	maxOccurs="1" minOccurs="0">
+				</element>
+				<element name="StoreTransfer" maxOccurs="1"	minOccurs="0">
+					<complexType>
+						<sequence>
+							<element name="TransferTypeCode"
+								type="string" maxOccurs="1" minOccurs="0">
+							</element>
+							<element name="TransferTypeReasonCode"
+								type="string" maxOccurs="1" minOccurs="0">
+							</element>
+							<element name="CartonNumber" type="string"
+								maxOccurs="1" minOccurs="0">
+							</element>
+							<element name="BrandName" type="string"
+								maxOccurs="1" minOccurs="0">
+							</element>
+							<element name="BrandIP" type="string"
+								maxOccurs="1" minOccurs="0">
+							</element>
+							<element name="BrandSterling" type="string"
+								maxOccurs="1" minOccurs="0">
+							</element>
+							<element name="ShipFrom" maxOccurs="1"
+								minOccurs="0">
+								<complexType>
+									<sequence>
+										<element name="Store" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="StoreName" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="AddressLine1" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="AddressLine2" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="City" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="State" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="Zip" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="Country" type="string" maxOccurs="1" minOccurs="0"></element>
+
+									</sequence>
+								</complexType>
+							</element>
+							<element name="ShipTo" maxOccurs="1"
+								minOccurs="0">
+								<complexType>
+									<sequence>
+										<element name="Store"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="StoreName"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="Warehouse"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="Channel"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="AddressLine1"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="AddressLine2"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="City"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="State"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="Zip"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="PhoneNumber"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+										<element name="Country"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+
+										<element name="WmSchema"
+											type="string" maxOccurs="1" minOccurs="0">
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="Items" maxOccurs="1"
+								minOccurs="0">
+								<complexType>
+									<sequence>
+										<element name="Item"
+											maxOccurs="unbounded" minOccurs="0">
+											<complexType>
+												<sequence>
+													<element name="SKU"
+														type="string" maxOccurs="1" minOccurs="0">
+													</element>
+													<element name="Qty"
+														type="string" maxOccurs="1" minOccurs="0">
+													</element>
+													<element
+														name="Item_Id" type="string" maxOccurs="1"
+														minOccurs="0">
+													</element>
+													<element
+														name="Naics_Code" type="string" maxOccurs="1"
+														minOccurs="0">
+													</element>
+													<element
+														name="UnitWeight" type="string" maxOccurs="1"
+														minOccurs="0">
+													</element>
+													<element
+														name="UnitWeightUOM" type="string" maxOccurs="1"
+														minOccurs="0">
+													</element>
+													<element
+														name="UnitPrice" type="string" maxOccurs="1" minOccurs="0">
+													</element>
+													<element
+														name="Description" type="string" maxOccurs="1"
+														minOccurs="0">
+													</element>
+													<element
+														name="ImageURL" type="string" maxOccurs="1"
+														minOccurs="0">
+													</element>
+
+												</sequence>
+											</complexType>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

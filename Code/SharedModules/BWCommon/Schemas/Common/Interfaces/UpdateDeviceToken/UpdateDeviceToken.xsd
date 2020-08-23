@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/UpdateDeviceToken"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/co/UpdateDeviceToken"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="UpdateDeviceToken">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UpdateDeviceTokenRequest" minOccurs="0"/>
+				<xs:element ref="UpdateDeviceTokenResponse" minOccurs="0"/>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateDeviceTokenRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DeviceToken" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ExtnParamValue" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnRef1" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="requestHeader" type="base:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateDeviceTokenResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Fault" type="fault:FaultType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/promo/getpromodetails"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 targetNamespace="http://www.urbanoutfitters.com/co/promo/getpromodetails"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="GetPromoDetails">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="GetPromoDetailsRequest" minOccurs="0"/>
+				<xs:element ref="GetPromoDetailsResponse" minOccurs="0"/>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetPromoDetailsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UrbnPromoCustAward" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="AwardNo" type="xs:string"/>
+							<xs:element name="Channel" type="xs:string"/>
+							<xs:element name="CustRef" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="requestHeader" type="base:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetPromoDetailsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UrbnPromoCustAwardList" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="UrbnPromoCustAward" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="AwardCreateDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="AwardExpDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="AwardNo" type="xs:string" minOccurs="0"/>
+										<xs:element name="AwardStartDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="CreateDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="CreateProgID" type="xs:string" minOccurs="0"/>
+										<xs:element name="CreateUserID" type="xs:string" minOccurs="0"/>
+										<xs:element name="CustRef" type="xs:string" minOccurs="0"/>
+										<xs:element name="CustRefType" type="xs:string" minOccurs="0"/>
+										<xs:element name="IsClosed" type="xs:string" minOccurs="0"/>
+										<xs:element name="LockId" type="xs:string" minOccurs="0"/>
+										<xs:element name="MarketingNo" type="xs:string" minOccurs="0"/>
+										<xs:element name="ModifyDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="ModifyProgID" type="xs:string" minOccurs="0"/>
+										<xs:element name="ModifyUserID" type="xs:string" minOccurs="0"/>
+										<xs:element name="UrbnPromoCustAwardKey" type="xs:string" minOccurs="0"/>
+										<xs:element name="UseCount" type="xs:string" minOccurs="0"/>
+										<xs:element name="isHistory" type="xs:string" minOccurs="0"/>
+										<xs:element name="AwardLastUsedDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="AwardLastUsedBy" type="xs:string" minOccurs="0"/>
+										<xs:element name="AwardLastUsedLoc" type="xs:string" minOccurs="0"/>
+										<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+										<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+										<xs:element name="Status" type="xs:string" minOccurs="0"/>
+										<xs:element name="StatusDesc" type="xs:string" minOccurs="0"/>
+										<xs:element name="PrimaryChannel" type="xs:string" minOccurs="0"/>
+										<xs:element name="URBNPromoRulesXRef" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="CampaignName" type="xs:string" minOccurs="0"/>
+													<xs:element name="CreateDate" type="xs:string" minOccurs="0"/>
+													<xs:element name="CreateProgID" type="xs:string" minOccurs="0"/>
+													<xs:element name="CreateUserID" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExpDays" type="xs:string" minOccurs="0"/>
+													<xs:element name="IsThirdParty" type="xs:string" minOccurs="0"/>
+													<xs:element name="LockId" type="xs:string" minOccurs="0"/>
+													<xs:element name="MarketingNo" type="xs:string" minOccurs="0"/>
+													<xs:element name="ModifyDate" type="xs:string" minOccurs="0"/>
+													<xs:element name="ModifyProgID" type="xs:string" minOccurs="0"/>
+													<xs:element name="ModifyUserID" type="xs:string" minOccurs="0"/>
+													<xs:element name="MultiUseCount" type="xs:string" minOccurs="0"/>
+													<xs:element name="PromoCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="PromoDesc" type="xs:string" minOccurs="0"/>
+													<xs:element name="PromoLongDesc" type="xs:string" minOccurs="0"/>
+													<xs:element name="CheetahAID" type="xs:string" minOccurs="0"/>
+													<xs:element name="CheetahEID" type="xs:string" minOccurs="0"/>
+													<xs:element name="SendEmail" type="xs:string" minOccurs="0"/>
+													<xs:element name="SendNotification" type="xs:string" minOccurs="0"/>
+													<xs:element name="SendToMerkle" type="xs:string" minOccurs="0"/>
+													<xs:element name="ValidateCustRef" type="xs:string" minOccurs="0"/>
+													<xs:element name="UrbnPromoRulesXRefKey" type="xs:string" minOccurs="0"/>
+													<xs:element name="UrbnPromoChannelList" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="UrbnPromoChannel" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+																			<xs:element name="CreateDate" type="xs:string" minOccurs="0"/>
+																			<xs:element name="CreateProgID" type="xs:string" minOccurs="0"/>
+																			<xs:element name="CreateUserID" type="xs:string" minOccurs="0"/>
+																			<xs:element name="LockId" type="xs:string" minOccurs="0"/>
+																			<xs:element name="MarketingNo" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ModifyDate" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ModifyProgID" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ModifyUserID" type="xs:string" minOccurs="0"/>
+																			<xs:element name="UrbnPromoChannelKey" type="xs:string" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fault" type="fault:FaultType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

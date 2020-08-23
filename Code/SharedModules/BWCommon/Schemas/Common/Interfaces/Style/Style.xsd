@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/style/style"
+	 xmlns:ns0="http://www.urbanoutfitters.com/co/common"
+	 xmlns:ns1="http://www.urbanoutfitters.com/co/fault"
+	 xmlns:ns2="http://www.urbanoutfitters.com/co/base"
+	 targetNamespace="http://www.urbanoutfitters.com/style/style"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="Style">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="StyleRequest" minOccurs="0"/>
+				<xs:element ref="StyleResponse" minOccurs="0"/>
+				<xs:element name="Header" type="ns0:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StyleRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="styles" minOccurs="0"/>
+				<xs:element name="requestHeader" type="ns2:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StyleResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Styles" minOccurs="0"/>
+				<xs:element ref="Fault" minOccurs="0"/>
+				<xs:element ref="TooManyFlag" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Header" type="xs:string"/>
+	<xs:element name="styles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SearchType" type="xs:string" minOccurs="0"/>
+				<xs:element name="Store" type="xs:string" minOccurs="0"/>
+				<xs:element name="ClassID" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="requestHeader" type="ns2:HeaderType"/>
+	<xs:element name="Styles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="store" type="xs:string" minOccurs="0"/>
+				<xs:element name="DivisionID" type="xs:string" minOccurs="0"/>
+				<xs:element name="DivisionDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="ClassID" type="xs:string" minOccurs="0"/>
+				<xs:element name="ClassDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="StyleNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="StyleDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="QuatityToBeFilled" type="xs:string" minOccurs="0"/>
+				<xs:element name="StyleImageURL" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Fault" type="ns1:FaultType"/>
+	<xs:element name="TooManyFlag" type="xs:string"/>
+</xs:schema>

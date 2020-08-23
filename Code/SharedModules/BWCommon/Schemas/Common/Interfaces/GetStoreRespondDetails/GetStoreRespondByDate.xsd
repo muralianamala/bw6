@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/getstoreresponddetails/getstorerespondbydate"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 targetNamespace="http://www.urbanoutfitters.com/co/getstoreresponddetails/getstorerespondbydate"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="GetStoreRespondByDate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="GetStoreRespondByDateRequest" minOccurs="0"/>
+				<xs:element ref="GetStoreRespondByDateResponse" minOccurs="0"/>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetStoreRespondByDateRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Store" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CurrentDate" type="xs:dateTime" minOccurs="0"/>
+							<xs:element name="DeliveryMethod" type="xs:string" minOccurs="0"/>
+							<xs:element name="Brand" type="xs:string"/>
+							<xs:element name="StoreNo" type="xs:string"/>
+							<xs:element name="isStrRespDtReqd" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="requestHeader" type="base:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetStoreRespondByDateResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Store" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Days" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Day" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Date" type="xs:date" minOccurs="0"/>
+													<xs:element name="DateName" type="xs:string" minOccurs="0"/>
+													<xs:element name="DayNo" type="xs:integer" minOccurs="0"/>
+													<xs:element name="CloseTime" type="xs:time" minOccurs="0"/>
+													<xs:element name="OpenTime" type="xs:time" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="StoreAddress" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="AddressLine1" type="xs:string" minOccurs="0"/>
+										<xs:element name="AddressLine2" type="xs:string" minOccurs="0"/>
+										<xs:element name="AddressLine3" type="xs:string" minOccurs="0"/>
+										<xs:element name="Company" type="xs:string" minOccurs="0"/>
+										<xs:element name="City" type="xs:string" minOccurs="0"/>
+										<xs:element name="Country" type="xs:string" minOccurs="0"/>
+										<xs:element name="State" type="xs:string" minOccurs="0"/>
+										<xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="DayFaxNo" type="xs:string" minOccurs="0"/>
+										<xs:element name="DayPhone" type="xs:string" minOccurs="0"/>
+										<xs:element name="Phone" type="xs:string" minOccurs="0"/>
+										<xs:element name="EmailID" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="CurrentDate" type="xs:dateTime" minOccurs="0"/>
+							<xs:element name="ISPUStoreRespondByDt" type="xs:dateTime" minOccurs="0"/>
+							<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+							<xs:element name="StoreNo" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fault" type="fault:FaultType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,3 @@
+bw.namespaceRegistry=[{"prefix"\:"ns0","namespace"\:"http\://www.urbanoutfitters.com/leaf/auditclient"},{"prefix"\:"ns0","namespace"\:"http\://www.urbanoutfitters.com/leaf/exceptionclient"}]
+eclipse.preferences.version=1
+manifest.exportWizard=com.tibco.bw.core.design.process.editor.module.export.wizard

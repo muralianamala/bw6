@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/skuRenumber/skuRenumber"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/skuRenumber/skuRenumber"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="skuRenumber" type="skuRenumberType"/>
+	<xsd:complexType name="skuRenumberType">
+		<xsd:sequence>
+			<xsd:element name="System" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LoadTo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Brand" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorSeq" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processedDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processedTime" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="batchCtlNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="function" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="company" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="division" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="season" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="seasonYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="style" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="styleSfx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="color" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="colorSfx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="secDimension" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="quality" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeRngeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeRelPosnInTable" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sKUAttribute1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sKUAttribute2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sKUsAttribute3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SKUAttribute4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SKUAttribute5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="countryOfOrigin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lotNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="productStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="inventoryType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newSeason" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newSeasonYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newStyle" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newStyleSfx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newColor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newColorSfx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newSecDim" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newQuality" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newSizeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newSizePosn" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="statusFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscIns5Byte1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscIns10Byte2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscNum1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscNum2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="recordExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="customRcdExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dateCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="timeCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dateLastModified" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="timeLastModified" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="userID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="frameWorkID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="frameWorkFlags" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ListOfskuRenumber" type="ListOfskuRenumberType"/>
+	<xsd:complexType name="ListOfskuRenumberType">
+		<xsd:annotation>
+			<xsd:documentation>List of skuRenumber</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="skuRenumber" type="skuRenumberType" minOccurs="0"/>
+			<xsd:element name="header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element name="PublishedFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="whseSchema" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MongoResponseData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="JSON" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="JSON">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="created" type="xs:string" minOccurs="0"/>
+				<xs:element name="lastModified" type="xs:string" minOccurs="0"/>
+				<xs:element name="loyalty" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="loyaltyId" type="xs:string" minOccurs="0"/>
+							<xs:element name="channelId" type="xs:string" minOccurs="0"/>
+							<xs:element name="loyaltyDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="channel" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="id" type="xs:string" minOccurs="0"/>
+				<xs:element name="pushNotifications" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="token" type="xs:string" minOccurs="0"/>
+							<xs:element name="subscriptionCategories" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="tokenType" type="xs:string" minOccurs="0"/>
+							<xs:element name="pushAllowed" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+				<xs:element name="email" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="email" type="xs:string" minOccurs="0"/>
+							<xs:element name="optedIn" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="categories" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="date" type="xs:string" minOccurs="0"/>
+										<xs:element name="aid" type="xs:string" minOccurs="0"/>
+										<xs:element name="sub" type="xs:string" minOccurs="0"/>
+										<xs:element name="listName" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="subscriptions" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="currentEmailId" type="xs:string" minOccurs="0"/>
+				<xs:element name="action" type="xs:string" minOccurs="0"/>
+				<xs:element name="gender" type="xs:string" minOccurs="0"/>
+				<xs:element name="listName" type="xs:string" minOccurs="0"/>
+				<xs:element name="source" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

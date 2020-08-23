@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbn.com/WholesaleTransaction"
+	 targetNamespace="http://www.urbn.com/WholesaleTransaction"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="WholesaleTransaction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="applicationName" type="xs:string" minOccurs="0"/>
+							<xs:element name="trackingId" type="xs:string" minOccurs="0"/>
+							<xs:element name="source" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="WholesaleTransactions" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="TCLS" type="xs:string" minOccurs="0"/>
+							<xs:element name="TVEN" type="xs:string" minOccurs="0"/>
+							<xs:element name="TSTY" type="xs:string" minOccurs="0"/>
+							<xs:element name="TCLR" type="xs:string" minOccurs="0"/>
+							<xs:element name="TSIZ" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRSN" type="xs:string" minOccurs="0"/>
+							<xs:element name="TOPEN9" type="xs:string" minOccurs="0"/>
+							<xs:element name="TDDAT" type="xs:string" minOccurs="0"/>
+							<xs:element name="TSKU" type="xs:string" minOccurs="0"/>
+							<xs:element name="TISB" type="xs:string" minOccurs="0"/>
+							<xs:element name="TEMP" type="xs:string" minOccurs="0"/>
+							<xs:element name="TOPEN1" type="xs:string" minOccurs="0"/>
+							<xs:element name="TDST" type="xs:string" minOccurs="0"/>
+							<xs:element name="TQTY" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRET" type="xs:string" minOccurs="0"/>
+							<xs:element name="TOPEN3" type="xs:string" minOccurs="0"/>
+							<xs:element name="TOPEN4" type="xs:string" minOccurs="0"/>
+							<xs:element name="THRS" type="xs:string" minOccurs="0"/>
+							<xs:element name="TSTS" type="xs:string" minOccurs="0"/>
+							<xs:element name="PKCOMP" type="xs:string" minOccurs="0"/>
+							<xs:element name="TVST" type="xs:string" minOccurs="0"/>
+							<xs:element name="TSRX" type="xs:string" minOccurs="0"/>
+							<xs:element name="TXX4" type="xs:string" minOccurs="0"/>
+							<xs:element name="TXXC" type="xs:string" minOccurs="0"/>
+							<xs:element name="TXX3" type="xs:string" minOccurs="0"/>
+							<xs:element name="TTZC" type="xs:string" minOccurs="0"/>
+							<xs:element name="TXX3A" type="xs:string" minOccurs="0"/>
+							<xs:element name="TJID" type="xs:string" minOccurs="0"/>
+							<xs:element name="TISX" type="xs:string" minOccurs="0"/>
+							<xs:element name="TDSX" type="xs:string" minOccurs="0"/>
+							<xs:element name="TWJB" type="xs:string" minOccurs="0"/>
+							<xs:element name="TCTN" type="xs:string" minOccurs="0"/>
+							<xs:element name="TSID" type="xs:string" minOccurs="0"/>
+							<xs:element name="TALC" type="xs:string" minOccurs="0"/>
+							<xs:element name="TGRX" type="xs:string" minOccurs="0"/>
+							<xs:element name="TXX1" type="xs:string" minOccurs="0"/>
+							<xs:element name="TDAI" type="xs:string" minOccurs="0"/>
+							<xs:element name="TCCD" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRAT" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRAD" type="xs:string" minOccurs="0"/>
+							<xs:element name="TDCTL" type="xs:string" minOccurs="0"/>
+							<xs:element name="TCID" type="xs:string" minOccurs="0"/>
+							<xs:element name="TTYP" type="xs:string" minOccurs="0"/>
+							<xs:element name="TDESC" type="xs:string" minOccurs="0"/>
+							<xs:element name="TAPPRV" type="xs:string" minOccurs="0"/>
+							<xs:element name="TOPEN11" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRCD" type="xs:string" minOccurs="0"/>
+							<xs:element name="TCTL" type="xs:string" minOccurs="0"/>
+							<xs:element name="TLAS" type="xs:string" minOccurs="0"/>
+							<xs:element name="TLAX" type="xs:string" minOccurs="0"/>
+							<xs:element name="TLSTS" type="xs:string" minOccurs="0"/>
+							<xs:element name="TPSTS" type="xs:string" minOccurs="0"/>
+							<xs:element name="TDPT" type="xs:string" minOccurs="0"/>
+							<xs:element name="TIPC" type="xs:string" minOccurs="0"/>
+							<xs:element name="TREC" type="xs:string" minOccurs="0"/>
+							<xs:element name="TVLC" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRTL" type="xs:string" minOccurs="0"/>
+							<xs:element name="TFGP" type="xs:string" minOccurs="0"/>
+							<xs:element name="TPGM" type="xs:string" minOccurs="0"/>
+							<xs:element name="TMNU" type="xs:string" minOccurs="0"/>
+							<xs:element name="TOPT" type="xs:string" minOccurs="0"/>
+							<xs:element name="TSRC" type="xs:string" minOccurs="0"/>
+							<xs:element name="TPDAT" type="xs:string" minOccurs="0"/>
+							<xs:element name="TPHRS" type="xs:string" minOccurs="0"/>
+							<xs:element name="TUSER" type="xs:string" minOccurs="0"/>
+							<xs:element name="TWSID" type="xs:string" minOccurs="0"/>
+							<xs:element name="TWBISO" type="xs:string" minOccurs="0"/>
+							<xs:element name="TGTIN" type="xs:string" minOccurs="0"/>
+							<xs:element name="TORG" type="xs:string" minOccurs="0"/>
+							<xs:element name="TDLX" type="xs:string" minOccurs="0"/>
+							<xs:element name="TSRCDES" type="xs:string" minOccurs="0"/>
+							<xs:element name="TIST" type="xs:string" minOccurs="0"/>
+							<xs:element name="TENT" type="xs:string" minOccurs="0"/>
+							<xs:element name="TSEQ" type="xs:string" minOccurs="0"/>
+							<xs:element name="TREG" type="xs:string" minOccurs="0"/>
+							<xs:element name="TECR" type="xs:string" minOccurs="0"/>
+							<xs:element name="TTOS" type="xs:string" minOccurs="0"/>
+							<xs:element name="TOMX" type="xs:string" minOccurs="0"/>
+							<xs:element name="TOIC" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRSVD" type="xs:string" minOccurs="0"/>
+							<xs:element name="TDATAB" type="xs:string" minOccurs="0"/>
+							<xs:element name="TPRMBR" type="xs:string" minOccurs="0"/>
+							<xs:element name="TEXNBR" type="xs:string" minOccurs="0"/>
+							<xs:element name="HAGTN" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PublishFields" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Instance" type="xs:string" minOccurs="0"/>
+							<xs:element name="PXPON" type="xs:string" minOccurs="0"/>
+							<xs:element name="PXSHMT" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

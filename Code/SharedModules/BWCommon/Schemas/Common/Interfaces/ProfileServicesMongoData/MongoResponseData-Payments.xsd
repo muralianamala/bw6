@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MongoResponseData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="JSON" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="JSON">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="archived" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="nickName" type="xs:string" minOccurs="0"/>
+				<xs:element name="paymentType" type="xs:string" minOccurs="0"/>
+				<xs:element name="giftCardDetail" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="pin" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="creditCardDetail" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="expirationMonth" type="xs:string" minOccurs="0"/>
+							<xs:element name="addressId" type="xs:string" minOccurs="0"/>
+							<xs:element name="lastFourDigits" type="xs:string" minOccurs="0"/>
+							<xs:element name="expirationYear" type="xs:string" minOccurs="0"/>
+							<xs:element name="tokenized" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="token" type="xs:string" minOccurs="0"/>
+							<xs:element name="address" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="sterling" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="personInfoKey" type="xs:string" minOccurs="0"/>
+													<xs:element name="addressId" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="archived" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="created" type="xs:double" minOccurs="0"/>
+										<xs:element name="lastModified" type="xs:double" minOccurs="0"/>
+										<xs:element name="visible" type="xs:string" minOccurs="0"/>
+										<xs:element name="address" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="city" type="xs:string" minOccurs="0"/>
+													<xs:element name="poBox" type="xs:string" minOccurs="0"/>
+													<xs:element name="name" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="middle" type="xs:string" minOccurs="0"/>
+																<xs:element name="prefix" type="xs:string" minOccurs="0"/>
+																<xs:element name="last" type="xs:string" minOccurs="0"/>
+																<xs:element name="suffix" type="xs:string" minOccurs="0"/>
+																<xs:element name="first" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="address1" type="xs:string" minOccurs="0"/>
+													<xs:element name="address2" type="xs:string" minOccurs="0"/>
+													<xs:element name="address3" type="xs:string" minOccurs="0"/>
+													<xs:element name="verificationStatus" type="xs:string" minOccurs="0"/>
+													<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+													<xs:element name="masked" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="country" type="xs:string" minOccurs="0"/>
+													<xs:element name="postalCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="region" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+										<xs:element name="nickName" type="xs:string" minOccurs="0"/>
+										<xs:element name="id" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="cardType" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="visible" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+				<xs:element name="approvedShippingAddresses" type="xs:string"/>
+				<xs:element name="id" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/registry/addorupdateregistry"
+	 xmlns:ns0="http://www.urbanoutfitters.com/co/base"
+	 xmlns:ns1="http://www.urbanoutfitters.com/co/fault"
+	 targetNamespace="http://www.urbanoutfitters.com/registry/addorupdateregistry"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:element name="AddorUpdateItemsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RegistryId" type="xs:string"/>
+				<xs:element name="HID" type="xs:string" minOccurs="0"/>
+				<xs:element name="items" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="sku" type="xs:string"/>
+										<xs:element name="product_id" type="xs:string"/>
+										<xs:element name="favorite" type="xs:string" minOccurs="0"/>
+										<xs:element name="purchased_quantity" type="xs:string" minOccurs="0"/>
+										<xs:element name="requested_quantity" type="xs:string" minOccurs="0"/>
+										<xs:element name="canceled_quantity" type="xs:string" minOccurs="0"/>
+										<xs:element name="channel" type="xs:string" minOccurs="0"/>
+										<xs:element name="store" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="items">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="item" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="item">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="sku" type="xs:string"/>
+				<xs:element name="product_id" type="xs:string"/>
+				<xs:element name="favorite" type="xs:string" minOccurs="0"/>
+				<xs:element name="purchased_quantity" type="xs:string" minOccurs="0"/>
+				<xs:element name="requested_quantity" type="xs:string" minOccurs="0"/>
+				<xs:element name="canceled_quantity" type="xs:string" minOccurs="0"/>
+				<xs:element name="created_at" type="xs:integer" minOccurs="0"/>
+				<xs:element name="updated_at" type="xs:integer" minOccurs="0"/>
+				<xs:element name="channel" type="xs:string" minOccurs="0"/>
+				<xs:element name="store" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RegistryVersion" type="xs:string"/>
+	<xs:element name="AddorUpdateItemsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="meta" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="message" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="registry" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="brand" type="xs:string" minOccurs="0"/>
+							<xs:element name="pre_event_shipping_address" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="first_name" type="xs:string" minOccurs="0"/>
+										<xs:element name="last_name" type="xs:string" minOccurs="0"/>
+										<xs:element name="address1" type="xs:string" minOccurs="0"/>
+										<xs:element name="address2" type="xs:string" minOccurs="0"/>
+										<xs:element name="zip_code" type="xs:string" minOccurs="0"/>
+										<xs:element name="state" type="xs:string" minOccurs="0"/>
+										<xs:element name="city" type="xs:string" minOccurs="0"/>
+										<xs:element name="country" type="xs:string" minOccurs="0"/>
+										<xs:element name="pobox" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="phone_number" type="xs:string" minOccurs="0"/>
+										<xs:element name="source" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="post_event_shipping_address" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="first_name" type="xs:string" minOccurs="0"/>
+										<xs:element name="last_name" type="xs:string" minOccurs="0"/>
+										<xs:element name="address1" type="xs:string" minOccurs="0"/>
+										<xs:element name="address2" type="xs:string" minOccurs="0"/>
+										<xs:element name="zip_code" type="xs:string" minOccurs="0"/>
+										<xs:element name="state" type="xs:string" minOccurs="0"/>
+										<xs:element name="city" type="xs:string" minOccurs="0"/>
+										<xs:element name="country" type="xs:string" minOccurs="0"/>
+										<xs:element name="pobox" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="phone_number" type="xs:string" minOccurs="0"/>
+										<xs:element name="source" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="default_shipping_address" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="first_name" type="xs:string" minOccurs="0"/>
+										<xs:element name="last_name" type="xs:string" minOccurs="0"/>
+										<xs:element name="address1" type="xs:string" minOccurs="0"/>
+										<xs:element name="address2" type="xs:string" minOccurs="0"/>
+										<xs:element name="zip_code" type="xs:string" minOccurs="0"/>
+										<xs:element name="state" type="xs:string" minOccurs="0"/>
+										<xs:element name="city" type="xs:string" minOccurs="0"/>
+										<xs:element name="country" type="xs:string" minOccurs="0"/>
+										<xs:element name="pobox" type="xs:boolean" minOccurs="0"/>
+										<xs:element name="phone_number" type="xs:string" minOccurs="0"/>
+										<xs:element name="source" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="active" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="accept_gift_cards" type="xs:boolean" minOccurs="0"/>
+							<xs:element name="id" type="xs:string" minOccurs="0"/>
+							<xs:element name="hid" type="xs:string" minOccurs="0"/>
+							<xs:element name="owners" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="owner" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="first_name" type="xs:string" minOccurs="0"/>
+													<xs:element name="last_name" type="xs:string" minOccurs="0"/>
+													<xs:element name="primary" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="email" type="xs:string" minOccurs="0"/>
+													<xs:element name="id" type="xs:string" minOccurs="0"/>
+													<xs:element name="loyalty_id" type="xs:string" minOccurs="0"/>
+													<xs:element name="web_profile_id" type="xs:string" minOccurs="0"/>
+													<xs:element name="customer_id" type="xs:string" minOccurs="0"/>
+													<xs:element name="address" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="first_name" type="xs:string" minOccurs="0"/>
+																<xs:element name="last_name" type="xs:string" minOccurs="0"/>
+																<xs:element name="address1" type="xs:string" minOccurs="0"/>
+																<xs:element name="address2" type="xs:string" minOccurs="0"/>
+																<xs:element name="zip_code" type="xs:string" minOccurs="0"/>
+																<xs:element name="state" type="xs:string" minOccurs="0"/>
+																<xs:element name="city" type="xs:string" minOccurs="0"/>
+																<xs:element name="country" type="xs:string" minOccurs="0"/>
+																<xs:element name="pobox" type="xs:boolean" minOccurs="0"/>
+																<xs:element name="phone_number" type="xs:string" minOccurs="0"/>
+																<xs:element name="source" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="items" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="sku" type="xs:string"/>
+													<xs:element name="product_id" type="xs:string"/>
+													<xs:element name="favorite" type="xs:boolean" minOccurs="0"/>
+													<xs:element name="purchased_quantity" type="xs:integer" minOccurs="0"/>
+													<xs:element name="requested_quantity" type="xs:integer" minOccurs="0"/>
+													<xs:element name="created_at" type="xs:integer" minOccurs="0"/>
+													<xs:element name="updated_at" type="xs:integer" minOccurs="0"/>
+													<xs:element name="channel" type="xs:string" minOccurs="0"/>
+													<xs:element name="store" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="created_at" type="xs:integer" minOccurs="0"/>
+							<xs:element name="event" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="date" type="xs:integer" minOccurs="0"/>
+										<xs:element name="type" type="xs:string" minOccurs="0"/>
+										<xs:element name="name" type="xs:string" minOccurs="0"/>
+										<xs:element name="description" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="version" type="xs:string" minOccurs="0"/>
+							<xs:element name="channel" type="xs:string" minOccurs="0"/>
+							<xs:element name="links" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="updated_at" type="xs:integer" minOccurs="0"/>
+							<xs:element name="expired_at" type="xs:integer" minOccurs="0"/>
+							<xs:element name="store" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fault" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="faultcode" type="xs:string" minOccurs="0"/>
+							<xs:element name="faultstring" type="xs:string" minOccurs="0"/>
+							<xs:element name="description" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

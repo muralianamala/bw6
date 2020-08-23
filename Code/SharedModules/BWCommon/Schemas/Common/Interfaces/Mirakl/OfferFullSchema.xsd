@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/Mirakl/OfferFull"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/Mirakl/OfferFull"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="MiraklOfferFull" type="MiraklOfferFullType"/>
+	<xs:complexType name="MiraklOfferFullType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element ref="Offers" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Offers">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="offer-id" type="xs:string" minOccurs="0"/>
+				<xs:element name="product-sku" type="xs:string" minOccurs="0"/>
+				<xs:element name="min-shipping-price" type="xs:string" minOccurs="0"/>
+				<xs:element name="min-shipping-price-additional" type="xs:string" minOccurs="0"/>
+				<xs:element name="min-shipping-zone" type="xs:string" minOccurs="0"/>
+				<xs:element name="min-shipping-type" type="xs:string" minOccurs="0"/>
+				<xs:element name="price" type="xs:string" minOccurs="0"/>
+				<xs:element name="total-price" type="xs:string" minOccurs="0"/>
+				<xs:element name="price-additional-info" type="xs:string" minOccurs="0"/>
+				<xs:element name="quantity" type="xs:string" minOccurs="0"/>
+				<xs:element name="description" type="xs:string" minOccurs="0"/>
+				<xs:element name="state-code" type="xs:string" minOccurs="0"/>
+				<xs:element name="shop-id" type="xs:string" minOccurs="0"/>
+				<xs:element name="shop-name" type="xs:string" minOccurs="0"/>
+				<xs:element name="professional" type="xs:string" minOccurs="0"/>
+				<xs:element name="premium" type="xs:string" minOccurs="0"/>
+				<xs:element name="logistic-class" type="xs:string" minOccurs="0"/>
+				<xs:element name="active" type="xs:string" minOccurs="0"/>
+				<xs:element name="favorite-rank" type="xs:string" minOccurs="0"/>
+				<xs:element name="channels" type="xs:string" minOccurs="0"/>
+				<xs:element name="deleted" type="xs:string" minOccurs="0"/>
+				<xs:element name="origin-price" type="xs:string" minOccurs="0"/>
+				<xs:element name="discount-start-date" type="xs:string" minOccurs="0"/>
+				<xs:element name="discount-end-date" type="xs:string" minOccurs="0"/>
+				<xs:element name="available-start-date" type="xs:string" minOccurs="0"/>
+				<xs:element name="available-end-date" type="xs:string" minOccurs="0"/>
+				<xs:element name="discount-price" type="xs:string" minOccurs="0"/>
+				<xs:element name="currency-iso-code" type="xs:string" minOccurs="0"/>
+				<xs:element name="discount-ranges" type="xs:string" minOccurs="0"/>
+				<xs:element name="leadtime-to-ship" type="xs:string" minOccurs="0"/>
+				<xs:element name="allow-quote-requests" type="xs:string" minOccurs="0"/>
+				<xs:element name="price-ranges" type="xs:string" minOccurs="0"/>
+				<xs:element name="vendorId" type="xs:string" minOccurs="0"/>
+				<xs:element name="offersyncfield" type="xs:string" minOccurs="0"/>
+				<xs:element name="field1" type="xs:string" minOccurs="0"/>
+				<xs:element name="field2" type="xs:string" minOccurs="0"/>
+				<xs:element name="field3" type="xs:string" minOccurs="0"/>
+				<xs:element name="field4" type="xs:string" minOccurs="0"/>
+				<xs:element name="field5" type="xs:string" minOccurs="0"/>
+				<xs:element name="field6" type="xs:string" minOccurs="0"/>
+				<xs:element name="field7" type="xs:string" minOccurs="0"/>
+				<xs:element name="field8" type="xs:string" minOccurs="0"/>
+				<xs:element name="field9" type="xs:string" minOccurs="0"/>
+				<xs:element name="field10" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

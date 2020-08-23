@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/loyaltyemailatg/loyaltyemailatg"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/loyaltyemailatg/loyaltyemailatg"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="LoyaltyEmailATG" type="LoyaltyEmailATGType"/>
+	<xs:complexType name="LoyaltyEmailATGType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="EmailSub" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+						<xs:element name="CurrentEmailID" type="xs:string" minOccurs="0"/>
+						<xs:element name="SignUpFlag" type="xs:string" minOccurs="0"/>
+						<xs:element name="SendEmailCode" type="xs:string" minOccurs="0"/>
+						<xs:element name="Action" type="xs:string" minOccurs="0"/>
+						<xs:element name="Source" type="xs:string" minOccurs="0"/>
+						<xs:element name="ListName" type="xs:string" minOccurs="0"/>
+						<xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+						<xs:element name="LastName" type="xs:string" minOccurs="0"/>
+						<xs:element name="NewEmailID" type="xs:string" minOccurs="0"/>
+						<xs:element name="CustomerID" type="xs:string" minOccurs="0"/>
+						<xs:element name="LanguageCode" type="xs:string" minOccurs="0"/>
+						<xs:element name="Gender" type="xs:string" minOccurs="0"/>
+						<xs:element name="Country" type="xs:string" minOccurs="0"/>
+						<xs:element name="SiteId" type="xs:string" minOccurs="0"/>
+						<xs:element name="Zip" type="xs:string" minOccurs="0"/>
+						<xs:element name="EmsPreference" type="xs:string" minOccurs="0"/>
+						<xs:element name="Brand_EMS" type="xs:string" minOccurs="0"/>
+						<xs:element name="Source_EMS" type="xs:string" minOccurs="0"/>
+						<xs:element name="Ems_Email_Status_Id" type="xs:string" minOccurs="0"/>
+						<xs:element name="includeHome" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PublishedFields" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="WelcomeEmailType" type="xs:string" minOccurs="0"/>
+						<xs:element name="System" type="xs:string" minOccurs="0"/>
+						<xs:element name="Resub" type="xs:string" minOccurs="0"/>
+						<xs:element name="Sub" type="xs:string" minOccurs="0"/>
+						<xs:element name="AID" type="xs:string" minOccurs="0"/>
+						<xs:element name="EID" type="xs:string" minOccurs="0"/>
+						<xs:element name="EMS_E" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

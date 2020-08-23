@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="RateShop">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="RateShoppingRequest"/>
+				<xs:element ref="RateShoppingResponse"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RateShoppingRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ContextID" type="xs:string" minOccurs="0"/>
+				<xs:element name="ServiceLevel" type="xs:string" minOccurs="0"/>
+				<xs:element name="SKUDetail" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SKUDefinition" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="SeasonYear" type="xs:string" minOccurs="0"/>
+										<xs:element name="Style" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PickticketQty" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ShiptoAddress" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ShipToAddress1" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipToCity" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipToState" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipToPostalCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipToCountry" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RateShoppingResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageId" type="xs:string" minOccurs="0"/>
+				<xs:element name="Message" type="xs:string" minOccurs="0"/>
+				<xs:element name="RateShoppingDetails" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ShipVia" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipViaDescription" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="CustomerCharge" type="xs:string" minOccurs="0"/>
+							<xs:element name="ActualCharge" type="xs:string" minOccurs="0"/>
+							<xs:element name="DistributingCharge" type="xs:string" minOccurs="0"/>
+							<xs:element name="LineHaulCharge" type="xs:string" minOccurs="0"/>
+							<xs:element name="BaseCharge" type="xs:string" minOccurs="0"/>
+							<xs:element name="InsuranceCharge" type="xs:string" minOccurs="0"/>
+							<xs:element name="AccessorialCharge" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="RateShoppingErrors" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ErrorShipVia" type="xs:string" minOccurs="0"/>
+							<xs:element name="ErrorShipViaDescription" type="xs:string" minOccurs="0"/>
+							<xs:element name="ErrorCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ErrorCodeDescription" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string"/>
+			<xs:attribute name="version" type="xs:string"/>
+			<xs:attribute name="timestamp" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

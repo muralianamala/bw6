@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.UrbanOutfitters.com/schemas/common/SKULoadRTRequest"
+ 	xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.UrbanOutfitters.com/schemas/common/SKULoadRTRequest"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="SKULoadRTRequest" type="SKULoadRTRequestType"/>
+	<xs:complexType name="SKULoadRTRequestType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element ref="UrbnIPItemData" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+				<xs:element name="UrbnIPItemData" >
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ItemID" type="xs:string" minOccurs="0"/>
+							<xs:element name="Description" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShortDescription" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnIPLongSKU" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnOwnerOrg" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnIsDropShip" type="xs:string" minOccurs="0"/>
+							<xs:element name="Status" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnBackorderableFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnAlias" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnDivisionCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnDeptCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnIsGiftCard" type="xs:string" minOccurs="0"/>
+							<xs:element name="SizeCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnSizeCodeDescription" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnColorName" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnColorDesc" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnIsGiftItem" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnProductRestrictCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnCarrierServiceCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnIPStyleNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnIPStyleDesc" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnDepositGroupCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnFlatRateGroupCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnOverweightFeeCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExtnRestockFeeCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ColorCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="TaxProductCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="NAICSCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="IVEN" type="xs:string" minOccurs="0"/>
+							<xs:element name="IMKD" type="xs:string" minOccurs="0"/>
+							<xs:element name="IVST" type="xs:string" minOccurs="0"/>
+							<xs:element name="ICGP" type="xs:string" minOccurs="0"/>
+							<xs:element name="IACC" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT01" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT02" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT03" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT04" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT05" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT06" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT07" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT08" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT09" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT10" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT11" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT12" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT13" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT14" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT15" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT16" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT17" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT18" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT19" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT20" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT21" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT22" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT23" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT24" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT25" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT26" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT27" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT28" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT29" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT30" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT31" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT32" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT33" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT34" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT35" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT36" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT37" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT38" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT39" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT40" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT41" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT42" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT43" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT44" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT45" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT46" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT47" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT48" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT49" type="xs:string" minOccurs="0"/>
+							<xs:element name="IATT50" type="xs:string" minOccurs="0"/>
+							<xs:element name="Class" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+		
+</xs:schema>

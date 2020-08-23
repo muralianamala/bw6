@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.urbanoutfitters.com/Commits/json" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.urbanoutfitters.com/Commits/json">
+
+    <xsd:element name="Commit">
+    	<xsd:complexType></xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="CommitsRequest">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="cartClassifications" maxOccurs="1"
+    				minOccurs="0">
+    				<xsd:complexType>
+    					<xsd:sequence>
+    						<xsd:element name="sourcingClassification"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    					</xsd:sequence>
+    				</xsd:complexType>
+    			</xsd:element>
+    			<xsd:element name="cartId" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    			<xsd:element name="cartType" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    			<xsd:element name="cartLines" maxOccurs="unbounded" minOccurs="0">
+    				<xsd:complexType>
+    					<xsd:sequence>
+    						<xsd:element name="cartLineType"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="fulfillmentType"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="considerGlobalInventory"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="fulfillmentService"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="keepTogetherId"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="lineId"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="linePriceTotal"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="productId"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="quantity"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="requestedDeliveryDate"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element
+    							name="requestedDeliveryDateConstraint" type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="sellingPrice"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="uom" type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="lineClassifications"
+    							maxOccurs="1" minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="addressClassification"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    						<xsd:element name="shippingAddress"
+    							maxOccurs="1" minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="city"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="countryCode"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="state"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="zipCode"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    					</xsd:sequence>
+    				</xsd:complexType>
+    			</xsd:element>
+    			<xsd:element name="cartPriceTotal" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    			<xsd:element name="customerType" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    			<xsd:element name="optimizationRuleId"
+    				type="xsd:string" maxOccurs="1" minOccurs="0">
+    			</xsd:element>
+    			<xsd:element name="orgId" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    			<xsd:element name="sellingChannel" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    			<xsd:element name="transactionType" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="CommitsResponse">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="cartId" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    			<xsd:element name="fulfillmentScore"
+    				type="xsd:string" maxOccurs="1" minOccurs="0">
+    			</xsd:element>
+    			<xsd:element name="shipments" maxOccurs="unbounded"
+    				minOccurs="0">
+    				<xsd:complexType>
+    					<xsd:sequence>
+    						<xsd:element name="locationId"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="locationType"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="fulfillmentScore"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="fulfillmentType"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="fulfillmentService"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="cartItems"
+    							maxOccurs="unbounded" minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="lineId"
+    										type="xsd:int" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element
+    										name="fulfillQuantity" type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element
+    										name="requestQuantity" type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="capacitySegment"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    						<xsd:element name="shipDate" maxOccurs="1" minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="min"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="max"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    						<xsd:element name="deliveryDate" maxOccurs="1" minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="min"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="max"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    						<xsd:element name="orderCutOffDate" maxOccurs="1" minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="min"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="max"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    						<xsd:element name="releaseDate"
+    							maxOccurs="1" minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="min"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="max"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    						<xsd:element name="reservationDate"
+    							type="xsd:string" maxOccurs="1" minOccurs="0">
+    						</xsd:element>
+    						<xsd:element name="capacityDate"
+    							maxOccurs="1" minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="min"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="max"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    					</xsd:sequence>
+    				</xsd:complexType>
+    			</xsd:element>
+    			<xsd:element name="auditDetails" maxOccurs="unbounded"
+    				minOccurs="0">
+    				<xsd:complexType>
+    					<xsd:sequence>
+    						<xsd:element name="lineId" type="xsd:int" maxOccurs="1"
+    							minOccurs="0">    							
+    						</xsd:element>
+    						<xsd:element name="auditDetail"
+    							maxOccurs="unbounded" minOccurs="0">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element
+    										name="fulfillmentService" type="xsd:string" maxOccurs="1" minOccurs="0">
+    										
+    									</xsd:element>
+    									<xsd:element name="reasonCode"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    									<xsd:element name="description"
+    										type="xsd:string" maxOccurs="1" minOccurs="0">
+    									</xsd:element>
+    								</xsd:sequence>
+    							</xsd:complexType>
+    						</xsd:element>
+    					</xsd:sequence>
+    				</xsd:complexType>
+    			</xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Message" type="xsd:string"></xsd:element>
+</xsd:schema>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/orderinvoice/orderinvoice"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:invoice="http://www.urbanoutfitters.com/co/orderinvoice/invoice"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/orderinvoice/orderinvoice"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/orderinvoice/invoice" schemaLocation="../../Objects/OrderInvoice/Invoice.xsd"/>
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="OrderInvoice" type="OrderInvoiceType"/>
+	<xsd:complexType name="OrderInvoiceType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="InvoiceBridge"/>
+			<xsd:element ref="PublishFields" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="InvoiceBridge" type="invoice:InvoiceBridgeType"/>
+	<xsd:element name="PublishFields">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sterlingSCAC" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingSCACandService" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="sterlingCarrierServiceCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="levelofServiceCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="carrierURL" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="tracking_No_Field" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="WMS" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="newgisticsNbr" type="xsd:string"/>
+							<xsd:element name="cartonNbr" type="xsd:string"/>
+							<xsd:element name="pickTicketNbr" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="returnURL" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="BackOrderLines" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="LineNo" type="xsd:string" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="CompleteShipmentResponseFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="PickTicketStatus" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="MetroDeliveryFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ContainerWeightUOM" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ContainerHeightUOM" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ContainerLengthUOM" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ContainerWidthUOM" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field1" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field2" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field3" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field4" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field5" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field6" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field7" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field8" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field9" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="field10" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

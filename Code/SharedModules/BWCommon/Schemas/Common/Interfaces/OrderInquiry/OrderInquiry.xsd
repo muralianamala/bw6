@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/orderinquiry/orderinquiry"
+	xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:orderrequest="http://www.urbanoutfitters.com/co/order/orderrequest"
+	 xmlns:orderresponse="http://www.urbanoutfitters.com/co/order/orderresponse"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 targetNamespace="http://www.urbanoutfitters.com/orderinquiry/orderinquiry"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/order/orderrequest" schemaLocation="../../Objects/Order/OrderRequest.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/order/orderresponse" schemaLocation="../../Objects/Order/OrderResponse.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:element name="OrderInquiry" type="OrderType"/>
+	<xs:complexType name="OrderType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element ref="OrderInquiryRequest" minOccurs="0"/>
+			<xs:element ref="OrderInquiryResponse" minOccurs="0"/>
+			<xs:element name="Fault" type="fault:FaultType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="OrderInquiryRequest" type="orderrequest:OrderRequestType"/>
+	<xs:element name="OrderInquiryResponse" type="orderresponse:OrderResponseType"/>
+</xs:schema>

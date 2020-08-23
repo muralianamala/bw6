@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/StoreMaster/storemaster"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/StoreMaster/storemaster"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="StoreMaster" type="StoreMasterType"/>
+	<xsd:complexType name="StoreMasterType">
+		<xsd:sequence>
+			<xsd:element name="System" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LoadTo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Brand" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ErrorSeq" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ProcessedDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ProcessedTime" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BatchCtlNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DateCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UserID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Warehouse" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreAddr1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreAddr2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreAddr3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreCity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreState" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreZip" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreCountry" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TelephoneNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ContactName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DefaultCompany" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DefaultDivision" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MerchandiseCompany" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MerchandiseDivision" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StatusFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreOpenDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreCloseDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreHoldDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreGroup" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreChain" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreZone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreTerritory" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreRegion" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreDistrict" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AcceptIrregulars" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="WaveLabelType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PackingSlipType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PrintCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CtnCounterRecordType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShipVia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Route" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RoutingAttribute" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RouteTo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RoutingType1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RoutingType2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RoutingZip" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GlobalLocationNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE6" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE7" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE8" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE9" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SPECIALINSCODE10" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MISCINS5BYTE1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MISCINS5BYTE2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MISCINS10BYTE1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MISCINS10BYTE2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MISCNUM1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MISCNUM2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RecordExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CustomRcdExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MerchType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MerchGroup" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreDepartment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DistroBreakFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SensorTagType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FUNCTION" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AverageInTransitDays" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Importer" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Incoterms" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GeneralMerchandiseDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DocumentonlyShipping" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CartonEPCType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PalletEPCType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OnWaveShortage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SenderInsinCaseofNonDlvry" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InfectiousSubstanceContactName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InfectiousSubstancePhoneNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FrameWorkID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FrameWorkFlags" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ListOfStoreMaster" type="ListOfStoreMasterType"/>
+	<xsd:complexType name="ListOfStoreMasterType">
+		<xsd:annotation>
+			<xsd:documentation>List Of Store Master</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="StoreMaster" type="StoreMasterType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element name="PublishedFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="whseSchema" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

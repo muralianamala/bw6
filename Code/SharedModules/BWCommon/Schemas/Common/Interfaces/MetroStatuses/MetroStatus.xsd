@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/MetroStatuses/MetroStatus"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/MetroStatuses/MetroStatus"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="MetroStatus" type="MetroStatusType"/>
+	<xs:complexType name="MetroStatusType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="Document" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Header" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Carrier" type="xs:string" minOccurs="0"/>
+									<xs:element name="DocumentDate" type="xs:string" minOccurs="0"/>
+									<xs:element name="Client" type="xs:string" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Orders" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Status" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="TrackingNumber" type="xs:string" minOccurs="0"/>
+												<xs:element name="PON" type="xs:string" minOccurs="0"/>
+												<xs:element name="CarrierPRO" type="xs:string" minOccurs="0"/>
+												<xs:element name="ClientRef1" type="xs:string" minOccurs="0"/>
+												<xs:element name="ClientRef2" type="xs:string" minOccurs="0"/>
+												<xs:element name="OriginCompany" type="xs:string" minOccurs="0"/>
+												<xs:element name="OriginCity" type="xs:string" minOccurs="0"/>
+												<xs:element name="OriginState" type="xs:string" minOccurs="0"/>
+												<xs:element name="OriginZip" type="xs:string" minOccurs="0"/>
+												<xs:element name="DestinationName" type="xs:string" minOccurs="0"/>
+												<xs:element name="DestinationCity" type="xs:string" minOccurs="0"/>
+												<xs:element name="DestinationState" type="xs:string" minOccurs="0"/>
+												<xs:element name="DestinationZip" type="xs:string" minOccurs="0"/>
+												<xs:element name="TypeOfTran" type="xs:string" minOccurs="0"/>
+												<xs:element name="EventCode" type="xs:string" minOccurs="0"/>
+												<xs:element name="EventDescription" type="xs:string" minOccurs="0"/>
+												<xs:element name="EventTriggeredDate" type="xs:string" minOccurs="0"/>
+												<xs:element name="EventTriggeredTime" type="xs:string" minOccurs="0"/>
+												<xs:element name="OfferedDate" type="xs:string" minOccurs="0"/>
+												<xs:element name="DeliveryScheduleType" type="xs:string" minOccurs="0"/>
+												<xs:element name="PickupScheduleType" type="xs:string" minOccurs="0"/>
+												<xs:element name="Regular" type="xs:string" minOccurs="0"/>
+												<xs:element name="AdminOverride" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

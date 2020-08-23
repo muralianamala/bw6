@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/Mirakl/SalesAudit"
+	 targetNamespace="http://www.urbanoutfitters.com/Mirakl/SalesAudit"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MiraklOrderRefund">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" type="xs:string" minOccurs="0"/>
+				<xs:element name="Refund" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="amount" type="xs:string" minOccurs="0"/>
+							<xs:element name="currency_iso_code" type="xs:string" minOccurs="0"/>
+							<xs:element name="payment_status" type="xs:string" minOccurs="0"/>
+							<xs:element name="refund_id" type="xs:string" minOccurs="0"/>
+							<xs:element name="transaction_date" type="xs:string" minOccurs="0"/>
+							<xs:element name="transaction_number" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Order" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="amount" type="xs:string" minOccurs="0"/>
+							<xs:element name="currency_iso_code" type="xs:string" minOccurs="0"/>
+							<xs:element name="customer_id" type="xs:string" minOccurs="0"/>
+							<xs:element name="order_id" type="xs:string" minOccurs="0"/>
+							<xs:element name="payment_status" type="xs:string" minOccurs="0"/>
+							<xs:element name="transaction_date" type="xs:string" minOccurs="0"/>
+							<xs:element name="transaction_number" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

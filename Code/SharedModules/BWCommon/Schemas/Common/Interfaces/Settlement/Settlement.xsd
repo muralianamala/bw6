@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/settlement/settlement"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/settlement/settlement"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="Settlement" type="SettlementType"/>
+	<xsd:complexType name="SettlementType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="ISDFileA1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ISDFileL4" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PublishFields" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PublishFields">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="isdConditionCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="l2MotoIndicator" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="merchandiseDescription" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="L4isdCurrencyCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="isdCurrencyCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="authStore" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Split_Settle_Flag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="authStorewp" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ISDFileA1">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ISSSETPB-BUSI-DATE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-STOR-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-TERM-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-TRAN-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-TRAN-SEQU" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-RECO-ID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-KEY-SEQ" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-JOUR-KEY" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-OPER-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-TRAN-DATE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-RECO-ID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-TEND-AMOU" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-TRAN-TYPE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-INVO-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-TEND-TYPE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-ACCO-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-EXPI-DATE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-AUTH-CODE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-AUTH-DATE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-AUTH-TIME" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-AUTH-SOUR" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-ENTR-MODE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-CURR-CODE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-USER-DATA" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-ORDE-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-COND-CODE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-TERM-TYPE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-TERM-ENTR" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-PROC-INDI" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-RETRY-CTR" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-CARD-STRT-DATE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-CARD-ISSU-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-TRAN-BILLMTHD" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-MCC-CODE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-CASH-BACK" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-LOCA-TIME" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-NETWORK-ID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-RETR-REFE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-EBT-VOUC-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-PROD-DELIMETH" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-ACCO-NUMB-LENG" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-CARD-SEQU" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-CARD-LVL" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-AUTH-TRAC-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-AUTH-BANK-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-MKT-SPEC-INDI" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-ENCR-STRINGTOKEN" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-APPR-CASH-BACK" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-ORIG-JOUR-KEY" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-CLR-SEQU-NUMB" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ISSSETPB-A1-CLEARINGCOUNT" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ISDFileL4">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="businessDate" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="storeNumber" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="terminalNumber" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="transactionNumber" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="tenderSequence" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="recordIdentifier" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="keySequence" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dccCurrencyAmount" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dccAmountDecimalPosition" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dccConversionRate" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dccRateDecimalPosition" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dccCurrencyCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="dccFlag" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

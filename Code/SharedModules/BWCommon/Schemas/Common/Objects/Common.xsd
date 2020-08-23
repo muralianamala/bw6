@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/co/common"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:complexType name="HeaderType">
+		<xsd:sequence>
+			<xsd:element name="applicationName" type="xsd:normalizedString" minOccurs="0"/>
+			<xsd:element name="trackingId" type="xsd:normalizedString" minOccurs="0"/>
+			<xsd:element name="source" type="xsd:normalizedString" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

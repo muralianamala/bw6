@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by ramuvanga (urbn) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.nrf-arts.org/IXRetail/namespace"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.nrf-arts.org/IXRetail/namespace"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:include schemaLocation="../../Objects/PurchaseOrder/Item.xsd"/>
+	<xs:include schemaLocation="../../Objects/PurchaseOrder/InventoryControlDocument.xsd"/>
+	<xs:include schemaLocation="../../Objects/PurchaseOrder/Comments.xsd"/>
+	<xs:include schemaLocation="../../Objects/PurchaseOrder/POPublishFields.xsd"/>
+	<xs:element name="PurchaseOrder">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+				<xs:element ref="Item" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="InventoryControlDocument" minOccurs="0"/>
+				<xs:element name="Ticketing" type="xs:string" minOccurs="0"/>
+				<xs:element name="QualityAuditing" type="xs:string" minOccurs="0"/>
+				<xs:element name="WareHouseName" type="xs:string" minOccurs="0"/>
+				<xs:element name="DistributionPriority" type="xs:string" minOccurs="0"/>
+				<xs:element ref="Comments" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="POPublishFields" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="PartnerID" type="xs:string"/>
+			
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

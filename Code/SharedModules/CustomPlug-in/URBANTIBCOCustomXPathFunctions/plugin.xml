@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension id="DateToEpochWithTimezoneCustomXPathFunctionGroup"
+        name="DateToEpochWithTimezoneCustomXPathFunctionGroup" point="com.tibco.xml.cxf.common.customXPathFunction">
+        <customXPathFunctionGroup
+            class="DateToEpochWithTimezoneCustomXPathFunctionGroup" id="DateToEpochWithTimezone.cxf"/>
+    </extension>
+    <extension id="UnixToGMTCustomXPathFunctionGroup"
+        name="UnixToGMTCustomXPathFunctionGroup" point="com.tibco.xml.cxf.common.customXPathFunction">
+        <customXPathFunctionGroup
+            class="UnixToGMTCustomXPathFunctionGroup" id="UnixToGMT.cxf"/>
+    </extension>
+    <extension id="BinMD5Base64CustomXPathFunctionGroup"
+        name="BinMD5Base64CustomXPathFunctionGroup" point="com.tibco.xml.cxf.common.customXPathFunction">
+        <customXPathFunctionGroup
+            class="BinMD5Base64CustomXPathFunctionGroup" id="BinMD5Base64.cxf"/>
+    </extension>
+    <extension id="AeMD5CustomXPathFunctionGroup"
+        name="AeMD5CustomXPathFunctionGroup" point="com.tibco.xml.cxf.common.customXPathFunction">
+        <customXPathFunctionGroup
+            class="AeMD5CustomXPathFunctionGroup" id="AeMD5.cxf"/>
+    </extension>
+    <extension id="DateToEpochCustomXPathFunctionGroup"
+        name="DateToEpochCustomXPathFunctionGroup" point="com.tibco.xml.cxf.common.customXPathFunction">
+        <customXPathFunctionGroup
+            class="DateToEpochCustomXPathFunctionGroup" id="DateToEpoch.cxf"/>
+    </extension>
+    <extension id="Utf8ConverterCustomXPathFunctionGroup"
+        name="Utf8ConverterCustomXPathFunctionGroup" point="com.tibco.xml.cxf.common.customXPathFunction">
+        <customXPathFunctionGroup
+            class="Utf8ConverterCustomXPathFunctionGroup" id="convertToUtf8Utf8Converter.cxf"/>
+    </extension>
+    <extension id="base64CustomXPathFunctionGroup"
+        name="base64CustomXPathFunctionGroup" point="com.tibco.xml.cxf.common.customXPathFunction">
+        <customXPathFunctionGroup
+            class="base64CustomXPathFunctionGroup" id="base64.cxf"/>
+    </extension>
+    <extension id="Base36CustomXPathFunctionGroup"
+        name="Base36CustomXPathFunctionGroup" point="com.tibco.xml.cxf.common.customXPathFunction">
+        <customXPathFunctionGroup
+            class="Base36CustomXPathFunctionGroup" id="Base36.cxf"/>
+    </extension>
+    <extension id="Utf8LenCounterCustomXPathFunctionGroup"
+        name="Utf8LenCounterCustomXPathFunctionGroup" point="com.tibco.xml.cxf.common.customXPathFunction">
+        <customXPathFunctionGroup
+            class="Utf8LenCounterCustomXPathFunctionGroup" id="Utf8LenCounter.cxf"/>
+    </extension>
+    <extension
+          id="URLUTF8EncoderCustomXPathFunctionGroup"
+          name="URLUTF8EncoderCustomXPathFunctionGroup"
+          point="com.tibco.xml.cxf.common.customXPathFunction">
+       <customXPathFunctionGroup
+             class="URLUTF8EncoderCustomXPathFunctionGroup"
+             id="UrlEncode.cxf">
+       </customXPathFunctionGroup>
+    </extension>
+    <extension
+          id="UtilCustomXPathFunctionGroup"
+          name="UtilCustomXPathFunctionGroup"
+          point="com.tibco.xml.cxf.common.customXPathFunction">
+       <customXPathFunctionGroup
+             class="UtilCustomXPathFunctionGroup"
+             id="Util.cxf">
+       </customXPathFunctionGroup>
+    </extension>   
+    <extension
+          id="OPPCustomXPathFunctionGroup"
+          name="OPPCustomXPathFunctionGroup"
+          point="com.tibco.xml.cxf.common.customXPathFunction">
+       <customXPathFunctionGroup
+             class="OPPCustomXPathFunctionGroup"
+             id="OPP.cxf">
+       </customXPathFunctionGroup>
+    </extension>       
+    <extension
+          id="TokenCustomXPathFunctionGroup"
+          name="TokenCustomXPathFunctionGroup"
+          point="com.tibco.xml.cxf.common.customXPathFunction">
+       <customXPathFunctionGroup
+             class="TokenCustomXPathFunctionGroup"
+             id="Token.cxf">
+       </customXPathFunctionGroup>
+    </extension>     
+</plugin>

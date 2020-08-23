@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/co/returns"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/co/returns"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="Return" type="ReturnType"/>
+	<xsd:complexType name="ReturnType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="Receipt" minOccurs="0"/>
+			<xsd:element ref="PublishFields" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PublishFields">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="transactionKey" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="transType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="transCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="company" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="inventoryAdjustmentCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="reasonCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="actionCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="wmsInstance" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ipBrand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="source" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="Date">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="Time">
+		<xsd:restriction base="xsd:time"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TimeStamp">
+		<xsd:restriction base="xsd:dateTime"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ItemID">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Key">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="24"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Quantity">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:fractionDigits value="4"/>
+			<xsd:totalDigits value="14"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ShipNode">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="24"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DispositionCode">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReceiptNo">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PercentAdjustment">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="2"/>
+			<xsd:totalDigits value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PricingRuleDescription">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VarcharDocumentNo">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="Receipt" type="ReceiptXSDType"/>
+	<xsd:complexType name="ReceiptXSDType">
+		<xsd:all>
+			<xsd:element ref="Shipment" minOccurs="0"/>
+			<xsd:element ref="ReceiptLines" minOccurs="0"/>
+		</xsd:all>
+		<xsd:attribute name="ReceiptDate" type="TimeStamp"/>
+		<xsd:attribute name="ReceiptNo" type="ReceiptNo"/>
+		<xsd:attribute name="ReceivingNode" type="Key"/>
+		<xsd:attribute name="ShipmentKey" type="Key"/>
+	</xsd:complexType>
+	<xsd:element name="Shipment">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="Order" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="OrderNo" type="VarcharDocumentNo"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:all>
+			<xsd:attribute name="OrderNo" type="VarcharDocumentNo"/>
+			<xsd:attribute name="ReceivingNode" type="ShipNode"/>
+			<xsd:attribute name="ShipNode" type="ShipNode"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ReceiptLines">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ReceiptLine" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ReceiptLine">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ItemDetails" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="AvailableForTranQuantity" type="Quantity"/>
+			<xsd:attribute name="CaseID" type="xsd:string"/>
+			<xsd:attribute name="DispositionCode" type="DispositionCode"/>
+			<xsd:attribute name="InspectedBy" type="xsd:string"/>
+			<xsd:attribute name="ItemID" type="ItemID"/>
+			<xsd:attribute name="ManufacturingDate">
+				<xsd:simpleType>
+					<xsd:union memberTypes="">
+						<xsd:simpleType>
+							<xsd:restriction base="Date"/>
+						</xsd:simpleType>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value=""/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:union>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Quantity" type="Quantity"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ItemDetails">
+		<xsd:complexType>
+			<xsd:attribute name="ColorCode" type="xsd:string"/>
+			<xsd:attribute name="ExtnAlias" type="xsd:string"/>
+			<xsd:attribute name="ExtnDirectStyle" type="xsd:string"/>
+			<xsd:attribute name="SizeCode" type="xsd:string"/>
+			<xsd:attribute name="ExtnWMSStyleNo" type="xsd:string"/>
+			<xsd:attribute name="NAICSCode" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/MISLRequest" xmlns:tns="http://www.example.org/MISLRequest" elementFormDefault="qualified">
+
+    <element name="MISLRequest" type="tns:MISLRequestType"></element>
+
+    <complexType name="MISLRequestType">
+    	<sequence>
+    		<element name="Input" type="string" minOccurs="0" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+</schema>

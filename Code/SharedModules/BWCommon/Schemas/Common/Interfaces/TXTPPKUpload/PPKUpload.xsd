@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/TXTPPKUpload/PPKUpload"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/TXTPPKUpload/PPKUpload"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="TXTPPKUpload" type="PPKUploadType"/>
+	<xs:complexType name="PPKUploadType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="PPKUpload" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TXT_ID" type="xs:string" minOccurs="0"/>
+						<xs:element name="REAL_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="Channel_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="MONTH" type="xs:string" minOccurs="0"/>
+						<xs:element name="STYLE_COLOR_NAME" type="xs:string" minOccurs="0"/>
+						<xs:element name="STYLE_COLOR_SHORT_DES" type="xs:string" minOccurs="0"/>
+						<xs:element name="VENDOR_STYLE_NUMBER" type="xs:string" minOccurs="0"/>
+						<xs:element name="COLOR_CODE" type="xs:string" minOccurs="0"/>
+						<xs:element name="FOB" type="xs:string" minOccurs="0"/>
+						<xs:element name="AUR" type="xs:string" minOccurs="0"/>
+						<xs:element name="STYLE_GROUP_NUMBER" type="xs:string" minOccurs="0"/>
+						<xs:element name="CLASS_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="SIZE_CODE" type="xs:string" minOccurs="0"/>
+						<xs:element name="VENDOR_NUMBER" type="xs:string" minOccurs="0"/>
+						<xs:element name="SIZE_QUANTITY" type="xs:string" minOccurs="0"/>
+						<xs:element name="PACK_CODE" type="xs:string" minOccurs="0"/>
+						<xs:element name="ACTION_CODE" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR01_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR02_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR03_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR04_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR05_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR06_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR07_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR08_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR09_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR10_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR11_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR12_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR13_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR14_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR15_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR16_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR17_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR18_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR19_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR20_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR21_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR22_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR23_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR24_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR25_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR26_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR27_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR28_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR29_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR30_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR31_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR32_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR33_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR34_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR35_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR36_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR37_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR38_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR39_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR40_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR41_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR42_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR43_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR44_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR45_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR46_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR47_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR48_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR49_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="ATTR50_IDX" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PublishFields" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Instance" type="xs:string" minOccurs="0"/>
+						<xs:element name="EOF" type="xs:string" minOccurs="0"/>
+						<xs:element name="TriggerFileName" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

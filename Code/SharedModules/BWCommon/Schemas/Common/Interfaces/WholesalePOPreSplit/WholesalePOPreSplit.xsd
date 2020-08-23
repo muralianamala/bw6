@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbn.com/WholesalePOPreSplit"
+	 targetNamespace="http://www.urbn.com/WholesalePOPreSplit"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="WholesalePOPreSplit">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="applicationName" type="xs:string" minOccurs="0"/>
+							<xs:element name="trackingId" type="xs:string" minOccurs="0"/>
+							<xs:element name="source" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="WholesalePOPreSplits" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Database" type="xs:string" minOccurs="0"/>
+							<xs:element name="PONumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="POSequence" type="xs:string" minOccurs="0"/>
+							<xs:element name="ToStore" type="xs:string" minOccurs="0"/>
+							<xs:element name="FromStore" type="xs:string" minOccurs="0"/>
+							<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+							<xs:element name="GTIN" type="xs:string" minOccurs="0"/>
+							<xs:element name="AllocationQty" type="xs:string" minOccurs="0"/>
+							<xs:element name="SimpleVendorCost" type="xs:string" minOccurs="0"/>
+							<xs:element name="Vendor" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipISODate" type="xs:string" minOccurs="0"/>
+							<xs:element name="CancelDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="AnticipatedISODate" type="xs:string" minOccurs="0"/>
+							<xs:element name="NewPOFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="WholesalePOFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="OGTIN" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PublishFields" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Instance" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

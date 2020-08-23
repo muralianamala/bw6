@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/division/division"
+	 xmlns:ns0="http://www.urbanoutfitters.com/co/common"
+	 xmlns:ns1="http://www.urbanoutfitters.com/co/fault"
+	 xmlns:ns2="http://www.urbanoutfitters.com/co/base"
+	 targetNamespace="http://www.urbanoutfitters.com/division/division"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="Division">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DivisionRequest" minOccurs="0"/>
+				<xs:element ref="DivsionResponse" minOccurs="0"/>
+				<xs:element name="Header" type="ns0:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DivisionRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="divisions" minOccurs="0"/>
+				<xs:element ref="requestHeader" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DivsionResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Divisions" minOccurs="0"/>
+				<xs:element ref="Fault" minOccurs="0"/>
+				<xs:element ref="TooManyFlag" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Header" type="xs:string"/>
+	<xs:element name="divisions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SearchType" minOccurs="0"/>
+				<xs:element ref="Store" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="requestHeader" type="ns2:HeaderType"/>
+	<xs:element name="SearchType" type="xs:string"/>
+	<xs:element name="Store" type="xs:string"/>
+	<xs:element name="Divisions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Store" minOccurs="0"/>
+				<xs:element name="DivisionID" type="xs:string" minOccurs="0"/>
+				<xs:element name="DivisionDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="QuantityToBeFilled" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Fault" type="ns1:FaultType"/>
+	<xs:element name="TooManyFlag" type="xs:string"/>
+</xs:schema>

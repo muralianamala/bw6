@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/inventory/inventory"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/inventory/inventory"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="Inventory">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="InventoryRequest" minOccurs="0"/>
+				<xs:element ref="InventoryResponse" minOccurs="0"/>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InventoryRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="product" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="sku" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="brand" type="xs:string" minOccurs="0"/>
+										<xs:element name="storeNo" type="xs:string" minOccurs="0"/>
+										<xs:element name="withinDistanceOf" type="xs:string" minOccurs="0"/>
+										<xs:element name="SterlingItemNo" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="requestor" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="AddressLine1" type="xs:string" minOccurs="0"/>
+										<xs:element name="AddressLine2" type="xs:string" minOccurs="0"/>
+										<xs:element name="AddressLine3" type="xs:string" minOccurs="0"/>
+										<xs:element name="City" type="xs:string" minOccurs="0"/>
+										<xs:element name="State" type="xs:string" minOccurs="0"/>
+										<xs:element name="PostalCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="Country" type="xs:string" minOccurs="0"/>
+										<xs:element name="Latitude" type="xs:string" minOccurs="0"/>
+										<xs:element name="Longitude" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="requestHeader" type="base:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InventoryResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="inventory" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="direct" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="invqty" type="xs:string" minOccurs="0"/>
+										<xs:element name="FutureQty" type="xs:string" minOccurs="0"/>
+										<xs:element name="promiseDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="OnhandSupply" type="xs:string" minOccurs="0"/>
+										<xs:element name="Quantity" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="stores" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="store" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="invqty" type="xs:string" minOccurs="0"/>
+													<xs:element name="storeNumber" type="xs:string" minOccurs="0"/>
+													<xs:element name="storeName" type="xs:string" minOccurs="0"/>
+													<xs:element name="storeAddressLine1" type="xs:string" minOccurs="0"/>
+													<xs:element name="storeAddressLine2" type="xs:string" minOccurs="0"/>
+													<xs:element name="storeCity" type="xs:string" minOccurs="0"/>
+													<xs:element name="storeState" type="xs:string" minOccurs="0"/>
+													<xs:element name="storeCountry" type="xs:string" minOccurs="0"/>
+													<xs:element name="storePostalCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="storePhoneNumber" type="xs:string" minOccurs="0"/>
+													<xs:element name="storeDistance" type="xs:string" minOccurs="0"/>
+													<xs:element name="Latitude" type="xs:string" minOccurs="0"/>
+													<xs:element name="Longitude" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Fault" type="fault:FaultType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

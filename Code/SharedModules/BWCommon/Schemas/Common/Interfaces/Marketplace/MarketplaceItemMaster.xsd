@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/MarketPlace/MarketPlace"
+	 targetNamespace="http://www.urbanoutfitters.com/MarketPlace/MarketPlace"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MarketplaceItemMaster">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="applicationName" type="xs:string" minOccurs="0"/>
+							<xs:element name="trackingId" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ItemList" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="TotalNumberOfRecords" type="xs:string" minOccurs="0"/>
+							<xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ItemID" type="xs:string" minOccurs="0"/>
+										<xs:element name="ItemKey" type="xs:string" minOccurs="0"/>
+										<xs:element name="PrimaryInformation" type="PrimaryInformation" minOccurs="0"/>
+										<xs:element name="Extn" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ExtnColorDesc" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnDeptCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnSizeCodeDescription" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnWMSStyleNo" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnIPStyleNo" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnYear" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnCare" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnMasterCategory" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnEditorNotes" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnOwnerOrg" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnComposition" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnGender" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnSeason" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnOrigin" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnColorName" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnSizeCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnBrandName" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnColorID" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnEAN" type="xs:string" minOccurs="0"/>
+													<xs:element name="Keywords" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnModelExtendedDescription" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnModelImageLabel" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnModelImageLocation" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnModelImageID" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnProductRestrictCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnCarrierServiceCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnAlias" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnBackorderableFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnCallCenterKeywordNotes" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnCallCenterUpsellNotes" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnIPLongSKU" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnIsDropShip" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnIsGiftCard" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnIsGiftItem" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnIsShipAlone" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnModelDescription" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnShippingAndHandlingFee" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnStoreReturnable" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnThumbnailMessage" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnIPStyleDesc" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnFulfillmentPriority" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnStrInvAllocElgblty" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnDivisionCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnUSAHTScode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExtnCustomsDesc" type="xs:string" minOccurs="0"/>
+													<xs:element name="URBNItemImageList" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="URBNItemImage" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="ExtnImageLocation" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnImageID" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnImageViews" type="xs:string" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ItemLocaleList" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TotalNumberOfRecords" type="xs:string" minOccurs="0"/>
+													<xs:element name="ItemLocale" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Country" type="xs:string" minOccurs="0"/>
+																<xs:element name="ItemKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="ItemLocaleKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="Language" type="xs:string" minOccurs="0"/>
+																<xs:element name="Variant" type="xs:string" minOccurs="0"/>
+																<xs:element name="PrimaryInformation" type="PrimaryInformation" minOccurs="0"/>
+																<xs:element name="Extn" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="ExtnColorName" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnEditorNotes" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnCare" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnSeason" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnComposition" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnOrigin" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnSizeCode" type="xs:string" minOccurs="0"/>
+																			<xs:element name="Keywords" type="xs:string" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="LanguageDescriptionList" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="LanguageDescription" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Description" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtendedDescription" type="xs:string" minOccurs="0"/>
+																<xs:element name="ExtendedDisplayDescription" type="xs:string" minOccurs="0"/>
+																<xs:element name="LocaleCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ShortDescription" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Components" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Component" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ComponentDescription" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentItemGroupCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentItemID" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentItemKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentKitCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentOrganizationCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentUnitOfMeasure" type="xs:string" minOccurs="0"/>
+																<xs:element name="ItemKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="KitQuantity" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ChildItemList" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ChildItem" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ItemGroupCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="ItemID" type="xs:string" minOccurs="0"/>
+																<xs:element name="ItemKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="OrganizationCode" type="xs:string" minOccurs="0"/>
+																<xs:element name="UnitOfMeasure" type="xs:string" minOccurs="0"/>
+																<xs:element name="PrimaryInformation" type="PrimaryInformation" minOccurs="0"/>
+																<xs:element name="Extn" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="ExtnColorDesc" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnDeptCode" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnSizeCodeDescription" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnWMSStyleNo" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnIPStyleNo" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnYear" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnCare" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnMasterCategory" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnEditorNotes" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnOwnerOrg" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnComposition" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnGender" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnSeason" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnOrigin" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnColorName" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnSizeCode" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnBrandName" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnColorID" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnEAN" type="xs:string" minOccurs="0"/>
+																			<xs:element name="Keywords" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnModelExtendedDescription" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnModelImageLabel" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnModelImageLocation" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnModelImageID" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnProductRestrictCode" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnCarrierServiceCode" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnAlias" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnBackorderableFlag" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnCallCenterKeywordNotes" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnCallCenterUpsellNotes" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnIPLongSKU" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnIsDropShip" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnIsGiftCard" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnIsGiftItem" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnIsShipAlone" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnModelDescription" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnShippingAndHandlingFee" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnStoreReturnable" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnThumbnailMessage" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnIPStyleDesc" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnFulfillmentPriority" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnStrInvAllocElgblty" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnDivisionCode" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnUSAHTScode" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ExtnCustomsDesc" type="xs:string" minOccurs="0"/>
+																			<xs:element name="URBNItemImageList" minOccurs="0">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="URBNItemImage" minOccurs="0" maxOccurs="unbounded">
+																							<xs:complexType>
+																								<xs:sequence>
+																									<xs:element name="ExtnImageLocation" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnImageID" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnImageViews" type="xs:string" minOccurs="0"/>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="ItemLocaleList" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="TotalNumberOfRecords" type="xs:string" minOccurs="0"/>
+																			<xs:element name="ItemLocale" minOccurs="0" maxOccurs="unbounded">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Country" type="xs:string" minOccurs="0"/>
+																						<xs:element name="ItemKey" type="xs:string" minOccurs="0"/>
+																						<xs:element name="ItemLocaleKey" type="xs:string" minOccurs="0"/>
+																						<xs:element name="Language" type="xs:string" minOccurs="0"/>
+																						<xs:element name="Variant" type="xs:string" minOccurs="0"/>
+																						<xs:element name="PrimaryInformation" type="PrimaryInformation" minOccurs="0"/>
+																						<xs:element name="Extn" minOccurs="0">
+																							<xs:complexType>
+																								<xs:sequence>
+																									<xs:element name="ExtnColorDesc" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnDeptCode" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnSizeCodeDescription" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnWMSStyleNo" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnIPStyleNo" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnYear" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnCare" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnMasterCategory" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnEditorNotes" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnOwnerOrg" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnComposition" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnGender" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnSeason" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnOrigin" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnColorName" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnSizeCode" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnBrandName" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnColorID" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnEAN" type="xs:string" minOccurs="0"/>
+																									<xs:element name="Keywords" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnModelExtendedDescription" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnModelImageLabel" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnModelImageLocation" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnModelImageID" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnProductRestrictCode" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnCarrierServiceCode" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnAlias" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnBackorderableFlag" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnCallCenterKeywordNotes" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnCallCenterUpsellNotes" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnIPLongSKU" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnIsDropShip" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnIsGiftCard" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnIsGiftItem" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnIsShipAlone" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnModelDescription" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnShippingAndHandlingFee" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnStoreReturnable" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnThumbnailMessage" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnIPStyleDesc" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnFulfillmentPriority" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnStrInvAllocElgblty" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnDivisionCode" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnIsUpdatedFromMotionPt" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnUSAHTScode" type="xs:string" minOccurs="0"/>
+																									<xs:element name="ExtnCustomsDesc" type="xs:string" minOccurs="0"/>
+																									<xs:element name="URBNItemImageList" minOccurs="0">
+																										<xs:complexType>
+																											<xs:sequence>
+																												<xs:element name="URBNItemImage" minOccurs="0" maxOccurs="unbounded">
+																													<xs:complexType>
+																														<xs:sequence>
+																															<xs:element name="ExtnImageLocation" type="xs:string" minOccurs="0"/>
+																															<xs:element name="ExtnImageID" type="xs:string" minOccurs="0"/>
+																															<xs:element name="ExtnImageViews" type="xs:string" minOccurs="0"/>
+																														</xs:sequence>
+																													</xs:complexType>
+																												</xs:element>
+																											</xs:sequence>
+																										</xs:complexType>
+																									</xs:element>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="ClassificationCodes" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="TaxProductCode" type="xs:string" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="CategoryList" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Category" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="CategoryID" type="xs:string" minOccurs="0"/>
+																<xs:element name="CategoryKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="CategoryPath" type="xs:string" minOccurs="0"/>
+																<xs:element name="OrganizationCode" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ClassificationCodes" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TaxProductCode" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="UrbnIPStyleMarketPlcList" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="UrbnIPStyleMarketPlc" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ClassVendorStyle" type="xs:string" minOccurs="0"/>
+																<xs:element name="Code" type="xs:string" minOccurs="0"/>
+																<xs:element name="FieldType" type="xs:string" minOccurs="0"/>
+																<xs:element name="Gateway" type="xs:string" minOccurs="0"/>
+																<xs:element name="IPStyleMarketPlcKey" type="xs:string" minOccurs="0"/>
+																<xs:element name="ItemClass" type="xs:string" minOccurs="0"/>
+																<xs:element name="Style" type="xs:string" minOccurs="0"/>
+																<xs:element name="Vendor" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="PrimaryInformation">
+		<xs:sequence>
+			<xs:element name="AllowGiftWrap" type="xs:string" minOccurs="0"/>
+			<xs:element name="AssumeInfiniteInventory" type="xs:string" minOccurs="0"/>
+			<xs:element name="BundleFulfillmentMode" type="xs:string" minOccurs="0"/>
+			<xs:element name="BundlePricingStrategy" type="xs:string" minOccurs="0"/>
+			<xs:element name="CapacityPerOrderedQty" type="xs:string" minOccurs="0"/>
+			<xs:element name="CapacityQuantityStrategy" type="xs:string" minOccurs="0"/>
+			<xs:element name="CapacityUOM" type="xs:string" minOccurs="0"/>
+			<xs:element name="ColorCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ComputedUnitCost" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConfiguredModelKey" type="xs:string" minOccurs="0"/>
+			<xs:element name="CostCurrency" type="xs:string" minOccurs="0"/>
+			<xs:element name="CountryOfOrigin" type="xs:string" minOccurs="0"/>
+			<xs:element name="CreditWOReceipt" type="xs:string" minOccurs="0"/>
+			<xs:element name="DefaultProductClass" type="xs:string" minOccurs="0"/>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="DisplayItemDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="EffectiveEndDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="EffectiveStartDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExtendedDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="FixedCapacityQtyPerLine" type="xs:string" minOccurs="0"/>
+			<xs:element name="FixedPricingQtyPerLine" type="xs:string" minOccurs="0"/>
+			<xs:element name="ImageID" type="xs:string" minOccurs="0"/>
+			<xs:element name="ImageLabel" type="xs:string" minOccurs="0"/>
+			<xs:element name="ImageLocation" type="xs:string" minOccurs="0"/>
+			<xs:element name="InvoiceBasedOnActuals" type="xs:string" minOccurs="0"/>
+			<xs:element name="InvolvesSegmentChange" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsAirShippingAllowed" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsConfigurable" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsDeliveryAllowed" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsEligibleForShippingDiscount" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsForwardingAllowed" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsFreezerRequired" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsHazmat" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsModelItem" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsParcelShippingAllowed" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsPickupAllowed" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsPreConfigured" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsProcurementAllowed" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsReturnService" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsReturnable" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsShippingAllowed" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsSoldSeparately" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsStandaloneService" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsSubOnOrderAllowed" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsValid" type="xs:string" minOccurs="0"/>
+			<xs:element name="ItemType" type="xs:string" minOccurs="0"/>
+			<xs:element name="Keywords" type="xs:string" minOccurs="0"/>
+			<xs:element name="KitCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ManufacturerItem" type="xs:string" minOccurs="0"/>
+			<xs:element name="ManufacturerItemDesc" type="xs:string" minOccurs="0"/>
+			<xs:element name="ManufacturerName" type="xs:string" minOccurs="0"/>
+			<xs:element name="MasterCatalogID" type="xs:string" minOccurs="0"/>
+			<xs:element name="MaxOrderQuantity" type="xs:string" minOccurs="0"/>
+			<xs:element name="MinOrderQuantity" type="xs:string" minOccurs="0"/>
+			<xs:element name="MinimumCapacityQuantity" type="xs:string" minOccurs="0"/>
+			<xs:element name="ModelItemUnitOfMeasure" type="xs:string" minOccurs="0"/>
+			<xs:element name="NumSecondarySerials" type="xs:string" minOccurs="0"/>
+			<xs:element name="OrderingQuantityStrategy" type="xs:string" minOccurs="0"/>
+			<xs:element name="PricingQuantityConvFactor" type="xs:string" minOccurs="0"/>
+			<xs:element name="PricingQuantityStrategy" type="xs:string" minOccurs="0"/>
+			<xs:element name="PricingUOM" type="xs:string" minOccurs="0"/>
+			<xs:element name="PricingUOMStrategy" type="xs:string" minOccurs="0"/>
+			<xs:element name="PrimaryEnterpriseCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="PrimarySupplier" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProductLine" type="xs:string" minOccurs="0"/>
+			<xs:element name="RequiresProdAssociation" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnWindow" type="xs:string" minOccurs="0"/>
+			<xs:element name="RunQuantity" type="xs:string" minOccurs="0"/>
+			<xs:element name="SerializedFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="ServiceTypeID" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShipmentConsolidationWindow" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShortDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="SizeCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Status" type="xs:string" minOccurs="0"/>
+			<xs:element name="TaxableFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitCost" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitHeight" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitHeightUOM" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitLength" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitLengthUOM" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitVolume" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitVolumeUOM" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitWeight" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitWeightUOM" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitWidth" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnitWidthUOM" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

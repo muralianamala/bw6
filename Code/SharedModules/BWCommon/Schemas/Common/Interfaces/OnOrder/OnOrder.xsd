@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanout.com/venda/OnOrder"
+	 targetNamespace="http://www.urbanout.com/venda/OnOrder"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="OnOrder" type="OnOrderType"/>
+	<xs:complexType name="OnOrderType">
+		<xs:sequence>
+			<xs:element name="vsku" type="xs:string" minOccurs="0"/>
+			<xs:element name="vasku" type="xs:string" minOccurs="0"/>
+			<xs:element name="vcls" type="xs:string" minOccurs="0"/>
+			<xs:element name="vven" type="xs:string" minOccurs="0"/>
+			<xs:element name="vstyl" type="xs:string" minOccurs="0"/>
+			<xs:element name="vclr" type="xs:string" minOccurs="0"/>
+			<xs:element name="vsiz" type="xs:string" minOccurs="0"/>
+			<xs:element name="vsrc" type="xs:string" minOccurs="0"/>
+			<xs:element name="vnood" type="xs:string" minOccurs="0"/>
+			<xs:element name="vooq" type="xs:string" minOccurs="0"/>
+			<xs:element name="Store" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="netOnhandInventory" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

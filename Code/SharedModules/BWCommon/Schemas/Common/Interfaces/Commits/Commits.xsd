@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/commits/commits"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 targetNamespace="http://www.urbanoutfitters.com/commits/commits"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="Commits" type="CommitsType"/>
+	<xs:complexType name="CommitsType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="CommitsRequest" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="cartClassifications" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="sourcingClassification" type="xs:string" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="cartId" type="xs:string" minOccurs="0"/>
+						<xs:element name="cartType" type="xs:string" minOccurs="0"/>
+						<xs:element name="cartLines" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="cartLineType" type="xs:string" minOccurs="0"/>
+									<xs:element name="fulfillmentType" type="xs:string" minOccurs="0"/>
+									<xs:element name="considerGlobalInventory" type="xs:string" minOccurs="0"/>
+									<xs:element name="fulfillmentService" type="xs:string" minOccurs="0"/>
+									<xs:element name="keepTogetherId" type="xs:string" minOccurs="0"/>
+									<xs:element name="lineId" type="xs:string" minOccurs="0"/>
+									<xs:element name="linePriceTotal" type="xs:string" minOccurs="0"/>
+									<xs:element name="productId" type="xs:string" minOccurs="0"/>
+									<xs:element name="quantity" type="xs:string" minOccurs="0"/>
+									<xs:element name="requestedDeliveryDate" type="xs:string" minOccurs="0"/>
+									<xs:element name="requestedDeliveryDateConstraint" type="xs:string" minOccurs="0"/>
+									<xs:element name="sellingPrice" type="xs:string" minOccurs="0"/>
+									<xs:element name="uom" type="xs:string" minOccurs="0"/>
+									<xs:element name="lineClassifications" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="addressClassification" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="shippingAddress" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="city" type="xs:string" minOccurs="0"/>
+												<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+												<xs:element name="state" type="xs:string" minOccurs="0"/>
+												<xs:element name="zipCode" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="OrderlineKey" type="xs:string" minOccurs="0"/>
+									<xs:element name="GiftWrapFlag" type="xs:string" minOccurs="0"/>
+									<xs:element name="ParentPrimeLineNo" type="xs:string" minOccurs="0"/>
+									<xs:element name="OnesieFlag" type="xs:string" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="cartPriceTotal" type="xs:string" minOccurs="0"/>
+						<xs:element name="customerType" type="xs:string" minOccurs="0"/>
+						<xs:element name="optimizationRuleId" type="xs:string" minOccurs="0"/>
+						<xs:element name="orgId" type="xs:string" minOccurs="0"/>
+						<xs:element name="sellingChannel" type="xs:string" minOccurs="0"/>
+						<xs:element name="transactionType" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

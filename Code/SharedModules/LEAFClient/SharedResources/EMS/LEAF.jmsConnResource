@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_5m1VcPVyEeWd9NWzpLGUqA" name="EMS.LEAF" type="jms:JMSConnectionFactory">
+  <jndi:configuration xsi:type="jms:DirectConnectionFactory" xmi:id="_7JCvEPVyEeWd9NWzpLGUqA" autoGenerateClientID="false" factoryType="Queue/Topic">
+    <substitutionBindings xmi:id="_J-PBsPVzEeWd9NWzpLGUqA" template="providerURL" propName="EMS.LEAF.ConnectionURL"/>
+    <userCredentials xmi:id="_9SGtUPVyEeWd9NWzpLGUqA">
+      <substitutionBindings xmi:id="_Lz14cPVzEeWd9NWzpLGUqA" template="username" propName="EMS.LEAF.USERNAME"/>
+      <substitutionBindings xmi:id="_M2TbAPVzEeWd9NWzpLGUqA" template="password" propName="EMS.LEAF.PASSWORD"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

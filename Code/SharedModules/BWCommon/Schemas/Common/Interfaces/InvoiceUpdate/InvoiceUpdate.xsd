@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="InvoiceUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AccountID" type="xs:string" minOccurs="0" />
+        <xs:element name="Invoice" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Header" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="OrderNumber" type="xs:string" minOccurs="0" />
+                    <xs:element name="OrderType" type="xs:string" minOccurs="0" />
+                    <xs:element name="Company" type="xs:string" minOccurs="0" />
+                    <xs:element name="Division" type="xs:string" minOccurs="0" />
+                    <xs:element name="Department" type="xs:string" minOccurs="0" />
+                    <xs:element name="APVendorNo" type="xs:string" minOccurs="0" />
+                    <xs:element name="VendorInfo" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="VendorNumber" type="xs:string" minOccurs="0" />
+                          <xs:element name="VendorName" type="xs:string" minOccurs="0" />
+                          <xs:element name="Address1" type="xs:string" minOccurs="0" />
+                          <xs:element name="Address2" type="xs:string" minOccurs="0" />
+                          <xs:element name="Street" type="xs:string" minOccurs="0" />
+                          <xs:element name="City" type="xs:string" minOccurs="0" />
+                          <xs:element name="State" type="xs:string" minOccurs="0" />
+                          <xs:element name="PostalCode" type="xs:string" minOccurs="0" />
+                          <xs:element name="CountryCode" type="xs:string" minOccurs="0" />
+                          <xs:element name="Country" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="CustomerPO" type="xs:string" minOccurs="0" />
+                    <xs:element name="LotNumber" type="xs:string" minOccurs="0" />
+                    <xs:element name="JobNumber" type="xs:string" minOccurs="0" />
+                    <xs:element name="EntryOperator" type="xs:string" minOccurs="0" />
+                    <xs:element name="SourceCode" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="InvoiceProduct" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="LineNumber" type="xs:string" minOccurs="0" />
+                    <xs:element name="SKU" type="xs:string" minOccurs="0" />
+                    <xs:element name="VendorSKU" type="xs:string" minOccurs="0" />
+                    <xs:element name="ExternalID" type="xs:string" minOccurs="0" />
+                    <xs:element name="CoDivSKU" type="xs:string" minOccurs="0" />
+                    <xs:element name="OfferSKU" type="xs:string" minOccurs="0" />
+                    <xs:element name="Description" type="xs:string" minOccurs="0" />
+                    <xs:element name="UPCCode" type="xs:string" minOccurs="0" />
+                    <xs:element name="InvoicedQuantity" type="xs:string" minOccurs="0" />
+                    <xs:element name="ExtendedCost" type="xs:string" minOccurs="0" />
+                    <xs:element name="UnitCost" type="xs:string" minOccurs="0" />
+                    <xs:element name="StandardFreight" type="xs:string" minOccurs="0" />
+                    <xs:element name="ItemType" type="xs:string" minOccurs="0" />
+                    <xs:element name="LineCrossReference" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="InvoiceInfo" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="InvoiceNumber" type="xs:string" minOccurs="0" />
+                    <xs:element name="InvoiceDate" type="xs:string" minOccurs="0" />
+                    <xs:element name="InvoiceTime" type="xs:string" minOccurs="0" />
+                    <xs:element name="InvoiceTotal" type="xs:string" minOccurs="0" />
+                    <xs:element name="ProductTotal" type="xs:string" minOccurs="0" />
+                    <xs:element name="Terms" type="xs:string" minOccurs="0" />
+                    <xs:element name="TermsDays" type="xs:string" minOccurs="0" />
+                    <xs:element name="TermsPercent" type="xs:string" minOccurs="0" />
+                    <xs:element name="FreightAmount" type="xs:string" minOccurs="0" />
+                    <xs:element name="HandlingFee" type="xs:string" minOccurs="0" />
+                    <xs:element name="TaxAmount" type="xs:string" minOccurs="0" />
+                    <xs:element name="DutyAmount" type="xs:string" minOccurs="0" />
+                    <xs:element name="OtherCost" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="InvoiceUpdate" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

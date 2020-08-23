@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/promo/reactivatepromo"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:fault="http://www.urbanoutfitters.com/co/fault"
+	 xmlns:base="http://www.urbanoutfitters.com/co/base"
+	 targetNamespace="http://www.urbanoutfitters.com/co/promo/reactivatepromo"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/fault" schemaLocation="../../Objects/Fault.xsd"/>
+	<xs:import namespace="http://www.urbanoutfitters.com/co/base" schemaLocation="../../Objects/Base.xsd"/>
+	<xs:element name="ReactivatePromo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ReactivatePromoRequest" minOccurs="0"/>
+				<xs:element ref="ReactivatePromoResponse" minOccurs="0"/>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReactivatePromoRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="AwardNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+				<xs:element name="AwardKey" type="xs:string" minOccurs="0"/>
+				<xs:element name="XREFKey" type="xs:string" minOccurs="0"/>
+				<xs:element name="CustomerId" type="xs:string" minOccurs="0"/>
+				<xs:element name="PrimaryChannel" type="xs:string" minOccurs="0"/>
+				<xs:element name="requestHeader" type="base:HeaderType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReactivatePromoResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CustomerId" type="xs:string" minOccurs="0"/>
+				<xs:element name="AwardNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Fault" type="fault:FaultType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

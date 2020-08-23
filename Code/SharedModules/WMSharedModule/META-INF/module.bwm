@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_4AdtsDsEEeanc9iI57fBqw" targetNamespace="http://tns.tibco.com/bw/composite/WMSharedModule" name="WMSharedModule" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_5MJdsDsEEeanc9iI57fBqw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_5M-kIDsEEeanc9iI57fBqw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_5NSGIDsEEeanc9iI57fBqw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_5NWXkDsEEeanc9iI57fBqw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_5NapADsEEeanc9iI57fBqw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_5NeTYDsEEeanc9iI57fBqw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_5NhWsDsEEeanc9iI57fBqw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_5NmPMDsEEeanc9iI57fBqw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_5NrHsDsEEeanc9iI57fBqw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_guV-0Dx0Eeanc9iI57fBqw" name="/Database/DatabaseURL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_iAduADx0Eeanc9iI57fBqw" name="/Database/Timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_wfCQYDx0Eeanc9iI57fBqw" name="/Database/UserName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_wkGWkDx0Eeanc9iI57fBqw" name="/Database/Password" type="property:password" scaext:simpleValue="#!awctZrnCccjdqwL11P3fQw==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_DHup0Dx1Eeanc9iI57fBqw" name="/Database/MaxConnections" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_pk8U0Iw0EeqRJMnE6FG5xw" name="/Database/MaxRows" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+</sca:composite>

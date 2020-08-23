@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="MD5EncryptFunctionGroup"
+         name="MD5EncryptFunctionGroup"
+         point="com.tibco.xml.cxf.common.customXPathFunction">
+      <customXPathFunctionGroup
+            class="urbantibcocustomxpathfunctions.MD5EncryptFunctionGroup"
+            id="urbantibcocustomxpathfunctions">
+      </customXPathFunctionGroup>
+   </extension>
+<extension
+         id="URLEncodeFunctionGroup"
+         name="URLEncodeFunctionGroup"
+         point="com.tibco.xml.cxf.common.customXPathFunction">
+      <customXPathFunctionGroup
+            class="urbantibcocustomxpathfunctions.URLEncodeFunctionGroup"
+            id="urbantibcocustomxpathfunctions">
+      </customXPathFunctionGroup>
+   </extension>
+   <extension
+         id="ReplaceFunctionGroup"
+         name="ReplaceFunctionGroup"
+         point="com.tibco.xml.cxf.common.customXPathFunction">
+      <customXPathFunctionGroup
+            class="urbantibcocustomxpathfunctions.ReplaceFunctionGroup"
+            id="urbantibcocustomxpathfunctions">
+      </customXPathFunctionGroup>
+   </extension>
+</plugin>

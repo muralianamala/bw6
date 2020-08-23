@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/Mirakl/Seller"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/Mirakl/Seller"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="MiraklSeller" type="MiraklSellerType"/>
+	<xs:complexType name="MiraklSellerType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="Seller" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="shops" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="approval_delay" type="xs:string" minOccurs="0"/>
+									<xs:element name="approval_rate" type="xs:string" minOccurs="0"/>
+									<xs:element name="banner" type="xs:string" minOccurs="0"/>
+									<xs:element name="billing_info" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="bank_city" type="xs:string" minOccurs="0"/>
+												<xs:element name="bank_name" type="xs:string" minOccurs="0"/>
+												<xs:element name="bank_street" type="xs:string" minOccurs="0"/>
+												<xs:element name="bic" type="xs:string" minOccurs="0"/>
+												<xs:element name="iban" type="xs:string" minOccurs="0"/>
+												<xs:element name="owner" type="xs:string" minOccurs="0"/>
+												<xs:element name="zip_code" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="channels" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="closed_from" type="xs:string" minOccurs="0"/>
+									<xs:element name="closed_to" type="xs:string" minOccurs="0"/>
+									<xs:element name="contact_informations" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="city" type="xs:string" minOccurs="0"/>
+												<xs:element name="civility" type="xs:string" minOccurs="0"/>
+												<xs:element name="country" type="xs:string" minOccurs="0"/>
+												<xs:element name="email" type="xs:string" minOccurs="0"/>
+												<xs:element name="fax" type="xs:string" minOccurs="0"/>
+												<xs:element name="firstname" type="xs:string" minOccurs="0"/>
+												<xs:element name="lastname" type="xs:string" minOccurs="0"/>
+												<xs:element name="phone" type="xs:string" minOccurs="0"/>
+												<xs:element name="phone_secondary" type="xs:string" minOccurs="0"/>
+												<xs:element name="state" type="xs:string" minOccurs="0"/>
+												<xs:element name="street1" type="xs:string" minOccurs="0"/>
+												<xs:element name="street2" type="xs:string" minOccurs="0"/>
+												<xs:element name="web_site" type="xs:string" minOccurs="0"/>
+												<xs:element name="zip_code" type="xs:string"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="currency_iso_code" type="xs:string" minOccurs="0"/>
+									<xs:element name="date_created" type="xs:string" minOccurs="0"/>
+									<xs:element name="description" type="xs:string" minOccurs="0"/>
+									<xs:element name="evaluations_count" type="xs:string" minOccurs="0"/>
+									<xs:element name="free_shipping" type="xs:string" minOccurs="0"/>
+									<xs:element name="grade" type="xs:string" minOccurs="0"/>
+									<xs:element name="immunity_date" type="xs:string" minOccurs="0"/>
+									<xs:element name="is_professional" type="xs:string" minOccurs="0"/>
+									<xs:element name="last_updated_date" type="xs:string" minOccurs="0"/>
+									<xs:element name="logo" type="xs:string" minOccurs="0"/>
+									<xs:element name="offers_count" type="xs:string" minOccurs="0"/>
+									<xs:element name="operator_internal_id" type="xs:string" minOccurs="0"/>
+									<xs:element name="order_messages_response_delay" type="xs:string" minOccurs="0"/>
+									<xs:element name="orders_count" type="xs:string" minOccurs="0"/>
+									<xs:element name="payment_details" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="paid_balance" type="xs:string" minOccurs="0"/>
+												<xs:element name="pay_subscription" type="xs:string" minOccurs="0"/>
+												<xs:element name="payable_balance" type="xs:string" minOccurs="0"/>
+												<xs:element name="payment_blocked" type="xs:string" minOccurs="0"/>
+												<xs:element name="pending_balance" type="xs:string" minOccurs="0"/>
+												<xs:element name="subscription_free_from" type="xs:string" minOccurs="0"/>
+												<xs:element name="subscription_free_to" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="payment_info" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="type" type="xs:string" minOccurs="0"/>
+												<xs:element name="bank_account_number" type="xs:string" minOccurs="0"/>
+												<xs:element name="bank_city" type="xs:string" minOccurs="0"/>
+												<xs:element name="bank_name" type="xs:string" minOccurs="0"/>
+												<xs:element name="bank_street" type="xs:string" minOccurs="0"/>
+												<xs:element name="bank_zip" type="xs:string" minOccurs="0"/>
+												<xs:element name="bic" type="xs:string" minOccurs="0"/>
+												<xs:element name="owner" type="xs:string" minOccurs="0"/>
+												<xs:element name="routing_number" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="premium" type="xs:string" minOccurs="0"/>
+									<xs:element name="premium_state" type="xs:string" minOccurs="0"/>
+									<xs:element name="pro_details" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="VAT_number" type="xs:string" minOccurs="0"/>
+												<xs:element name="corporate_name" type="xs:string" minOccurs="0"/>
+												<xs:element name="identification_number" type="xs:string" minOccurs="0"/>
+												<xs:element name="tax_identification_number" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="return_policy" type="xs:string" minOccurs="0"/>
+									<xs:element name="shipping_country" type="xs:string" minOccurs="0"/>
+									<xs:element name="shipping_types" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="shipping_zones" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="shippings" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="additional_fields" minOccurs="0" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="code" type="xs:string" minOccurs="0"/>
+															<xs:element name="type" type="xs:string" minOccurs="0"/>
+															<xs:element name="value" type="xs:string" minOccurs="0"/>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="shipping_free_amount" type="xs:string" minOccurs="0"/>
+												<xs:element name="shipping_type_code" type="xs:string" minOccurs="0"/>
+												<xs:element name="shipping_type_label" type="xs:string" minOccurs="0"/>
+												<xs:element name="shipping_zone_code" type="xs:string" minOccurs="0"/>
+												<xs:element name="shipping_zone_label" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="shop_additional_fields" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="code" type="xs:string" minOccurs="0"/>
+												<xs:element name="type" type="xs:string" minOccurs="0"/>
+												<xs:element name="value" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="shop_id" type="xs:string" minOccurs="0"/>
+									<xs:element name="shop_name" type="xs:string" minOccurs="0"/>
+									<xs:element name="shop_state" type="xs:string" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="total_count" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

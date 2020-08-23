@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbn.com/WholesaleCost"
+	 targetNamespace="http://www.urbn.com/WholesaleCost"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="WholesaleCost">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="applicationName" type="xs:string" minOccurs="0"/>
+							<xs:element name="trackingId" type="xs:string" minOccurs="0"/>
+							<xs:element name="source" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="WholesaleCosts" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Database" type="xs:string" minOccurs="0"/>
+							<xs:element name="Concept" type="xs:string" minOccurs="0"/>
+							<xs:element name="Vendor" type="xs:string" minOccurs="0"/>
+							<xs:element name="VendorStyle" type="xs:string" minOccurs="0"/>
+							<xs:element name="Color" type="xs:string" minOccurs="0"/>
+							<xs:element name="CVSCInventory" type="xs:string" minOccurs="0"/>
+							<xs:element name="TotalEntendedCost" type="xs:string" minOccurs="0"/>
+							<xs:element name="CVSCAverageCost" type="xs:string" minOccurs="0"/>
+							<xs:element name="BCColorFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="FILL01" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PublishFields" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Instance" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

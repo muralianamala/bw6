@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/cheetahmail/bwwdata"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/cheetahmail/bwwdata"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="BWWData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+				<xs:element ref="PackageData" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="PublishedFields" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PublishedFields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SterlingSCAC" type="xs:string" minOccurs="0"/>
+				<xs:element name="Return_Org_Code" type="xs:string" minOccurs="0"/>
+				<xs:element name="ExtnAsendiaSplitIndicator" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PackageData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PCKID" type="xs:string" minOccurs="0"/>
+				<xs:element name="ORDERID" type="xs:string" minOccurs="0"/>
+				<xs:element name="RECIPIENT" type="xs:string" minOccurs="0"/>
+				<xs:element name="ADDRESSLINE1" type="xs:string" minOccurs="0"/>
+				<xs:element name="ADDRESSLINE2" type="xs:string" minOccurs="0"/>
+				<xs:element name="ADDRESSLINE3" type="xs:string" minOccurs="0"/>
+				<xs:element name="CITY" type="xs:string" minOccurs="0"/>
+				<xs:element name="PROVINCE" type="xs:string" minOccurs="0"/>
+				<xs:element name="POSTALCODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="COUNTRYCODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="PHONE" type="xs:string" minOccurs="0"/>
+				<xs:element name="EMAIL" type="xs:string" minOccurs="0"/>
+				<xs:element name="PCKWEIGHT" type="xs:string" minOccurs="0"/>
+				<xs:element name="PCKTYPE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SERVICETYPE" type="xs:string" minOccurs="0"/>
+				<xs:element name="PCKDESCRIPTION" type="xs:string" minOccurs="0"/>
+				<xs:element name="ITEMID" type="xs:string" minOccurs="0"/>
+				<xs:element name="ITEMDESCRIPTION" type="xs:string" minOccurs="0"/>
+				<xs:element name="CUSTOMDESCRIPTION" type="xs:string" minOccurs="0"/>
+				<xs:element name="UNITPRICE" type="xs:string" minOccurs="0"/>
+				<xs:element name="QUANTITY" type="xs:string" minOccurs="0"/>
+				<xs:element name="COUNTRYORIGIN" type="xs:string" minOccurs="0"/>
+				<xs:element name="HTSNUMBER" type="xs:string" minOccurs="0"/>
+				<xs:element name="HTSNUMBERUS" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPPINGCOST" type="xs:string" minOccurs="0"/>
+				<xs:element name="PCKCURRENCYCODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="TRACKINGNUMBER" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPNODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="BRAND" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPVIA" type="xs:string" minOccurs="0"/>
+				<xs:element name="VATPaidByURBNAmt" type="xs:string" minOccurs="0"/>
+				<xs:element name="HTSNUMBERUK" type="xs:string" minOccurs="0"/>
+				<xs:element name="LOCALCUSTID" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

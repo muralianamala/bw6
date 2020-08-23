@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Lookup" xmlns:tns="http://www.example.org/Lookup" elementFormDefault="qualified" xmlns:Q1="http://www.urbanoutfitters.com/co/lookup">
+
+    <import namespace="http://www.urbanoutfitters.com/co/lookup"></import>
+    <element name="Lookup">
+    	<complexType>
+    		<sequence>
+    			<element name="Brand_Lookup" type="Q1:BrandType" minOccurs="0" maxOccurs="unbounded"></element>
+    		</sequence>
+    	</complexType></element>
+</schema>

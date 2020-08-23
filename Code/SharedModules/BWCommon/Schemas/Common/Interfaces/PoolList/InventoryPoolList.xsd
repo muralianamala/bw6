@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/PoolList/InventoryPoolList"
+	 xmlns:ns0="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/PoolList/InventoryPoolList"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="InventoryPoolList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" type="ns0:HeaderType" minOccurs="0"/>
+				<xs:element name="InventoryPool" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MaximumRecords" type="xs:string" minOccurs="0"/>
+							<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+							<xs:element name="ActiveForISPU" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrganizationCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="ParentPoolID" type="xs:string" minOccurs="0"/>
+							<xs:element name="PoolID" type="xs:string" minOccurs="0"/>
+							<xs:element name="PoolType" type="xs:string" minOccurs="0"/>
+							<xs:element name="Region" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RegionDescription" type="xs:string" minOccurs="0"/>
+										<xs:element name="RegionLevelName" type="xs:string" minOccurs="0"/>
+										<xs:element name="RegionName" type="xs:string" minOccurs="0"/>
+										<xs:element name="ZipCodeRange" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Country" type="xs:string" minOccurs="0"/>
+													<xs:element name="FromZip" type="xs:string" minOccurs="0"/>
+													<xs:element name="ToZip" type="xs:string" minOccurs="0"/>
+													<xs:element name="ZipcodeLength" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ParentRegion" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="RegionDescription" type="xs:string" minOccurs="0"/>
+													<xs:element name="RegionLevelName" type="xs:string" minOccurs="0"/>
+													<xs:element name="RegionName" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

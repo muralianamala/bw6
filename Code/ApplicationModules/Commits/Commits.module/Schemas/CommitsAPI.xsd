@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.urbanoutfitters.com/CommitsAPI" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.urbanoutfitters.com/CommitsAPI">
+
+    <xsd:element name="CommitsAPI" type="CommitsAPIType"></xsd:element>
+    
+    <xsd:complexType name="CommitsAPIType">
+    	<xsd:sequence>
+    		<xsd:element ref="Request"></xsd:element>
+    		<xsd:element ref="Response"></xsd:element>
+    		<xsd:element ref="Header"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="Request" type="RequestType"></xsd:element>
+    
+    <xsd:complexType name="RequestType">
+    	<xsd:sequence>
+    		<xsd:element name="URL" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    		<xsd:element name="Message" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    		<xsd:element name="AuditContextKey" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="Response" type="ResponseType"></xsd:element>
+    
+    <xsd:complexType name="ResponseType">
+    	<xsd:sequence>
+    		<xsd:element name="Message" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="Header" type="HeaderType"></xsd:element>
+    
+    <xsd:complexType name="HeaderType">
+    	<xsd:sequence>
+    		<xsd:element name="Authorizaion" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    		<xsd:element name="Content-Type" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

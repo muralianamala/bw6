@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/Mirakl/Product"
+	 targetNamespace="http://www.urbanoutfitters.com/Mirakl/Product"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Products">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="applicationName" type="xs:string" minOccurs="0"/>
+							<xs:element name="trackingId" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Product" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Data" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Size" type="xs:string" minOccurs="0"/>
+										<xs:element name="Class" type="xs:string" minOccurs="0"/>
+										<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+										<xs:element name="Color" type="xs:string" minOccurs="0"/>
+										<xs:element name="Title" type="xs:string" minOccurs="0"/>
+										<xs:element name="Prop_65" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="Category" type="xs:string" minOccurs="0"/>
+										<xs:element name="Identifier" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="Description" type="xs:string" minOccurs="0"/>
+										<xs:element name="StyleGroupingId" type="xs:string" minOccurs="0"/>
+										<xs:element name="Image_link" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Source" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Image2" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Source" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Image3" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Source" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Image4" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Source" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Image5" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Source" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="MiraklProductID" type="xs:string" minOccurs="0"/>
+							<xs:element name="ProductSku" type="xs:string" minOccurs="0"/>
+							<xs:element name="Acceptance" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Status" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Validation" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Status" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Sources" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ProviderCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="ProviderSKU" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="VendorID" type="xs:string" minOccurs="0"/>
+							<xs:element name="Catalogs" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/mirakl/itemerror"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/mirakl/itemerror"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="Item" type="ItemType"/>
+	<xs:complexType name="ItemType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element ref="ItemError"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ItemError">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MiraklProductId" type="xs:string" minOccurs="0"/>
+				<xs:element name="MiraklVariantId" type="xs:string" minOccurs="0"/>
+				<xs:element name="Date" type="xs:string" minOccurs="0"/>
+				<xs:element name="Time" type="xs:string" minOccurs="0"/>
+				<xs:element name="Class" type="xs:string" minOccurs="0"/>
+				<xs:element name="Vendor" type="xs:string" minOccurs="0"/>
+				<xs:element name="Style" type="xs:string" minOccurs="0"/>
+				<xs:element name="Color" type="xs:string" minOccurs="0"/>
+				<xs:element name="Size" type="xs:string" minOccurs="0"/>
+				<xs:element name="ShortSku" type="xs:string" minOccurs="0"/>
+				<xs:element name="ItemDesc" type="xs:string" minOccurs="0"/>
+				<xs:element name="VendorStyleNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="ErrorReason" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

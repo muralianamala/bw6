@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanout.com/poho/poho"
+	 targetNamespace="http://www.urbanout.com/poho/poho"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="POHO">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="POHOType">
+					<xs:attribute name="FileName" type="xs:string"/>
+					<xs:attribute name="InputDir" type="xs:string"/>
+					<xs:attribute name="CompletionDir" type="xs:string"/>
+					<xs:attribute name="ErrorDir" type="xs:string"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="POHOType">
+		<xs:sequence>
+			<xs:element name="POHO" type="xs:string" minOccurs="0"/>
+			<xs:element name="Class" type="xs:string" minOccurs="0"/>
+			<xs:element name="Styleno" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="SubBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Color" type="xs:string" minOccurs="0"/>
+			<xs:element name="ColorCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="SizeRange" type="xs:string" minOccurs="0"/>
+			<xs:element name="Retail" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReqNDC" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProtoStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReqNDC1" type="xs:string" minOccurs="0"/>
+			<xs:element name="RetailBuy" type="xs:string" minOccurs="0"/>
+			<xs:element name="Direct" type="xs:string" minOccurs="0"/>
+			<xs:element name="EU" type="xs:string" minOccurs="0"/>
+			<xs:element name="Wholesale" type="xs:string" minOccurs="0"/>
+			<xs:element name="Buffer" type="xs:string" minOccurs="0"/>
+			<xs:element name="Total" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReqNDC2" type="xs:string" minOccurs="0"/>
+			<xs:element name="CatalogSample" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReqNDC3" type="xs:string" minOccurs="0"/>
+			<xs:element name="PressSample" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReqNDC4" type="xs:string" minOccurs="0"/>
+			<xs:element name="SalesSample" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReqNDC5" type="xs:string" minOccurs="0"/>
+			<xs:element name="RetailBuy1" type="xs:string" minOccurs="0"/>
+			<xs:element name="Direct1" type="xs:string" minOccurs="0"/>
+			<xs:element name="EU1" type="xs:string" minOccurs="0"/>
+			<xs:element name="Wholesale1" type="xs:string" minOccurs="0"/>
+			<xs:element name="Buffer1" type="xs:string" minOccurs="0"/>
+			<xs:element name="Total1" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReqNDC6" type="xs:string" minOccurs="0"/>
+			<xs:element name="RetailBuy2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Direct2" type="xs:string" minOccurs="0"/>
+			<xs:element name="EU2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Wholesale2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Buffer2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Total2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column39" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column40" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column41" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column42" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column43" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column44" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column45" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column46" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column47" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column48" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column49" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column50" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column51" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column52" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column53" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column54" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column55" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column56" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column57" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column58" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column59" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column60" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column61" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column62" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column63" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column64" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column65" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column66" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column67" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column68" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column69" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column70" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column71" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column72" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column73" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column74" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column75" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column76" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column77" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column78" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column79" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column80" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column81" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column82" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column83" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column84" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column85" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column86" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column87" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column88" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column89" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column90" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column91" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column92" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column93" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column94" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column95" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column96" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column97" type="xs:string" minOccurs="0"/>
+			<xs:element name="Column98" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

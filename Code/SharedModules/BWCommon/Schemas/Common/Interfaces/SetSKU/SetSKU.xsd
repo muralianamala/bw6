@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/item/setskus"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/item/setskus"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="SetSKUs" type="SetSKUsType"/>
+	<xs:complexType name="SetSKUsType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element ref="Item" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Item">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="System" type="xs:string" minOccurs="0"/>
+				<xs:element name="Database" type="xs:string" minOccurs="0"/>
+				<xs:element name="RecordType" type="xs:string" minOccurs="0"/>
+				<xs:element name="SterlingSmartSKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="SetShortSKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="ComponentInfo" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ComponentShortSku" type="xs:string" minOccurs="0"/>
+							<xs:element name="ComponentTypeDesc" type="xs:string" minOccurs="0"/>
+							<xs:element name="ComponentGradeTypeDesc" type="xs:string" minOccurs="0"/>
+							<xs:element name="GradeDescription" type="xs:string" minOccurs="0"/>
+							<xs:element name="MTOPrimary" type="xs:string" minOccurs="0"/>
+							<xs:element name="ClassCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="Vendor" type="xs:string" minOccurs="0"/>
+							<xs:element name="Style" type="xs:string" minOccurs="0"/>
+							<xs:element name="ColorCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="SizeCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="LeadDays" type="xs:string" minOccurs="0"/>
+							<xs:element name="Concept" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

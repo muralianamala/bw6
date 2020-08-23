@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" factory="com.tibco.xml.cxf.user.java_md5encrypt__" name="cxf.user.java_md5encrypt__">
+   <implementation class="md5.URBANTIBCOCustomXPathFunction"/>
+</scr:component>

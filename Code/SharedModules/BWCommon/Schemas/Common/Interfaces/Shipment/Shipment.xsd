@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/shipment/shipment"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/shipment/shipment"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="ShipmentPub" type="ShipmentPubType"/>
+	<xs:complexType name="ShipmentPubType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element ref="Shipment" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Shipment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="eid" type="xs:string" minOccurs="0"/>
+				<xs:element name="aid" type="xs:string" minOccurs="0"/>
+				<xs:element name="test" type="xs:string" minOccurs="0"/>
+				<xs:element name="HTML" type="xs:string" minOccurs="0"/>
+				<xs:element name="email" type="xs:string"/>
+				<xs:element name="REQUESTID" type="xs:string" minOccurs="0"/>
+				<xs:element name="PARAM" type="xs:string" minOccurs="0"/>
+				<xs:element name="log" type="xs:string" minOccurs="0"/>
+				<xs:element name="ORDER_NUMBER" type="xs:string" minOccurs="0"/>
+				<xs:element name="ORDER_DATE" type="xs:string" minOccurs="0"/>
+				<xs:element name="ORDER_PURPOSE" type="xs:string" minOccurs="0"/>
+				<xs:element name="LANGUAGE_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="DIVISION" type="xs:string" minOccurs="0"/>
+				<xs:element name="CURRENCY_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="CURRENCY_SYMBOL" type="xs:string" minOccurs="0"/>
+				<xs:element name="GIFT_CARD_NUMBER" type="xs:string" minOccurs="0"/>
+				<xs:element name="STERLING_DOC_TYPE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPMENT_NO" type="xs:string" minOccurs="0"/>
+				<xs:element name="NO_SHIPMENT_EMAIL_FLAG" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPMENT_TYPE" type="xs:string" minOccurs="0"/>
+				<xs:element name="GENDER" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_COMPANY" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_TITLE" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_FNAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_LNAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_ADDRESS_1" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_ADDRESS_2" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_ADDRESS_3" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_CITY" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_STATE" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_ZIP" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_COUNTRY" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_EMAIL_ADDRESS" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_MASK_ADDRESS" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPPING_GROUP_ID" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_COMPANY" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_TITLE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_FNAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_LNAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_ADDRESS_1" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_ADDRESS_2" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_ADDRESS_3" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_CITY" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_STATE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_ZIP" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_COUNTRY" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_EMAIL_ADDRESS" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_DAY_PHONE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_VENDOR_ID" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_VENDOR_NAME" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_LOCATION_ID" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_ADDRESS_TYPE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_TO_NODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPMENT_NODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPMENT_NODE_TYPE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPMENT_STATUS_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPFROM_ADDRESS1" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPFROM_ADDRESS2" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPFROM_ADDRESS3" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPFROM_CITY" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPFROM_STATE" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPFROM_ZIP" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPFROM_COUNTRY" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPFROM_EMAIL_ADDRESS" type="xs:string" minOccurs="0"/>
+				<xs:element name="CARTONS" type="xs:string" minOccurs="0"/>
+				<xs:element name="DISPLAY_TRACKING" type="xs:string" minOccurs="0"/>
+				<xs:element name="SITEID" type="xs:string" minOccurs="0"/>
+				<xs:element name="STORENO" type="xs:string" minOccurs="0"/>
+				<xs:element name="PICK_UP_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="DATE" type="xs:string" minOccurs="0"/>
+				<xs:element name="USER_ID" type="xs:string" minOccurs="0"/>
+				<xs:element name="PROMOCODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="EMAIL_TYPE" type="xs:string" minOccurs="0"/>
+				<xs:element name="PICK_UP_BY_DATE" type="xs:string" minOccurs="0"/>
+				<xs:element name="ENTERPRISECODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="CARRIER_SERVICE_CODE" type="xs:string" minOccurs="0"/>
+				<xs:element name="ASENDIA_SPLIT_INDICATOR" type="xs:string" minOccurs="0"/>
+				<xs:element name="IP_BRAND" type="xs:string" minOccurs="0"/>
+				<xs:element name="Truck_Tracking_No" type="xs:string" minOccurs="0"/>
+				<xs:element name="Truck_Order_No" type="xs:string" minOccurs="0"/>
+				<xs:element name="Truck_Pro_No" type="xs:string" minOccurs="0"/>
+				<xs:element name="Delivery_Schedule_Request_Date_Type" type="xs:string" minOccurs="0"/>
+				<xs:element name="Delivery_Schedule_Request_Method_Type" type="xs:string" minOccurs="0"/>
+				<xs:element name="Delivery_Original_Scheduled_Date_Type" type="xs:string" minOccurs="0"/>
+				<xs:element name="Delivery_Original_Scheduled_Date" type="xs:string" minOccurs="0"/>
+				<xs:element name="Delivery_Current_Scheduled_Date_Type" type="xs:string" minOccurs="0"/>
+				<xs:element name="Delivery_Current_Scheduled_Date" type="xs:string" minOccurs="0"/>
+				<xs:element name="ORIGINAL_SHIPMENT_NO" type="xs:string" minOccurs="0"/>
+				<xs:element name="Actual_Shipment_Date" type="xs:string" minOccurs="0"/>
+				<xs:element name="Delivery_Schedule_Request_Date_Type_Desc" type="xs:string" minOccurs="0"/>
+				<xs:element name="Delivery_Schedule_Request_Method_Type_Desc" type="xs:string" minOccurs="0"/>
+				<xs:element name="Delivery_Original_Schedule_Date_Type_Desc" type="xs:string" minOccurs="0"/>
+				<xs:element name="TrackingImageURL" type="xs:string" minOccurs="0"/>
+				<xs:element name="LOCALCUSTID" type="xs:string" minOccurs="0"/>
+				<xs:element name="BILL_TO_ID" type="xs:string" minOccurs="0"/>
+				<xs:element name="IS_PARTIAL_ORDER" type="xs:string" minOccurs="0"/>
+				<xs:element name="COPY" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ISPU_DIRECTIONS" type="xs:string" minOccurs="0"/>
+							<xs:element name="ISPU_PICKUP_LOCATION" type="xs:string" minOccurs="0"/>
+							<xs:element name="STORE_HOURS" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="DAY" type="xs:string" minOccurs="0"/>
+										<xs:element name="START_TIME" type="xs:string" minOccurs="0"/>
+										<xs:element name="END_TIME" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="COPY_ID" type="xs:string" minOccurs="0"/>
+							<xs:element name="GIFT_CARD_FLAG" type="xs:string" minOccurs="0"/>
+							<xs:element name="BACK_ORDER_FLAG" type="xs:string" minOccurs="0"/>
+							<xs:element name="PRIOR_SHIPMENT_FLAG" type="xs:string" minOccurs="0"/>
+							<xs:element name="INPROCESSFLAG" type="xs:string" minOccurs="0"/>
+							<xs:element name="OTHERLINESHIPMENTTRACKINGFLAG" type="xs:string" minOccurs="0"/>
+							<xs:element name="GIFT_WRAP_FLAG" type="xs:string" minOccurs="0"/>
+							<xs:element name="TAX_ID" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CARTON" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CARTON_NUMBER" type="xs:string" minOccurs="0"/>
+							<xs:element name="STERLING_CARTON_KEY" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRACKING_NO_URL" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRACKING_NO" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHIPPER" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHIP_METH" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHIPPED_EXPRESS" type="xs:string" minOccurs="0"/>
+							<xs:element name="SHIP_METHOD_CODE" type="xs:string" minOccurs="0"/>
+							<xs:element name="GENERIC_TRACKING_FLAG" type="xs:string" minOccurs="0"/>
+							<xs:element name="EST_DELIVERY_DATE_START" type="xs:string" minOccurs="0"/>
+							<xs:element name="EST_DELIVERY_DATE_END" type="xs:string" minOccurs="0"/>
+							<xs:element name="ACTUAL_SHIPMENT_DATE" type="xs:string" minOccurs="0"/>
+							<xs:element name="CDBRCD" type="xs:string" minOccurs="0"/>
+							<xs:element name="PDNUM2" type="xs:string" minOccurs="0"/>
+							<xs:element name="TRACKING_IMAGE_URL" type="xs:string" minOccurs="0"/>
+							<xs:element name="ITEM" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="CONTAINER_LINE_NO" type="xs:string" minOccurs="0"/>
+										<xs:element name="SHIPMENT_LINE_NO" type="xs:string" minOccurs="0"/>
+										<xs:element name="CARTON_DETAIL_KEY" type="xs:string" minOccurs="0"/>
+										<xs:element name="SKU_ID" type="xs:string" minOccurs="0"/>
+										<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+										<xs:element name="STYLE" type="xs:string" minOccurs="0"/>
+										<xs:element name="COLOR" type="xs:string" minOccurs="0"/>
+										<xs:element name="SIZE" type="xs:string" minOccurs="0"/>
+										<xs:element name="COLOR_CODE" type="xs:string" minOccurs="0"/>
+										<xs:element name="SIZE_CODE" type="xs:string" minOccurs="0"/>
+										<xs:element name="IP_LONG_SKU" type="xs:string" minOccurs="0"/>
+										<xs:element name="IP_VENDOR" type="xs:string" minOccurs="0"/>
+										<xs:element name="IP_STYLE" type="xs:string" minOccurs="0"/>
+										<xs:element name="IP_CLASS" type="xs:string" minOccurs="0"/>
+										<xs:element name="REGISTRY_ID" type="xs:string" minOccurs="0"/>
+										<xs:element name="DESCRIP" type="xs:string" minOccurs="0"/>
+										<xs:element name="STYLE_DESC" type="xs:string" minOccurs="0"/>
+										<xs:element name="QTY" type="xs:string" minOccurs="0"/>
+										<xs:element name="IMG_URL" type="xs:string" minOccurs="0"/>
+										<xs:element name="PRODUCT_URL" type="xs:string" minOccurs="0"/>
+										<xs:element name="ORIG_UNIT_PRICE" type="xs:string" minOccurs="0"/>
+										<xs:element name="ORIG_TOTAL_PRICE" type="xs:string" minOccurs="0"/>
+										<xs:element name="DISCOUNT_UNIT_PRICE" type="xs:string" minOccurs="0"/>
+										<xs:element name="DISCOUNT_TOTAL_PRICE" type="xs:string" minOccurs="0"/>
+										<xs:element name="PURCH_UNIT_PRICE" type="xs:string" minOccurs="0"/>
+										<xs:element name="PURCH_TOTAL_PRICE" type="xs:string" minOccurs="0"/>
+										<xs:element name="GIFT_WRAP" type="xs:string" minOccurs="0"/>
+										<xs:element name="GIFT_WRAP_AMOUNT" type="xs:string" minOccurs="0"/>
+										<xs:element name="WORK_SHIPFEES" type="xs:string" minOccurs="0"/>
+										<xs:element name="WORK_SKUSHIPFEE" type="xs:string" minOccurs="0"/>
+										<xs:element name="DUTY_AMOUNT_SKU" type="xs:string" minOccurs="0"/>
+										<xs:element name="VAT_AMOUNT_SKU" type="xs:string" minOccurs="0"/>
+										<xs:element name="WORK_TAXES" type="xs:string" minOccurs="0"/>
+										<xs:element name="MESSAGE_TO" type="xs:string" minOccurs="0"/>
+										<xs:element name="MESSAGE_FROM" type="xs:string" minOccurs="0"/>
+										<xs:element name="MESSAGE_NOTE" type="xs:string" minOccurs="0"/>
+										<xs:element name="SUPRESS_SHIP_CONFIRM" type="xs:string" minOccurs="0"/>
+										<xs:element name="ORIGINAL_ORDER_QTY" type="xs:string" minOccurs="0"/>
+										<xs:element name="PICK_UP_QTY" type="xs:string" minOccurs="0"/>
+										<xs:element name="AVAIL_QTY" type="xs:string" minOccurs="0"/>
+										<xs:element name="CANCEL_QTY" type="xs:string" minOccurs="0"/>
+										<xs:element name="DEPOSIT_AMOUNT" type="xs:string" minOccurs="0"/>
+										<xs:element name="IP_SHORT_SKU" type="xs:string" minOccurs="0"/>
+										<xs:element name="ITEM_SHORT_DESC" type="xs:string" minOccurs="0"/>
+										<xs:element name="ORIGIANL_SHIPMENT_LINE_NO" type="xs:string" minOccurs="0"/>
+										<xs:element name="SHIPMENTLINE_NAICSCODE" type="xs:string" minOccurs="0"/>
+										<xs:element name="CONTAINSMARKETPLACE" type="xs:string" minOccurs="0"/>
+										<xs:element name="EXTNOFFERSELLERID" type="xs:string" minOccurs="0"/>
+										<xs:element name="VAT_PAID_BY_URBN_FLAG" type="xs:string" minOccurs="0"/>
+										<xs:element name="VAT_AMOUNT_SKU_UK" type="xs:string" minOccurs="0"/>
+										<xs:element name="VAT_ITEM_DETAILS" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="VAT_DETAIL_NAME" type="xs:string" minOccurs="0"/>
+													<xs:element name="VAT_DETAIL_LINE_ITEM" type="xs:string" minOccurs="0"/>
+													<xs:element name="VAT_DETAIL_AMOUNT" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="RESTOCK_FEE_CODE" type="xs:string" minOccurs="0"/>
+										<xs:element name="RESTOCK_FEE_CURRENCY" type="xs:string" minOccurs="0"/>
+										<xs:element name="RESTOCK_VALUE" type="xs:string" minOccurs="0"/>
+										<xs:element name="RESTOCK_SHORT_COPY" type="xs:string" minOccurs="0"/>
+										<xs:element name="RESTOCK_LONG_COPY" type="xs:string" minOccurs="0"/>
+										<xs:element name="ITEM_MTO_COMPONENTS" type="ITEM_MTO_COMPONENTS" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="ORDERLINE_ITEMID" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ITEM_GROUP_NEW" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CONTAINER" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="DISPLAY_ITEMGROUP" type="xs:string" minOccurs="0"/>
+										<xs:element name="CONTAINER_NO" type="xs:string" minOccurs="0"/>
+										<xs:element name="STERLING_CARTON_KEY" type="xs:string" minOccurs="0"/>
+										<xs:element name="TRACKING_URL" type="xs:string" minOccurs="0"/>
+										<xs:element name="TRACKING_NO" type="xs:string" minOccurs="0"/>
+										<xs:element name="GENERIC_TRACKING_FLAG" type="xs:string" minOccurs="0"/>
+										<xs:element name="INTERNAL_PACKAGE_NO" type="xs:string" minOccurs="0"/>
+										<xs:element name="SHIPMENT_DATE" type="xs:string" minOccurs="0"/>
+										<xs:element name="SHIP_METHOD" type="xs:string" minOccurs="0"/>
+										<xs:element name="SHIP_METHOD_DESC" type="xs:string" minOccurs="0"/>
+										<xs:element name="CARRIER_SCAC" type="xs:string" minOccurs="0"/>
+										<xs:element name="EST_DELIVERY_DATE_START" type="xs:string" minOccurs="0"/>
+										<xs:element name="EST_DELIVERY_DATE_END" type="xs:string" minOccurs="0"/>
+										<xs:element name="DATE_DELIVERED" type="xs:string" minOccurs="0"/>
+										<xs:element name="DELIVERY_STATUS" type="xs:string" minOccurs="0"/>
+										<xs:element name="TRACKING_IMAGE_URL" type="xs:string" minOccurs="0"/>
+										<xs:element name="ITEM" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="CARTON_DETAIL_KEY" type="xs:string" minOccurs="0"/>
+													<xs:element name="MIN_STATUS" type="xs:string" minOccurs="0"/>
+													<xs:element name="MIN_STATUS_DESC" type="xs:string" minOccurs="0"/>
+													<xs:element name="MAX_STATUS" type="xs:string" minOccurs="0"/>
+													<xs:element name="MAX_STATUS_DESC" type="xs:string" minOccurs="0"/>
+													<xs:element name="COMBINED_STATUS_DESC" type="xs:string" minOccurs="0"/>
+													<xs:element name="SKU_ID" type="xs:string" minOccurs="0"/>
+													<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+													<xs:element name="STYLE" type="xs:string" minOccurs="0"/>
+													<xs:element name="COLOR" type="xs:string" minOccurs="0"/>
+													<xs:element name="SIZE" type="xs:string" minOccurs="0"/>
+													<xs:element name="REGISTRY_ID" type="xs:string" minOccurs="0"/>
+													<xs:element name="DESCRIP" type="xs:string" minOccurs="0"/>
+													<xs:element name="STYLE_DESC" type="xs:string" minOccurs="0"/>
+													<xs:element name="QTY" type="xs:string" minOccurs="0"/>
+													<xs:element name="ORIG_UNIT_PRICE" type="xs:string" minOccurs="0"/>
+													<xs:element name="ORIG_TOTAL_PRICE" type="xs:string" minOccurs="0"/>
+													<xs:element name="DISCOUNT_UNIT_PRICE" type="xs:string" minOccurs="0"/>
+													<xs:element name="DISCOUNT_TOTAL_PRICE" type="xs:string" minOccurs="0"/>
+													<xs:element name="PURCH_UNIT_PRICE" type="xs:string" minOccurs="0"/>
+													<xs:element name="PURCH_TOTAL_PRICE" type="xs:string" minOccurs="0"/>
+													<xs:element name="IMG_URL" type="xs:string" minOccurs="0"/>
+													<xs:element name="PRODUCT_URL" type="xs:string" minOccurs="0"/>
+													<xs:element name="RET_EXCG_DATE" type="xs:string" minOccurs="0"/>
+													<xs:element name="GIFT_WRAP" type="xs:string" minOccurs="0"/>
+													<xs:element name="GIFT_WRAP_AMOUNT" type="xs:string" minOccurs="0"/>
+													<xs:element name="DEPOSIT_AMOUNT" type="xs:string" minOccurs="0"/>
+													<xs:element name="CONTAINSMARKETPLACE" type="xs:string" minOccurs="0"/>
+													<xs:element name="EXTNOFFERSELLERID" type="xs:string" minOccurs="0"/>
+													<xs:element name="RESTOCK_FEE_CODE" type="xs:string" minOccurs="0"/>
+													<xs:element name="RESTOCK_FEE_CURRENCY" type="xs:string" minOccurs="0"/>
+													<xs:element name="RESTOCK_VALUE" type="xs:string" minOccurs="0"/>
+													<xs:element name="RESTOCK_SHORT_COPY" type="xs:string" minOccurs="0"/>
+													<xs:element name="RESTOCK_LONG_COPY" type="xs:string" minOccurs="0"/>
+													<xs:element name="ITEM_MTO_COMPONENTS" type="ITEM_MTO_COMPONENTS" minOccurs="0" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="OTHERLINES" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="DISPLAY_ITEM_GROUP" type="xs:string" minOccurs="0"/>
+										<xs:element name="OTHERLINES_HEADER" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ORDER_STATUS_KEY" type="xs:string" minOccurs="0"/>
+													<xs:element name="STATUS_DESC" type="xs:string" minOccurs="0"/>
+													<xs:element name="UNFULFILLED_LINES" type="xs:string" minOccurs="0"/>
+													<xs:element name="ITEM" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ORDER_LINE_STATUS_KEY" type="xs:string" minOccurs="0"/>
+																<xs:element name="STATUS_DESC" type="xs:string" minOccurs="0"/>
+																<xs:element name="SKU_ID" type="xs:string" minOccurs="0"/>
+																<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+																<xs:element name="STYLE" type="xs:string" minOccurs="0"/>
+																<xs:element name="COLOR" type="xs:string" minOccurs="0"/>
+																<xs:element name="SIZE" type="xs:string" minOccurs="0"/>
+																<xs:element name="REGISTRY_ID" type="xs:string" minOccurs="0"/>
+																<xs:element name="DESCRIP" type="xs:string" minOccurs="0"/>
+																<xs:element name="STYLE_DESC" type="xs:string" minOccurs="0"/>
+																<xs:element name="QTY" type="xs:string" minOccurs="0"/>
+																<xs:element name="ORIG_UNIT_PRICE" type="xs:string" minOccurs="0"/>
+																<xs:element name="ORIG_TOTAL_PRICE" type="xs:string" minOccurs="0"/>
+																<xs:element name="DISCOUNT_UNIT_PRICE" type="xs:string" minOccurs="0"/>
+																<xs:element name="DISCOUNT_TOTAL_PRICE" type="xs:string" minOccurs="0"/>
+																<xs:element name="PURCH_UNIT_PRICE" type="xs:string" minOccurs="0"/>
+																<xs:element name="PURCH_TOTAL_PRICE" type="xs:string" minOccurs="0"/>
+																<xs:element name="IMG_URL" type="xs:string" minOccurs="0"/>
+																<xs:element name="EXP_SHIP_DATE" type="xs:string" minOccurs="0"/>
+																<xs:element name="STATUS_DATE" type="xs:string" minOccurs="0"/>
+																<xs:element name="CANCEL_DATE" type="xs:string" minOccurs="0"/>
+																<xs:element name="RET_EXCG_DATE" type="xs:string" minOccurs="0"/>
+																<xs:element name="PRODUCT_URL" type="xs:string" minOccurs="0"/>
+																<xs:element name="GIFT_WRAP" type="xs:string" minOccurs="0"/>
+																<xs:element name="GIFT_WRAP_AMOUNT" type="xs:string" minOccurs="0"/>
+																<xs:element name="DEPOSIT_AMOUNT" type="xs:string" minOccurs="0"/>
+																<xs:element name="BACKORDER_DATE" type="xs:string" minOccurs="0"/>
+																<xs:element name="CONTAINSMARKETPLACE" type="xs:string" minOccurs="0"/>
+																<xs:element name="EXTNOFFERSELLERID" type="xs:string" minOccurs="0"/>
+																<xs:element name="RESTOCK_FEE_CODE" type="xs:string" minOccurs="0"/>
+																<xs:element name="RESTOCK_FEE_CURRENCY" type="xs:string" minOccurs="0"/>
+																<xs:element name="RESTOCK_VALUE" type="xs:string" minOccurs="0"/>
+																<xs:element name="RESTOCK_SHORT_COPY" type="xs:string" minOccurs="0"/>
+																<xs:element name="RESTOCK_LONG_COPY" type="xs:string" minOccurs="0"/>
+																<xs:element name="ITEM_MTO_COMPONENTS" type="ITEM_MTO_COMPONENTS" minOccurs="0" maxOccurs="unbounded"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PAYMENT" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="PAYMENT_KEY" type="xs:string" minOccurs="0"/>
+							<xs:element name="PAYMENT_TYPE" type="xs:string" minOccurs="0"/>
+							<xs:element name="PAYMENT_METHOD" type="xs:string" minOccurs="0"/>
+							<xs:element name="CARD_TYPE" type="xs:string" minOccurs="0"/>
+							<xs:element name="CARD_NAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="CARD_NUM" type="xs:string" minOccurs="0"/>
+							<xs:element name="EXPIRATION_DATE" type="xs:string" minOccurs="0"/>
+							<xs:element name="EXIPRATION_YEAR" type="xs:string" minOccurs="0"/>
+							<xs:element name="EXIPRATION_MONTH" type="xs:string" minOccurs="0"/>
+							<xs:element name="EXIPRATION_DAY" type="xs:string" minOccurs="0"/>
+							<xs:element name="CHARGED_AMOUNT" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="GIFT_MESSAGE_1" type="xs:string" minOccurs="0"/>
+				<xs:element name="GIFT_MESSAGE_2" type="xs:string" minOccurs="0"/>
+				<xs:element name="PROMOTION" type="xs:string" minOccurs="0"/>
+				<xs:element name="PROMO_DISCOUNT_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="GIFTWRAP_TOTAL_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="PROD_TOTAL_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="TAX_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="OWT_SHIP_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="INT_SHIP_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="EXP_SHIP_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIP_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="DUTY_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="VAT_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="SHIPMENT_TOTAL_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="SYS_INFO" type="xs:string" minOccurs="0"/>
+				<xs:element name="TOTAL_FLAT_RATE_SHIP_FEE" type="xs:string" minOccurs="0"/>
+				<xs:element name="TOTAL_FLAT_RATE_SHIP_FEE_TAX" type="xs:string" minOccurs="0"/>
+				<xs:element name="TOTAL_DEPOSIT_AMOUNT" type="xs:string" minOccurs="0"/>
+				<xs:element name="VAT_DETAILS" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="VAT_DETAIL_NAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="VAT_DETAIL_AMOUNT" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ISPU_STORE_INFO" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="STORE_NAME" type="xs:string" minOccurs="0"/>
+							<xs:element name="COMPANY" type="xs:string" minOccurs="0"/>
+							<xs:element name="STORE_PHONE" type="xs:string" minOccurs="0"/>
+							<xs:element name="STORE_ADDRESS1" type="xs:string" minOccurs="0"/>
+							<xs:element name="STORE_ADDRESS2" type="xs:string" minOccurs="0"/>
+							<xs:element name="STORE_ADDRESS3" type="xs:string" minOccurs="0"/>
+							<xs:element name="STORE_CITY" type="xs:string" minOccurs="0"/>
+							<xs:element name="STORE_STATE" type="xs:string" minOccurs="0"/>
+							<xs:element name="STORE_ZIP" type="xs:string" minOccurs="0"/>
+							<xs:element name="STORE_COUNTRY" type="xs:string" minOccurs="0"/>
+							<xs:element name="SCHEDULEDAYS" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="DAYNO" type="xs:string" minOccurs="0"/>
+										<xs:element name="DATE" type="xs:string" minOccurs="0"/>
+										<xs:element name="DAYNAME" type="xs:string" minOccurs="0"/>
+										<xs:element name="OPENTIME" type="xs:string" minOccurs="0"/>
+										<xs:element name="CLOSETIME" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ITEM_MTO_COMPONENTS">
+		<xs:sequence>
+			<xs:element name="COMPONENT_SKU" type="xs:string" minOccurs="0"/>
+			<xs:element name="COMPONENT_SKU_TYPE" type="xs:string" minOccurs="0"/>
+			<xs:element name="COMPONENT_SKU_DESC" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

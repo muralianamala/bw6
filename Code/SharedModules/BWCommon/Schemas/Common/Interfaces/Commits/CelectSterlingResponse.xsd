@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="Order">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="OrderLines" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="OrderLine" minOccurs="1" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:all>
+			<xs:attribute name="OrderNo" type="xs:string" use="required"/>
+			<xs:attribute name="EnterpriseCode" type="xs:string" use="required"/>
+			<xs:attribute name="DocumentType" type="xs:string" use="required"/>
+			<xs:attribute name="RealTimeResponse" type="xs:string" use="optional"/>
+			<xs:attribute name="MessageDate" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OrderLine">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Nodes" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="Node" minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="CancelQty" type="xs:string" use="optional"/>
+			<xs:attribute name="ExtnParentLine" type="xs:string" use="optional"/>
+			<xs:attribute name="ItemID" type="xs:string" use="required"/>
+			<xs:attribute name="PrimeLineNo" type="xs:string" use="required"/>
+			<xs:attribute name="OrderLineKey" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Node">
+		<xs:complexType>
+			<xs:attribute name="ShipNode" type="xs:string" use="required"/>
+			<xs:attribute name="Quantity" type="xs:string" use="required"/>
+			<xs:attribute name="OnesieFlag" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/ASENDIA/ASENDIA"
+	 targetNamespace="http://www.urbanoutfitters.com/ASENDIA/ASENDIA"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="PackageCount">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="OrderNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="ShipmentNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="PackageCount" type="xs:string" minOccurs="0"/>
+				<xs:element name="ShipNode" type="xs:string" minOccurs="0"/>
+				<xs:element name="SplitIndicator" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

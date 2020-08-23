@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/TXTPORevision/txtporevision"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/TXTPORevision/txtporevision"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="TXTPORevision" type="TXTPORevisionType"/>
+	<xs:complexType name="TXTPORevisionType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="PORevision" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TXT_ID" type="xs:string" minOccurs="0"/>
+						<xs:element name="Channel_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="Month" type="xs:string" minOccurs="0"/>
+						<xs:element name="Size_Code" type="xs:string" minOccurs="0"/>
+						<xs:element name="Pack_Code" type="xs:string" minOccurs="0"/>
+						<xs:element name="DCNumber" type="xs:string" minOccurs="0"/>
+						<xs:element name="TXT_BUY_ID" type="xs:string" minOccurs="0"/>
+						<xs:element name="Receipt_Qty" type="xs:string" minOccurs="0"/>
+						<xs:element name="Action_Flag" type="xs:string" minOccurs="0"/>
+						<xs:element name="Receipt_ID" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PublishFields" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Instance" type="xs:string" minOccurs="0"/>
+						<xs:element name="EOF" type="xs:string" minOccurs="0"/>
+						<xs:element name="TriggerFileName" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

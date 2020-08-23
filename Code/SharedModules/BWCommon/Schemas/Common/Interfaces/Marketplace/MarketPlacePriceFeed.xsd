@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/MarketPlace/MarketPlacePriceFeed"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/MarketPlace/MarketPlacePriceFeed"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="MarketPlacePriceFeed" type="MarketPlacePriceFeedType"/>
+	<xs:complexType name="MarketPlacePriceFeedType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="PostItems" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Items" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="InventoryItem" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CurrencyID" type="xs:string" minOccurs="0"/>
+												<xs:element name="ExtnOwnerOrg" type="xs:string" minOccurs="0"/>
+												<xs:element name="PriceReserved" type="xs:string" minOccurs="0"/>
+												<xs:element name="PriceStarting" type="xs:string" minOccurs="0"/>
+												<xs:element name="SKU" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="UrbnIPStyleMarketPlcList" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="UrbnIPStyleMarketPlc" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ClassVendorStyle" type="xs:string" minOccurs="0"/>
+												<xs:element name="Code" type="xs:string" minOccurs="0"/>
+												<xs:element name="FieldType" type="xs:string" minOccurs="0"/>
+												<xs:element name="GateWay" type="xs:string" minOccurs="0"/>
+												<xs:element name="IPStyleMarketPlcKey" type="xs:string" minOccurs="0"/>
+												<xs:element name="ItemClass" type="xs:string" minOccurs="0"/>
+												<xs:element name="Style" type="xs:string" minOccurs="0"/>
+												<xs:element name="Vendor" type="xs:string" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

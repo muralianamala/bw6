@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.urbanoutfitters.com/CapacityJSON" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.urbanoutfitters.com/CapacityJSON">
+<xsd:element name="root">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="capacityCalendar" minOccurs="0"/>
+				<xsd:element ref="baseCapacity" minOccurs="0"/>
+				<xsd:element ref="overrideCapacityByDate" minOccurs="0" maxOccurs="unbounded"/>						
+				<xsd:element ref="effectiveEndDate" minOccurs="0"/>
+				<xsd:element ref="effectiveStartDate" minOccurs="0"/>
+				<xsd:element ref="fulfillmentType" minOccurs="0"/>
+				<xsd:element ref="locationId" minOccurs="0"/>
+				<xsd:element ref="locationType" minOccurs="0"/>
+				<xsd:element ref="orgId" minOccurs="0"/>
+				<xsd:element ref="updateUser" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="capacityCalendar">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ALL"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ALL">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="trackCapacity" minOccurs="0"/>
+				<xsd:element ref="cutOffTime" minOccurs="0"/>
+				<xsd:element ref="capacitySegments"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="trackCapacity" type="xsd:boolean"/>
+	<xsd:element name="cutOffTime" type="xsd:string"/>
+	<xsd:element name="capacitySegments">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Primary"/>
+				<xsd:element ref="Secondary"/>				
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Primary">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="trackCapacity" minOccurs="0"/>
+				<xsd:element ref="capacity" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="capacity">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="value" minOccurs="0"/>
+				<xsd:element ref="uom" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="value" type="xsd:int"/>
+	<xsd:element name="uom" type="xsd:string"/>
+	<xsd:element name="Secondary">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="trackCapacity" minOccurs="0"/>
+				<xsd:element ref="capacity" minOccurs="0"/>				
+				<xsd:element ref="rolloverTime" minOccurs="0"/>
+				<xsd:element ref="rolloverTo" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="effectiveEndDate" type="xsd:string"/>
+	<xsd:element name="effectiveStartDate" type="xsd:string"/>
+	<xsd:element name="fulfillmentType" type="xsd:string"/>
+	<xsd:element name="locationId" type="xsd:string"/>
+	<xsd:element name="locationType" type="xsd:string"/>
+	<xsd:element name="orgId" type="xsd:string"/>
+	<xsd:element name="updateUser" type="xsd:string"/>
+	<xsd:element name="rolloverTime" type="xsd:string"/>
+	<xsd:element name="rolloverTo" type="xsd:string"/>
+	<xsd:element name="baseCapacity">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ALL" maxOccurs="1" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="trackCapacity" maxOccurs="1" minOccurs="0"/>							
+							<xsd:element ref="cutOffTime" maxOccurs="1" minOccurs="0"/>							
+							<xsd:element name="capacity" type="xsd:int"	maxOccurs="1" minOccurs="0"/>							
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="overrideCapacityByDate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="baseCapacity" maxOccurs="1"
+					minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="capacity" type="xsd:int"
+								maxOccurs="1" minOccurs="0">
+							</xsd:element>
+							<xsd:element name="cutOffTime"
+								type="xsd:string" maxOccurs="1" minOccurs="0">
+							</xsd:element>
+							<xsd:element name="trackCapacity"
+								type="xsd:boolean" maxOccurs="1" minOccurs="0">
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="endDate" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+				<xsd:element name="startDate" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

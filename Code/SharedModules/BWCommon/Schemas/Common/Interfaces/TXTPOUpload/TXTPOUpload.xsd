@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/TXTPOUpload/txtpoupload"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/TXTPOUpload/txtpoupload"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="TXTPOUpload" type="TXTPOUploadType"/>
+	<xs:complexType name="TXTPOUploadType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="POUpload" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TXT_ID" type="xs:string" minOccurs="0"/>
+						<xs:element name="REAL_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="Channel_IDX" type="xs:string" minOccurs="0"/>
+						<xs:element name="Month" type="xs:string" minOccurs="0"/>
+						<xs:element name="Size_Code" type="xs:string" minOccurs="0"/>
+						<xs:element name="Pack_Code" type="xs:string" minOccurs="0"/>
+						<xs:element name="Vendor_Code" type="xs:string" minOccurs="0"/>
+						<xs:element name="TXT_BUY_ID" type="xs:string" minOccurs="0"/>
+						<xs:element name="Receipt_U" type="xs:string" minOccurs="0"/>
+						<xs:element name="DCNumber" type="xs:string" minOccurs="0"/>
+						<xs:element name="Receipt_Date" type="xs:string" minOccurs="0"/>
+						<xs:element name="Vendor_Color_Name" type="xs:string" minOccurs="0"/>
+						<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+						<xs:element name="Department_ID" type="xs:string" minOccurs="0"/>
+						<xs:element name="Action_Flag" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute1" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute2" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute3" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute4" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute5" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute6" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute7" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute8" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute9" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute10" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute11" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute12" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute13" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute14" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute15" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute16" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute17" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute18" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute19" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute20" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute21" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute22" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute23" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute24" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute25" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute26" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute27" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute28" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute29" type="xs:string" minOccurs="0"/>
+						<xs:element name="PO_Attribute30" type="xs:string" minOccurs="0"/>
+						<xs:element name="Receipt_ID" type="xs:string" minOccurs="0"/>
+						<xs:element name="Receipt_Method" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PublishFields" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Instance" type="xs:string" minOccurs="0"/>
+						<xs:element name="EOF" type="xs:string" minOccurs="0"/>
+						<xs:element name="TriggerFileName" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

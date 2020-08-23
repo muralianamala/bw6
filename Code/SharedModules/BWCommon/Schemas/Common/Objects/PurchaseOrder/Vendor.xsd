@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.nrf-arts.org/IXRetail/namespace"
+	 targetNamespace="http://www.nrf-arts.org/IXRetail/namespace"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:include schemaLocation="Address.xsd"/>
+<xs:include schemaLocation="EmailAddress.xsd"/>
+	<xs:element name="Vendor">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="VendorId" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="17"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Name" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="80"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="VendorType" type="xs:string" minOccurs="0"/>
+				<xs:element name="ReturnAgentID" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="17"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="AgentName" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The name of the company to whom returns on which a deposit was paid are returned.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="80"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="ManufacturerID" type="xs:string" minOccurs="0"/>
+				<xs:element name="ManufacturerName" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The name of the Manufacturer's organization.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="FreightBill" minOccurs="0"/>
+				<xs:element ref="Address" minOccurs="0"/>
+				<xs:element ref="EmailAddress" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FreightBill">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="FreightBillID" type="xs:string" minOccurs="0"/>
+				<xs:element name="SpecialHandlingMessage" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

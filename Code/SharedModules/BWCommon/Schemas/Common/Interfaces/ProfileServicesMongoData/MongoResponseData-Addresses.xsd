@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="JSON" type="JSONType"/>
+	<xs:complexType name="addressType">
+		<xs:all>
+			<xs:element name="city" type="xs:string" minOccurs="0"/>
+			<xs:element name="name" type="nameType" minOccurs="0"/>
+			<xs:element name="address1" type="xs:string" minOccurs="0"/>
+			<xs:element name="address2" type="xs:string" minOccurs="0"/>
+			<xs:element name="address3" type="xs:string" minOccurs="0"/>
+			<xs:element name="poBox" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="verificationStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+			<xs:element name="county" type="xs:string" minOccurs="0"/>
+			<xs:element name="masked" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="postalCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="region" type="xs:string" minOccurs="0"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="JSONType">
+		<xs:sequence>
+			<xs:element name="sterling" type="sterlingType" minOccurs="0"/>
+			<xs:element name="cartId" type="xs:string" minOccurs="0"/>
+			<xs:element name="archived" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="lastModified" type="xs:float" minOccurs="0"/>
+			<xs:element name="atgId" type="xs:string" minOccurs="0"/>
+			<xs:element name="visible" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="activeCartIds" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="address" type="addressType" minOccurs="0"/>
+			<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+			<xs:element name="nickName" type="xs:string" minOccurs="0"/>
+			<xs:element name="id" type="xs:string" minOccurs="0"/>
+			<xs:element name="JSON" type="JSONType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="nameType">
+		<xs:all>
+			<xs:element name="last" type="xs:string" minOccurs="0"/>
+			<xs:element name="first" type="xs:string" minOccurs="0"/>
+			<xs:element name="middle" type="xs:string" minOccurs="0"/>
+			<xs:element name="prefix" type="xs:string" minOccurs="0"/>
+			<xs:element name="suffix" type="xs:string" minOccurs="0"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="sterlingType">
+		<xs:all>
+			<xs:element name="personInfoKey" type="xs:string" minOccurs="0"/>
+			<xs:element name="addressId" type="xs:string" minOccurs="0"/>
+		</xs:all>
+	</xs:complexType>
+</xs:schema>

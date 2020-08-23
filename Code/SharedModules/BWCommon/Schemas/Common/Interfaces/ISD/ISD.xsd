@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/isd"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/co/isd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="ISD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Request" minOccurs="0"/>
+				<xs:element ref="Response" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Request" type="RequestType"/>
+	<xs:element name="Response" type="ResponseType"/>
+	<xs:complexType name="RequestType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="MessageIdentifier" type="xs:string" minOccurs="0"/>
+			<xs:element name="JournalKey" type="xs:string" minOccurs="0"/>
+			<xs:element name="MessageType" type="xs:string" minOccurs="0"/>
+			<xs:element name="TenderType" type="xs:string" minOccurs="0"/>
+			<xs:element name="AccountNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="TenderAmount" type="xs:string" minOccurs="0"/>
+			<xs:element name="StoreNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="TerminalNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="MessageSequence" type="xs:string" minOccurs="0"/>
+			<xs:element name="UserData" type="xs:string" minOccurs="0"/>
+			<xs:element name="RetryIndicator" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExpirationDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="Token" type="xs:string" minOccurs="0"/>
+			<xs:element name="Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="Position" type="xs:string" minOccurs="0"/>
+			<xs:element name="EncryptedDataBlock" type="xs:string" minOccurs="0"/>
+			<xs:element name="SerialNumber" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseType">
+		<xs:sequence>
+			<xs:element name="MessageLength" type="xs:string" minOccurs="0"/>
+			<xs:element name="MessageID" type="xs:string" minOccurs="0"/>
+			<xs:element name="JournalKey" type="xs:string" minOccurs="0"/>
+			<xs:element name="MessageType" type="xs:string" minOccurs="0"/>
+			<xs:element name="TenderType" type="xs:string" minOccurs="0"/>
+			<xs:element name="AccountNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="TenderAmount" type="xs:string" minOccurs="0"/>
+			<xs:element name="Location" type="xs:string" minOccurs="0"/>
+			<xs:element name="TerminalNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="MessageSequence" type="xs:string" minOccurs="0"/>
+			<xs:element name="UserData" type="xs:string" minOccurs="0"/>
+			<xs:element name="AuthDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="AuthorizationTime" type="xs:string" minOccurs="0"/>
+			<xs:element name="StatusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ResponseMessage" type="xs:string" minOccurs="0"/>
+			<xs:element name="AuthorizationCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="AuthorizationResponseCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="MerchantID" type="xs:string" minOccurs="0"/>
+			<xs:element name="Position" type="xs:string" minOccurs="0"/>
+			<xs:element name="Token" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema targetNamespace="http://www.urbanoutfitters.com/leaf/exceptionclient"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.urbanoutfitters.com/leaf/exceptionclient">
+	<xsd:element name="ExceptionCollection">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Exception" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Status">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Status" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ProcessContext">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ProcessId" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ProjectName" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="EngineName" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="RestartedFromCheckpoint" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="TrackingInfo" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="CustomId" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ErrorReport">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="StackTrace" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Msg" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="FullClass" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Class" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ProcessStack" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="MsgCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Data" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ExceptionParameters">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Name" type="xsd:string"/>
+				<xsd:element name="Value" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ExceptionAttachments">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Name" type="xsd:string"/>
+				<xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="Data" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Exception">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ExceptionCode" type="xsd:string"/>
+				<xsd:element name="ProcessName" type="xsd:string"/>
+				<xsd:element name="Domain" type="xsd:string"/>
+				<xsd:element name="ExceptionLoggedDateTime" type="xsd:dateTime" minOccurs="0"/>
+				<xsd:element name="ExceptionDetails" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="RetryTargetType" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="RetryTarget" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="RetryMessage" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="DeferNotification" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="Y"/>
+							<xsd:enumeration value="N"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="DeferNotificationTimeoutInSecs" type="xsd:long" minOccurs="0"/>
+				<xsd:element ref="ErrorReport" minOccurs="0"/>
+				<xsd:element ref="ProcessContext" minOccurs="0"/>
+				<xsd:element ref="ExceptionParameters" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ExceptionAttachments" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PersistedException">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="EXCEPTION_LOG_SEQ" type="xsd:string"/>
+				<xsd:element name="EXCEPTION_TYPE" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="EXCEPTION_CATEGORY" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="EXCEPTION_DESC" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="EXCEPTION_USER" type="xsd:string" minOccurs="0"/>
+				<xsd:element ref="Exception" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="NotifyExceptionStructure">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="EXCEPTION_ID" type="xsd:long"/>
+				<xsd:element ref="Exception"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

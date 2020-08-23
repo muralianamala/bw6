@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/acertify/acertifyresponse"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/acertify/acertifyresponse"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="AcertifyResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+				<xs:element name="customerOrderNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="fraudCrossReference" type="xs:string" minOccurs="0"/>
+				<xs:element name="fraudRulesTripped" type="xs:string" minOccurs="0"/>
+				<xs:element name="fraudScore" type="xs:string" minOccurs="0"/>
+				<xs:element name="fraudRecommendationCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="fraudRemarks" type="xs:string" minOccurs="0"/>
+				<xs:element name="brand" type="xs:string" minOccurs="0"/>
+				<xs:element name="responseTime" type="xs:string" minOccurs="0"/>
+				<xs:element name="fraudActionCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="fraudCancelCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="SterlingActionCode" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

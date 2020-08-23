@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msv:DocumentRoot xmlns:msv="http://tns.tibco.com/bw/model/core/moduleSV">
+  <moduleSharedVariables>
+    <moduleSharedVariable name="Lookup" type="{http://www.example.org/Lookup}Lookup" initialValueMode="none" initialValue=""/>
+  </moduleSharedVariables>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.urbanoutfitters.com/co/lookup"/>
+  <import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/Lookup" location="../Schemas/Lookup.xsd"/>
+</msv:DocumentRoot>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/DeliveryDateInCart/DeliveryDateInCart"
+	 targetNamespace="http://www.urbanoutfitters.com/DeliveryDateInCart/DeliveryDateInCart"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="ShippingExtract">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RetailerNname" type="xs:string" minOccurs="0"/>
+				<xs:element name="CarrierName" type="xs:string" minOccurs="0"/>
+				<xs:element name="TrackingNumber" type="xs:string" minOccurs="0"/>
+				<xs:element name="GuaranteedDeliveryDateUtc" type="xs:string" minOccurs="0"/>
+				<xs:element name="OriginZip" type="xs:string" minOccurs="0"/>
+				<xs:element name="OriginCity" type="xs:string" minOccurs="0"/>
+				<xs:element name="OriginState" type="xs:string" minOccurs="0"/>
+				<xs:element name="DestinationZip" type="xs:string" minOccurs="0"/>
+				<xs:element name="DestinationCity" type="xs:string" minOccurs="0"/>
+				<xs:element name="DestinationState" type="xs:string" minOccurs="0"/>
+				<xs:element name="DestinationCountry" type="xs:string" minOccurs="0"/>
+				<xs:element name="UomCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="Weight" type="xs:string" minOccurs="0"/>
+				<xs:element name="EventZip" type="xs:string" minOccurs="0"/>
+				<xs:element name="EventCity" type="xs:string" minOccurs="0"/>
+				<xs:element name="EventState" type="xs:string" minOccurs="0"/>
+				<xs:element name="CarrierEventCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="CarrierEventDescripton" type="xs:string" minOccurs="0"/>
+				<xs:element name="EventDateUtc" type="xs:string" minOccurs="0"/>
+				<xs:element name="NarvarEventCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="NarvarEventDescription" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

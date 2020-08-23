@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbn.com/RentalTransaction"
+	 targetNamespace="http://www.urbn.com/RentalTransaction"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="RentalTransaction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="applicationName" type="xs:string" minOccurs="0"/>
+							<xs:element name="trackingId" type="xs:string" minOccurs="0"/>
+							<xs:element name="source" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="RentalTransactions" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Class" type="xs:string" minOccurs="0"/>
+							<xs:element name="Vendor" type="xs:string" minOccurs="0"/>
+							<xs:element name="Style" type="xs:string" minOccurs="0"/>
+							<xs:element name="Color" type="xs:string" minOccurs="0"/>
+							<xs:element name="Size" type="xs:string" minOccurs="0"/>
+							<xs:element name="Reason" type="xs:string" minOccurs="0"/>
+							<xs:element name="Topen9" type="xs:string" minOccurs="0"/>
+							<xs:element name="EntryDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShortSKUNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="ISBNNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="SalesPerson" type="xs:string" minOccurs="0"/>
+							<xs:element name="Topen1" type="xs:string" minOccurs="0"/>
+							<xs:element name="DestinationStore" type="xs:string" minOccurs="0"/>
+							<xs:element name="Quantity" type="xs:string" minOccurs="0"/>
+							<xs:element name="TransactionRetail" type="xs:string" minOccurs="0"/>
+							<xs:element name="Topen3" type="xs:string" minOccurs="0"/>
+							<xs:element name="Topen4" type="xs:string" minOccurs="0"/>
+							<xs:element name="EntryTime" type="xs:string" minOccurs="0"/>
+							<xs:element name="Status" type="xs:string" minOccurs="0"/>
+							<xs:element name="ComponentOfPrepack" type="xs:string" minOccurs="0"/>
+							<xs:element name="VendorStyleNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="SerialNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="Txx4" type="xs:string" minOccurs="0"/>
+							<xs:element name="OverrideItemCost" type="xs:string" minOccurs="0"/>
+							<xs:element name="OverrideMarkdownAmount" type="xs:string" minOccurs="0"/>
+							<xs:element name="TimeZoneCodd" type="xs:string" minOccurs="0"/>
+							<xs:element name="Txx3a" type="xs:string" minOccurs="0"/>
+							<xs:element name="JobId" type="xs:string" minOccurs="0"/>
+							<xs:element name="IssuingStoreIndex" type="xs:string" minOccurs="0"/>
+							<xs:element name="DestinationStoreIndex" type="xs:string" minOccurs="0"/>
+							<xs:element name="WarehouseJobNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="CartonNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipperId" type="xs:string" minOccurs="0"/>
+							<xs:element name="PreassignAllocationNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="GiftRegistryNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="ReservedForFurureUse" type="xs:string" minOccurs="0"/>
+							<xs:element name="ISOEntryDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="RetailCurrencyCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="CurrencyExchangeRate" type="xs:string" minOccurs="0"/>
+							<xs:element name="DisplayExchangeRate" type="xs:string" minOccurs="0"/>
+							<xs:element name="ControlNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="CustomerId" type="xs:string" minOccurs="0"/>
+							<xs:element name="MerchFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="NonMerchDesc" type="xs:string" minOccurs="0"/>
+							<xs:element name="PreApprovalFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="Topen11" type="xs:string" minOccurs="0"/>
+							<xs:element name="RecallNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="AuditControlNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="LayAwayStoreNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="LayAwayStoreIndex" type="xs:string" minOccurs="0"/>
+							<xs:element name="LayAwayStatus" type="xs:string" minOccurs="0"/>
+							<xs:element name="ProcessStatusCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="Department" type="xs:string" minOccurs="0"/>
+							<xs:element name="IPMSTransactionCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="RecordType" type="xs:string" minOccurs="0"/>
+							<xs:element name="UnitValueCost" type="xs:string" minOccurs="0"/>
+							<xs:element name="UnitFileRetail" type="xs:string" minOccurs="0"/>
+							<xs:element name="FileGroupProcessed" type="xs:string" minOccurs="0"/>
+							<xs:element name="ExecutingProgram" type="xs:string" minOccurs="0"/>
+							<xs:element name="Menu" type="xs:string" minOccurs="0"/>
+							<xs:element name="Selection" type="xs:string" minOccurs="0"/>
+							<xs:element name="SourceReference" type="xs:string" minOccurs="0"/>
+							<xs:element name="ProcessDate" type="xs:string" minOccurs="0"/>
+							<xs:element name="ProcessTime" type="xs:string" minOccurs="0"/>
+							<xs:element name="UserId" type="xs:string" minOccurs="0"/>
+							<xs:element name="WorkStationId" type="xs:string" minOccurs="0"/>
+							<xs:element name="WeekBeginISODate" type="xs:string" minOccurs="0"/>
+							<xs:element name="GTIN" type="xs:string" minOccurs="0"/>
+							<xs:element name="OriginalSalesPerson" type="xs:string" minOccurs="0"/>
+							<xs:element name="DealNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="SourceDescription" type="xs:string" minOccurs="0"/>
+							<xs:element name="IssuingStoreNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="TransactionNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="SequenceNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="RegisterNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="ELECCashRegisterType" type="xs:string" minOccurs="0"/>
+							<xs:element name="TransactionType" type="xs:string" minOccurs="0"/>
+							<xs:element name="Tomx" type="xs:string" minOccurs="0"/>
+							<xs:element name="Toic" type="xs:string" minOccurs="0"/>
+							<xs:element name="NonIPReservedField" type="xs:string" minOccurs="0"/>
+							<xs:element name="Database" type="xs:string" minOccurs="0"/>
+							<xs:element name="LOGTRNPMember" type="xs:string" minOccurs="0"/>
+							<xs:element name="ControlNumber" type="xs:string" minOccurs="0"/>
+							<xs:element name="Filler01" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="PublishFields" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Instance" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

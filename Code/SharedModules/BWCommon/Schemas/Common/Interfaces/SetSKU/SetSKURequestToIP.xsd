@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/item/setskus/SetSKURequestToIP"
+	 targetNamespace="http://www.urbanoutfitters.com/item/setskus/SetSKURequestToIP"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="SetSKURequestToIP">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Order"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Order">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EnterpriseCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ItemID" type="xs:string" minOccurs="0"/>
+							<xs:element name="Extn" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ExtnOwnerOrg" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnModelDescription" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnIsDropShip" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnAlias" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnIsMTOFlag" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnSizeCodeDescription" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnColorName" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnColorDesc" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnProductRestrictCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnCarrierServiceCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnIsDeactivated" type="xs:string" minOccurs="0"/>
+										<xs:element name="ExtnSKUType" type="xs:string" minOccurs="0"/>
+										<xs:element name="URBNOrderLineComponentList">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="URBNOrderLineComponent" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ComponentSKUGradeFlag" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentPrimarySKUFlag" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentSKU" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentSKUType" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentSKUDesc" type="xs:string" minOccurs="0"/>
+																<xs:element name="ComponentSKUTypeName" type="xs:string" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

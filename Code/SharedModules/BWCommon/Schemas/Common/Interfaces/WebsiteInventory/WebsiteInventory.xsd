@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/od/websiteatp"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/od/websiteatp"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="WebsiteATP" type="WebsiteATPType"/>
+	<xsd:complexType name="WebsiteATPType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="AvailabilityChange" minOccurs="0"/>
+			<xsd:element ref="PublishFields" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PublishFields">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="website" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AvailabilityChange">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="skuID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="stockLevel" type="xsd:int" minOccurs="0"/>
+				<xsd:element name="backOrderLevel" type="xsd:int" minOccurs="0"/>
+				<xsd:element name="availability" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="backOrderableFlag" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="shipmentDate" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="currentDate" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="siteID" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="UrbnIPStyleMarketPlcList" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="UrbnIPStyleMarketPlc" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ClassVendorStyle" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Code" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="FieldType" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Gateway" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="IPStyleMarketPlcKey" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="ItemClass" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Style" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Vendor" type="xsd:string" minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/ImmediateNeeds/immediateneeds"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/ImmediateNeeds/immediateneeds"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="ImmediateNeeds" type="ImmediateNeedsType"/>
+	<xsd:complexType name="ImmediateNeedsType">
+		<xsd:sequence>
+			<xsd:element name="System" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LoadTo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Brand" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorSeq" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processedDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processedTime" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="batchCtlNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dateCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="timeCreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="userID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="recordType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="warehouse" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="case" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="company" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="division" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="shipmentNum" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="season" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="seasonYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="style" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="styleSfx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="color" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="colorSfx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="secDimension" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="quality" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeRngeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeRelPosnInTable" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="inventoryType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="casePriority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="prioritySeq" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="activeorInactiveFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="backoutNeedFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="pathSequence" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stepGrporDivert" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="overrideAllowedFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="cartonNum" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="singleCaseRequired" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="permanentNeedFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="singleSKUCase" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="exceedRequirement" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="discrepancyAllowed" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="productStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sKUBatchNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sKUAttribute1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sKUAttribute2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sKUAttribute3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sKUAttribute4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sKUAttribute5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="countryOfOrigin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="caseNeedType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="pickticketControlNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="soldto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="shipto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StoreNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PO" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="suggestedArea" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="suggestedZone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="locationBarcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="inventoryNeedType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="caseRequirementType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="selectLockedCase" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processingType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="unitsRequired" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="casesRequired" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="correspondingUpdates" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="immdNeedComment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="statusCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sourceOfNeed" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="putawayType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="inventoryLockCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="vendorASNNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="eventCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lotInHeldStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="productTemperatureZone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="trailerTemperatureZone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="perpetualPickticketPlanNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="masterPackType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="masterPackSize" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billedWeight" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ePCMatchingFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscellaneous10Byte" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscellaneous20Byte" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="misc1NumericField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="misc2NumericField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="recordExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="customRcdExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="function" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="innerPackQuantity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="frameWorkID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="frameWorkFlags" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ListOfImmediateNeeds" type="ListOfImmediateNeedsType"/>
+	<xsd:complexType name="ListOfImmediateNeedsType">
+		<xsd:annotation>
+			<xsd:documentation>List of ImmediateNeeds</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ImmediateNeeds" type="ImmediateNeedsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element name="PublishedFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="whseSchema" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="unqualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Shipment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ShipmentLines">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ShipmentLine" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Extn">
+											<xs:complexType>
+												<xs:attribute name="ExtnCancelReasonCode" type="xs:string"/>
+												<xs:attribute name="ExtnStoreCancelQty" type="xs:string"/>
+												<xs:attribute name="ExtnPickDeclineDate" type="xs:string"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="CancelReasonCode" type="xs:string"/>
+									<xs:attribute name="ItemID" type="xs:string"/>
+									<xs:attribute name="NAICSCode" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ShipmentNo" type="xs:string"/>
+			<xs:attribute name="StoreNo" type="xs:string"/>
+			<xs:attribute name="Brand" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

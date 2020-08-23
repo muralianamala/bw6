@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Eshopfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DirectItemNo" type="xs:string" minOccurs="0"/>
+				<xs:element name="SKUDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="Style" type="xs:string" minOccurs="0"/>
+				<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+				<xs:element name="CustomsDescription" type="xs:string" minOccurs="0"/>
+				<xs:element name="COO" type="xs:string" minOccurs="0"/>
+				<xs:element name="USHTS" type="xs:string" minOccurs="0"/>
+				<xs:element name="CAHTS" type="xs:string" minOccurs="0"/>
+				<xs:element name="ScheduleB" type="xs:string" minOccurs="0"/>
+				<xs:element name="IPShortSKU" type="xs:string" minOccurs="0"/>
+				<xs:element name="CareCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="CareInstructions" type="xs:string" minOccurs="0"/>
+				<xs:element name="CareDetails" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="JSON" type="JSONType"/>
+	<xs:complexType name="pixType">
+		<xs:all>
+			<xs:element name="transactionType" type="xs:string" minOccurs="0"/>
+			<xs:element name="warehouse" type="xs:string" minOccurs="0"/>
+			<xs:element name="channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="cartonId" type="xs:string" minOccurs="0"/>
+			<xs:element name="skuId" type="xs:string" minOccurs="0"/>
+			<xs:element name="qty" type="xs:int" minOccurs="0"/>
+			<xs:element name="asnId" type="xs:string" minOccurs="0"/>
+			<xs:element name="poId" type="xs:string" minOccurs="0"/>
+			<xs:element name="poLine" type="xs:int" minOccurs="0"/>
+			<xs:element name="vendorId" type="xs:string" minOccurs="0"/>
+			<xs:element name="timestamp" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="userId" type="xs:string" minOccurs="0"/>
+			<xs:element name="transactionId" type="xs:int" minOccurs="0"/>
+			<xs:element name="sequenceId" type="xs:int" minOccurs="0"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="JSONType">
+		<xs:sequence>
+			<xs:element name="pix" type="pixType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/acertify/acertifycustomerupdate"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/acertify/acertifycustomerupdate"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="AcertifyCustomerUpdate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+				<xs:element ref="CustomerUpdate" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerUpdate" type="CustomerUpdateType"/>
+	<xs:complexType name="CustomerUpdateType">
+		<xs:sequence>
+			<xs:element name="Date" type="xs:string" minOccurs="0"/>
+			<xs:element name="OrderNum" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataType" type="xs:string" minOccurs="0"/>
+			<xs:element name="Value" type="xs:string" minOccurs="0"/>
+			<xs:element name="PosNegType" type="xs:string" minOccurs="0"/>
+			<xs:element name="NumberField" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/divsync"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/co/divsync"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="DynamicInventorySync" type="DynamicInventorySyncType"/>
+	<xs:complexType name="DynamicInventorySyncType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element name="Product" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="agentCreteriaId" type="xs:string" minOccurs="0"/>
+						<xs:element name="alertRaisedOn" type="xs:string" minOccurs="0"/>
+						<xs:element name="OrganizationCode" type="xs:string" minOccurs="0"/>
+						<xs:element name="SterlingBrand" type="xs:string" minOccurs="0"/>
+						<xs:element name="poolId" type="xs:string" minOccurs="0"/>
+						<xs:element name="poolType" type="xs:string" minOccurs="0"/>
+						<xs:element name="productId" type="xs:string" minOccurs="0"/>
+						<xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="itemId" type="xs:string" minOccurs="0"/>
+									<xs:element name="futureAvailableDate" type="xs:string" minOccurs="0"/>
+									<xs:element name="futureAvailableQty" type="xs:string" minOccurs="0"/>
+									<xs:element name="onhandAvailableDate" type="xs:string" minOccurs="0"/>
+									<xs:element name="onhandAvailableQty" type="xs:string" minOccurs="0"/>
+									<xs:element name="model" type="xs:string" minOccurs="0"/>
+									<xs:element name="leadTime" type="xs:string" minOccurs="0"/>
+									<xs:element name="itemType" type="xs:string" minOccurs="0"/>
+									<xs:element name="status" type="xs:string" minOccurs="0"/>
+									<xs:element name="extnActiveForSync" type="xs:string" minOccurs="0"/>
+									<xs:element name="extnColorDesc" type="xs:string" minOccurs="0"/>
+									<xs:element name="extnIsDropShip" type="xs:string" minOccurs="0"/>
+									<xs:element name="extnOwnerOrg" type="xs:string" minOccurs="0"/>
+									<xs:element name="extnSizeCodeDescription" type="xs:string" minOccurs="0"/>
+									<xs:element name="extnStrInvAllocElgblty" type="xs:string" minOccurs="0"/>
+									<xs:element name="sizeCode" type="xs:string" minOccurs="0"/>
+									<xs:element name="segment" type="xs:string" minOccurs="0"/>
+									<xs:element name="segmentType" type="xs:string" minOccurs="0"/>
+									<xs:element name="productClass" type="xs:string" minOccurs="0"/>
+									<xs:element name="lowMargin" type="xs:string" minOccurs="0"/>
+									<xs:element name="subPools" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

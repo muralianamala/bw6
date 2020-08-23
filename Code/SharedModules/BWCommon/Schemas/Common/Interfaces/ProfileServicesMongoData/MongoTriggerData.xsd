@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="MongoTriggerData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProfileData" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ProfileData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="xs:string" minOccurs="0"/>
+				<xs:element name="method" type="xs:string" minOccurs="0"/>
+				<xs:element name="type" type="xs:string" minOccurs="0"/>
+				<xs:element name="profileId" type="xs:string" minOccurs="0"/>
+				<xs:element name="id" type="xs:string" minOccurs="0"/>
+				<xs:element name="brand" type="xs:string" minOccurs="0"/>
+				<xs:element name="site" type="xs:string" minOccurs="0"/>
+				<xs:element name="language" type="xs:string" minOccurs="0"/>
+				<xs:element name="currency" type="xs:string" minOccurs="0"/>
+				<xs:element name="dataCenter" type="xs:string" minOccurs="0"/>
+				<xs:element name="retryCount" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

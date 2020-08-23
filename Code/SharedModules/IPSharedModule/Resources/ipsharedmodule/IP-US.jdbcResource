@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_D08oYDsFEeanc9iI57fBqw" name="ipsharedmodule.IP-US" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_D1TNsDsFEeanc9iI57fBqw" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_D1TNsTsFEeanc9iI57fBqw">
+    <substitutionBindings xmi:id="_dq9tYDx0Eeanc9iI57fBqw" template="username" propName="/Database/UserName-US"/>
+    <substitutionBindings xmi:id="_2_0c0Dx0Eeanc9iI57fBqw" template="password" propName="/Database/Password-US"/>
+    <substitutionBindings xmi:id="_GfNjADx1Eeanc9iI57fBqw" template="maxConnections" propName="/Database/MaxConnections"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_D1W4EDsFEeanc9iI57fBqw" jdbcDriver="custom.jdbc.driver" dbName="file360" jarFile="jt400-java8.jar" genericJDBCDriver="com.ibm.as400.access.AS400JDBCDriver">
+      <substitutionBindings xmi:id="_3xYcoDx0Eeanc9iI57fBqw" template="dbURL" propName="/Database/DatabaseURL-US"/>
+      <substitutionBindings xmi:id="_5NcyADx0Eeanc9iI57fBqw" template="loginTimeout" propName="/Database/Timeout"/>
+    </connectionConfig>
+    <connectionProperties xmi:id="_YgzW4CsMEeeq2aXEMM4YqA" key="jarFile" value="jt400-java8.jar"/>
+  </jndi:configuration>
+</jndi:namedResource>

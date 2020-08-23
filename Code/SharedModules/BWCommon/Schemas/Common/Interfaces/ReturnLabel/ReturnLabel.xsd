@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/returnlabel/ReturnLabel"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/returnlabel/ReturnLabel"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xs:element name="ReturnLabel" type="ReturnLabelType"/>
+	<xs:complexType name="ReturnLabelType">
+		<xs:sequence>
+			<xs:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xs:element ref="Newgistic" minOccurs="0"/>
+			<xs:element ref="PublishFields" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="PublishFields" type="PublishFieldsType"/>
+	<xs:element name="Newgistic" type="NewgisticType"/>
+	<xs:complexType name="NewgisticType">
+		<xs:sequence>
+			<xs:element name="PackageID" type="xs:string" minOccurs="0"/>
+			<xs:element name="OrderNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="Weight" type="xs:string" minOccurs="0"/>
+			<xs:element name="NewgisticBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Newgistics_Location" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PublishFieldsType">
+		<xs:sequence>
+			<xs:element name="sterlingBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="newgistcisCity" type="xs:string" minOccurs="0"/>
+			<xs:element name="newgistcisState" type="xs:string" minOccurs="0"/>
+			<xs:element name="newgistcisZip" type="xs:string" minOccurs="0"/>
+			<xs:element name="newgistcisCountry" type="xs:string" minOccurs="0"/>
+			<xs:element name="singleOrder" type="xs:string" minOccurs="0"/>
+			<xs:element name="issueRefundNow" type="xs:string" minOccurs="0"/>
+			<xs:element name="returnOrderNumber" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

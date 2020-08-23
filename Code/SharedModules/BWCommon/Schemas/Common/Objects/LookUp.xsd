@@ -1,0 +1,2282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/co/lookup"
+	 targetNamespace="http://www.urbanoutfitters.com/co/lookup"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="LookUp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DutyVatSiteLookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Region" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AllocationRuleID" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="NewgisticsLocation" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="DutyVat" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="LangTrans" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AuthStore" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="DescepancyStore" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="GiftWrapAssociation" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Class" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="StyleMatrix" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Response" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TransactionMatrix" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ReasonCodeStore" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ReasonCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CustomerOrderStatusXref" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CurrencyCodeLookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="PODCLookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TransactionKey" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Instruction" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="IPStoreChannel" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="InvoiceStatus" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="GiftWrapDC" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Tender" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Brand" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="LockCodeToStoreMatrix" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CarrierLevelService" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="DCLookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TransferOrder" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TenderTypeXref" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BrandtoStoreXref" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ReturnReasonCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TransactionType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="FeeSKU" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SterlingChargeCategory" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Weblinc" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OrderEntryTypeXref" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WMSStatePriority" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="IpSizes" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="PIXDirectStoreTransaction" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OrderReleaseStatus" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WarehouseCompany" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ProductRestriction" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="StorePromoCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WMSLockCodes" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="GiftCardPrinters" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WorldPayCompanyCurrency" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="StoreCurrency" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="StornetCancelReasonCodes" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BrandCurrency" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ISD" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ISDTender" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="StoreNetNode" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WorldPayPayment" minOccurs="0"/>
+				<xs:element ref="WebsiteClassChange" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="FrenchItemDesc" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="GiftCardLocal" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="StoreReturnsResponse" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WebsiteDivision" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="StoreReasonCodeXfer" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OptIn" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SystemTable" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SisterBrand" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="LangCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TenderLanguage" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WebProductPrefix" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="DropShipVendor" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CountryCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ShipTaxSiteId" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="NetEvenMarketplace" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ExternalShipMethod" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MposFulfillment" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MarketplaceAll" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="VATDetailRollup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OptInList" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OptInSource" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="VertexFlagLookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="VATDetailDesc" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SubscriptionDomain" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SiteIdXMapping" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ConsolidatorAddress" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MPOSLanguageCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="PaymentSpoofResponse" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="StoreNetSafetyStockTable" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WorldPayStatusUpdate" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ReturnURL" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ClassTable" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WMSUpgradeStateTable" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MetroScheduleDeliveryTable" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="IP_ATTR_METRO_ITEM_Table" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MetapackCountryCodeTable" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Order_Action" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Line_Charge_Reason_Table" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Payment_Charge_Lookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Promo_Status_Reactivate_Map" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="PoolIDLookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SHIPTAX_SITEID_LOOKUP" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Salesforce_Topic_Lookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Order_Hold_Lookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SHIPTAX_SITEID_LOOKUP_Salesforce" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="UOBCSKU_LOOKUP" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Store_TO_Direct_Tender_Code_Xref" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BrandName_XRef" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Process_Completion_Table" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Sterling_Tax_Name_Lookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Payment_Methods" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Action_Code_XRef" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WMS_Return_Code" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Returns_Copy" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Operational_Emails_Tax_ID" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="DeliveryStatus" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ChatBotNodeStatus" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Shipment_CancelReason_Code" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Celect_Node_Table" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Collate_Field_Lang_Trans" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Return_Label_Check" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Ship_Return_Address" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Tradestone_PO_BC_Trans_Modes" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Upgrade_Downgrade" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Wholesale_Store_Location_Xref" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AddressCode_Brand_Decline" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="DropOrderEmail" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Return_Node" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Operational_Emails_Labels" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ReturnSupply" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TransactionExclusion" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Proship" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Sterling_A15_Brand" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Ticket_Type_XRef" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SessionM_Store_Xref" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ProductWarningLookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Brand_Collection_Point" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ProductRestrictRollUp" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SessionMSiteId" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="NarvarStatusCodeLookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ReturnsRateShop" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SessionM_Delay" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CPShipNode" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OperationalEmails" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BrandServiceLevelSupport" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HTS_Country" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="FurnitureCarrier_Login" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Dispensation_Lookup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Wholesale_Customer_Store_Location" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="CustomerFraudStatus" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AggNodeInventory" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Wholesale_Price_Codes" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MiraklStateRemitter" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ProShip_Carrier_Exclusion" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Returns_Tracking_URL" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Proship_Transfer_Service" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ProShip_Customer_Docs" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BuildingFC" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SessionM_Delay" type="SessionM_DelayType"/>
+	<xs:element name="DropOrderEmail" type="DropOrderEmailType"/>
+	<xs:element name="AddressCode_Brand_Decline" type="AddressCode_Brand_DeclineType"/>
+	<xs:element name="BrandName_XRef" type="BrandName_XRefType"/>
+	<xs:element name="SHIPTAX_SITEID_LOOKUP_Salesforce" type="SHIPTAX_SITEID_LOOKUPType_Salesforce"/>
+	<xs:element name="SHIPTAX_SITEID_LOOKUP" type="SHIPTAX_SITEID_LOOKUPType"/>
+	<xs:element name="Salesforce_Topic_Lookup" type="Salesforce_Topic_LookupType"/>
+	<xs:element name="PoolIDLookup" type="PoolIDLookupType"/>
+	<xs:element name="DutyVatSiteLookup" type="DutyVatSiteLookupType"/>
+	<xs:element name="StoreNetSafetyStockTable" type="StoreNetSafetyStockTableType"/>
+	<xs:element name="WorldPayStatusUpdate" type="WorldPayStatusUpdateType"/>
+	<xs:element name="MPOSLanguageCode" type="MPOSLanguageCodeType"/>
+	<xs:element name="ConsolidatorAddress" type="ConsolidatorAddressType"/>
+	<xs:element name="Region" type="RegionType"/>
+	<xs:element name="AllocationRuleID" type="AllocationRuleIDType"/>
+	<xs:element name="CountryCode" type="CountryCodeType"/>
+	<xs:element name="DropShipVendor" type="DropShipVendorType"/>
+	<xs:element name="WebProductPrefix" type="WebProductPrefixType"/>
+	<xs:element name="LangCode" type="LangCodeType"/>
+	<xs:element name="OptIn" type="OptInType"/>
+	<xs:element name="SystemTable" type="SystemTableType"/>
+	<xs:element name="WebsiteDivision" type="WebsiteDivisionType"/>
+	<xs:element name="DutyVat" type="DutyVatType"/>
+	<xs:element name="GiftCardLocal" type="GiftCardLocalType"/>
+	<xs:element name="StoreReturnsResponse" type="StoreReturnsResponseType"/>
+	<xs:element name="AuthStore" type="AuthStoreType"/>
+	<xs:element name="LangTrans" type="LangTransType"/>
+	<xs:element name="DescepancyStore" type="DescepancyStoreType"/>
+	<xs:element name="GiftWrapAssociation" type="GiftWrapAssociationType"/>
+	<xs:element name="Class" type="ClassType"/>
+	<xs:element name="StyleMatrix" type="StyleMatrixType"/>
+	<xs:element name="Response" type="ResponseType"/>
+	<xs:element name="TransactionMatrix" type="TransactionMatrixType"/>
+	<xs:element name="ReasonCodeStore" type="ReasonCodeStoreType"/>
+	<xs:element name="ReasonCode" type="ReasonCodeType"/>
+	<xs:element name="CustomerOrderStatusXref" type="CustomerOrderStatusXrefType"/>
+	<xs:element name="CurrencyCodeLookup" type="CurrencyCodeLookupType"/>
+	<xs:element name="PODCLookup" type="PODCLookupType"/>
+	<xs:element name="TransactionKey" type="TransactionKeyType"/>
+	<xs:element name="Instruction" type="InstructionType"/>
+	<xs:element name="IPStoreChannel" type="IPStoreChannelType"/>
+	<xs:element name="InvoiceStatus" type="InvoiceStatusType"/>
+	<xs:element name="GiftWrapDC" type="GiftWrapDCType"/>
+	<xs:element name="Tender" type="TenderType"/>
+	<xs:element name="Brand" type="BrandType"/>
+	<xs:element name="LockCodeToStoreMatrix" type="LockCodeToStoreMatrixType"/>
+	<xs:element name="CarrierLevelService" type="CarrierLevelServiceType"/>
+	<xs:element name="DCLookup" type="DCLookupType"/>
+	<xs:element name="TransferOrder" type="TransferOrderType"/>
+	<xs:element name="TenderTypeXref" type="TenderTypeXrefType"/>
+	<xs:element name="BrandtoStoreXref" type="BrandtoStoreXrefType"/>
+	<xs:element name="ReturnReasonCode" type="ReturnReasonCodeType"/>
+	<xs:element name="TransactionType" type="TransactionTypeType"/>
+	<xs:element name="FeeSKU" type="FeeSKUType"/>
+	<xs:element name="SterlingChargeCategory" type="SterlingChargeCategoryType"/>
+	<xs:element name="Weblinc" type="WeblincType"/>
+	<xs:element name="OrderEntryTypeXref" type="OrderEntryTypeXrefType"/>
+	<xs:element name="WMSStatePriority" type="WMSStatePriorityType"/>
+	<xs:element name="IpSizes" type="IpSizesType"/>
+	<xs:element name="PIXDirectStoreTransaction" type="PIXDirectStoreTransactionType"/>
+	<xs:element name="OrderReleaseStatus" type="OrderReleaseStatusType"/>
+	<xs:element name="WarehouseCompany" type="WarehouseCompanyType"/>
+	<xs:element name="ProductRestriction" type="ProductRestrictionType"/>
+	<xs:element name="StorePromoCode" type="StorePromoCodeType"/>
+	<xs:element name="WMSLockCodes" type="WMSLockCodesType"/>
+	<xs:element name="GiftCardPrinters" type="GiftCardPrintersType"/>
+	<xs:element name="WorldPayCompanyCurrency" type="WorldPayCompanyCurrencyType"/>
+	<xs:element name="StoreCurrency" type="StoreCurrencyType"/>
+	<xs:element name="StornetCancelReasonCodes" type="StornetCancelReasonCodesType"/>
+	<xs:element name="BrandCurrency" type="BrandCurrencyType"/>
+	<xs:element name="ISD" type="ISDType"/>
+	<xs:element name="ISDTender" type="ISDTenderType"/>
+	<xs:element name="StoreNetNode" type="StoreNetNodeType"/>
+	<xs:element name="WorldPayPaymentDetails" type="WorldPayPaymentDetails"/>
+	<xs:element name="WebsiteClassChange" type="WebsiteClassChangeType"/>
+	<xs:element name="FrenchItemDesc" type="FrenchItemDescType"/>
+	<xs:element name="StoreReasonCodeXfer" type="StoreReasonCodeXferType"/>
+	<xs:element name="VATDetailDesc" type="VATDetailDescType"/>
+	<xs:element name="ReturnURL" type="ReturnURLType"/>
+	<xs:element name="WMSUpgradeStateTable" type="WMSUpgradeStateTableType"/>
+	<xs:element name="Sterling_Tax_Name_Lookup" type="Sterling_Tax_Name_LookupType"/>
+	<xs:complexType name="SessionM_DelayType">
+		<xs:sequence>
+			<xs:element name="API" type="xs:string" minOccurs="0"/>
+			<xs:element name="Event" type="xs:string" minOccurs="0"/>
+			<xs:element name="DelayInMs" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DropOrderEmailType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="DocType" type="xs:string" minOccurs="0"/>
+			<xs:element name="EntryType" type="xs:string" minOccurs="0"/>
+			<xs:element name="MTOFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="ISPUFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="OrderPurpose" type="xs:string" minOccurs="0"/>
+			<xs:element name="Source" type="xs:string" minOccurs="0"/>
+			<xs:element name="MiraklFlag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AddressCode_Brand_DeclineType">
+		<xs:sequence>
+			<xs:element name="AddressCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BrandName_XRefType">
+		<xs:sequence>
+			<xs:element name="Brand_Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingBrandCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="CO_Instance" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Salesforce_Topic_LookupType">
+		<xs:sequence>
+			<xs:element name="Website_Topic" type="xs:string" minOccurs="0"/>
+			<xs:element name="Salesforce_Topic" type="xs:string" minOccurs="0"/>
+			<xs:element name="Salesforce_Priority" type="xs:string" minOccurs="0"/>
+			<xs:element name="Site_ID" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Locale" type="xs:string" minOccurs="0"/>
+			<xs:element name="RecordTypeName" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SHIPTAX_SITEID_LOOKUPType_Salesforce">
+		<xs:sequence>
+			<xs:element name="Shipto_Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="A15_SiteId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SHIPTAX_SITEID_LOOKUPType">
+		<xs:sequence>
+			<xs:element name="Store_Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="Shipto_Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="A15_SiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingInstance" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PoolIDLookupType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="State_Province" type="xs:string" minOccurs="0"/>
+			<xs:element name="PoolId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WMSUpgradeStateTableType">
+		<xs:sequence>
+			<xs:element name="Whse" type="xs:string" minOccurs="0"/>
+			<xs:element name="State" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReturnURLType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnURL" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnByDisplayDays" type="xs:string" minOccurs="0"/>
+			<xs:element name="VariableDataCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Order_Date_Start" type="xs:string" minOccurs="0"/>
+			<xs:element name="Order_Date_End" type="xs:string" minOccurs="0"/>
+			<xs:element name="Return_by_Date" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnByDisplayDeliveryDays" type="xs:string" minOccurs="0"/>
+			<xs:element name="DirectReturnWindow" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DutyVatSiteLookupType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShipToCountry" type="xs:string" minOccurs="0"/>
+			<xs:element name="RequestType" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="NewSiteId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MPOSLanguageCodeType">
+		<xs:sequence>
+			<xs:element name="StoreNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="LanguageCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConsolidatorAddressType">
+		<xs:sequence>
+			<xs:element name="ConsolidatorAddressNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="CompanyName" type="xs:string" minOccurs="0"/>
+			<xs:element name="Address1" type="xs:string" minOccurs="0"/>
+			<xs:element name="Address2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Address3" type="xs:string" minOccurs="0"/>
+			<xs:element name="City" type="xs:string" minOccurs="0"/>
+			<xs:element name="State" type="xs:string" minOccurs="0"/>
+			<xs:element name="Zip" type="xs:string" minOccurs="0"/>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="Dept" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VATDetailDescType">
+		<xs:sequence>
+			<xs:element name="VertexImpositionType" type="xs:string" minOccurs="0"/>
+			<xs:element name="VertexImposition" type="xs:string" minOccurs="0"/>
+			<xs:element name="VATDetailDesc" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="VertexFlagLookup" type="VertexFlagType"/>
+	<xs:complexType name="VertexFlagType">
+		<xs:sequence>
+			<xs:element name="Response" type="xs:string" minOccurs="0"/>
+			<xs:element name="VertexFlag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegionType">
+		<xs:sequence>
+			<xs:element name="Region" type="xs:string" minOccurs="0"/>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AllocationRuleIDType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="Marketplace" type="xs:string" minOccurs="0"/>
+			<xs:element name="Region" type="xs:string" minOccurs="0"/>
+			<xs:element name="AllocationRuleID" type="xs:string" minOccurs="0"/>
+			<xs:element name="CurrencyCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CountryCodeType">
+		<xs:sequence>
+			<xs:element name="CountryName" type="xs:string" minOccurs="0"/>
+			<xs:element name="EcometryCountryCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ISOTwoLetterCountryCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnsOrgCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="CollateDateFormat" type="xs:string" minOccurs="0"/>
+			<xs:element name="Locale" type="xs:string" minOccurs="0"/>
+			<xs:element name="ISOThreeLetterCountryCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DropShipVendorType">
+		<xs:sequence>
+			<xs:element name="IPVendor" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="DropShipVendor" type="xs:string" minOccurs="0"/>
+			<xs:element name="EOF" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WebProductPrefixType">
+		<xs:sequence>
+			<xs:element name="ipSizeCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="webProductIdPrefix" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="webproductfitsuffix" type="xs:string" minOccurs="0"/>
+			<xs:element name="ipClass" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SystemTableType">
+		<xs:sequence>
+			<xs:element name="DirectedTo" type="xs:string" minOccurs="0"/>
+			<xs:element name="System" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OptInType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="ListName" type="xs:string" minOccurs="0"/>
+			<xs:element name="CheetahListNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="DirectedTo" type="xs:string" minOccurs="0"/>
+			<xs:element name="Resub" type="xs:string" minOccurs="0"/>
+			<xs:element name="Source" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExistAccountSendEmail" type="xs:string" minOccurs="0"/>
+			<xs:element name="aid" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StoreReasonCodeXferType">
+		<xs:sequence>
+			<xs:element name="storeReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="directReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="MiraklReasonCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WebsiteDivisionType">
+		<xs:sequence>
+			<xs:element name="divisionCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="directBrandCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="RelatedBrandCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnCategory" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StoreReturnsResponseType">
+		<xs:sequence>
+			<xs:element name="returnResponseCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="returnsResponseDesc" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GiftCardLocalType">
+		<xs:sequence>
+			<xs:element name="giftCardLocalCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="giftCardLocalDesc" type="xs:string" minOccurs="0"/>
+			<xs:element name="noGiftCardPermittedFlag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FrenchItemDescType">
+		<xs:sequence>
+			<xs:element name="class_Start" type="xs:string" minOccurs="0"/>
+			<xs:element name="class_End" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WebsiteClassChangeType">
+		<xs:sequence>
+			<xs:element name="primaryIPClass" type="xs:string" minOccurs="0"/>
+			<xs:element name="secondaryIPClass" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DutyVatType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteID" type="xs:string" minOccurs="0"/>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="Import" type="xs:string" minOccurs="0"/>
+			<xs:element name="VAT_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="DUTY_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="VAT_Category" type="xs:string" minOccurs="0"/>
+			<xs:element name="VAT_AccuralCategory" type="xs:string" minOccurs="0"/>
+			<xs:element name="DUTY_Category" type="xs:string" minOccurs="0"/>
+			<xs:element name="DUTY_AccuralCategory" type="xs:string" minOccurs="0"/>
+			<xs:element name="Vertex_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="ESHOP_DUTY_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Vertex_Price_Included_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Request_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="VAT_AccrualFreightCategory" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShowDetailFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="OriginCountry" type="xs:string" minOccurs="0"/>
+			<xs:element name="CurrencyCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="VertexPriceIncludedFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="LineChargeFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="DutyPercent" type="xs:string" minOccurs="0"/>
+			<xs:element name="LineChargeFeeSku" type="xs:string" minOccurs="0"/>
+			<xs:element name="Customs_tax_paid_by_urbn_flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="vertexDistributeTax" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductRestrictionType">
+		<xs:sequence>
+			<xs:element name="productRestrictionCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="pickTicketSuffix" type="xs:string" minOccurs="0"/>
+			<xs:element name="shippingServiceLevel" type="xs:string" minOccurs="0"/>
+			<xs:element name="Sterling_Sourcing_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="BundleFlag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WarehouseCompanyType">
+		<xs:sequence>
+			<xs:element name="warehouse" type="xs:string" minOccurs="0"/>
+			<xs:element name="company" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPschema" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMschema" type="xs:string" minOccurs="0"/>
+			<xs:element name="member" type="xs:string" minOccurs="0"/>
+			<xs:element name="source" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LangTransType">
+		<xs:sequence>
+			<xs:element name="languagecode" type="xs:string" minOccurs="0"/>
+			<xs:element name="url" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AuthStoreType">
+		<xs:sequence>
+			<xs:element name="channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="authStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="fedTaxId" type="xs:string" minOccurs="0"/>
+			<xs:element name="ISDConditionCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="L2MotoIndicator" type="xs:string" minOccurs="0"/>
+			<xs:element name="merchDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourcingClass" type="xs:string" minOccurs="0"/>
+			<xs:element name="currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="authStorewp" type="xs:string" minOccurs="0"/>
+			<xs:element name="tender" type="xs:string" minOccurs="0"/>
+			<xs:element name="vertexFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="PXPMerchantID" type="xs:string" minOccurs="0"/>
+			<xs:element name="PXPStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="PXPUserID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DescepancyStoreType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="dc" type="xs:string" minOccurs="0"/>
+			<xs:element name="descepancyStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="syncTrans" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GiftWrapAssociationType">
+		<xs:sequence>
+			<xs:element name="ipCompany" type="xs:string" minOccurs="0"/>
+			<xs:element name="associationType" type="xs:string" minOccurs="0"/>
+			<xs:element name="associateItemID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ClassType">
+		<xs:sequence>
+			<xs:element name="ipClass" type="xs:short" minOccurs="0"/>
+			<xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="restockFeeCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StyleMatrixType">
+		<xs:sequence>
+			<xs:element name="styleMatrix" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingPublish" type="xs:short" minOccurs="0"/>
+			<xs:element name="sterlingBackOrderFlag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseType">
+		<xs:sequence>
+			<xs:element name="acertify" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterling" type="xs:string" minOccurs="0"/>
+			<xs:element name="ecometry" type="xs:string" minOccurs="0"/>
+			<xs:element name="email" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransactionMatrixType">
+		<xs:sequence>
+			<xs:element name="whse" type="xs:string" minOccurs="0"/>
+			<xs:element name="channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="transType" type="xs:string" minOccurs="0"/>
+			<xs:element name="transCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="actionCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="logicGroup" type="xs:string" minOccurs="0"/>
+			<xs:element name="system" type="xs:string" minOccurs="0"/>
+			<xs:element name="qtyMultiplyFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="pIXType" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="useFromStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="useToStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="StatField1" type="xs:string" minOccurs="0"/>
+			<xs:element name="WholesaleLocation" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMSStorageType" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReasonCodeStoreType">
+		<xs:sequence>
+			<xs:element name="Whse" type="xs:string" minOccurs="0"/>
+			<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="store" type="xs:int" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReasonCodeType">
+		<xs:sequence>
+			<xs:element name="whse" type="xs:string" minOccurs="0"/>
+			<xs:element name="channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ipReasonCode" type="xs:int" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="bcReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="bcDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsReasonSubCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CustomerOrderStatusXrefType">
+		<xs:sequence>
+			<xs:element name="wmsOrderStatusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingOrderStatusCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CurrencyCodeLookupType">
+		<xs:sequence>
+			<xs:element name="ipCurrency" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingPriceList" type="xs:string" minOccurs="0"/>
+			<xs:element name="websiteCurrency" type="xs:string" minOccurs="0"/>
+			<xs:element name="isdCurrencyCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingCurrentCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="LookCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="CurrencySymbol" type="xs:string" minOccurs="0"/>
+			<xs:element name="Store_Currency" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PODCLookupType">
+		<xs:sequence>
+			<xs:element name="poStore" type="xs:int" minOccurs="0"/>
+			<xs:element name="dc" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsCompany" type="xs:string" minOccurs="0"/>
+			<xs:element name="TempDC" type="xs:string" minOccurs="0"/>
+			<xs:element name="Itochu_WarehouseId" type="xs:string" minOccurs="0"/>
+			<xs:element name="Lockcode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConversionNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransactionKeyType">
+		<xs:sequence>
+			<xs:element name="transactionKey" type="xs:string" minOccurs="0"/>
+			<xs:element name="transCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="transType" type="xs:string" minOccurs="0"/>
+			<xs:element name="actionCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="invAdjustmentType" type="xs:string" minOccurs="0"/>
+			<xs:element name="reasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="company" type="xs:string" minOccurs="0"/>
+			<xs:element name="invAdjustmentCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InstructionType">
+		<xs:sequence>
+			<xs:element name="sterlingInstructionType" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsInstructionType" type="xs:string" minOccurs="0"/>
+			<xs:element name="storeNetInstructionType" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IPStoreChannelType">
+		<xs:sequence>
+			<xs:element name="storeNumber" type="xs:int" minOccurs="0"/>
+			<xs:element name="storeChar" type="xs:string" minOccurs="0"/>
+			<xs:element name="storeName" type="xs:string" minOccurs="0"/>
+			<xs:element name="channelCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="channelDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="createDate" type="xs:dateTime" form="unqualified"/>
+			<xs:element name="modifiedDate" type="xs:dateTime" form="unqualified"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InvoiceStatusType">
+		<xs:sequence>
+			<xs:element name="urbanCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GiftWrapDCType">
+		<xs:sequence>
+			<xs:element name="dc" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TenderType">
+		<xs:sequence>
+			<xs:element name="sterlingCreditCardType" type="xs:string" minOccurs="0"/>
+			<xs:element name="urbanCreditCardType" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BrandType">
+		<xs:sequence>
+			<xs:element name="IPBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMSMerchType" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMSSalesMan" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMSSalesGroup" type="xs:string" minOccurs="0"/>
+			<xs:element name="Website" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnsUrl" type="xs:string" minOccurs="0"/>
+			<xs:element name="AutoBaggerEligibleFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="AutoBaggerCartonType" type="xs:string" minOccurs="0"/>
+			<xs:element name="lowestRetail" type="xs:string" minOccurs="0"/>
+			<xs:element name="promoCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="dcProcessDays" type="xs:string" minOccurs="0"/>
+			<xs:element name="autoBaggerAmount" type="xs:string" minOccurs="0"/>
+			<xs:element name="storeCartonType" type="xs:string" minOccurs="0"/>
+			<xs:element name="storeShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="allocationRuleId" type="xs:string" minOccurs="0"/>
+			<xs:element name="dependencyShippingRule" type="xs:string" minOccurs="0"/>
+			<xs:element name="distroRuleId" type="xs:string" minOccurs="0"/>
+			<xs:element name="maxRecords" type="xs:string" minOccurs="0"/>
+			<xs:element name="optimizationType" type="xs:string" minOccurs="0"/>
+			<xs:element name="storeDistance" type="xs:string" minOccurs="0"/>
+			<xs:element name="sourcingClassification" type="xs:string" minOccurs="0"/>
+			<xs:element name="organizationCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="mposStoreCreditFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="defaultSiteID" type="xs:string" minOccurs="0"/>
+			<xs:element name="poDeliveryDays" type="xs:string" minOccurs="0"/>
+			<xs:element name="VatFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="siteID" type="xs:string" minOccurs="0"/>
+			<xs:element name="ThreeDSecureMerchantId" type="xs:string" minOccurs="0"/>
+			<xs:element name="BrandName" type="xs:string" minOccurs="0"/>
+			<xs:element name="ipOpenDemandFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="genericReturnsTrackingFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="genericShipmentTrackingFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="readArchivedOrdersFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="MSENDStoreReturnFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="poBrandSuffix" type="xs:string" minOccurs="0"/>
+			<xs:element name="NarvarURL" type="xs:string" minOccurs="0"/>
+			<xs:element name="Sterling_to_IP_Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="WelcomeEmailType" type="xs:string" minOccurs="0"/>
+			<xs:element name="LanguageCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Narvar_OAuthToken" type="xs:string" minOccurs="0"/>
+			<xs:element name="Narvar_Status_Return_Days" type="xs:string" minOccurs="0"/>
+			<xs:element name="Newgistics_Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="GiftMessage" type="xs:string" minOccurs="0"/>
+			<xs:element name="InvFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="newgisticsBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="CallNetEvenOrdersFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="StoreNetSplitFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="WebsiteImagePath" type="xs:string" minOccurs="0"/>
+			<xs:element name="NetEvenImagePath" type="xs:string" minOccurs="0"/>
+			<xs:element name="NetEvenImageSuffix" type="xs:string" minOccurs="0"/>
+			<xs:element name="PackageConsolidatorFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="SuppressFinancialsFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="brandCurrency" type="xs:string" minOccurs="0"/>
+			<xs:element name="VATDetailReturns" type="xs:string" minOccurs="0"/>
+			<xs:element name="VertexDivision" type="xs:string" minOccurs="0"/>
+			<xs:element name="Newgistics_MerchantId" type="xs:string" minOccurs="0"/>
+			<xs:element name="Newgistics_ReturnId_Prefix" type="xs:string" minOccurs="0"/>
+			<xs:element name="seedReturnLabelFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Sterling_Deposit_Sku" type="xs:string" minOccurs="0"/>
+			<xs:element name="ATGBrandName" type="xs:string" minOccurs="0"/>
+			<xs:element name="Tax_Included_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="ISPU_PICKUP_DAYS" type="xs:string" minOccurs="0"/>
+			<xs:element name="STS_PICKUP_DAYS" type="xs:string" minOccurs="0"/>
+			<xs:element name="GwPStoreCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="LoopBack" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShipMethodUpgrade" type="xs:string" minOccurs="0"/>
+			<xs:element name="StoreNetPkgConsolidationCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="MPOSShipFeeOverridePromo" type="xs:string" minOccurs="0"/>
+			<xs:element name="Canada_VERTEX_Date" type="xs:string" minOccurs="0"/>
+			<xs:element name="NarVar_Return_URL" type="xs:string" minOccurs="0"/>
+			<xs:element name="Metro_Delivery_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Metro_Origin_Co" type="xs:string" minOccurs="0"/>
+			<xs:element name="IP_Ster_PO_Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="MinUpgradeDays" type="xs:string" minOccurs="0"/>
+			<xs:element name="MaxUpgradeDays" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingOrg" type="xs:string" minOccurs="0"/>
+			<xs:element name="SF_ACTION_CODE" type="xs:string" minOccurs="0"/>
+			<xs:element name="Wholesale_Division_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="PDP_Path" type="xs:string" minOccurs="0"/>
+			<xs:element name="Suggested_Order_Days" type="xs:string" minOccurs="0"/>
+			<xs:element name="ItochuCustomerId" type="xs:string" minOccurs="0"/>
+			<xs:element name="Max_Pick_Up_Extend_Days" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExchangeEligible" type="xs:string" minOccurs="0"/>
+			<xs:element name="IP_Brand_DailyXref" type="xs:string" minOccurs="0"/>
+			<xs:element name="InventoryApp_Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Onesie_Markdown" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExchangeMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand_Website_URL" type="xs:string" minOccurs="0"/>
+			<xs:element name="Exch_Refund_Now" type="xs:string" minOccurs="0"/>
+			<xs:element name="Wholesale_IP_Instance_Suffix" type="xs:string" minOccurs="0"/>
+			<xs:element name="SinglesQty" type="xs:string" minOccurs="0"/>
+			<xs:element name="Commit_Enabled" type="xs:string" minOccurs="0"/>
+			<xs:element name="Cutover_Time" type="xs:string" minOccurs="0"/>
+			<xs:element name="Rollover_Time" type="xs:string" minOccurs="0"/>
+			<xs:element name="Secondary_Capacity" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LockCodeToStoreMatrixType">
+		<xs:sequence>
+			<xs:element name="channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="whse" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="syncLockCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="lockCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingSupplyType" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="Member" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPSchema" type="xs:string" minOccurs="0"/>
+			<xs:element name="Sterling_Node" type="xs:string" minOccurs="0"/>
+			<xs:element name="Final_Receipt_Lock_Code_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="YANTRIKS_SUPPLY_TYPE" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CarrierLevelServiceType">
+		<xs:sequence>
+			<xs:element name="sterlingSCACService" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMSShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="priority" type="xs:string" minOccurs="0"/>
+			<xs:element name="levelServiceCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="routing" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingCarrierServiceCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="carrierURL" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingSCAC" type="xs:string" minOccurs="0"/>
+			<xs:element name="ecometryShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="weblincShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="shipMethodDesc" type="xs:string" minOccurs="0"/>
+			<xs:element name="csAutoBaggerFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="send_Email_Early_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="InternationalFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnableFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="tracking_No_Field" type="xs:string" minOccurs="0"/>
+			<xs:element name="storeNetShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="storeNetPOBShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="serviceLevelFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="genericTrackingFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="daysTracked" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExternalShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="PackageConsolidatorFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConsolidationAddressNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConsolidationServiceLevel" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExcludeMposFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="UpgradeServiceLevel" type="xs:string" minOccurs="0"/>
+			<xs:element name="StoreNet_PM_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="PromiseDateFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsNoPromiseServiceLevel" type="xs:string" minOccurs="0"/>
+			<xs:element name="celectPromiseDays" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMSUpgradeServiceLevel" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConsolidateContainersFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="DC_Xfer_Service_Level" type="xs:string" minOccurs="0"/>
+			<xs:element name="Metro_Delivery_TYPE" type="xs:string" minOccurs="0"/>
+			<xs:element name="Procurement_Order_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Schedule_Truck_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="StorenetPromiseDateFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMSUpgradeSLFar" type="xs:string" minOccurs="0"/>
+			<xs:element name="SF_Action_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="ChatBotResponse" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProShip_ShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExchangeEligible" type="xs:string" minOccurs="0"/>
+			<xs:element name="Scheduling_Url_Template" type="xs:string" minOccurs="0"/>
+			<xs:element name="Exclude_From_Single_Unit" type="xs:string" minOccurs="0"/>
+			<xs:element name="Yantriks_Ship_Method" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DCLookupType">
+		<xs:sequence>
+			<xs:element name="dc" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsInstance" type="xs:string" minOccurs="0"/>
+			<xs:element name="ipInstance" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsCompany" type="xs:string" minOccurs="0"/>
+			<xs:element name="serviceLevelFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="openDemandFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="completeShipmentResponseFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="pixLockCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="tempDC" type="xs:string" minOccurs="0"/>
+			<xs:element name="packageConsNarvar" type="xs:string" minOccurs="0"/>
+			<xs:element name="seedReturnLabelFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="partnerId" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProcessBlindReceipt" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExpediteCutoffTime" type="xs:string" minOccurs="0"/>
+			<xs:element name="ASNStoreNetInstance" type="xs:string" minOccurs="0"/>
+			<xs:element name="AutoBaggerEligible" type="xs:string" minOccurs="0"/>
+			<xs:element name="DC_Xfer_Ship_Meth_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="ZipCodes" type="xs:string" minOccurs="0"/>
+			<xs:element name="Furniture_DC_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="address1" type="xs:string" minOccurs="0"/>
+			<xs:element name="address2" type="xs:string" minOccurs="0"/>
+			<xs:element name="city" type="xs:string" minOccurs="0"/>
+			<xs:element name="state" type="xs:string" minOccurs="0"/>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+			<xs:element name="zipcode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Weight_UOM" type="xs:string" minOccurs="0"/>
+			<xs:element name="Distance_UOM" type="xs:string" minOccurs="0"/>
+			<xs:element name="WCL_Warehouse" type="xs:string" minOccurs="0"/>
+			<xs:element name="Convert_Warehouse" type="xs:string" minOccurs="0"/>
+			<xs:element name="Drop_Receipt_PIX_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="INVENTORY_TARGET" type="xs:string" minOccurs="0"/>
+			<xs:element name="DCClosedDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="Location_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="Max_Returns_Case_Qty" type="xs:string" minOccurs="0"/>
+			<xs:element name="Same_SKU_Can_Exceed_Max" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransferOrderType">
+		<xs:sequence>
+			<xs:element name="VendorNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="DocType" type="xs:string" minOccurs="0"/>
+			<xs:element name="SupplyType" type="xs:string" minOccurs="0"/>
+			<xs:element name="DropFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="VendorDescription" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TenderTypeXrefType">
+		<xs:sequence>
+			<xs:element name="paymentType" type="xs:string" minOccurs="0"/>
+			<xs:element name="ipTenderTypeCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="creditCardType" type="xs:string" minOccurs="0"/>
+			<xs:element name="acertifyCardType" type="xs:string" minOccurs="0"/>
+			<xs:element name="chargeType" type="xs:string" minOccurs="0"/>
+			<xs:element name="emailPaymentDesc" type="xs:string" minOccurs="0"/>
+			<xs:element name="ISDTender" type="xs:string" minOccurs="0"/>
+			<xs:element name="TenderGroup" type="xs:string" minOccurs="0"/>
+			<xs:element name="storeReturnFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="shipmentTender" type="xs:string" minOccurs="0"/>
+			<xs:element name="draftOrder" type="xs:string" minOccurs="0"/>
+			<xs:element name="Send_chargeback" type="xs:string" minOccurs="0"/>
+			<xs:element name="Split_Settle_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Customer_Currency_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Settle_Early_Fee_SKU" type="xs:string" minOccurs="0"/>
+			<xs:element name="Settle_Early_Tender" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BrandtoStoreXrefType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="dcStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="primaryDtoCstore" type="xs:string" minOccurs="0"/>
+			<xs:element name="settlementStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="Drop_PO_Unalloc_Store" type="xs:string" minOccurs="0"/>
+			<xs:element name="intercoCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="intercoFeeSKU" type="xs:string" minOccurs="0"/>
+			<xs:element name="intercoTender" type="xs:string" minOccurs="0"/>
+			<xs:element name="intercoBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Non_Alloc_Store" type="xs:string" minOccurs="0"/>
+			<xs:element name="GI_RETURN_LINE_TYPE" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReturnReasonCodeType">
+		<xs:sequence>
+			<xs:element name="sterlingReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPattributeReasonFile" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransactionTypeType">
+		<xs:sequence>
+			<xs:element name="sterlingInvoiceType" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingLineType" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPTransTypeNonEmployee" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPTransTypeEmployee" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnFlag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FeeSKUType">
+		<xs:sequence>
+			<xs:element name="IPSKU" type="xs:string" minOccurs="0"/>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="FeeSKU" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Suppress_Ship_Email" type="xs:string" minOccurs="0"/>
+			<xs:element name="Suppress_Return_Email" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SterlingChargeCategoryType">
+		<xs:sequence>
+			<xs:element name="sterlingChargeCategory" type="xs:string" minOccurs="0"/>
+			<xs:element name="lineChargeType" type="xs:string" minOccurs="0"/>
+			<xs:element name="headerChargeType" type="xs:string" minOccurs="0"/>
+			<xs:element name="FeeSKU" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="NegFeeSKU" type="xs:string" minOccurs="0"/>
+			<xs:element name="MiraklFeeSKU" type="xs:string" minOccurs="0"/>
+			<xs:element name="UsePaymentLookup" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WeblincType">
+		<xs:sequence>
+			<xs:element name="skuId" type="xs:string" minOccurs="0"/>
+			<xs:element name="ListPrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="SalePrice" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ImageURL" type="xs:string" minOccurs="0"/>
+			<xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProductDetailURL" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrderEntryTypeXrefType">
+		<xs:sequence>
+			<xs:element name="OrderEntryType" type="xs:string" minOccurs="0"/>
+			<xs:element name="AcertifyOrderSource" type="xs:string" minOccurs="0"/>
+			<xs:element name="SendCoupon" type="xs:string" minOccurs="0"/>
+			<xs:element name="NoActionFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="CallCenterChannel" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IpSizesType">
+		<xs:sequence>
+			<xs:element name="SSIZ" type="xs:string" minOccurs="0"/>
+			<xs:element name="SNAM" type="xs:string" minOccurs="0"/>
+			<xs:element name="S" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WMSStatePriorityType">
+		<xs:sequence>
+			<xs:element name="state" type="xs:string" minOccurs="0"/>
+			<xs:element name="priority" type="xs:string" minOccurs="0"/>
+			<xs:element name="whse" type="xs:string" minOccurs="0"/>
+			<xs:element name="channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="shipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="autoBaggerFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="storeNetShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="replaceCountryCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PIXDirectStoreTransactionType">
+		<xs:sequence>
+			<xs:element name="pxRef7" type="xs:string" minOccurs="0"/>
+			<xs:element name="ipcd" type="xs:string" minOccurs="0"/>
+			<xs:element name="ref4" type="xs:string" minOccurs="0"/>
+			<xs:element name="num1" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrderReleaseStatusType">
+		<xs:sequence>
+			<xs:element name="wmsExtraLineStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmsDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="emailStatusDesc" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="dateDisplayCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="languageCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="shippedFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="returnCretedFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="returnRefundedFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="returnReceiptedFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="statusDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="promiseDeliveryDateDisplayFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="emailUnfulfilledFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="otherLinesFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="chatBot_Message_No" type="xs:string" minOccurs="0"/>
+			<xs:element name="chatBot_Message_Info" type="xs:string" minOccurs="0"/>
+			<xs:element name="chatStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="chatResponseType" type="xs:string" minOccurs="0"/>
+			<xs:element name="changeShipAddressFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="cancelFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReturnByDateType" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StorePromoCodeType">
+		<xs:sequence>
+			<xs:element name="storeNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="promoCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WMSLockCodesType">
+		<xs:sequence>
+			<xs:element name="wmsLockCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="noPickFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="dcProcessDays" type="xs:string" minOccurs="0"/>
+			<xs:element name="lockDateCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GiftCardPrintersType">
+		<xs:sequence>
+			<xs:element name="printerName" type="xs:string" minOccurs="0"/>
+			<xs:element name="printerIP" type="xs:string" minOccurs="0"/>
+			<xs:element name="printerPort" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WorldPayCompanyCurrencyType">
+		<xs:sequence>
+			<xs:element name="merchantCompany" type="xs:string" minOccurs="0"/>
+			<xs:element name="currency" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StoreCurrencyType">
+		<xs:sequence>
+			<xs:element name="Instance" type="xs:string" minOccurs="0"/>
+			<xs:element name="MerchantCompany" type="xs:string" minOccurs="0"/>
+			<xs:element name="CustomerCurrency" type="xs:string" minOccurs="0"/>
+			<xs:element name="OracleID" type="xs:string" minOccurs="0"/>
+			<xs:element name="ServiceFeeAmount" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StornetCancelReasonCodesType">
+		<xs:sequence>
+			<xs:element name="storenetReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="cancelOrderLineFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="ispuTransCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterlingReasonCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="stsCancelAdjust" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BrandCurrencyType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="sterling_Price_List" type="xs:string" minOccurs="0"/>
+			<xs:element name="siteID" type="xs:string" minOccurs="0"/>
+			<xs:element name="ATGSiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="siteIDs" type="xs:string" minOccurs="0"/>
+			<xs:element name="Store" type="xs:string" minOccurs="0"/>
+			<xs:element name="PaymentGateway" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ISDType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="isd_Account_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="gift_Card_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="store" type="xs:string" minOccurs="0"/>
+			<xs:element name="gift_Card_Prefix" type="xs:string" minOccurs="0"/>
+			<xs:element name="gift_Card_Currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="currency_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="request_Currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="validate_Request_Currency" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ISDTenderType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="POE" type="xs:string" minOccurs="0"/>
+			<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="Tender" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StoreNetNodeType">
+		<xs:sequence>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="StoreNetNode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WorldPayPaymentDetails">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element ref="Country" minOccurs="0"/>
+			<xs:element ref="Currency" minOccurs="0"/>
+			<xs:element ref="Method" minOccurs="0"/>
+			<xs:element ref="Device_Type" minOccurs="0"/>
+			<xs:element ref="Merchant_Code" minOccurs="0"/>
+			<xs:element ref="PaymentMethod" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--	<xs:element name="Brand" type="xs:string"/> -->
+	<xs:element name="Country" type="xs:string"/>
+	<xs:element name="Currency" type="xs:string"/>
+	<xs:element name="Language" type="xs:string"/>
+	<xs:element name="PaymentMethod">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PaymentMethodCode" minOccurs="0"/>
+				<xs:element name="PaymentMethodModel" type="xs:string" minOccurs="0"/>
+				<xs:element ref="PaymentMethodName" minOccurs="0"/>
+				<xs:element ref="PaymentMethodIcon" minOccurs="0"/>
+				<xs:element name="MandateFlag" type="xs:string" minOccurs="0"/>
+				<xs:element name="FieldNo_Sequence" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="FieldNo" minOccurs="0"/>
+							<xs:element ref="Sequence" minOccurs="0"/>
+							<xs:element ref="FieldName_Language" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PaymentMethodName" type="xs:string"/>
+	<xs:element name="PaymentMethodIcon" type="xs:base64Binary"/>
+	<xs:element name="FieldNo_Sequence">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="FieldNO" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Sequence" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FieldName" type="xs:string"/>
+	<xs:element name="Sequence" type="xs:string"/>
+	<xs:element name="FieldName_Language">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="FieldName" minOccurs="0"/>
+				<xs:element ref="NumericFlag" minOccurs="0"/>
+				<xs:element ref="MinCharacters" minOccurs="0"/>
+				<xs:element ref="MaxCharacters" minOccurs="0"/>
+				<xs:element ref="Language" minOccurs="0"/>
+				<xs:element name="Collect_From_Customer" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="Field_Description" type="xs:string" minOccurs="0"/>
+				<xs:element name="Optional" type="xs:boolean" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MinCharacters" type="xs:string"/>
+	<xs:element name="MaxCharacters" type="xs:string"/>
+	<xs:element name="PaymentMethodCode" type="xs:string"/>
+	<xs:element name="FieldNO" type="xs:string"/>
+	<xs:element name="NumericFlag" type="xs:boolean"/>
+	<xs:element name="FieldNo" type="xs:string"/>
+	<xs:element name="abc" type="xs:string"/>
+	<xs:element name="WorldPayPayment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="WorldPayPaymentDetails" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Method" type="xs:string"/>
+	<xs:element name="Device_Type" type="xs:string"/>
+	<xs:element name="Merchant_Code" type="xs:string"/>
+	<xs:element name="SisterBrand">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Order_Brand" type="xs:string" minOccurs="0"/>
+				<xs:element name="Sister_Brand" type="xs:string" minOccurs="0"/>
+				<xs:element name="GiftCardSharedFlag" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="LangCodeType">
+		<xs:sequence>
+			<xs:element name="LanguageCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMSDoubleByte" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TenderLanguage">
+		<xs:sequence>
+			<xs:element name="Payment_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="Credit_Card_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="Language_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Payment_Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMS_Payment_Type" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TenderLanguage" type="TenderLanguage"/>
+	<xs:element name="NewgisticsLocation" type="NewgisticsLocationType"/>
+	<xs:complexType name="NewgisticsLocationType">
+		<xs:sequence>
+			<xs:element name="newgisticsLocationCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="newgisticsCity" type="xs:string" minOccurs="0"/>
+			<xs:element name="newgisticsStateCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="newgisticsZipCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="newgisticsCountryCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ShipTaxSiteId" type="ShipTaxSiteIdType"/>
+	<xs:complexType name="ShipTaxSiteIdType">
+		<xs:sequence>
+			<xs:element name="storeCountry" type="xs:string" minOccurs="0"/>
+			<xs:element name="shipToCountry" type="xs:string" minOccurs="0"/>
+			<xs:element name="siteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="A15_SiteID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NetEvenMarketplaceType">
+		<xs:sequence>
+			<xs:element name="NetEvenMarketplaceID" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteID" type="xs:string" minOccurs="0"/>
+			<xs:element name="MarketplaceName" type="xs:string" minOccurs="0"/>
+			<xs:element name="LanguageCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="RefundOnCancelFlag" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReservationID" type="xs:string" minOccurs="0"/>
+			<xs:element name="TmallAccountNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingReservationNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="SourcingNode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="NetEvenMarketplace" type="NetEvenMarketplaceType"/>
+	<xs:complexType name="ExternalShipMethodType">
+		<xs:sequence>
+			<xs:element name="ExternalShipMethod" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingCarrierLevelOfService" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ExternalShipMethod" type="ExternalShipMethodType"/>
+	<xs:element name="MposFulfillment" type="MposFulfillmentType"/>
+	<xs:complexType name="MposFulfillmentType">
+		<xs:sequence>
+			<xs:element name="StoreCountry" type="xs:string" minOccurs="0"/>
+			<xs:element name="FulfillmentType" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="currency" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MarketplaceAll" type="MarketplaceAllType"/>
+	<xs:complexType name="MarketplaceAllType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="MPAllCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="MPCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="VATDetailRollup" type="VATDetailRollupType"/>
+	<xs:complexType name="VATDetailRollupType">
+		<xs:sequence>
+			<xs:element name="SterlingCategory" type="xs:string" minOccurs="0"/>
+			<xs:element name="TaxType" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="OptInList" type="OptInListType"/>
+	<xs:complexType name="OptInListType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="ListName" type="xs:string" minOccurs="0"/>
+			<xs:element name="CheetahListNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="DirectedTo" type="xs:string" minOccurs="0"/>
+			<xs:element name="Resub" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="eid" type="xs:string" minOccurs="0"/>
+			<xs:element name="EmsPreference" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand_ems" type="xs:string" minOccurs="0"/>
+			<xs:element name="Ems_Email_Status_Id" type="xs:string" minOccurs="0"/>
+			<xs:element name="EMS_E" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="OptInSource" type="OptInSourceType"/>
+	<xs:complexType name="OptInSourceType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="aid" type="xs:string" minOccurs="0"/>
+			<xs:element name="Source" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand_ems" type="xs:string" minOccurs="0"/>
+			<xs:element name="Source_ems" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GLConversion">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ConversionCriteria" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Lookup_Priority" type="xs:string" minOccurs="0"/>
+							<xs:element name="Lookup_Component" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBS_LegalEntity_Flag" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBS_Location_Flag" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBS_CostCenter_Flag" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBS_Account_Flag" type="xs:string" minOccurs="0"/>
+							<xs:element name="Lookup_SQL" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="LookupUser" type="LookupUser" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="FNDResponsiblity" type="FNDResponsiblity" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="FNDProfile" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="AccessSetID" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="GLBalancingAccounts" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="EBSLegalEntity" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSLocation" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSCostCenter" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSAccount" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSInterCompany" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSSegment6" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSSegment7" type="xs:string" minOccurs="0"/>
+							<xs:element name="JournalType" type="xs:string" minOccurs="0"/>
+							<xs:element name="AccountDescription" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="GLLocationSubstitution" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="IPInstance" type="xs:string" minOccurs="0"/>
+							<xs:element name="IPLocation" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSLocation" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="GLConversionPeriodDates" type="GLConversionPeriodDates" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="GLLocations" type="GLLocationType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="LookupUser">
+		<xs:sequence>
+			<xs:element name="UserName" type="xs:string"/>
+			<xs:element name="UserID" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FNDResponsiblity">
+		<xs:sequence>
+			<xs:element name="ResponsibilityID" type="xs:string" minOccurs="0"/>
+			<xs:element name="ApplicationID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReceiptRouting">
+		<xs:sequence>
+			<xs:element name="ReceiptRouting" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MatchApprovalLevel">
+		<xs:sequence>
+			<xs:element name="MatchApprovalLevel" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InvoiceMatchOption">
+		<xs:sequence>
+			<xs:element name="InvoiceMatchOption" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TermsDateBasis">
+		<xs:sequence>
+			<xs:element name="TermsDateBasis" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BankChargesBearer">
+		<xs:sequence>
+			<xs:element name="BankChargesBearer" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GLConversionPeriodDates">
+		<xs:sequence>
+			<xs:element name="IPFiscalYear" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPFiscalPeriod" type="xs:string" minOccurs="0"/>
+			<xs:element name="LastDayOfPeriod" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SupplierInterface">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ReceiptRouting" type="ReceiptRouting" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="MatchApprovalLevel" type="MatchApprovalLevel" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="InvoiceMatchOption" type="InvoiceMatchOption" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="TermsDateBasis" type="TermsDateBasis" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="BankChargesBearer" type="BankChargesBearer" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="LookupUser" type="LookupUser" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="FNDResponsiblity" type="FNDResponsiblity" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InvoiceInterface">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="InvoiceGLAAccounts" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="InvoiceGLAccount" type="InvoiceGLAccountType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="InvoiceGLDiscounts" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="InvoiceGLDiscount" type="InvoiceGLDiscountType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CurrencyCodeLookUp" type="CurrencyCodeType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="VertexCodeLookup" type="VertexCodeType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="ProductCategoryLookup" type="ProductCategoryType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="InvoiceDefaults" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="IPInstance" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSSiteCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSOrganizationID" type="xs:string" minOccurs="0"/>
+							<xs:element name="EBSDefaultCurrency" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="GLInvoicePayGroup" type="GLInvoicePayGroupType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="InvoiceGLAccountType">
+		<xs:sequence>
+			<xs:element name="IPDatabase" type="xs:string" minOccurs="0"/>
+			<xs:element name="InvoiceField" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPCompany" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPDepartment" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPSubAccount" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPAccount" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPLocation" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InvoiceGLDiscountType">
+		<xs:sequence>
+			<xs:element name="IPTermsCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="EBSTermsCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="DiscountRate" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPCompany" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPDepartment" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPSubAccount" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPAccount" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPLocation" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CurrencyCodeType">
+		<xs:sequence>
+			<xs:element name="IpCurrency" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingCurrentCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VertexCodeType">
+		<xs:sequence>
+			<xs:element name="IPDatabase" type="xs:string" minOccurs="0"/>
+			<xs:element name="Class" type="xs:string" minOccurs="0"/>
+			<xs:element name="VertexCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductCategoryType">
+		<xs:sequence>
+			<xs:element name="VertexCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="EBSProductCategory" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="RegionIPDatabase" type="RegionIPDatabaseType"/>
+	<xs:complexType name="RegionIPDatabaseType">
+		<xs:sequence>
+			<xs:element name="Region" type="xs:string" minOccurs="0"/>
+			<xs:element name="IPDatabase" type="xs:string" minOccurs="0"/>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MPImageLookupType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Sendcode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Suffix" type="xs:string" minOccurs="0"/>
+			<xs:element name="ImageNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="Strip" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MPImageLookup" type="MPImageLookupType"/>
+	<xs:complexType name="SubscriptionDomainType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Call" type="xs:string" minOccurs="0"/>
+			<xs:element name="Domain" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SubscriptionDomain" type="SubscriptionDomainType"/>
+	<xs:complexType name="SiteIdXMappingType">
+		<xs:sequence>
+			<xs:element name="ATGBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="ATGSiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingCustomerBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingOrderBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingSiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="CRMSiteId" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SiteIdXMapping" type="SiteIdXMappingType"/>
+	<xs:element name="StoreFulfillmentPriorityLookup">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IPStoreFulfillPriority" type="xs:string" minOccurs="0"/>
+				<xs:element name="TibcoStorePriority" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DropShipLookupCode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IPDropShipCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="TibcoDropShipFlag" type="xs:string" minOccurs="0"/>
+				<xs:element name="ProductLine" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SterSKUPrifulfillClassification">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SterlingBackOrderFlag" type="xs:string" minOccurs="0"/>
+				<xs:element name="TibcoDropShipFlag" type="xs:string" minOccurs="0"/>
+				<xs:element name="TibcoStorePriority" type="xs:string" minOccurs="0"/>
+				<xs:element name="SterSKUPrimaryClassiciation" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ProductRestrictRollUpType">
+		<xs:sequence>
+			<xs:element name="ProductRestrictionCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="SecondaryClassification" type="xs:string" minOccurs="0"/>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="WebsiteShipRestrict" type="xs:string" minOccurs="0"/>
+			<xs:element name="Website_Direct_Return_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="isHazerdous" type="xs:string" minOccurs="0"/>
+			<xs:element name="Onesie_Return_To_DC" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ProductRestrictRollUp" type="ProductRestrictRollUpType"/>
+	<xs:element name="PaymentSpoofResponse" type="PaymentSpoofResponseType"/>
+	<xs:complexType name="PaymentSpoofResponseType">
+		<xs:sequence>
+			<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="MessageIdentifier" type="xs:string" minOccurs="0"/>
+			<xs:element name="CardNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="Approve" type="xs:string" minOccurs="0"/>
+			<xs:element name="ResponseCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Production" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsToken" type="xs:string" minOccurs="0"/>
+			<xs:element name="Token" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StoreNetSafetyStockTableType">
+		<xs:sequence>
+			<xs:element name="StoreNet_Node" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Mdse_Division" type="xs:string" minOccurs="0"/>
+			<xs:element name="Safety_Stock" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WorldPayStatusUpdateType">
+		<xs:sequence>
+			<xs:element name="Payment_Method" type="xs:string" minOccurs="0"/>
+			<xs:element name="Payment_Status" type="xs:string" minOccurs="0"/>
+			<xs:element name="Payment_Method_PayOn" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="VSWActionLookup" type="VSWActionType"/>
+	<xs:complexType name="VSWActionType">
+		<xs:sequence>
+			<xs:element name="FileName" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="IssueNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="IssueStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="DestinationStore" type="xs:string" minOccurs="0"/>
+			<xs:element name="DestinationNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ClassTable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IP_Class" type="xs:string" minOccurs="0"/>
+				<xs:element name="Return_Code" type="xs:string" minOccurs="0"/>
+				<xs:element name="DirectReturn" type="xs:string" minOccurs="0"/>
+				<xs:element name="Metro_Item_Type" type="xs:string" minOccurs="0"/>
+				<xs:element name="AutoBaggerAmount" type="xs:string" minOccurs="0"/>
+				<xs:element name="Return_Category" type="xs:string" minOccurs="0"/>
+				<xs:element name="Restock_Fee_Code" type="xs:string" minOccurs="0"/>
+				<xs:element name="NarvarStoreDisplayFlag" type="xs:string" minOccurs="0"/>
+				<xs:element name="Onesie_Return_To_DC" type="xs:string" minOccurs="0"/>
+				<xs:element name="FC_Return" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IP_ATTR_METRO_ITEM_Table" type="IP_ATTR_METRO_ITEM_TYPE"/>
+	<xs:complexType name="IP_ATTR_METRO_ITEM_TYPE">
+		<xs:sequence>
+			<xs:element name="IP_ATTR_VALUE" type="xs:string" minOccurs="0"/>
+			<xs:element name="Metro_Item_Type" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MetroScheduleDeliveryTable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MetroRegularValue" type="xs:string" minOccurs="0"/>
+				<xs:element name="ScheduleDateTypeCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="ScheduleDateTypeDesc" type="xs:string" minOccurs="0"/>
+				<xs:element name="ScheduleMethodCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="ScheduleMethodDesc" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MetapackCountryCodeTable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="senderCode" minOccurs="0"/>
+				<xs:element ref="bookingCode" minOccurs="0"/>
+				<xs:element ref="countryCode" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="senderCode" type="xs:string"/>
+	<xs:element name="bookingCode" type="xs:string"/>
+	<xs:element name="countryCode" type="xs:string"/>
+	<xs:element name="Order_Action">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Level_Name" type="xs:string" minOccurs="0"/>
+				<xs:element name="Action_Code" type="xs:string" minOccurs="0"/>
+				<xs:element name="Action_Description" type="xs:string" minOccurs="0"/>
+				<xs:element name="Open_Case_Flag" type="xs:string" minOccurs="0"/>
+				<xs:element name="Open_Case_Desc" type="xs:string" minOccurs="0"/>
+				<xs:element name="Min_Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Max_Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Additional_Lookup_Code" type="xs:string" minOccurs="0"/>
+				<xs:element name="Addition_Lookup_Value" type="xs:string" minOccurs="0"/>
+				<xs:element name="Return_Only_Flag" type="xs:string" minOccurs="0"/>
+				<xs:element name="Exclude_Flag" type="xs:string" minOccurs="0"/>
+				<xs:element name="Min_Tibco_Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Max_Tibco_Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Tibco_Status" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Line_Charge_Reason_Table">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Line_Charge_Reason" type="xs:string" minOccurs="0"/>
+				<xs:element name="Line_Charge_Reason_Desc" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Payment_Charge_Lookup">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Charge_Type" type="xs:string"/>
+				<xs:element name="Charge_Type_Summary" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Promo_Status_Reactivate_Map">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="ReactivateFlag" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Order_Hold_Lookup">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Order_Hold_Desc" type="xs:string" minOccurs="0"/>
+				<xs:element name="Order_Hold_Text" type="xs:string" minOccurs="0"/>
+				<xs:element name="Order_Payment_Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Order_Payment_Status_Desc" type="xs:string" minOccurs="0"/>
+				<xs:element name="Priority" type="xs:string" minOccurs="0"/>
+				<xs:element name="Order_Hold_Key" type="xs:string" minOccurs="0"/>
+				<xs:element name="Exclude_Flag" type="xs:string" minOccurs="0"/>
+				<xs:element name="ChatBot_Message_No" type="xs:string" minOccurs="0"/>
+				<xs:element name="ChatBotMessage_Infi" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UOBCSKU_LOOKUP" type="UOBCSKU_LOOKUPType"/>
+	<xs:complexType name="UOBCSKU_LOOKUPType">
+		<xs:sequence>
+			<xs:element name="UBCSKU" type="xs:string" minOccurs="0"/>
+			<xs:element name="UBCETEDP" type="xs:string" minOccurs="0"/>
+			<xs:element name="UBCBRAND" type="xs:string" minOccurs="0"/>
+			<xs:element name="UBCGWCD" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Store_TO_Direct_Tender_Code_Xref">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Store_Tender_Code" type="xs:string" minOccurs="0"/>
+				<xs:element name="Direct_Payment_Method" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Process_Completion_Table">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Process_Application" type="xs:string" minOccurs="0"/>
+				<xs:element name="Process_Name" type="xs:string" minOccurs="0"/>
+				<xs:element name="Process_Completion_Trigger_File_Directory" type="xs:string" minOccurs="0"/>
+				<xs:element name="Process_Completion_Trigger_File_Name" type="xs:string" minOccurs="0"/>
+				<xs:element name="Process_Completion_Trigger_File_Contents" type="xs:string" minOccurs="0"/>
+				<xs:element name="Process_Completion_Delay_Seconds" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Sterling_Tax_Name_LookupType">
+		<xs:sequence>
+			<xs:element name="Tax_Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Tax_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Remitter" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Payment_Methods" type="Payment_MethodsType"/>
+	<xs:complexType name="Payment_MethodsType">
+		<xs:sequence>
+			<xs:element name="Payment_Method" type="xs:string" minOccurs="0"/>
+			<xs:element name="Payment_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="Charge_Auth" type="xs:string" minOccurs="0"/>
+			<xs:element name="Reference_1_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Unlimited_Charges_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Gift_Card_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Auth_Expiry_Days" type="xs:string" minOccurs="0"/>
+			<xs:element name="Provider_Routing" type="xs:string" minOccurs="0"/>
+			<xs:element name="Cust_Liab_Fee_SKU" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Action_Code_XRef" type="Action_Code_XRefType"/>
+	<xs:complexType name="Action_Code_XRefType">
+		<xs:sequence>
+			<xs:element name="BC_Header_Action_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="BC_Detail_Action_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="WM_Action_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Action_Name" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="WMS_Return_Code" type="WMS_Return_CodeType"/>
+	<xs:complexType name="WMS_Return_CodeType">
+		<xs:sequence>
+			<xs:element name="Return_Reason_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="WMS_Return_Code" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Returns_Copy" type="Returns_CopyType"/>
+	<xs:complexType name="Returns_CopyType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Language_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Returns_Copy" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Operational_Emails_Tax_IDType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Ship_To_Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="Entity" type="xs:string" minOccurs="0"/>
+			<xs:element name="Tax_ID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Operational_Emails_Tax_ID" type="Operational_Emails_Tax_IDType"/>
+	<xs:element name="DeliveryStatus">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Delivery_Status" type="xs:string" minOccurs="0"/>
+				<xs:element name="Days_Past" type="xs:string" minOccurs="0"/>
+				<xs:element name="Chatbot_Message_No" type="xs:string" minOccurs="0"/>
+				<xs:element name="ChatBot_Message_Info" type="xs:string" minOccurs="0"/>
+				<xs:element name="ChatBot_Late_Message_No" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ChatBotNodeStatus" type="ChatBotNodeStatus"/>
+	<xs:complexType name="ChatBotNodeStatus">
+		<xs:sequence>
+			<xs:element name="Node_Class" type="xs:string" minOccurs="0"/>
+			<xs:element name="Status" type="xs:string" minOccurs="0"/>
+			<xs:element name="MessageNo" type="xs:string" minOccurs="0"/>
+			<xs:element name="MessageInfo" type="xs:string" minOccurs="0"/>
+			<xs:element name="LateMessageNo" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Shipment_CancelReason_Code" type="Shipment_CancelReason_CodeType"/>
+	<xs:complexType name="Shipment_CancelReason_CodeType">
+		<xs:sequence>
+			<xs:element name="Shipment_Cancel_Reason_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="MIA_FLAG" type="xs:string" minOccurs="0"/>
+			<xs:element name="MIA_StraightAdjust_Flag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Celect_Node_Table" type="Celect_Node_TableType"/>
+	<xs:complexType name="Celect_Node_TableType">
+		<xs:sequence>
+			<xs:element name="Sterling_Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Celect_Store_Prio" type="xs:string" minOccurs="0"/>
+			<xs:element name="Celect_Replen" type="xs:string" minOccurs="0"/>
+			<xs:element name="Celect_Reg_Price" type="xs:string" minOccurs="0"/>
+			<xs:element name="Celect_Expedite_Onesie" type="xs:string" minOccurs="0"/>
+			<xs:element name="Celect_Overnight" type="xs:string" minOccurs="0"/>
+			<xs:element name="Celect_All_Expedite" type="xs:string" minOccurs="0"/>
+			<xs:element name="Celect_Onesie" type="xs:string" minOccurs="0"/>
+			<xs:element name="Celect_Region" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Collate_Field_Lang_Trans" type="Collate_Field_Lang_TransType"/>
+	<xs:complexType name="Collate_Field_Lang_TransType">
+		<xs:sequence>
+			<xs:element name="FIELD_NAME" type="xs:string" minOccurs="0"/>
+			<xs:element name="DEFAULTT" type="xs:string" minOccurs="0"/>
+			<xs:element name="EN_US" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Return_Label_Check" type="Return_Label_CheckType"/>
+	<xs:complexType name="Return_Label_CheckType">
+		<xs:sequence>
+			<xs:element name="BRAND" type="xs:string" minOccurs="0"/>
+			<xs:element name="CHANNEL" type="xs:string" minOccurs="0"/>
+			<xs:element name="RETURN_LABEL_REQUIRED" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Ship_Return_Address" type="Ship_Return_AddressType"/>
+	<xs:complexType name="Ship_Return_AddressType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="ship_to_country" type="xs:string" minOccurs="0"/>
+			<xs:element name="ship_to_state" type="xs:string"/>
+			<xs:element name="address_line1" type="xs:string" minOccurs="0"/>
+			<xs:element name="address_line2" type="xs:string" minOccurs="0"/>
+			<xs:element name="city" type="xs:string" minOccurs="0"/>
+			<xs:element name="state" type="xs:string" minOccurs="0"/>
+			<xs:element name="zipcode" type="xs:string" minOccurs="0"/>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+			<xs:element name="phoneno" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Tradestone_PO_BC_Trans_Modes" type="Tradestone_PO_BC_Trans_ModesType"/>
+	<xs:complexType name="Tradestone_PO_BC_Trans_ModesType">
+		<xs:sequence>
+			<xs:element name="TS_Trans_Mode" type="xs:string" minOccurs="0"/>
+			<xs:element name="BC_Trans_Mode" type="xs:string" minOccurs="0"/>
+			<xs:element name="IP_Cost_Trans_Mode" type="xs:string" minOccurs="0"/>
+			<xs:element name="IP_Trans_Mode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Upgrade_Downgrade" type="Upgrade_DowngradeType"/>
+	<xs:complexType name="Upgrade_DowngradeType">
+		<xs:sequence>
+			<xs:element name="BRAND" type="xs:string" minOccurs="0"/>
+			<xs:element name="NODE_TYPE" type="xs:string" minOccurs="0"/>
+			<xs:element name="SERVICE_LEVEL" type="xs:string" minOccurs="0"/>
+			<xs:element name="UPGRADE_DOWNGRADE_CODE" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Wholesale_Store_Location_Xref" type="Wholesale_Store_Location_XrefType"/>
+	<xs:complexType name="Wholesale_Store_Location_XrefType">
+		<xs:sequence>
+			<xs:element name="Record_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="Store_Number" type="xs:string" minOccurs="0"/>
+			<xs:element name="Wholesale_Division_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Location_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Adjustment_Code" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Return_Node" type="Return_NodeType"/>
+	<xs:complexType name="Return_NodeType">
+		<xs:sequence>
+			<xs:element name="BRAND" type="xs:string" minOccurs="0"/>
+			<xs:element name="SHIPTO_STATE" type="xs:string" minOccurs="0"/>
+			<xs:element name="SHIPTO_COUNTRY" type="xs:string" minOccurs="0"/>
+			<xs:element name="RETURN_NODE" type="xs:string" minOccurs="0"/>
+			<xs:element name="ZONE" type="xs:string" minOccurs="0"/>
+			<xs:element name="BILLING_NUMBER" type="xs:string" minOccurs="0"/>
+			<xs:element name="RECEIVER_ID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Operational_Emails_Labels" type="Operational_Emails_LabelsType"/>
+	<xs:complexType name="Operational_Emails_LabelsType">
+		<xs:sequence>
+			<xs:element ref="Record" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Record">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string" minOccurs="0"/>
+				<xs:element name="Value" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReturnSupply" type="ReturnSupplyType"/>
+	<xs:complexType name="ReturnSupplyType">
+		<xs:sequence>
+			<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="SupplyType" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TransactionExclusion" type="TransactionExclusionType"/>
+	<xs:complexType name="TransactionExclusionType">
+		<xs:sequence>
+			<xs:element name="Whse" type="xs:string" minOccurs="0"/>
+			<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="IP_Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="TransType" type="xs:string" minOccurs="0"/>
+			<xs:element name="TransCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReasonCode_Exclude" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReasonCode_Keep" type="xs:string" minOccurs="0"/>
+			<xs:element name="Position" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExcludeFromIP" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExcludeFromBC" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExcludeFromSterling" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Proship" type="ProshipType"/>
+	<xs:complexType name="ProshipType">
+		<xs:sequence>
+			<xs:element name="Carrier" type="xs:string" minOccurs="0"/>
+			<xs:element name="Server" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Sterling_A15_Brand" type="Sterling_A15_Brand_Type"/>
+	<xs:complexType name="Sterling_A15_Brand_Type">
+		<xs:sequence>
+			<xs:element name="Sterling_Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Sterling_SiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="A15_Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="A15_SiteId" type="xs:string" minOccurs="0"/>
+			<xs:element name="A15_Site_Group" type="xs:string" minOccurs="0"/>
+			<xs:element name="SessionM_Store_ID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StoreReasonCodeXref">
+		<xs:sequence>
+			<xs:element ref="StoreReasonCodeXrefType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="StoreReasonCodeXrefType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="StoreReasonCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="DirectReasonCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="Description" type="xs:string" minOccurs="0"/>
+				<xs:element name="MiraklReasonCode" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="GLInvoicePayGroupType">
+		<xs:sequence>
+			<xs:element name="IPLocation" type="xs:string" minOccurs="0"/>
+			<xs:element name="EBSPayGroupCode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GLLocationType">
+		<xs:sequence>
+			<xs:element name="IPLocation" type="xs:string" minOccurs="0"/>
+			<xs:element name="EBSPayGroupCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="EBSGLBypassFlag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Ticket_Type_XRef_Type">
+		<xs:sequence>
+			<xs:element name="IP_Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="IP_Ticket_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="China_Ticket_Type" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Ticket_Type_XRef" type="Ticket_Type_XRef_Type"/>
+	<xs:element name="SessionM_Store_Xref" type="SessionM_Store_Xref_Type"/>
+	<xs:complexType name="SessionM_Store_Xref_Type">
+		<xs:sequence>
+			<xs:element name="URBN_STORE_ID" type="xs:string" minOccurs="0"/>
+			<xs:element name="SessionM_Store_ID" type="xs:string" minOccurs="0"/>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ProductWarningLookup" type="ProductWarningLookupType"/>
+	<xs:complexType name="ProductWarningLookupType">
+		<xs:sequence>
+			<xs:element name="ProductWarningCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProductWarningDesc" type="xs:string" minOccurs="0"/>
+			<xs:element name="region" type="xs:string" minOccurs="0"/>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Brand_Collection_Point_Type">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Collection_Point_Vendor_Id" type="xs:string" minOccurs="0"/>
+			<xs:element name="Collection_Point_Vendor_Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Store_Pickup_Flag" type="xs:string" minOccurs="0"/>
+			<xs:element name="Primary_Sequence" type="xs:string" minOccurs="0"/>
+			<xs:element name="Collection_Point_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="Vendor_Logo_URL" type="xs:string" minOccurs="0"/>
+			<xs:element name="Label_Location_Type" type="xs:string" minOccurs="0"/>
+			<xs:element name="Pickup_Security_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Pickup_Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="InclusiveStoreName" type="xs:string" minOccurs="0"/>
+			<xs:element name="AlphaNumericFlag" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Brand_Collection_Point" type="Brand_Collection_Point_Type"/>
+	<xs:element name="SessionMSiteId" type="SessionMSiteIdType"/>
+	<xs:complexType name="SessionMSiteIdType">
+		<xs:sequence>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="A15_SiteID" type="xs:string" minOccurs="0"/>
+			<xs:element name="A15_SiteGroup" type="xs:string" minOccurs="0"/>
+			<xs:element name="Language" type="xs:string" minOccurs="0"/>
+			<xs:element name="Currency" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="NarvarStatusCodeLookup" type="NarvarStatusCodeLookupType"/>
+	<xs:complexType name="NarvarStatusCodeLookupType">
+		<xs:sequence>
+			<xs:element name="NarvarStatusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="TrackingStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterlingStatusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsUsed" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsTracked" type="xs:string" minOccurs="0"/>
+			<xs:element name="StatusDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="DropDuplicates" type="xs:string" minOccurs="0"/>
+			<xs:element name="CPSterStatusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="SterReturnStatusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsReturnStatusUsed" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ReturnsRateShop" type="ReturnsRateShopType"/>
+	<xs:complexType name="ReturnsRateShopType">
+		<xs:sequence>
+			<xs:element name="FromWeight" type="xs:string" minOccurs="0"/>
+			<xs:element name="ToWeight" type="xs:string" minOccurs="0"/>
+			<xs:element name="Zone" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShipMethod" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CollectionPointShipNodeType">
+		<xs:sequence>
+			<xs:element name="CPBrand" type="xs:string" minOccurs="0"/>
+			<xs:element name="CPCountry" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShipNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShipNodeType" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CPShipNode" type="CollectionPointShipNodeType"/>
+	<xs:complexType name="OperationalEmailsType">
+		<xs:sequence>
+			<xs:element name="EmailType" type="xs:string" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Target" type="xs:string" minOccurs="0"/>
+			<xs:element name="CP_Event" type="xs:string" minOccurs="0"/>
+			<xs:element name="SITEID" type="xs:string" minOccurs="0"/>
+			<xs:element name="LANGUAGE_CODE" type="xs:string" minOccurs="0"/>
+			<xs:element name="EMSCampaignId" type="xs:string" minOccurs="0"/>
+			<xs:element name="SMS_EVENT_GUID" type="xs:string" minOccurs="0"/>
+			<xs:element name="SMS_EVENT_NAME" type="xs:string" minOccurs="0"/>
+			<xs:element name="SEND_SMS" type="xs:string" minOccurs="0"/>
+			<xs:element name="SEND_PUSH_NOTIFICATION" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="OperationalEmails" type="OperationalEmailsType"/>
+	<xs:complexType name="BrandServiceLevelSupportType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="ServiceLevel" type="xs:string" minOccurs="0"/>
+			<xs:element name="NodeType" type="xs:string" minOccurs="0"/>
+			<xs:element name="NodeClass" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BrandServiceLevelSupport" type="BrandServiceLevelSupportType"/>
+	<xs:element name="HTS_Country" type="HTSCountryType"/>
+	<xs:complexType name="HTSCountryType">
+		<xs:sequence>
+			<xs:element name="ShipToCountry" type="xs:string" minOccurs="0"/>
+			<xs:element name="HTSCountry" type="xs:string" minOccurs="0"/>
+			<xs:element name="HTSField" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FurnitureCarrier_Login" type="FurnitureCarrierLoginType"/>
+	<xs:complexType name="FurnitureCarrierLoginType">
+		<xs:sequence>
+			<xs:element name="Environment" type="xs:string" minOccurs="0"/>
+			<xs:element name="Warehouse" type="xs:string" minOccurs="0"/>
+			<xs:element name="Company" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Dispensation_Lookup" type="Dispensation_LookupType"/>
+	<xs:complexType name="Dispensation_LookupType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="DISP_Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Message" type="xs:string" minOccurs="0"/>
+			<xs:element name="SKU_Label_Type" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Wholesale_Customer_Store_Location" type="Wholesale_Customer_Store_LocationType"/>
+	<xs:complexType name="Wholesale_Customer_Store_LocationType">
+		<xs:sequence>
+			<xs:element name="Customer" type="xs:string" minOccurs="0"/>
+			<xs:element name="Store_Number" type="xs:string" minOccurs="0"/>
+			<xs:element name="Location_Code" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CustomerFraudStatus" type="CustomerFraudStatusType"/>
+	<xs:complexType name="CustomerFraudStatusType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="CustomerStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="ExchangeEligible" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="AggNodeInventory" type="AggNodeInventoryType"/>
+	<xs:complexType name="AggNodeInventoryType">
+		<xs:sequence>
+			<xs:element name="Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="DefaultZip" type="xs:string" minOccurs="0"/>
+			<xs:element name="AggNode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Priority" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Wholesale_Price_Codes" type="Wholesale_Price_CodeType"/>
+	<xs:complexType name="Wholesale_Price_CodeType">
+		<xs:sequence>
+			<xs:element name="IP_Price_Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="BC_Currency" type="xs:string" minOccurs="0"/>
+			<xs:element name="BC_Price_Code" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MiraklStateRemitterType">
+		<xs:sequence>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+			<xs:element name="State" type="xs:string" minOccurs="0"/>
+			<xs:element name="Remitter" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MiraklStateRemitter" type="MiraklStateRemitterType"/>
+	<xs:element name="ProShip_Carrier_Exclusion" type="ProShip_Carrier_ExclusionType"/>
+	<xs:complexType name="ProShip_Carrier_ExclusionType">
+		<xs:sequence>
+			<xs:element name="Store" type="xs:string" minOccurs="0"/>
+			<xs:element name="Carrier_Exclusion" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Returns_Tracking_URL" type="Returns_Tracking_URLType"/>
+	<xs:complexType name="Returns_Tracking_URLType">
+		<xs:sequence>
+			<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Carrier" type="xs:string" minOccurs="0"/>
+			<xs:element name="Tracking_Prefix" type="xs:string" minOccurs="0"/>
+			<xs:element name="URL" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Proship_Transfer_Service" type="Proship_Transfer_ServiceType"/>
+	<xs:complexType name="Proship_Transfer_ServiceType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+			<xs:element name="TransferTypeCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Store" type="xs:string" minOccurs="0"/>
+			<xs:element name="Service" type="xs:string" minOccurs="0"/>
+			<xs:element name="FallBackService" type="xs:string" minOccurs="0"/>
+			<xs:element name="LabelSource" type="xs:string" minOccurs="0"/>
+			<xs:element name="LabelSize" type="xs:string" minOccurs="0"/>
+			<xs:element name="LabelFormat" type="xs:string" minOccurs="0"/>
+			<xs:element name="HighVolume" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ProShip_Customer_Docs" type="ProShip_Customer_DocsType"/>
+	<xs:complexType name="ProShip_Customer_DocsType">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" minOccurs="0"/>
+			<xs:element name="Ship_From_Country" type="xs:string" minOccurs="0"/>
+			<xs:element name="CCN_Label_Template" type="xs:string" minOccurs="0"/>
+			<xs:element name="CCN_Source" type="xs:string" minOccurs="0"/>
+			<xs:element name="CCN_Label_Size" type="xs:string" minOccurs="0"/>
+			<xs:element name="CCN_Label_Format" type="xs:string" minOccurs="0"/>
+			<xs:element name="CCN_Returns_Copy" type="xs:string" minOccurs="0"/>
+			<xs:element name="CCN_Footer" type="xs:string" minOccurs="0"/>
+			<xs:element name="Format" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BuildingFC" type="BuildingFCType"/>
+	<xs:complexType name="BuildingFCType">
+		<xs:sequence>
+			<xs:element name="Whse" type="xs:string" minOccurs="0"/>
+			<xs:element name="Building" type="xs:string" minOccurs="0"/>
+                                            <xs:element name="Max_Returns_Case_Qty" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="Same_SKU_Can_Exceed_Max" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

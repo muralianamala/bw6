@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/order/order"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 xmlns:orderrequest="http://www.urbanoutfitters.com/co/order/orderrequest"
+	 xmlns:orderresponse="http://www.urbanoutfitters.com/co/order/orderresponse"
+	 targetNamespace="http://www.urbanoutfitters.com/order/order"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/order/orderrequest" schemaLocation="../../Objects/Order/OrderRequest.xsd"/>
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/order/orderresponse" schemaLocation="../../Objects/Order/OrderResponse.xsd"/>
+	<xsd:element name="Order" type="OrderType"/>
+	<xsd:complexType name="OrderType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element ref="OrderRequest" minOccurs="0"/>
+			<xsd:element ref="OrderResponse" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="OrderRequest" type="orderrequest:OrderRequestType"/>
+	<xsd:element name="OrderResponse" type="orderresponse:OrderResponseType"/>
+</xsd:schema>

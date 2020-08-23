@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbn.com//BCBulkOrder"
+	 targetNamespace="http://www.urbn.com//BCBulkOrder"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="BCBulkOrder" type="BCBulkOrderType"/>
+	<xs:complexType name="BCBulkOrderType">
+		<xs:sequence>
+			<xs:element name="BulkOrder" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PXPROC" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPRDT" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPRTM" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXDCR" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXTCR" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXTXTP" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXTXCD" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXTRAN" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSEQN" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXCASN" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXCO" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXDIV" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSEA" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSYR" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSTYL" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXCSFX" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSDIM" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXQUAL" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSZCD" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSZPO" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXINVT" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPRST" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXBCHN" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSA1" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSA2" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSA3" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSA4" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSA5" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXBRCD" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXAREA" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXZONE" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXAISL" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXBAY" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXLEVL" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPOSN" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXLFID" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXINVA" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXINAT" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXUM" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCFR" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXWHSE" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRWHS" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRSCD" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSHDS" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRVAR" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXWGHT" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCMP" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXCSSH" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXUNSH" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXCSRC" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXUNRC" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCD1" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXREF1" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCD2" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXREF2" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCD3" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXREF3" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCD4" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXREF4" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCD5" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXREF5" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCD6" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXREF6" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCD7" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXREF7" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCD8" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXREF8" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPXR1" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPXR2" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPXR3" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXACCD" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXCSRF" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSHMT" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPON" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPOLN" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXVASN" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXRCEX" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXCREX" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXPGM" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXJBNM" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXJOBN" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXUSER" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXUSID" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXERR" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSZDS" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXCNOR" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXENTN" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXXSEQ" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSTF1" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSTF2" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXSTF3" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXINVI" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXMIS1" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXMIS2" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXMIS3" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXNUM1" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXNUM2" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXNUM3" type="xs:string" minOccurs="0"/>
+						<xs:element name="PXESIG" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PublishFields" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="schema" type="xs:string" minOccurs="0"/>
+						<xs:element name="member" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

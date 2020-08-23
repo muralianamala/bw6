@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="UrbnAltPay">
+		<xs:complexType>
+			<xs:attribute name="AltPaymentNo" type="xs:string"/>
+			<xs:attribute name="PaymentType" type="xs:string"/>
+			<xs:attribute name="Amount" type="xs:string"/>
+			<xs:attribute name="Currency" type="xs:string"/>
+			<xs:attribute name="DecimalPlaces" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

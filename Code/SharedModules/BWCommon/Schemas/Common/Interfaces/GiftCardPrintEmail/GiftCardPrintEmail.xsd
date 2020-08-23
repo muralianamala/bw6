@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/giftcardprintemail/giftcardprintemail"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/giftcardprintemail/giftcardprintemail"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="GiftCardPrint" type="GiftCardPrintType"/>
+	<xsd:complexType name="GiftCardPrintType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element name="Shipment" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ToAddress" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="addressline1" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="addressline2" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="addressline3" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="city" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="company" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="country" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="dayPhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="emailID" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="firstName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="middleName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="lastName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="isCommercialAddress" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mobilePhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="otherPhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="personInfoKey" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="state" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="suffix" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="title" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="zipcode" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ShipmentLines" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="totalNoofRecords" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ShipmentLine" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="isHazmat" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="itemDesc" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="itemId" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="orderLineKey" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="orderNo" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="orderHeaderKey" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="orderReleaseKey" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="primeLineNo" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="productClass" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="quantity" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="releaseNo" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="shipmentLineNo" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="unitOfMeasure" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Order" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="createts" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="documentType" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="exchangeType" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="isLineShipComplete" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="isShipComplete" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="orderDate" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="orderHeaderKey" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="orderNo" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="originalOrderNo" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="priorityNo" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="priorityCode" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="returnOrderHeaderKeyforExchange" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="orderPurpose" type="xsd:string" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="OrderLine" minOccurs="0" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="giftFlag" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="orderLineKey" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="orderedQty" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="carrierServiceCode" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="scac" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="scacAndService" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="Item" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="itemDesc" type="xsd:string" minOccurs="0"/>
+																		<xsd:element name="itemID" type="xsd:string" minOccurs="0"/>
+																		<xsd:element name="itemShortDesc" type="xsd:string" minOccurs="0"/>
+																		<xsd:element name="unitCost" type="xsd:string" minOccurs="0"/>
+																		<xsd:element name="extnColorDesc" type="xsd:string" minOccurs="0"/>
+																		<xsd:element name="primaryInformation" minOccurs="0" maxOccurs="unbounded">
+																			<xsd:complexType>
+																				<xsd:sequence>
+																					<xsd:element name="imageLocation" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="imageID" type="xsd:string" minOccurs="0"/>
+																				</xsd:sequence>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+															<xsd:element name="messageTo" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="messageFrom" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="messageNote" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="lineCharges" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="lineCharge" minOccurs="0" maxOccurs="unbounded">
+																			<xsd:complexType>
+																				<xsd:sequence>
+																					<xsd:element name="chargeAmount" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="chargeCatagory" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="chargeName" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="chargePerUnit" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="isDiscount" type="xsd:string" minOccurs="0"/>
+																				</xsd:sequence>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+															<xsd:element name="lineTaxes" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="lineTax" minOccurs="0" maxOccurs="unbounded">
+																			<xsd:complexType>
+																				<xsd:sequence>
+																					<xsd:element name="chargeCatagory" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="chargeName" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="tax" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="taxPercentage" type="xsd:string" minOccurs="0"/>
+																				</xsd:sequence>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+															<xsd:element name="linePriceInfo" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="unitPrice" type="xsd:string" minOccurs="0"/>
+																		<xsd:element name="listPrice" type="xsd:string" minOccurs="0"/>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="BillToAddress" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="addressline1" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="addressline2" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="addressline3" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="city" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="company" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="country" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="dayPhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="emailID" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="firstName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="middleName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="lastName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="isCommercialAddress" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mobilePhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="otherPhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="personInfoKey" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="state" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="suffix" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="title" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="zipcode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="fullName" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="FromAddress" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="addressline1" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="addressline2" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="addressline3" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="city" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="company" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="country" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="dayPhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="emailID" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="firstName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="middleName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="lastName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="isCommercialAddress" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mobilePhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="otherPhone" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="personInfoKey" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="state" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="suffix" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="title" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="zipcode" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="carrierServiceCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="documentType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="enterpriseCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="orderHeaderKey" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="orderNo" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="giftCardNo" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="securityCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="printername" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="releaseno" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="requestedShipmentDate" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="scac" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="scacAndService" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="shipNode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="shipmentNo" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="shipmentType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="prefixSymbol" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="SITEID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="languageCode" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

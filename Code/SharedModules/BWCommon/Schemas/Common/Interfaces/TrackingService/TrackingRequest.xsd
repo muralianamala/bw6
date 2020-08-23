@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.urbanoutfitters.com/trackingservice/trackinglabel"
+	 targetNamespace="http://www.urbanoutfitters.com/trackingservice/trackinglabel"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="TrackingRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ReturnLabelRequest" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+							<xs:element name="LabelCount" type="xs:string" minOccurs="0"/>
+							<xs:element name="DeliveryMethod" type="xs:string" minOccurs="0"/>
+							<xs:element name="OrderNo" type="xs:string" minOccurs="0"/>
+							<xs:element name="ClientServiceFlag" type="xs:string" minOccurs="0"/>
+							<xs:element name="ShipFrom" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Address1" type="xs:string" minOccurs="0"/>
+										<xs:element name="Address2" type="xs:string" minOccurs="0"/>
+										<xs:element name="City" type="xs:string" minOccurs="0"/>
+										<xs:element name="State" type="xs:string" minOccurs="0"/>
+										<xs:element name="Zip" type="xs:string" minOccurs="0"/>
+										<xs:element name="Country" type="xs:string" minOccurs="0"/>
+										<xs:element name="Personal" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+													<xs:element name="LastName" type="xs:string" minOccurs="0"/>
+													<xs:element name="PrimaryEmailAddress" type="xs:string" minOccurs="0"/>
+													<xs:element name="EmailOptInFlag" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="NarVarTrackingRequest" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="brandCode" type="xs:string"/>
+							<xs:element name="requestSource" type="xs:string" minOccurs="0"/>
+							<xs:element name="tracking" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="carrierName" type="xs:string" minOccurs="0"/>
+										<xs:element name="trackingNumber" type="xs:string"/>
+										<xs:element name="shippingDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="serviceType" type="xs:string" minOccurs="0"/>
+										<xs:element name="category" type="xs:string" minOccurs="0"/>
+										<xs:element name="oZip" type="xs:string" minOccurs="0"/>
+										<xs:element name="dZip" type="xs:string" minOccurs="0"/>
+										<xs:element name="type" type="xs:string" default="S" minOccurs="0"/>
+										<xs:element name="smsPhoneNumber" type="xs:string" minOccurs="0"/>
+										<xs:element name="originCountry" type="xs:string" minOccurs="0"/>
+										<xs:element name="destinationCountry" type="xs:string" minOccurs="0"/>
+										<xs:element name="shipMethod" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="JSON" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="status" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="code" type="xs:string" minOccurs="0"/>
+										<xs:element name="description" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="error" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="code" type="xs:string" minOccurs="0"/>
+										<xs:element name="description" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="retailerName" type="xs:string" minOccurs="0"/>
+							<xs:element name="brandCode" type="xs:string" minOccurs="0"/>
+							<xs:element name="trackingInfos" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="error" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="code" type="xs:string" minOccurs="0"/>
+													<xs:element name="description" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="trackingNumber" type="xs:string" minOccurs="0"/>
+										<xs:element name="carrierName" type="xs:string" minOccurs="0"/>
+										<xs:element name="originCity" type="xs:string" minOccurs="0"/>
+										<xs:element name="originState" type="xs:string" minOccurs="0"/>
+										<xs:element name="shipmentWeight" type="xs:string" minOccurs="0"/>
+										<xs:element name="originZip" type="xs:string" minOccurs="0"/>
+										<xs:element name="destinationZip" type="xs:string" minOccurs="0"/>
+										<xs:element name="packageCount" type="xs:string" minOccurs="0"/>
+										<xs:element name="refId" type="xs:string" minOccurs="0"/>
+										<xs:element name="deliveryService" type="xs:string" minOccurs="0"/>
+										<xs:element name="deliveryDateStart" type="xs:string" minOccurs="0"/>
+										<xs:element name="deliveryServiceDesc" type="xs:string" minOccurs="0"/>
+										<xs:element name="status" type="xs:string" minOccurs="0"/>
+										<xs:element name="shippingDate" type="xs:string" minOccurs="0"/>
+										<xs:element name="deliveryDateEnd" type="xs:string" minOccurs="0"/>
+										<xs:element name="deliveryCity" type="xs:string" minOccurs="0"/>
+										<xs:element name="deliveryState" type="xs:string" minOccurs="0"/>
+										<xs:element name="serviceType" type="xs:string" minOccurs="0"/>
+										<xs:element name="eddSource" type="xs:string" minOccurs="0"/>
+										<xs:element name="statusCode" type="xs:string" minOccurs="0"/>
+										<xs:element name="trackingHistory" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="shipmentStatus" type="xs:string" minOccurs="0"/>
+													<xs:element name="shipmentStatusCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="shipmentStatusDesc" type="xs:string" minOccurs="0"/>
+													<xs:element name="shipmentError" type="xs:string" minOccurs="0"/>
+													<xs:element name="shipmentErrorCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="currentLocationZip" type="xs:string" minOccurs="0"/>
+													<xs:element name="currentLocationState" type="xs:string" minOccurs="0"/>
+													<xs:element name="currentLocationCity" type="xs:string" minOccurs="0"/>
+													<xs:element name="shipmentLocationType" type="xs:string" minOccurs="0"/>
+													<xs:element name="lastStatusDate" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ShipmentType" type="xs:string" minOccurs="0"/>
+				<xs:element name="UniqueSterlingId" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

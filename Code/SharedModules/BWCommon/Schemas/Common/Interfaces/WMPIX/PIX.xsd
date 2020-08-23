@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.urbanoutfitters.com/co"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:ns1="http://www.urbanoutfitters.com/co/common"
+	 xmlns:common="http://www.urbanoutfitters.com/co/common"
+	 targetNamespace="http://www.urbanoutfitters.com/co"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.urbanoutfitters.com/co/common" schemaLocation="../../Objects/Common.xsd"/>
+	<xsd:element name="PIX" type="PIXType"/>
+	<xsd:complexType name="PIXType">
+		<xsd:sequence>
+			<xsd:element name="processedFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="processedDate" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="processedTime" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="dateCreated" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="timeCreated" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="transactionType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transactionCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transactionNbr" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="sequenceNumber" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="case" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="company" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="division" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="season" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="seasonYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="style" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="styleSfx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="color" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="colorSfx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="secDimension" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="quality" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeRngeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeRelPosnInTable" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="inventoryType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="productStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SKUBatch" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SKUAttribute1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SKUAttribute2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SKUAttribute3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SKUAttribute4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SKUAttribute5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="packageBarcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="area" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="zone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="aisle" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="bay" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="level" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="position" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="locationFileID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="inventoryAdjustmentQty" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="inventoryAdjustmentType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="unitOfMeasure" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="receivedFrom" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Warehouse" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="referenceWarehouse" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transactionReasonCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="reasonCodeShortDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="receiptsVariance" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="weight" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="receiptsCompleted" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="casesShipped" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="unitsShipped" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="casesReceived" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="unitsReceived" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="referenceCode1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="reference1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="referenceCode2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="reference2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="referenceCode3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="reference3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="referenceCode4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="reference4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="referenceCode5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="reference5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="referenceCode6" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="reference6" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="referenceCode7" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="reference7" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="referenceCode8" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="reference8" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PIXReference1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PIXReference2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PIXReference3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="actionCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="customReference" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Shipment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="po" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="poLine" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="vendorASNNbr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="recordExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="customRcdExpansionField" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="programID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="jobName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="jobNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="userID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="iSeriesUserId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorComment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sizeDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="countryOfOrigin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="entryNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="crossReferenceSequence" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="statFld1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="statFld2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="statFld3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="inventoryImpact" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscIns1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscIns2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscIns3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="miscNum1" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="miscNum2" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="miscINum3" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="electronicSignatureUser" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PublishFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ref4" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="num1" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ListofPIX" type="ListofPIXType"/>
+	<xsd:complexType name="ListofPIXType">
+		<xsd:annotation>
+			<xsd:documentation>List of PIX</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="header" type="common:HeaderType" minOccurs="0"/>
+			<xsd:element name="PIX" type="PIXType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
