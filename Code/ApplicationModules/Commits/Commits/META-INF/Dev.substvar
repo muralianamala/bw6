@@ -5,7 +5,7 @@
 			<name>//Commits.module//BW.DEPLOYMENTUNIT.TYPE</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
+			<serviceSettable>false123</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
 			<useLookupValue>false</useLookupValue>
